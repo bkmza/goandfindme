@@ -30,6 +30,7 @@ namespace DroidMapping
 		string _locationProvider;
 		string _locationText;
 		IApiService _apiService;
+		bool _locationDetermined;
 
 		void InitializeLocationManager()
 		{
@@ -158,6 +159,7 @@ namespace DroidMapping
 		public void OnLocationChanged(Location location)
 		{
 			_currentLocation = location;
+
 			if (_currentLocation == null)
 			{
 				_locationText = "Unable to determine your location.";
@@ -165,6 +167,15 @@ namespace DroidMapping
 			else
 			{
 				_locationText = string.Format("{0},{1}", _currentLocation.Latitude, _currentLocation.Longitude);
+				if (!_locationDetermined) {
+					AlertDialog.Builder alert = new AlertDialog.Builder (this);
+					alert.SetTitle ("Current location is: " + _locationText);
+					RunOnUiThread (() => {
+						alert.Show ();
+					});
+
+					_locationDetermined = true;
+				}
 			}
 		}
 

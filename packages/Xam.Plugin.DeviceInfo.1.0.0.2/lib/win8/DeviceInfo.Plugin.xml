@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DeviceInfo.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:DeviceInfo.Plugin.DeviceInfoImplementation">
+            <summary>
+            Implementation for DeviceInfo
+            </summary>
+        </member>
+        <member name="T:DeviceInfo.Plugin.CrossDeviceInfo">
+            <summary>
+            Cross platform DeviceInfo implemenations
+            </summary>
+        </member>
+        <member name="P:DeviceInfo.Plugin.CrossDeviceInfo.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+    </members>
+</doc>

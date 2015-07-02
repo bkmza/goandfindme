@@ -34,21 +34,14 @@ namespace DroidMapping
 
 		void InitializeLocationManager()
 		{
+			_locationDetermined = false;
+
 			_locationManager = (LocationManager)GetSystemService(LocationService);
 			Criteria criteriaForLocationService = new Criteria
 			{
 				Accuracy = Accuracy.Fine
 			};
-			IList<string> acceptableLocationProviders = _locationManager.GetProviders(criteriaForLocationService, true);
-
-			if (acceptableLocationProviders.Any())
-			{
-				_locationProvider = acceptableLocationProviders.First();
-			}
-			else
-			{
-				_locationProvider = string.Empty;
-			}
+			_locationProvider = LocationManager.GpsProvider;
 		}
 
 		public override bool OnCreateOptionsMenu (IMenu menu)
@@ -67,7 +60,7 @@ namespace DroidMapping
 				ConquerHandler ();
 				return true;
 			case 1:
-				ConquerHandler ();
+				QuestHandler ();
 				return true;
 			case 2:
 				UpdateMarkers ();
@@ -79,26 +72,29 @@ namespace DroidMapping
 
 		async void ConquerHandler()
 		{
-			string addressText = "Unable to determine the address.";
-
+			string description = "Unable to determine the address.";
 			if (_currentLocation != null) {
-				Geocoder geocoder = new Geocoder(this);
-				IList<Address> addressList = await geocoder.GetFromLocationAsync(_currentLocation.Latitude, _currentLocation.Longitude, 10);
-				Address address = addressList.FirstOrDefault();
-				if (address != null)
-				{
-					StringBuilder deviceAddress = new StringBuilder();
-					for (int i = 0; i < address.MaxAddressLineIndex; i++)
-					{
-						deviceAddress.Append(address.GetAddressLine(i))
-							.AppendLine(",");
-					}
-					addressText = deviceAddress.ToString();
-				}
+				Conquer result = await _apiService.Conquer (DeviceUtility.DeviceId, _currentLocation.Latitude.ToString(), _currentLocation.Longitude.ToString());
+				description = result.GetDescription;
 			}
 
 			AlertDialog.Builder alert = new AlertDialog.Builder (this);
-			alert.SetTitle (addressText);
+			alert.SetTitle (description);
+			RunOnUiThread (() => {
+				alert.Show ();
+			});
+		}
+
+		async void QuestHandler()
+		{
+			string description = "Unable to determine the address.";
+			if (_currentLocation != null) {
+				Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ToString(), _currentLocation.Longitude.ToString());
+				description = result.GetDescription;
+			}
+
+			AlertDialog.Builder alert = new AlertDialog.Builder (this);
+			alert.SetTitle (description);
 			RunOnUiThread (() => {
 				alert.Show ();
 			});
@@ -107,6 +103,7 @@ namespace DroidMapping
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+
 			MvxSimpleIoCContainer.Initialize ();
 			Mvx.RegisterType<IApiService, ApiService> ();
 

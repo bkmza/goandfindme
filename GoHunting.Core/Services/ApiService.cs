@@ -40,6 +40,22 @@ namespace GoHunting.Core.Services
 			var point = parent.GetValue ("point").First;
 			return JsonConvert.DeserializeObject<PointInfo> (point.ToString ());
 		}
+
+		public async Task<Conquer> Conquer(string deviceId, string lat, string lon)
+		{
+			HttpClient client = await GetClient ();
+			string parameters = string.Format ("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
+			string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/takepoint.php?{0}", parameters));
+			return JsonConvert.DeserializeObject<Conquer> (result);
+		}
+
+		public async Task<Conquer> Quest(string deviceId, string lat, string lon)
+		{
+			HttpClient client = await GetClient ();
+			string parameters = string.Format ("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
+			string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/takequest.php?{0}", parameters));
+			return JsonConvert.DeserializeObject<Conquer> (result);
+		}
 	}
 }
 

@@ -15,27 +15,28 @@ using Newtonsoft.Json;
 using System.Linq;
 using System.Text;
 using DroidMapping.Adapters;
+using System;
+using Android.Net;
 
 namespace DroidMapping
 {
-	[Activity (Label = "Go Hunting!", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "Расстояние до точки не определено", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity, IOnMapReadyCallback, ILocationListener
 	{
 		static readonly LatLng Location_Minsk = new LatLng (53.900819, 27.558823);
+		public LatLng SelectedPoint;
 
 		GoogleMap map;
 		MapFragment mapFragment;
 		Location _currentLocation;
 		LocationManager _locationManager;
 		string _locationProvider;
-		string _locationText;
 		IApiService _apiService;
-		bool _locationDetermined;
+		ConnectivityManager _connectivityManager;
+		List<MarkerOptions> _markers;
 
 		void InitializeLocationManager()
 		{
-			_locationDetermined = false;
-
 			_locationManager = (LocationManager)GetSystemService(LocationService);
 			Criteria criteriaForLocationService = new Criteria
 			{
@@ -70,9 +71,28 @@ namespace DroidMapping
 			}
 		}
 
+		bool CheckInternetConnection()
+		{
+			var activeConnection = _connectivityManager.ActiveNetworkInfo;
+			if ((activeConnection != null)  && !activeConnection.IsConnected)
+			{
+				AlertDialog.Builder alert = new AlertDialog.Builder (this);
+				alert.SetTitle ("Для выбранного действия необходимо подключение к интернету");
+				RunOnUiThread (() => {
+					alert.Show ();
+				});
+				return false;
+			}
+			return true;
+		}
+
 		async void ConquerHandler()
 		{
-			string description = "Unable to determine the address.";
+			if (!CheckInternetConnection ()) {
+				return;
+			}
+
+			string description = "GPS-координаты не определены, повторите попытку позже";
 			if (_currentLocation != null) {
 				Conquer result = await _apiService.Conquer (DeviceUtility.DeviceId, _currentLocation.Latitude.ToString(), _currentLocation.Longitude.ToString());
 				description = result.GetDescription;
@@ -87,7 +107,11 @@ namespace DroidMapping
 
 		async void QuestHandler()
 		{
-			string description = "Unable to determine the address.";
+			if (!CheckInternetConnection ()) {
+				return;
+			}
+
+			string description = "GPS-координаты не определены, повторите попытку позже";
 			if (_currentLocation != null) {
 				Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ToString(), _currentLocation.Longitude.ToString());
 				description = result.GetDescription;
@@ -111,14 +135,21 @@ namespace DroidMapping
 
 			SetContentView (Resource.Layout.Main);
 
+			_markers = new List<MarkerOptions> ();
+
 			mapFragment = FragmentManager.FindFragmentById (Resource.Id.map) as MapFragment;
 			mapFragment.GetMapAsync (this);
 
+			_connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
 			InitializeLocationManager();
 		}
 
 		private async void UpdateMarkers()
 		{
+			if (!CheckInternetConnection ()) {
+				return;
+			}
+
 			if (map == null)
 				return;
 
@@ -132,7 +163,7 @@ namespace DroidMapping
 						.SetSnippet(point.GetId.ToString())
 						.SetTitle (point.GetContent)
 						.InvokeIcon (BitmapDescriptorFactory.DefaultMarker (point.GetColorHue));
-					
+					_markers.Add (marker);
 					map.AddMarker(marker);
 				}
 			}
@@ -153,26 +184,30 @@ namespace DroidMapping
 			UpdateMarkers ();
 		}
 
+		double GetMinDistanceToPoint()
+		{
+			float minDistance = float.MaxValue;
+			MarkerOptions nearestMarker = new MarkerOptions();
+			if (_currentLocation != null) {
+				foreach (var marker in _markers) {
+					float[] results = new float[] { 0 };
+					Location.DistanceBetween (_currentLocation.Latitude, _currentLocation.Longitude, marker.Position.Latitude, marker.Position.Longitude, results);
+					if (minDistance > results [0]) {
+						minDistance = results [0];
+						nearestMarker = marker;
+					}
+				}
+			}
+			nearestMarker.InvokeIcon (BitmapDescriptorFactory.DefaultMarker (BitmapDescriptorFactory.HueGreen));
+			return Math.Round(minDistance, 2);
+		}
+
 		public void OnLocationChanged(Location location)
 		{
 			_currentLocation = location;
-
-			if (_currentLocation == null)
+			if (_currentLocation != null)
 			{
-				_locationText = "Unable to determine your location.";
-			}
-			else
-			{
-				_locationText = string.Format("{0},{1}", _currentLocation.Latitude, _currentLocation.Longitude);
-				if (!_locationDetermined) {
-					AlertDialog.Builder alert = new AlertDialog.Builder (this);
-					alert.SetTitle ("Current location is: " + _locationText);
-					RunOnUiThread (() => {
-						alert.Show ();
-					});
-
-					_locationDetermined = true;
-				}
+				this.Window.SetTitle (string.Format("До точки: {0} метров", GetMinDistanceToPoint()));
 			}
 		}
 
@@ -193,7 +228,7 @@ namespace DroidMapping
 			base.OnResume();
 			if(_locationManager.IsProviderEnabled(_locationProvider))
 			{
-				_locationManager.RequestLocationUpdates (_locationProvider, 2000, 1, this);
+				_locationManager.RequestLocationUpdates (_locationProvider, 3000, 5, this);
 			}
 		}
 

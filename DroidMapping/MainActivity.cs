@@ -17,10 +17,11 @@ using System.Text;
 using DroidMapping.Adapters;
 using System;
 using Android.Net;
+using Android.Content.PM;
 
 namespace DroidMapping
 {
-	[Activity (Label = "Расстояние до точки не определено", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "Расстояние до точки не определено", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
 	public class MainActivity : Activity, IOnMapReadyCallback, ILocationListener
 	{
 		static readonly LatLng Location_Minsk = new LatLng (53.900819, 27.558823);

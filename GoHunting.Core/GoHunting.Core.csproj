@@ -38,6 +38,7 @@
     <Compile Include="Data\PointInfo.cs" />
     <Compile Include="Data\PointBase.cs" />
     <Compile Include="Data\Conquer.cs" />
+    <Compile Include="Helpers\CoordinateHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -78,5 +79,6 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Interfaces\" />
     <Folder Include="Data\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 </Project>

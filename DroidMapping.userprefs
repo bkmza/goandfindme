@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="DroidMapping\DroidMapping.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.HJA3XE3T" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\MainActivity.cs">
     <Files>
-      <File FileName="DroidMapping\MainActivity.cs" Line="199" Column="1" />
-      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="52" Column="34" />
-      <File FileName="GoHunting.Core\Data\Conquer.cs" Line="8" Column="18" />
+      <File FileName="DroidMapping\MainActivity.cs" Line="77" Column="4" />
+      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="45" Column="4" />
+      <File FileName="GoHunting.Core\Data\Conquer.cs" Line="21" Column="5" />
+      <File FileName="GoHunting.Core\Helpers\CoordinateHelper.cs" Line="9" Column="48" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

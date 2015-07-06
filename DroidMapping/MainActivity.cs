@@ -18,6 +18,7 @@ using DroidMapping.Adapters;
 using System;
 using Android.Net;
 using Android.Content.PM;
+using GoHunting.Core.Helpers;
 
 namespace DroidMapping
 {
@@ -75,17 +76,22 @@ namespace DroidMapping
 		bool CheckInternetConnection()
 		{
 			var activeConnection = _connectivityManager.ActiveNetworkInfo;
-			if ((activeConnection != null)  && !activeConnection.IsConnected)
+			if ((activeConnection != null)  && activeConnection.IsConnected)
+			{
+				return true;
+			}
+			else
 			{
 				AlertDialog.Builder alert = new AlertDialog.Builder (this);
-				alert.SetTitle ("Для выбранного действия необходимо подключение к интернету");
+				alert.SetTitle ("Необходимо подключение к интернету");
 				RunOnUiThread (() => {
 					alert.Show ();
 				});
 				return false;
 			}
-			return true;
 		}
+
+		//string ProcessCoordinate(
 
 		async void ConquerHandler()
 		{
@@ -95,7 +101,7 @@ namespace DroidMapping
 
 			string description = "GPS-координаты не определены, повторите попытку позже";
 			if (_currentLocation != null) {
-				Conquer result = await _apiService.Conquer (DeviceUtility.DeviceId, _currentLocation.Latitude.ToString(), _currentLocation.Longitude.ToString());
+				Conquer result = await _apiService.Conquer (DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate(), _currentLocation.Longitude.ProcessCoordinate());
 				description = result.GetDescription;
 				if (result.IsSuccess) {
 					UpdateMarkers ();
@@ -124,7 +130,7 @@ namespace DroidMapping
 
 			string description = "GPS-координаты не определены, повторите попытку позже";
 			if (_currentLocation != null) {
-				Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ToString (), _currentLocation.Longitude.ToString ());
+				Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate(), _currentLocation.Longitude.ProcessCoordinate());
 				description = result.GetDescription;
 				if (result.IsSuccess) {
 					UpdateMarkers ();

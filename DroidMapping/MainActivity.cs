@@ -96,6 +96,16 @@ namespace DroidMapping
 			if (_currentLocation != null) {
 				Conquer result = await _apiService.Conquer (DeviceUtility.DeviceId, _currentLocation.Latitude.ToString(), _currentLocation.Longitude.ToString());
 				description = result.GetDescription;
+				if (result.IsSuccess) {
+					UpdateMarkers ();
+				}
+			} else {
+				// Test
+//				Conquer res = await _apiService.Conquer (DeviceUtility.DeviceId, "53.903972", "27.590428");
+//				description = res.GetDescription;
+//				if (res.IsSuccess) {
+//					UpdateMarkers ();
+//				}
 			}
 
 			AlertDialog.Builder alert = new AlertDialog.Builder (this);
@@ -113,8 +123,18 @@ namespace DroidMapping
 
 			string description = "GPS-координаты не определены, повторите попытку позже";
 			if (_currentLocation != null) {
-				Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ToString(), _currentLocation.Longitude.ToString());
+				Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ToString (), _currentLocation.Longitude.ToString ());
 				description = result.GetDescription;
+				if (result.IsSuccess) {
+					UpdateMarkers ();
+				}
+			} else {
+				// Test
+//				Conquer res = await _apiService.Quest (DeviceUtility.DeviceId, "53.903972", "27.590428");
+//				description = res.GetDescription;
+//				if (res.IsSuccess) {
+//					UpdateMarkers ();
+//				}
 			}
 
 			AlertDialog.Builder alert = new AlertDialog.Builder (this);
@@ -228,7 +248,7 @@ namespace DroidMapping
 			base.OnResume();
 			if(_locationManager.IsProviderEnabled(_locationProvider))
 			{
-				_locationManager.RequestLocationUpdates (_locationProvider, 3000, 5, this);
+				_locationManager.RequestLocationUpdates (_locationProvider, 2000, 5, this);
 			}
 		}
 

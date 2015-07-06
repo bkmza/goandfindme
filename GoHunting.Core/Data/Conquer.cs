@@ -20,6 +20,13 @@ namespace GoHunting.Core
 				return Encoding.UTF8.GetString (utf8Bytes, 0, utf8Bytes.Length);
 			}
 		}
+
+		public bool IsSuccess
+		{
+			get {
+				return status == "true";
+			}
+		}
 	}
 }
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using DeviceInfo.Plugin;
+using Acr.DeviceInfo;
 
 namespace GoHunting.Core
 {
@@ -7,7 +7,7 @@ namespace GoHunting.Core
 	{
 		public static string DeviceId
 		{
-			get { return CrossDeviceInfo.Current.Id; }
+			get { return DeviceInfo.Instance.DeviceId; }
 		}
 	}
 }

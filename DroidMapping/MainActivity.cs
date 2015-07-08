@@ -22,7 +22,7 @@ using GoHunting.Core.Helpers;
 
 namespace DroidMapping
 {
-	[Activity (Label = "Расстояние до точки не определено", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
+	[Activity (Label = "Searching GPS...", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
 	public class MainActivity : Activity, IOnMapReadyCallback, ILocationListener
 	{
 		static readonly LatLng Location_Minsk = new LatLng (53.900819, 27.558823);

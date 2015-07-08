@@ -26,6 +26,10 @@ namespace DroidMapping
 		
 		public static void UpdateIdValues()
 		{
+			global::Acr.DeviceInfo.Resource.String.ApplicationName = global::DroidMapping.Resource.String.ApplicationName;
+			global::Acr.DeviceInfo.Resource.String.Hello = global::DroidMapping.Resource.String.Hello;
+			global::Acr.MvvmCross.Plugins.DeviceInfo.Droid.Resource.String.ApplicationName = global::DroidMapping.Resource.String.ApplicationName;
+			global::Acr.MvvmCross.Plugins.DeviceInfo.Droid.Resource.String.Hello = global::DroidMapping.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -2354,6 +2358,12 @@ namespace DroidMapping
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f060040
+			public const int ApplicationName = 2131099712;
+			
+			// aapt resource value: 0x7f06003f
+			public const int Hello = 2131099711;
+			
 			// aapt resource value: 0x7f06000a
 			public const int abc_action_bar_home_description = 2131099658;
 			
@@ -2408,8 +2418,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f06001e
 			public const int accept = 2131099678;
 			
-			// aapt resource value: 0x7f060040
-			public const int app_name = 2131099712;
+			// aapt resource value: 0x7f060042
+			public const int app_name = 2131099714;
 			
 			// aapt resource value: 0x7f060025
 			public const int common_android_wear_notification_needs_update_text = 2131099685;
@@ -2504,8 +2514,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f06001f
 			public const int decline = 2131099679;
 			
-			// aapt resource value: 0x7f06003f
-			public const int hello = 2131099711;
+			// aapt resource value: 0x7f060041
+			public const int hello = 2131099713;
 			
 			// aapt resource value: 0x7f060000
 			public const int mr_media_route_button_content_description = 2131099648;

@@ -57,12 +57,6 @@
     <Reference Include="Xamarin.Android.Support.v7.MediaRouter">
       <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter.22.2.0.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
     </Reference>
-    <Reference Include="DeviceInfo.Plugin.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.2\lib\MonoAndroid10\DeviceInfo.Plugin.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="DeviceInfo.Plugin">
-      <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.2\lib\MonoAndroid10\DeviceInfo.Plugin.dll</HintPath>
-    </Reference>
     <Reference Include="Cirrious.CrossCore">
       <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\MonoAndroid\Cirrious.CrossCore.dll</HintPath>
     </Reference>
@@ -81,6 +75,18 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Acr.DeviceInfo">
+      <HintPath>..\packages\Acr.DeviceInfo.2.2.0\lib\MonoAndroid10\Acr.DeviceInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.DeviceInfo.Interface">
+      <HintPath>..\packages\Acr.DeviceInfo.2.2.0\lib\MonoAndroid10\Acr.DeviceInfo.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.MvvmCross.Plugins.DeviceInfo">
+      <HintPath>..\packages\Acr.MvvmCross.Plugins.DeviceInfo.2.0.3\lib\MonoAndroid10\Acr.MvvmCross.Plugins.DeviceInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.MvvmCross.Plugins.DeviceInfo.Droid">
+      <HintPath>..\packages\Acr.MvvmCross.Plugins.DeviceInfo.2.0.3\lib\MonoAndroid10\Acr.MvvmCross.Plugins.DeviceInfo.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -88,13 +94,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GoogleMapsKey.cs" />
     <Compile Include="Adapters\CustomInfoWindowAdapter.cs" />
+    <Compile Include="Bootstrap\DeviceInfoPluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="packages.config" />
-    <None Include="DeviceInfoReadme.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />

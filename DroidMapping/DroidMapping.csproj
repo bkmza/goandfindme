@@ -95,6 +95,7 @@
     <Compile Include="GoogleMapsKey.cs" />
     <Compile Include="Adapters\CustomInfoWindowAdapter.cs" />
     <Compile Include="Bootstrap\DeviceInfoPluginBootstrap.cs" />
+    <Compile Include="MyActionBarDrawerToggle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -111,6 +112,13 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\CustomMarkerPopup.axml" />
+    <AndroidResource Include="Resources\layout\DrawerListItem.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_drawer_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_drawer_light.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_drawer_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_drawer_light.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_drawer_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_drawer_light.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -121,5 +129,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Adapters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="xamandroidsupportv4-18">
+      <Version>20.0.0.4</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>

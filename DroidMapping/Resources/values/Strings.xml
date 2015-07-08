@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Click Me!</string>
-    <string name="app_name">DroidMapping</string>
+	<string name="hello">Hello World, Click Me!</string>
+	<string name="app_name">DroidMapping</string>
+	<string name="DrawerOpen">Open</string>
+	<string name="DrawerClose">Close</string>
+	<string-array name="DrawerItemsArray">
+		<item>Map</item>
+		<item>Goals</item>
+		<item>Rules</item>
+		<item>Account</item>
+	</string-array>
 </resources>

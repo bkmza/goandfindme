@@ -1,26 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Android.App;
+using Android.Content.PM;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Locations;
+using Android.Net;
 using Android.OS;
+using Android.Support.V4.Widget;
 using Android.Util;
 using Android.Views;
+using Android.Widget;
 using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
+using DroidMapping.Adapters;
+using DroidMapping.Services;
 using GoHunting.Core;
 using GoHunting.Core.Data;
+using GoHunting.Core.Helpers;
 using GoHunting.Core.Services;
 using Newtonsoft.Json;
-using System.Linq;
-using System.Text;
-using DroidMapping.Adapters;
-using System;
-using Android.Net;
-using Android.Content.PM;
-using GoHunting.Core.Helpers;
-using Android.Support.V4.Widget;
-using Android.Widget;
 
 namespace DroidMapping
 {
@@ -30,12 +31,14 @@ namespace DroidMapping
 		static readonly LatLng Location_Minsk = new LatLng (53.900819, 27.558823);
 		public LatLng SelectedPoint;
 
+		IApiService _apiService;
+		IToastService _toastService;
+
 		GoogleMap map;
 		MapFragment mapFragment;
 		Location _currentLocation;
 		LocationManager _locationManager;
 		string _locationProvider;
-		IApiService _apiService;
 		ConnectivityManager _connectivityManager;
 		List<MarkerOptions> _markers;
 
@@ -48,15 +51,34 @@ namespace DroidMapping
 			base.OnCreate (savedInstanceState);
 
 			SetContentView (Resource.Layout.Main);
+
+			MvxSimpleIoCContainer.Initialize ();
+			Mvx.RegisterType<IApiService, ApiService> ();
+			Mvx.RegisterType<IToastService, ToastService> ();
+
+			_apiService = Mvx.Resolve<IApiService> ();
+			_toastService = Mvx.Resolve<IToastService> ();
+
 			InitDrawer ();
 
 			if (null == savedInstanceState)
 				SelectItem (0);
 
-			MvxSimpleIoCContainer.Initialize ();
-			Mvx.RegisterType<IApiService, ApiService> ();
+			// This event fires when the ServiceConnection lets the client (our App class) know that
+			// the Service is connected. We use this event to start updating the UI with location
+			// updates from the Service
+			App.Current.LocationServiceConnected += (object sender, ServiceConnectedEventArgs e) => {
+//				Log.Debug (logTag, "ServiceConnected Event Raised");
+//				// notifies us of location changes from the system
+//				App.Current.LocationService.LocationChanged += HandleLocationChanged;
+//				//notifies us of user changes to the location provider (ie the user disables or enables GPS)
+//				App.Current.LocationService.ProviderDisabled += HandleProviderDisabled;
+//				App.Current.LocationService.ProviderEnabled += HandleProviderEnabled;
+//				// notifies us of the changing status of a provider (ie GPS no longer available)
+//				App.Current.LocationService.StatusChanged += HandleStatusChanged;
+			};
+			App.StartLocationService();
 
-			_apiService = Mvx.Resolve<IApiService> ();
 			_markers = new List<MarkerOptions> ();
 
 			mapFragment = FragmentManager.FindFragmentById (Resource.Id.map) as MapFragment;
@@ -152,16 +174,10 @@ namespace DroidMapping
 			if ((activeConnection != null) && activeConnection.IsConnected) {
 				return true;
 			} else {
-				AlertDialog.Builder alert = new AlertDialog.Builder (this);
-				alert.SetTitle ("Необходимо подключение к интернету");
-				RunOnUiThread (() => {
-					alert.Show ();
-				});
+				_toastService.ShowMessage ("Необходимо подключение к интернету");
 				return false;
 			}
 		}
-
-		//string ProcessCoordinate(
 
 		async void ConquerHandler ()
 		{
@@ -176,20 +192,9 @@ namespace DroidMapping
 				if (result.IsSuccess) {
 					UpdateMarkers ();
 				}
-			} else {
-				// Test
-//				Conquer res = await _apiService.Conquer (DeviceUtility.DeviceId, "53.903972", "27.590428");
-//				description = res.GetDescription;
-//				if (res.IsSuccess) {
-//					UpdateMarkers ();
-//				}
 			}
 
-			AlertDialog.Builder alert = new AlertDialog.Builder (this);
-			alert.SetTitle (description);
-			RunOnUiThread (() => {
-				alert.Show ();
-			});
+			_toastService.ShowMessage (description);
 		}
 
 		async void QuestHandler ()
@@ -205,20 +210,9 @@ namespace DroidMapping
 				if (result.IsSuccess) {
 					UpdateMarkers ();
 				}
-			} else {
-				// Test
-//				Conquer res = await _apiService.Quest (DeviceUtility.DeviceId, "53.903972", "27.590428");
-//				description = res.GetDescription;
-//				if (res.IsSuccess) {
-//					UpdateMarkers ();
-//				}
 			}
 
-			AlertDialog.Builder alert = new AlertDialog.Builder (this);
-			alert.SetTitle (description);
-			RunOnUiThread (() => {
-				alert.Show ();
-			});
+			_toastService.ShowMessage (description);
 		}
 
 		private async void UpdateMarkers ()
@@ -232,7 +226,7 @@ namespace DroidMapping
 
 			map.Clear ();
 
-			var points = await _apiService.GetAll (DeviceUtility.DeviceId);
+			var points = await _apiService.GetAll ("865624020069101"); //(DeviceUtility.DeviceId);
 			foreach (var point in points) {
 				if (point.IsValid ()) {
 					var marker = new MarkerOptions ()
@@ -275,7 +269,6 @@ namespace DroidMapping
 					}
 				}
 			}
-			nearestMarker.InvokeIcon (BitmapDescriptorFactory.DefaultMarker (BitmapDescriptorFactory.HueGreen));
 			return Math.Round (minDistance, 2);
 		}
 

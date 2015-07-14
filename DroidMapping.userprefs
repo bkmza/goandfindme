@@ -1,25 +1,17 @@
 ﻿<Properties StartupItem="DroidMapping\DroidMapping.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.HJA3XE3T" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.Nexus" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\MainActivity.cs">
     <Files>
-      <File FileName="DroidMapping\MainActivity.cs" Line="60" Column="20" />
+      <File FileName="DroidMapping\MainActivity.cs" Line="75" Column="42" />
+      <File FileName="DroidMapping\Services\LocationService.cs" Line="90" Column="24" />
+      <File FileName="DroidMapping\Services\LocationServiceConnection.cs" Line="43" Column="5" />
+      <File FileName="DroidMapping\App.cs" Line="17" Column="55" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="DroidMapping" expanded="True" selected="True">
-            <Node name="DroidMapping" expanded="True">
-              <Node name="Resources" expanded="True">
-                <Node name="layout" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Services\LocationService.cs" line="90" column="24" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />

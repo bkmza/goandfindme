@@ -23,7 +23,7 @@ namespace GoHunting.Core.Services
 		public async Task<IEnumerable<Point>> GetAll (string deviceId)
 		{
 			HttpClient client = await GetClient ();
-			string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/markers.php?", string.Format ("dev_id={0}", deviceId)));
+			string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/markers.php?{0}", string.Format ("dev_id={0}", deviceId)));
 
 			JObject parent = JObject.Parse (result);
 			var points = parent.GetValue ("points").First.First;
@@ -41,7 +41,7 @@ namespace GoHunting.Core.Services
 			return JsonConvert.DeserializeObject<PointInfo> (point.ToString ());
 		}
 
-		public async Task<Conquer> Conquer(string deviceId, string lat, string lon)
+		public async Task<Conquer> Conquer (string deviceId, string lat, string lon)
 		{
 			HttpClient client = await GetClient ();
 			string parameters = string.Format ("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
@@ -49,7 +49,7 @@ namespace GoHunting.Core.Services
 			return JsonConvert.DeserializeObject<Conquer> (result);
 		}
 
-		public async Task<Conquer> Quest(string deviceId, string lat, string lon)
+		public async Task<Conquer> Quest (string deviceId, string lat, string lon)
 		{
 			HttpClient client = await GetClient ();
 			string parameters = string.Format ("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);

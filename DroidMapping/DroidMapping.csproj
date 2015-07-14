@@ -96,6 +96,13 @@
     <Compile Include="Adapters\CustomInfoWindowAdapter.cs" />
     <Compile Include="Bootstrap\DeviceInfoPluginBootstrap.cs" />
     <Compile Include="MyActionBarDrawerToggle.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\LocationServiceBinder.cs" />
+    <Compile Include="Services\ServiceConnectedEventArgs.cs" />
+    <Compile Include="Services\LocationServiceConnection.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Utility\InternetUtility.cs" />
+    <Compile Include="Services\ToastService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -129,6 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Adapters\" />
+    <Folder Include="Services\" />
+    <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv4-18">

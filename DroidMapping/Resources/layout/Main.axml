@@ -4,16 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <!-- The main content view -->
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
+        android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <fragment
-            android:id="@+id/map"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            class="com.google.android.gms.maps.MapFragment" />
-    </LinearLayout>
+        android:layout_height="match_parent" />
 <!-- The navigation drawer -->
     <ListView
         android:id="@+id/left_drawer"

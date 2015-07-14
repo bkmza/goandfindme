@@ -76,6 +76,9 @@
     <Reference Include="Acr.MvvmCross.Plugins.DeviceInfo">
       <HintPath>..\packages\Acr.MvvmCross.Plugins.DeviceInfo.2.0.3\lib\portable-win+net45+wp8+win8+wpa81\Acr.MvvmCross.Plugins.DeviceInfo.dll</HintPath>
     </Reference>
+    <Reference Include="Cirrious.MvvmCross">
+      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.5.1\lib\portable-win+net45+wp8+win8+wpa81\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />

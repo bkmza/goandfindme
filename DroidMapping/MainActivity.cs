@@ -162,9 +162,9 @@ namespace DroidMapping
 
 		public override bool OnCreateOptionsMenu (IMenu menu)
 		{
-			menu.Add (0, 0, 0, "Захват");
-			menu.Add (0, 1, 1, "Квест");
-			menu.Add (0, 2, 2, "Обновить");
+			menu.Add (0, 0, 0, Resource.String.ConquerMenuTitle);
+			menu.Add (0, 1, 1, Resource.String.QuestMenuTitle);
+			menu.Add (0, 2, 2, Resource.String.RefreshMenuTitle);
 			return true;
 		}
 
@@ -174,7 +174,7 @@ namespace DroidMapping
 			if ((activeConnection != null) && activeConnection.IsConnected) {
 				return true;
 			} else {
-				_toastService.ShowMessage ("Необходимо подключение к интернету");
+				_toastService.ShowMessage (this.Resources.GetString(Resource.String.NeedInternetConnect));
 				return false;
 			}
 		}
@@ -185,7 +185,7 @@ namespace DroidMapping
 				return;
 			}
 
-			string description = "GPS-координаты не определены, повторите попытку позже";
+			string description = this.Resources.GetString(Resource.String.GPSNotDefined);
 			if (_currentLocation != null) {
 				Conquer result = await _apiService.Conquer (DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate (), _currentLocation.Longitude.ProcessCoordinate ());
 				description = result.GetDescription;
@@ -203,7 +203,7 @@ namespace DroidMapping
 				return;
 			}
 
-			string description = "GPS-координаты не определены, повторите попытку позже";
+			string description = this.Resources.GetString(Resource.String.GPSNotDefined);
 			if (_currentLocation != null) {
 				Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate (), _currentLocation.Longitude.ProcessCoordinate ());
 				description = result.GetDescription;
@@ -226,7 +226,7 @@ namespace DroidMapping
 
 			map.Clear ();
 
-			var points = await _apiService.GetAll ("865624020069101"); //(DeviceUtility.DeviceId);
+			var points = await _apiService.GetAll (DeviceUtility.DeviceId);
 			foreach (var point in points) {
 				if (point.IsValid ()) {
 					var marker = new MarkerOptions ()

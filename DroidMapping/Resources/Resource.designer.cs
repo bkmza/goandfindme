@@ -2392,14 +2392,29 @@ namespace DroidMapping
 			// aapt resource value: 0x7f060040
 			public const int ApplicationName = 2131099712;
 			
+			// aapt resource value: 0x7f060045
+			public const int ConquerMenuTitle = 2131099717;
+			
 			// aapt resource value: 0x7f060044
 			public const int DrawerClose = 2131099716;
 			
 			// aapt resource value: 0x7f060043
 			public const int DrawerOpen = 2131099715;
 			
+			// aapt resource value: 0x7f060049
+			public const int GPSNotDefined = 2131099721;
+			
 			// aapt resource value: 0x7f06003f
 			public const int Hello = 2131099711;
+			
+			// aapt resource value: 0x7f060048
+			public const int NeedInternetConnect = 2131099720;
+			
+			// aapt resource value: 0x7f060046
+			public const int QuestMenuTitle = 2131099718;
+			
+			// aapt resource value: 0x7f060047
+			public const int RefreshMenuTitle = 2131099719;
 			
 			// aapt resource value: 0x7f06000a
 			public const int abc_action_bar_home_description = 2131099658;

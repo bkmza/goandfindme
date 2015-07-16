@@ -24,6 +24,7 @@ namespace DroidMapping
 
 			Mvx.RegisterType<IApiService, ApiService> ();
 			Mvx.RegisterType<IToastService, ToastService> ();
+			Mvx.RegisterType<ILoginService, LoginService> ();
 
 			_toastService = Mvx.Resolve<IToastService> ();
 			_connectivityManager = (ConnectivityManager)GetSystemService (ConnectivityService);

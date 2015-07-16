@@ -29,14 +29,9 @@ namespace DroidMapping
 	[Activity (Label = "Searching GPS...", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
 	public class MainActivity : BaseActivity
 	{
-		public LatLng SelectedPoint;
-
 		IApiService _apiService;
 		IToastService _toastService;
-
-		private DrawerLayout _drawer;
-		private MyActionBarDrawerToggle _drawerToggle;
-		private ListView _drawerList;
+		ILoginService _loginService;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -46,8 +41,22 @@ namespace DroidMapping
 
 			_apiService = Mvx.Resolve<IApiService> ();
 			_toastService = Mvx.Resolve<IToastService> ();
+			_loginService = Mvx.Resolve<ILoginService> ();
 
-			InitDrawer ();
+			Button button = FindViewById<Button> (Resource.Id.button_register);
+			EditText editTextName = FindViewById<EditText> (Resource.Id.editText_name);
+			EditText editTextComment = FindViewById<EditText> (Resource.Id.editText_comment);
+
+			button.Click += async delegate {
+				// ToDo
+				// Show loading indicator
+				bool result = await _loginService.Login(editTextName.Text, editTextComment.Text, DeviceUtility.DeviceId);
+
+				// Hide loading indicator
+
+				var intent = new Intent (this, typeof(MapActivity));
+				StartActivity (intent);
+			};
 
 			// This event fires when the ServiceConnection lets the client (our App class) know that
 			// the Service is connected. We use this event to start updating the UI with location
@@ -63,58 +72,6 @@ namespace DroidMapping
 ////				App.Current.LocationService.StatusChanged += HandleStatusChanged;
 //			};
 //			App.StartLocationService ();
-		}
-
-		private void InitDrawer ()
-		{
-			_drawer = FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
-			_drawerList = FindViewById<ListView> (Resource.Id.left_drawer);
-
-			_drawerList.Adapter = new ArrayAdapter<string> (this,
-				Resource.Layout.DrawerListItem, Resources.GetStringArray (Resource.Array.DrawerItemsArray));
-			_drawerList.ItemClick += (sender, args) => SelectItem (args.Position);
-
-			ActionBar.SetDisplayHomeAsUpEnabled (true);
-			ActionBar.SetHomeButtonEnabled (true);
-
-			_drawerToggle = new MyActionBarDrawerToggle (this, _drawer,
-				Resource.Drawable.ic_drawer_light,
-				Resource.String.DrawerOpen,
-				Resource.String.DrawerClose);
-
-			_drawerToggle.DrawerClosed += delegate {
-				InvalidateOptionsMenu ();
-			};
-
-			_drawerToggle.DrawerOpened += delegate {
-				InvalidateOptionsMenu ();
-			};
-
-			_drawer.SetDrawerListener (_drawerToggle);
-		}
-
-		public override bool OnOptionsItemSelected (IMenuItem item)
-		{
-			if (_drawerToggle.OnOptionsItemSelected (item)) {
-				return true;
-			} else {
-				return base.OnOptionsItemSelected (item);
-			}
-		}
-
-		private void SelectItem (int position)
-		{
-			switch (position) {
-			case 0:
-				var intent = new Intent (this, typeof(MapActivity));
-				StartActivity (intent);
-				break;
-			default:
-				break;
-			}
-
-			_drawerList.SetItemChecked (position, true);
-			_drawer.CloseDrawer (_drawerList);
 		}
 	}
 }

@@ -111,7 +111,7 @@
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="MapActivity.cs" />
     <Compile Include="BaseActivity.cs" />
-    <Compile Include="Views\FirstView.cs" />
+    <Compile Include="DrawerActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -135,11 +135,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_drawer_light.png" />
     <AndroidResource Include="Resources\layout\MapLayout.axml" />
-    <AndroidResource Include="Resources\drawable\splash.png" />
-    <AndroidResource Include="Resources\layout\FirstView.axml" />
-    <AndroidResource Include="Resources\layout\SplashScreen.axml" />
-    <AndroidResource Include="Resources\values\MvxBindingAttributes.xml" />
-    <AndroidResource Include="Resources\values\SplashStyle.xml" />
+    <AndroidResource Include="Resources\layout\DrawerLayout.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -152,6 +148,8 @@
     <Folder Include="Adapters\" />
     <Folder Include="Services\" />
     <Folder Include="Utility\" />
+    <Folder Include="Resources\drawable\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv4-18">

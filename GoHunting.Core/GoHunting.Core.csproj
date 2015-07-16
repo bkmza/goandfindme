@@ -40,6 +40,8 @@
     <Compile Include="Data\Conquer.cs" />
     <Compile Include="Helpers\CoordinateHelper.cs" />
     <Compile Include="Services\Interfaces\IToastService.cs" />
+    <Compile Include="Services\Interfaces\ILoginService.cs" />
+    <Compile Include="Services\LoginService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

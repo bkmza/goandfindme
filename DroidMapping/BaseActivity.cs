@@ -12,38 +12,30 @@ using DroidMapping.Utilities;
 
 namespace DroidMapping
 {
-	[Activity (Label = "Searching GPS...", Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
-	public class BaseActivity : Activity
-	{
-		ConnectivityManager _connectivityManager;
-		IToastService _toastService;
+   [Activity (ScreenOrientation = ScreenOrientation.Portrait)]
+   public class BaseActivity : Activity
+   {
+      ConnectivityManager _connectivityManager;
+      IToastService _toastService;
 
-		protected override void OnCreate (Bundle savedInstanceState)
-		{
-			base.OnCreate (savedInstanceState);
+      protected override void OnCreate (Bundle savedInstanceState)
+      {
+         base.OnCreate (savedInstanceState);
 
-			MvxSimpleIoCContainer.Initialize ();
+         _toastService = Mvx.Resolve<IToastService> ();
+         _connectivityManager = (ConnectivityManager)GetSystemService (ConnectivityService);
+      }
 
-			Logger.Instance = new AndroidLogger ();
-         Mvx.RegisterType<IStopWatchWrapper, StopWatchWrapper> ();
-			Mvx.RegisterType<IApiService, ApiService> ();
-			Mvx.RegisterType<IToastService, ToastService> ();
-			Mvx.RegisterType<ILoginService, LoginService> ();
-
-			_toastService = Mvx.Resolve<IToastService> ();
-			_connectivityManager = (ConnectivityManager)GetSystemService (ConnectivityService);
-		}
-
-		public bool CheckInternetConnection ()
-		{
-			var activeConnection = _connectivityManager.ActiveNetworkInfo;
-			if ((activeConnection != null) && activeConnection.IsConnected) {
-				return true;
-			} else {
-				_toastService.ShowMessage (this.Resources.GetString (Resource.String.NeedInternetConnect));
-				return false;
-			}
-		}
-	}
+      public bool CheckInternetConnection ()
+      {
+         var activeConnection = _connectivityManager.ActiveNetworkInfo;
+         if ((activeConnection != null) && activeConnection.IsConnected) {
+            return true;
+         } else {
+            _toastService.ShowMessage (this.Resources.GetString (Resource.String.NeedInternetConnect));
+            return false;
+         }
+      }
+   }
 }
 

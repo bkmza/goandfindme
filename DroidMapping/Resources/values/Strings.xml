@@ -15,4 +15,5 @@
 	<string name="RefreshMenuTitle">Обновить</string>
 	<string name="NeedInternetConnect">Необходимо подключение к интернету</string>
 	<string name="GPSNotDefined">GPS-координаты не определены, повторите попытку позже</string>
+   <string name="Wait">Подождите...</string>
 </resources>

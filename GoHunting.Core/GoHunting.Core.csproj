@@ -47,6 +47,9 @@
     <Compile Include="Services\StopWatchWrapper.cs" />
     <Compile Include="Services\Interfaces\IStopWatchWrapper.cs" />
     <Compile Include="Utilities\StopWatch.cs" />
+    <Compile Include="Data\RegisterStatus.cs" />
+    <Compile Include="Enums\UserStatus.cs" />
+    <Compile Include="AppSettings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -94,5 +97,6 @@
     <Folder Include="Data\" />
     <Folder Include="Helpers\" />
     <Folder Include="Utilities\Interfaces\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 </Project>

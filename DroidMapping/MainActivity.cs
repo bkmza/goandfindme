@@ -18,8 +18,10 @@ using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
 using DroidMapping.Adapters;
 using DroidMapping.Services;
+using DroidMapping.Utilities;
 using GoHunting.Core;
 using GoHunting.Core.Data;
+using GoHunting.Core.Enums;
 using GoHunting.Core.Helpers;
 using GoHunting.Core.Services;
 using GoHunting.Core.Utilities;
@@ -27,41 +29,37 @@ using Newtonsoft.Json;
 
 namespace DroidMapping
 {
-	[Activity (Label = "Searching GPS...", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
-	public class MainActivity : BaseActivity
-	{
-		IApiService _apiService;
-		IToastService _toastService;
-		ILoginService _loginService;
+   [Activity (Label = "Searching GPS...", MainLauncher = true)]
+   public class MainActivity : BaseActivity
+   {
+      IApiService _apiService;
+      IToastService _toastService;
+      ILoginService _loginService;
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+      protected override void OnCreate (Bundle bundle)
+      {
+         AppSettings.RegisterTypes ();
 
-			SetContentView (Resource.Layout.Main);
+         Logger.Instance = new AndroidLogger ();
+         Mvx.RegisterType<IToastService, ToastService> ();
 
-			_apiService = Mvx.Resolve<IApiService> ();
-			_toastService = Mvx.Resolve<IToastService> ();
-			_loginService = Mvx.Resolve<ILoginService> ();
+         base.OnCreate (bundle);
 
-			Button button = FindViewById<Button> (Resource.Id.button_register);
-			EditText editTextName = FindViewById<EditText> (Resource.Id.editText_name);
-			EditText editTextComment = FindViewById<EditText> (Resource.Id.editText_comment);
+         SetContentView (Resource.Layout.Main);
 
-			button.Click += async delegate {
-				// ToDo
-				// Show loading indicator
-				bool result = await _loginService.Login(editTextName.Text, editTextComment.Text, DeviceUtility.DeviceId);
+         _apiService = Mvx.Resolve<IApiService> ();
+         _toastService = Mvx.Resolve<IToastService> ();
+         _loginService = Mvx.Resolve<ILoginService> ();
 
-				// Hide loading indicator
+         CheckUserExists ();
 
-				var intent = new Intent (this, typeof(MapActivity));
-				StartActivity (intent);
-			};
+         Button button = FindViewById<Button> (Resource.Id.button_register);
 
-			// This event fires when the ServiceConnection lets the client (our App class) know that
-			// the Service is connected. We use this event to start updating the UI with location
-			// updates from the Service
+         button.Click += ClickHandler;
+
+         // This event fires when the ServiceConnection lets the client (our App class) know that
+         // the Service is connected. We use this event to start updating the UI with location
+         // updates from the Service
 //			App.Current.LocationServiceConnected += (object sender, ServiceConnectedEventArgs e) => {
 ////				Log.Debug (logTag, "ServiceConnected Event Raised");
 ////				// notifies us of location changes from the system
@@ -73,8 +71,43 @@ namespace DroidMapping
 ////				App.Current.LocationService.StatusChanged += HandleStatusChanged;
 //			};
 //			App.StartLocationService ();
-		}
-	}
+      }
+
+      public async void CheckUserExists ()
+      {
+         ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString(Resource.String.Wait), true, false);
+
+         RegisterStatus status = await _loginService.CheckUserExists (DeviceUtility.DeviceId);
+         if (status.GetStatus == (int)UserStatus.Registered) {
+            GoToMapScreen ();
+         }
+
+         progressDialog.Dismiss ();
+      }
+
+      public async void ClickHandler (object sender, EventArgs e)
+      {
+         EditText editTextName = FindViewById<EditText> (Resource.Id.editText_name);
+         EditText editTextComment = FindViewById<EditText> (Resource.Id.editText_comment);
+
+         ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString(Resource.String.Wait), true, false);
+
+         RegisterStatus result = await _loginService.Register (editTextName.Text, editTextComment.Text, DeviceUtility.DeviceId);
+         if (result.GetStatus == (int)UserStatus.Pending || result.GetStatus == (int)UserStatus.Error) {
+            progressDialog.Dismiss ();
+            _toastService.ShowMessage (result.GetDescription);
+            return;
+         }
+
+         GoToMapScreen ();
+      }
+
+      public void GoToMapScreen ()
+      {
+         var intent = new Intent (this, typeof(MapActivity));
+         StartActivity (intent);
+      }
+   }
 }
 
 

@@ -20,17 +20,28 @@ namespace GoHunting.Core.Utilities
 		}
 	}
 
-	public class DefaultLogger : ILogger
+   public class DefaultLogger : ILogger
 	{
-		public void Debug (string message)
-		{
-		}
-		public void Warn (string message)
-		{
-		}
-		public void Error (string message)
-		{
-		}
+      #region ILogger implementation
+
+      public void Debug (string message)
+      {
+         throw new NotImplementedException ();
+      }
+
+      public void Warn (string message)
+      {
+         throw new NotImplementedException ();
+      }
+
+      public void Error (string message)
+      {
+         throw new NotImplementedException ();
+      }
+
+      #endregion
+
+
 	}
 }
 

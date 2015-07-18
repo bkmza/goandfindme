@@ -2440,6 +2440,9 @@ namespace DroidMapping
 			// aapt resource value: 0x7f060047
 			public const int RefreshMenuTitle = 2131099719;
 			
+			// aapt resource value: 0x7f06004a
+			public const int Wait = 2131099722;
+			
 			// aapt resource value: 0x7f06000a
 			public const int abc_action_bar_home_description = 2131099658;
 			

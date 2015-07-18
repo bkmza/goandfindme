@@ -26,7 +26,7 @@ using Android.Content;
 
 namespace DroidMapping
 {
-	[Activity (Label = "Searching GPS...", ScreenOrientation = ScreenOrientation.Portrait)]
+	[Activity (Label = "Searching GPS...")]
 	public class MapActivity : BaseActivity, IOnMapReadyCallback, ILocationListener
 	{
 		IApiService _apiService;

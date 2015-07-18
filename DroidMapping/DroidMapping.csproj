@@ -112,6 +112,7 @@
     <Compile Include="MapActivity.cs" />
     <Compile Include="BaseActivity.cs" />
     <Compile Include="DrawerActivity.cs" />
+    <Compile Include="Utility\AndroidLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -149,7 +150,6 @@
     <Folder Include="Services\" />
     <Folder Include="Utility\" />
     <Folder Include="Resources\drawable\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv4-18">

@@ -42,6 +42,11 @@
     <Compile Include="Services\Interfaces\IToastService.cs" />
     <Compile Include="Services\Interfaces\ILoginService.cs" />
     <Compile Include="Services\LoginService.cs" />
+    <Compile Include="Utilities\Logger.cs" />
+    <Compile Include="Utilities\Interfaces\ILogger.cs" />
+    <Compile Include="Services\StopWatchWrapper.cs" />
+    <Compile Include="Services\Interfaces\IStopWatchWrapper.cs" />
+    <Compile Include="Utilities\StopWatch.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -88,5 +93,6 @@
     <Folder Include="Services\Interfaces\" />
     <Folder Include="Data\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Utilities\Interfaces\" />
   </ItemGroup>
 </Project>

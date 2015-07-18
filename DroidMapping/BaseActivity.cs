@@ -7,6 +7,8 @@ using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
 using DroidMapping.Services;
 using GoHunting.Core.Services;
+using GoHunting.Core.Utilities;
+using DroidMapping.Utilities;
 
 namespace DroidMapping
 {
@@ -22,6 +24,8 @@ namespace DroidMapping
 
 			MvxSimpleIoCContainer.Initialize ();
 
+			Logger.Instance = new AndroidLogger ();
+         Mvx.RegisterType<IStopWatchWrapper, StopWatchWrapper> ();
 			Mvx.RegisterType<IApiService, ApiService> ();
 			Mvx.RegisterType<IToastService, ToastService> ();
 			Mvx.RegisterType<ILoginService, LoginService> ();

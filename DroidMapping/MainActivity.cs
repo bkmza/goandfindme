@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
@@ -21,8 +22,8 @@ using GoHunting.Core;
 using GoHunting.Core.Data;
 using GoHunting.Core.Helpers;
 using GoHunting.Core.Services;
+using GoHunting.Core.Utilities;
 using Newtonsoft.Json;
-using Android.Content;
 
 namespace DroidMapping
 {

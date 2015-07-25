@@ -5,6 +5,8 @@ using Android.Util;
 using Android.Content;
 using Android.OS;
 using Android.Locations;
+using GoHunting.Core.Services;
+using Cirrious.CrossCore;
 
 namespace DroidMapping
 {
@@ -16,8 +18,11 @@ namespace DroidMapping
 		public event EventHandler<ProviderEnabledEventArgs> ProviderEnabled = delegate { };
 		public event EventHandler<StatusChangedEventArgs> StatusChanged = delegate { };
 
+      private IToastService _toastService;
+
 		public LocationService() 
 		{
+         _toastService = Mvx.Resolve<IToastService> ();
 		}
 
 		// Set our location manager as the system location service
@@ -82,21 +87,10 @@ namespace DroidMapping
 		}
 
 		#region ILocationListener implementation
-		// ILocationListener is a way for the Service to subscribe for updates
-		// from the System location Service
 
 		public void OnLocationChanged (Android.Locations.Location location)
 		{
 			this.LocationChanged (this, new LocationChangedEventArgs (location));
-
-			// This should be updating every time we request new location updates
-			// both when teh app is in the background, and in the foreground
-			Log.Debug (logTag, String.Format ("Latitude is {0}", location.Latitude));
-			Log.Debug (logTag, String.Format ("Longitude is {0}", location.Longitude));
-			Log.Debug (logTag, String.Format ("Altitude is {0}", location.Altitude));
-			Log.Debug (logTag, String.Format ("Speed is {0}", location.Speed));
-			Log.Debug (logTag, String.Format ("Accuracy is {0}", location.Accuracy));
-			Log.Debug (logTag, String.Format ("Bearing is {0}", location.Bearing));
 		}
 
 		public void OnProviderDisabled (string provider)

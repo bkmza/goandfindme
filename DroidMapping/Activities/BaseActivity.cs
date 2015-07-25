@@ -12,7 +12,7 @@ using DroidMapping.Utilities;
 
 namespace DroidMapping
 {
-   [Activity (ScreenOrientation = ScreenOrientation.Portrait)]
+   [Activity (Icon = "@drawable/Icon", ScreenOrientation = ScreenOrientation.Portrait)]
    public class BaseActivity : Activity
    {
       ConnectivityManager _connectivityManager;

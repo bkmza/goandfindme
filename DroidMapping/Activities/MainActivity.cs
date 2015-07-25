@@ -57,25 +57,23 @@ namespace DroidMapping
 
          button.Click += ClickHandler;
 
-         // This event fires when the ServiceConnection lets the client (our App class) know that
-         // the Service is connected. We use this event to start updating the UI with location
-         // updates from the Service
-//			App.Current.LocationServiceConnected += (object sender, ServiceConnectedEventArgs e) => {
-////				Log.Debug (logTag, "ServiceConnected Event Raised");
-////				// notifies us of location changes from the system
-////				App.Current.LocationService.LocationChanged += HandleLocationChanged;
-////				//notifies us of user changes to the location provider (ie the user disables or enables GPS)
-////				App.Current.LocationService.ProviderDisabled += HandleProviderDisabled;
-////				App.Current.LocationService.ProviderEnabled += HandleProviderEnabled;
-////				// notifies us of the changing status of a provider (ie GPS no longer available)
-////				App.Current.LocationService.StatusChanged += HandleStatusChanged;
-//			};
-//			App.StartLocationService ();
+         AppLocation.Current.LocationServiceConnected += (object sender, ServiceConnectedEventArgs e) => {
+
+//				Log.Debug (logTag, "ServiceConnected Event Raised");
+//				// notifies us of location changes from the system
+//				App.Current.LocationService.LocationChanged += HandleLocationChanged;
+//				//notifies us of user changes to the location provider (ie the user disables or enables GPS)
+//				App.Current.LocationService.ProviderDisabled += HandleProviderDisabled;
+//				App.Current.LocationService.ProviderEnabled += HandleProviderEnabled;
+//				// notifies us of the changing status of a provider (ie GPS no longer available)
+//				App.Current.LocationService.StatusChanged += HandleStatusChanged;
+         };
+         AppLocation.StartLocationService ();
       }
 
       public async void CheckUserExists ()
       {
-         ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString(Resource.String.Wait), true, false);
+         ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString (Resource.String.Wait), true, false);
 
          RegisterStatus status = await _loginService.CheckUserExists (DeviceUtility.DeviceId);
          if (status.GetStatus == (int)UserStatus.Registered) {
@@ -90,7 +88,7 @@ namespace DroidMapping
          EditText editTextName = FindViewById<EditText> (Resource.Id.editText_name);
          EditText editTextComment = FindViewById<EditText> (Resource.Id.editText_comment);
 
-         ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString(Resource.String.Wait), true, false);
+         ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString (Resource.String.Wait), true, false);
 
          RegisterStatus result = await _loginService.Register (editTextName.Text, editTextComment.Text, DeviceUtility.DeviceId);
          if (result.GetStatus == (int)UserStatus.Pending || result.GetStatus == (int)UserStatus.Error) {
@@ -105,6 +103,7 @@ namespace DroidMapping
       public void GoToMapScreen ()
       {
          var intent = new Intent (this, typeof(MapActivity));
+         intent.SetFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);
          StartActivity (intent);
       }
    }

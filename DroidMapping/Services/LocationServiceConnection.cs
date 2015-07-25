@@ -6,7 +6,7 @@ using Android.Util;
 
 namespace DroidMapping
 {
-	public class LocationServiceConnection
+   public class LocationServiceConnection : Java.Lang.Object, IServiceConnection
 	{
 		public event EventHandler<ServiceConnectedEventArgs> ServiceConnected = delegate {};
 

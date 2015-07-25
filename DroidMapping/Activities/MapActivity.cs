@@ -76,6 +76,7 @@ namespace DroidMapping
 
       public override bool OnOptionsItemSelected (IMenuItem item)
       {
+         IsLoading = true;
          switch (item.ItemId) {
          case 0:
             ConquerHandler ();
@@ -94,6 +95,7 @@ namespace DroidMapping
       async void ConquerHandler ()
       {
          if (!CheckInternetConnection ()) {
+            IsLoading = false;
             return;
          }
 
@@ -106,12 +108,14 @@ namespace DroidMapping
             }
          }
 
+         IsLoading = false;
          _toastService.ShowMessage (description);
       }
 
       async void QuestHandler ()
       {
          if (!CheckInternetConnection ()) {
+            IsLoading = false;
             return;
          }
 
@@ -124,6 +128,7 @@ namespace DroidMapping
             }
          }
 
+         IsLoading = false;
          _toastService.ShowMessage (description);
       }
 
@@ -170,11 +175,14 @@ namespace DroidMapping
       private async void UpdateMarkers ()
       {
          if (!CheckInternetConnection ()) {
+            IsLoading = false;
             return;
          }
 
-         if (map == null)
+         if (map == null) {
+            IsLoading = false;
             return;
+         }
 
          map.Clear ();
 
@@ -190,6 +198,8 @@ namespace DroidMapping
                map.AddMarker (marker);
             }
          }
+
+         IsLoading = false;
       }
    }
 }

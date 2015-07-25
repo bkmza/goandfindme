@@ -51,6 +51,7 @@ namespace DroidMapping
          _toastService = Mvx.Resolve<IToastService> ();
          _loginService = Mvx.Resolve<ILoginService> ();
 
+         IsLoading = true;
          CheckUserExists ();
 
          Button button = FindViewById<Button> (Resource.Id.button_register);
@@ -73,14 +74,13 @@ namespace DroidMapping
 
       public async void CheckUserExists ()
       {
-         ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString (Resource.String.Wait), true, false);
-
          RegisterStatus status = await _loginService.CheckUserExists (DeviceUtility.DeviceId);
          if (status.GetStatus == (int)UserStatus.Registered) {
+            IsLoading = false;
             GoToMapScreen ();
          }
 
-         progressDialog.Dismiss ();
+         IsLoading = false;
       }
 
       public async void ClickHandler (object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace DroidMapping
          ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString (Resource.String.Wait), true, false);
 
          RegisterStatus result = await _loginService.Register (editTextName.Text, editTextComment.Text, DeviceUtility.DeviceId);
-         if (result.GetStatus == (int)UserStatus.Pending || result.GetStatus == (int)UserStatus.Error) {
+         if (result.GetStatus == (int)UserStatus.Error) {
             progressDialog.Dismiss ();
             _toastService.ShowMessage (result.GetDescription);
             return;

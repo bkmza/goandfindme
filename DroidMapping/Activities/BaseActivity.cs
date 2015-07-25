@@ -17,6 +17,7 @@ namespace DroidMapping
    {
       ConnectivityManager _connectivityManager;
       IToastService _toastService;
+      ProgressDialog _progressDialog;
 
       protected override void OnCreate (Bundle savedInstanceState)
       {
@@ -36,6 +37,24 @@ namespace DroidMapping
             return false;
          }
       }
+
+      protected bool IsLoading {
+         get {
+            return _isLoading;
+         }
+         set {
+            _isLoading = value;
+            if (_isLoading) {
+               _progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString (Resource.String.Wait), true, false);
+            } else {
+               if (_progressDialog != null && _progressDialog.IsShowing) {
+                  _progressDialog.Dismiss ();
+               }
+            }
+         }
+      }
+
+      private bool _isLoading;
    }
 }
 

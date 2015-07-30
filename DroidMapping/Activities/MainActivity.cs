@@ -59,15 +59,6 @@ namespace DroidMapping
          button.Click += ClickHandler;
 
          AppLocation.Current.LocationServiceConnected += (object sender, ServiceConnectedEventArgs e) => {
-
-//				Log.Debug (logTag, "ServiceConnected Event Raised");
-//				// notifies us of location changes from the system
-//				App.Current.LocationService.LocationChanged += HandleLocationChanged;
-//				//notifies us of user changes to the location provider (ie the user disables or enables GPS)
-//				App.Current.LocationService.ProviderDisabled += HandleProviderDisabled;
-//				App.Current.LocationService.ProviderEnabled += HandleProviderEnabled;
-//				// notifies us of the changing status of a provider (ie GPS no longer available)
-//				App.Current.LocationService.StatusChanged += HandleStatusChanged;
          };
          AppLocation.StartLocationService ();
       }

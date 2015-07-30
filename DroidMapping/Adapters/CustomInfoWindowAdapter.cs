@@ -33,6 +33,7 @@ namespace DroidMapping.Adapters
 
       private async void SetContents (string deviceId, string pointId)
       {
+         _info = new PointInfo ();
          _info = await Mvx.Resolve<IApiService> ().GetInfo (deviceId, pointId);
 
          if (_marker != null && _marker.IsInfoWindowShown) {

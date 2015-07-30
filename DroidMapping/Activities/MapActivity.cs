@@ -23,6 +23,9 @@ using GoHunting.Core.Helpers;
 using GoHunting.Core.Services;
 using Newtonsoft.Json;
 using Android.Content;
+using Android.Graphics;
+using Android.Content.Res;
+using System.IO;
 
 namespace DroidMapping
 {
@@ -189,11 +192,14 @@ namespace DroidMapping
          var points = await _apiService.GetAll (DeviceUtility.DeviceId);
          foreach (var point in points) {
             if (point.IsValid ()) {
+
+               BitmapDescriptor icon = BitmapDescriptorFactory.FromResource (Resources.GetIdentifier (point.GetIconName, "drawable", PackageName));
+
                var marker = new MarkerOptions ()
 						.SetPosition (new LatLng (point.GetLatitude, point.GetLongitude))
 						.SetSnippet (point.GetId.ToString ())
 						.SetTitle (point.GetContent)
-						.InvokeIcon (BitmapDescriptorFactory.DefaultMarker (point.GetColorHue));
+                  .InvokeIcon (icon);
                _markers.Add (marker);
                map.AddMarker (marker);
             }

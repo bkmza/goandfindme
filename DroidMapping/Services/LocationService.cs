@@ -57,18 +57,9 @@ namespace DroidMapping
 			return binder;
 		}
 
-		// Handle location updates from the location manager
 		public void StartLocationUpdates () 
 		{
-			//we can set different location criteria based on requirements for our app -
-			//for example, we might want to preserve power, or get extreme accuracy
-			var locationCriteria = new Criteria();
-
-			locationCriteria.Accuracy = Accuracy.NoRequirement;
-			locationCriteria.PowerRequirement = Power.NoRequirement;
-
-			// get provider: GPS, Network, etc.
-			var locationProvider = LocMgr.GetBestProvider(locationCriteria, true);
+         var locationProvider = LocationManager.GpsProvider;
 			Log.Debug (logTag, string.Format ("You are about to get location updates via {0}", locationProvider));
 
 			// Get an initial fix on location

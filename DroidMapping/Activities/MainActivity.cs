@@ -91,7 +91,7 @@ namespace DroidMapping
          ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString (Resource.String.Wait), true, false);
 
          RegisterStatus result = await _loginService.Register (editTextName.Text, editTextComment.Text, DeviceUtility.DeviceId);
-         if (result.GetStatus == (int)UserStatus.Error) {
+         if (result.GetStatus != (int)UserStatus.Registered) {
             progressDialog.Dismiss ();
             _toastService.ShowMessage (result.GetDescription);
             return;

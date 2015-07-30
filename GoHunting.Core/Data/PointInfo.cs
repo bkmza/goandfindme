@@ -10,7 +10,7 @@ namespace GoHunting.Core.Data
 		}
 
 		public string name;
-		public string owner;
+		public string description;
 		public string alliance;
 		public string fraction;
 	}

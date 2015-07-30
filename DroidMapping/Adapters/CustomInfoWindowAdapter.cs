@@ -70,6 +70,11 @@ namespace DroidMapping.Adapters
             fractionTextView.Text = string.Format ("Fraction: {0}", _info.fraction);
          }
 
+         var descriptionTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_DescriptionTextView);
+         if (descriptionTextView != null) {
+            descriptionTextView.Text = string.Format ("Description: {0}", _info.description);
+         }
+
          return customPopup;
       }
    }

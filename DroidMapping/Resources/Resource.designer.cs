@@ -1782,8 +1782,8 @@ namespace DroidMapping
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c007f
-			public const int action0 = 2131492991;
+			// aapt resource value: 0x7f0c0080
+			public const int action0 = 2131492992;
 			
 			// aapt resource value: 0x7f0c0054
 			public const int action_bar = 2131492948;
@@ -1809,8 +1809,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c0055
 			public const int action_context_bar = 2131492949;
 			
-			// aapt resource value: 0x7f0c0083
-			public const int action_divider = 2131492995;
+			// aapt resource value: 0x7f0c0084
+			public const int action_divider = 2131492996;
 			
 			// aapt resource value: 0x7f0c0002
 			public const int action_menu_divider = 2131492866;
@@ -1842,8 +1842,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c0016
 			public const int always = 2131492886;
 			
-			// aapt resource value: 0x7f0c0076
-			public const int art = 2131492982;
+			// aapt resource value: 0x7f0c0077
+			public const int art = 2131492983;
 			
 			// aapt resource value: 0x7f0c0013
 			public const int beginning = 2131492883;
@@ -1854,11 +1854,11 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c004a
 			public const int buttonPanel = 2131492938;
 			
-			// aapt resource value: 0x7f0c006e
-			public const int button_register = 2131492974;
+			// aapt resource value: 0x7f0c006f
+			public const int button_register = 2131492975;
 			
-			// aapt resource value: 0x7f0c007c
-			public const int buttons = 2131492988;
+			// aapt resource value: 0x7f0c007d
+			public const int buttons = 2131492989;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int buyButton = 2131492909;
@@ -1869,14 +1869,14 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c0032
 			public const int buy_with_google = 2131492914;
 			
-			// aapt resource value: 0x7f0c0080
-			public const int cancel_action = 2131492992;
+			// aapt resource value: 0x7f0c0081
+			public const int cancel_action = 2131492993;
 			
 			// aapt resource value: 0x7f0c004c
 			public const int checkbox = 2131492940;
 			
-			// aapt resource value: 0x7f0c0086
-			public const int chronometer = 2131492998;
+			// aapt resource value: 0x7f0c0087
+			public const int chronometer = 2131492999;
 			
 			// aapt resource value: 0x7f0c0034
 			public const int classic = 2131492916;
@@ -1887,14 +1887,17 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c0045
 			public const int contentPanel = 2131492933;
 			
-			// aapt resource value: 0x7f0c0068
-			public const int content_frame = 2131492968;
+			// aapt resource value: 0x7f0c0069
+			public const int content_frame = 2131492969;
 			
 			// aapt resource value: 0x7f0c0049
 			public const int custom = 2131492937;
 			
 			// aapt resource value: 0x7f0c0065
 			public const int customInfoWindow_AllianceTextView = 2131492965;
+			
+			// aapt resource value: 0x7f0c0067
+			public const int customInfoWindow_DescriptionTextView = 2131492967;
 			
 			// aapt resource value: 0x7f0c0066
 			public const int customInfoWindow_FractionTextView = 2131492966;
@@ -1914,8 +1917,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c003d
 			public const int default_activity_button = 2131492925;
 			
-			// aapt resource value: 0x7f0c0075
-			public const int default_control_frame = 2131492981;
+			// aapt resource value: 0x7f0c0076
+			public const int default_control_frame = 2131492982;
 			
 			// aapt resource value: 0x7f0c001b
 			public const int dialog = 2131492891;
@@ -1923,23 +1926,23 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c000c
 			public const int disableHome = 2131492876;
 			
-			// aapt resource value: 0x7f0c007d
-			public const int disconnect = 2131492989;
+			// aapt resource value: 0x7f0c007e
+			public const int disconnect = 2131492990;
 			
 			// aapt resource value: 0x7f0c0033
 			public const int donate_with_google = 2131492915;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int drawer_layout = 2131492967;
+			// aapt resource value: 0x7f0c0068
+			public const int drawer_layout = 2131492968;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int dropdown = 2131492892;
 			
-			// aapt resource value: 0x7f0c006d
-			public const int editText_comment = 2131492973;
+			// aapt resource value: 0x7f0c006e
+			public const int editText_comment = 2131492974;
 			
-			// aapt resource value: 0x7f0c006b
-			public const int editText_name = 2131492971;
+			// aapt resource value: 0x7f0c006c
+			public const int editText_name = 2131492972;
 			
 			// aapt resource value: 0x7f0c0056
 			public const int edit_query = 2131492950;
@@ -1947,8 +1950,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c0014
 			public const int end = 2131492884;
 			
-			// aapt resource value: 0x7f0c008b
-			public const int end_padder = 2131493003;
+			// aapt resource value: 0x7f0c008c
+			public const int end_padder = 2131493004;
 			
 			// aapt resource value: 0x7f0c003b
 			public const int expand_activities_button = 2131492923;
@@ -1983,17 +1986,17 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c003c
 			public const int image = 2131492924;
 			
-			// aapt resource value: 0x7f0c008a
-			public const int info = 2131493002;
+			// aapt resource value: 0x7f0c008b
+			public const int info = 2131493003;
 			
-			// aapt resource value: 0x7f0c0069
-			public const int left_drawer = 2131492969;
+			// aapt resource value: 0x7f0c006a
+			public const int left_drawer = 2131492970;
 			
-			// aapt resource value: 0x7f0c0084
-			public const int line1 = 2131492996;
+			// aapt resource value: 0x7f0c0085
+			public const int line1 = 2131492997;
 			
-			// aapt resource value: 0x7f0c0088
-			public const int line3 = 2131493000;
+			// aapt resource value: 0x7f0c0089
+			public const int line3 = 2131493001;
 			
 			// aapt resource value: 0x7f0c0009
 			public const int listMode = 2131492873;
@@ -2001,26 +2004,26 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c003e
 			public const int list_item = 2131492926;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int map = 2131492975;
+			// aapt resource value: 0x7f0c0070
+			public const int map = 2131492976;
 			
 			// aapt resource value: 0x7f0c002f
 			public const int match_parent = 2131492911;
 			
-			// aapt resource value: 0x7f0c0082
-			public const int media_actions = 2131492994;
+			// aapt resource value: 0x7f0c0083
+			public const int media_actions = 2131492995;
 			
-			// aapt resource value: 0x7f0c0074
-			public const int media_route_control_frame = 2131492980;
+			// aapt resource value: 0x7f0c0075
+			public const int media_route_control_frame = 2131492981;
 			
-			// aapt resource value: 0x7f0c0070
-			public const int media_route_list = 2131492976;
-			
-			// aapt resource value: 0x7f0c007a
-			public const int media_route_volume_layout = 2131492986;
+			// aapt resource value: 0x7f0c0071
+			public const int media_route_list = 2131492977;
 			
 			// aapt resource value: 0x7f0c007b
-			public const int media_route_volume_slider = 2131492987;
+			public const int media_route_volume_layout = 2131492987;
+			
+			// aapt resource value: 0x7f0c007c
+			public const int media_route_volume_slider = 2131492988;
 			
 			// aapt resource value: 0x7f0c0015
 			public const int middle = 2131492885;
@@ -2043,8 +2046,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c0041
 			public const int parentPanel = 2131492929;
 			
-			// aapt resource value: 0x7f0c0077
-			public const int play_pause = 2131492983;
+			// aapt resource value: 0x7f0c0078
+			public const int play_pause = 2131492984;
 			
 			// aapt resource value: 0x7f0c002a
 			public const int production = 2131492906;
@@ -2058,8 +2061,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c004e
 			public const int radio = 2131492942;
 			
-			// aapt resource value: 0x7f0c0072
-			public const int route_name = 2131492978;
+			// aapt resource value: 0x7f0c0073
+			public const int route_name = 2131492979;
 			
 			// aapt resource value: 0x7f0c002b
 			public const int sandbox = 2131492907;
@@ -2109,8 +2112,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c002e
 			public const int selectionDetails = 2131492910;
 			
-			// aapt resource value: 0x7f0c0073
-			public const int settings = 2131492979;
+			// aapt resource value: 0x7f0c0074
+			public const int settings = 2131492980;
 			
 			// aapt resource value: 0x7f0c004d
 			public const int shortcut = 2131492941;
@@ -2136,11 +2139,11 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c0022
 			public const int src_over = 2131492898;
 			
-			// aapt resource value: 0x7f0c0081
-			public const int status_bar_latest_event_content = 2131492993;
+			// aapt resource value: 0x7f0c0082
+			public const int status_bar_latest_event_content = 2131492994;
 			
-			// aapt resource value: 0x7f0c007e
-			public const int stop = 2131492990;
+			// aapt resource value: 0x7f0c007f
+			public const int stop = 2131492991;
 			
 			// aapt resource value: 0x7f0c002c
 			public const int strict_sandbox = 2131492908;
@@ -2148,8 +2151,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c005f
 			public const int submit_area = 2131492959;
 			
-			// aapt resource value: 0x7f0c0079
-			public const int subtitle = 2131492985;
+			// aapt resource value: 0x7f0c007a
+			public const int subtitle = 2131492986;
 			
 			// aapt resource value: 0x7f0c000b
 			public const int tabMode = 2131492875;
@@ -2157,32 +2160,32 @@ namespace DroidMapping
 			// aapt resource value: 0x7f0c0027
 			public const int terrain = 2131492903;
 			
-			// aapt resource value: 0x7f0c0089
-			public const int text = 2131493001;
+			// aapt resource value: 0x7f0c008a
+			public const int text = 2131493002;
 			
-			// aapt resource value: 0x7f0c0087
-			public const int text2 = 2131492999;
+			// aapt resource value: 0x7f0c0088
+			public const int text2 = 2131493000;
 			
 			// aapt resource value: 0x7f0c0047
 			public const int textSpacerNoButtons = 2131492935;
 			
-			// aapt resource value: 0x7f0c006a
-			public const int textView1 = 2131492970;
+			// aapt resource value: 0x7f0c006b
+			public const int textView1 = 2131492971;
 			
-			// aapt resource value: 0x7f0c006c
-			public const int textView2 = 2131492972;
+			// aapt resource value: 0x7f0c006d
+			public const int textView2 = 2131492973;
 			
-			// aapt resource value: 0x7f0c0078
-			public const int text_wrapper = 2131492984;
+			// aapt resource value: 0x7f0c0079
+			public const int text_wrapper = 2131492985;
 			
-			// aapt resource value: 0x7f0c0085
-			public const int time = 2131492997;
+			// aapt resource value: 0x7f0c0086
+			public const int time = 2131492998;
 			
 			// aapt resource value: 0x7f0c0040
 			public const int title = 2131492928;
 			
-			// aapt resource value: 0x7f0c0071
-			public const int title_bar = 2131492977;
+			// aapt resource value: 0x7f0c0072
+			public const int title_bar = 2131492978;
 			
 			// aapt resource value: 0x7f0c0043
 			public const int title_template = 2131492931;

@@ -4690,14 +4690,17 @@ namespace DroidMapping
 			// aapt resource value: 0x7f060042
 			public const int DrawerOpen = 2131099714;
 			
-			// aapt resource value: 0x7f060048
-			public const int GPSNotDefined = 2131099720;
+			// aapt resource value: 0x7f060049
+			public const int GPSNotDefined = 2131099721;
 			
 			// aapt resource value: 0x7f06003f
 			public const int Hello = 2131099711;
 			
 			// aapt resource value: 0x7f060047
-			public const int NeedInternetConnect = 2131099719;
+			public const int LogoutMenuTitle = 2131099719;
+			
+			// aapt resource value: 0x7f060048
+			public const int NeedInternetConnect = 2131099720;
 			
 			// aapt resource value: 0x7f060045
 			public const int QuestMenuTitle = 2131099717;
@@ -4705,8 +4708,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f060046
 			public const int RefreshMenuTitle = 2131099718;
 			
-			// aapt resource value: 0x7f060049
-			public const int Wait = 2131099721;
+			// aapt resource value: 0x7f06004a
+			public const int Wait = 2131099722;
 			
 			// aapt resource value: 0x7f06000a
 			public const int abc_action_bar_home_description = 2131099658;

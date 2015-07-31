@@ -74,6 +74,7 @@ namespace DroidMapping
          menu.Add (0, 0, 0, Resource.String.ConquerMenuTitle);
          menu.Add (0, 1, 1, Resource.String.QuestMenuTitle);
          menu.Add (0, 2, 2, Resource.String.RefreshMenuTitle);
+         menu.Add (0, 3, 3, Resource.String.LogoutMenuTitle);
          return true;
       }
 
@@ -90,9 +91,18 @@ namespace DroidMapping
          case 2:
             UpdateMarkers ();
             return true;
+         case 3:
+            Logout ();
+            return true;
          default:
             return base.OnOptionsItemSelected (item);
          }
+      }
+
+      async void Logout ()
+      {
+         AppLocation.StopLocationService ();
+         Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
       }
 
       async void ConquerHandler ()
@@ -135,28 +145,33 @@ namespace DroidMapping
          _toastService.ShowMessage (description);
       }
 
-      double GetMinDistanceToPoint ()
+      double _distanceToNearestPoint;
+      string _nameOfNearestPoint;
+
+      void UpdateNearestPointInformation ()
       {
-         float minDistance = float.MaxValue;
+         _distanceToNearestPoint = float.MaxValue;
          MarkerOptions nearestMarker = new MarkerOptions ();
          if (_currentLocation != null) {
             foreach (var marker in _markers) {
                float[] results = new float[] { 0 };
                Location.DistanceBetween (_currentLocation.Latitude, _currentLocation.Longitude, marker.Position.Latitude, marker.Position.Longitude, results);
-               if (minDistance > results [0]) {
-                  minDistance = results [0];
+               if (_distanceToNearestPoint > results [0]) {
+                  _distanceToNearestPoint = results [0];
                   nearestMarker = marker;
                }
             }
          }
-         return Math.Round (minDistance, 2);
+         _distanceToNearestPoint = Math.Round (_distanceToNearestPoint, 2);
+         _nameOfNearestPoint = nearestMarker.Title;
       }
 
       public void HandleLocationChanged (object sender, LocationChangedEventArgs e)
       {
          _currentLocation = e.Location;
          if (_currentLocation != null) {
-            this.Window.SetTitle (string.Format ("До точки: {0} метров", GetMinDistanceToPoint ()));
+            UpdateNearestPointInformation ();
+            this.Window.SetTitle (string.Format ("{0}: {1} метров", _nameOfNearestPoint, _distanceToNearestPoint));
          }
       }
 

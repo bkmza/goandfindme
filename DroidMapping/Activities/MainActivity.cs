@@ -29,7 +29,7 @@ using Newtonsoft.Json;
 
 namespace DroidMapping
 {
-   [Activity (Label = "GO&Find Me", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
+   [Activity (Label = "GO&Find Me", MainLauncher = true)]
    public class MainActivity : BaseActivity
    {
       IApiService _apiService;

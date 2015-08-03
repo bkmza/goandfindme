@@ -29,7 +29,7 @@ using System.IO;
 
 namespace DroidMapping
 {
-   [Activity (Label = "Searching GPS...", ScreenOrientation = ScreenOrientation.Portrait)]
+   [Activity (Label = "Searching GPS...")]
    public class MapActivity : BaseActivity, IOnMapReadyCallback
    {
       IApiService _apiService;

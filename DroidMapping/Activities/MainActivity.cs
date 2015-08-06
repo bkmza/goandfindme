@@ -10,7 +10,6 @@ using Android.Gms.Maps.Model;
 using Android.Locations;
 using Android.Net;
 using Android.OS;
-using Android.Support.V4.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
@@ -38,10 +37,12 @@ namespace DroidMapping
 
       protected override void OnCreate (Bundle bundle)
       {
+         AppSettings.TrackingId = "UA-65892866-1";
          AppSettings.RegisterTypes ();
 
          Logger.Instance = new AndroidLogger ();
          Mvx.RegisterType<IToastService, ToastService> ();
+         Mvx.RegisterType<IAnalyticsService, AnalyticsService> ();
 
          base.OnCreate (bundle);
 
@@ -66,7 +67,7 @@ namespace DroidMapping
       public async void CheckUserExists ()
       {
          RegisterStatus status = await _loginService.CheckUserExists (DeviceUtility.DeviceId);
-         if (status.GetStatus == (int)UserStatus.Registered) {
+         if (status.GetStatus == (int)UserStatus.RegisteredAndApproved) {
             IsLoading = false;
             GoToMapScreen ();
          }
@@ -82,7 +83,7 @@ namespace DroidMapping
          ProgressDialog progressDialog = ProgressDialog.Show (this, string.Empty, Resources.GetString (Resource.String.Wait), true, false);
 
          RegisterStatus result = await _loginService.Register (editTextName.Text, editTextComment.Text, DeviceUtility.DeviceId);
-         if (result.GetStatus != (int)UserStatus.Registered) {
+         if (result.GetStatus != (int)UserStatus.RegisteredAndApproved) {
             progressDialog.Dismiss ();
             _toastService.ShowMessage (result.GetDescription);
             return;
@@ -94,7 +95,7 @@ namespace DroidMapping
       public void GoToMapScreen ()
       {
          var intent = new Intent (this, typeof(MapActivity));
-         intent.SetFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);
+         intent.SetFlags (ActivityFlags.NewTask | ActivityFlags.ClearTask);
          StartActivity (intent);
       }
    }

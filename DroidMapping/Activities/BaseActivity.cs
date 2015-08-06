@@ -18,12 +18,15 @@ namespace DroidMapping
       ConnectivityManager _connectivityManager;
       IToastService _toastService;
       ProgressDialog _progressDialog;
+      protected IAnalyticsService AnalyticsService;
 
       protected override void OnCreate (Bundle savedInstanceState)
       {
          base.OnCreate (savedInstanceState);
 
          _toastService = Mvx.Resolve<IToastService> ();
+         AnalyticsService = Mvx.Resolve<IAnalyticsService> ();
+
          _connectivityManager = (ConnectivityManager)GetSystemService (ConnectivityService);
       }
 
@@ -55,6 +58,16 @@ namespace DroidMapping
       }
 
       private bool _isLoading;
+
+      protected void ShowAlert (string message)
+      {
+         this.RunOnUiThread (() => {
+            var alert = new AlertDialog.Builder (this);
+            alert.SetMessage (message);
+            alert.SetCancelable(true);
+            alert.Show ();
+         });
+      }
    }
 }
 

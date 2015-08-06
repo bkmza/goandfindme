@@ -11,6 +11,8 @@ namespace GoHunting.Core
       {
       }
 
+      public static string TrackingId { get; set; }
+
       public static void RegisterTypes()
       {
          MvxSimpleIoCContainer.Initialize ();

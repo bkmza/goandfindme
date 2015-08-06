@@ -9,7 +9,6 @@ using Android.Gms.Maps.Model;
 using Android.Locations;
 using Android.Net;
 using Android.OS;
-using Android.Support.V4.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
@@ -83,6 +82,7 @@ namespace DroidMapping
          IsLoading = true;
          switch (item.ItemId) {
          case 0:
+            base.AnalyticsService.TrackState ("Conquer", "Hit on Conquer button", string.Format ("User {0} is tryuing to conquer point {1}", DeviceUtility.DeviceId, _nameOfNearestPoint));
             ConquerHandler ();
             return true;
          case 1:
@@ -92,6 +92,7 @@ namespace DroidMapping
             UpdateMarkers ();
             return true;
          case 3:
+            base.AnalyticsService.TrackState ("Conquer", "Hit on Logout button", string.Format ("User {0} is logout", DeviceUtility.DeviceId));
             Logout ();
             return true;
          default:
@@ -102,7 +103,7 @@ namespace DroidMapping
       async void Logout ()
       {
          AppLocation.StopLocationService ();
-         Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
+         Android.OS.Process.KillProcess (Android.OS.Process.MyPid ());
       }
 
       async void ConquerHandler ()
@@ -122,7 +123,7 @@ namespace DroidMapping
          }
 
          IsLoading = false;
-         _toastService.ShowMessage (description);
+         this.ShowAlert (description);
       }
 
       async void QuestHandler ()
@@ -142,7 +143,7 @@ namespace DroidMapping
          }
 
          IsLoading = false;
-         _toastService.ShowMessage (description);
+         this.ShowAlert (description);
       }
 
       double _distanceToNearestPoint;

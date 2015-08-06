@@ -5,8 +5,9 @@ namespace GoHunting.Core.Enums
    {
       NotRegistered = 0,
       Pending = 1,
-      Registered = 2,
-      Error = 3
+      RegisteredNotApproved = 2,
+      Error = 3,
+      RegisteredAndApproved = 4
    }
 }
 

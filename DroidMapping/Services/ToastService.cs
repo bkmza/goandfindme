@@ -6,15 +6,15 @@ using GoHunting.Core.Services;
 
 namespace DroidMapping.Services
 {
-	public class ToastService : IToastService
+   public class ToastService : IToastService
 	{
-		public void ShowMessage (string message)
-		{
-			Context context = Application.Context;
+      public void ShowMessage (string message)
+      {
+         Context context = Application.Context;
 
-			Toast toast = Toast.MakeText (context, message, ToastLength.Short);
-			toast.Show ();
-		}
+         Toast toast = Toast.MakeText (context, message, ToastLength.Short);
+         toast.Show ();
+      }
 	}
 }
 

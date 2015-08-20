@@ -37,12 +37,12 @@ namespace GoHunting.Core.Services
          return deserializedResult;
       }
 
-      public async Task<PointInfo> GetInfo (string deviceId, string pointId)
+      public async Task<PointInfo> GetInfo (string deviceId, string pointId, string type)
       {
          StopWatch.Start (string.Format ("ApiService.GetInfo for pointId: {0}", pointId));
 
          HttpClient client = await GetClient ();
-         string parameters = string.Format ("dev_id={0}&id={1}", deviceId, pointId);
+         string parameters = string.Format ("dev_id={0}&id={1}&type={2}", deviceId, pointId, type);
          string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/marker.php?{0}", parameters));
 
          JObject parent = JObject.Parse (result);

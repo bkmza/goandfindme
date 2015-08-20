@@ -213,7 +213,7 @@ namespace DroidMapping
 
                var marker = new MarkerOptions ()
 						.SetPosition (new LatLng (point.GetLatitude, point.GetLongitude))
-						.SetSnippet (point.GetId.ToString ())
+                  .SetSnippet (string.Format ("{0}|{1}", point.GetId.ToString (), point.GetType))
 						.SetTitle (point.GetContent)
                   .InvokeIcon (icon);
                _markers.Add (marker);

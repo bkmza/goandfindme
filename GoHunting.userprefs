@@ -1,18 +1,20 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.HJA3XE3T" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Activities\MapActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.HJA3XE3T" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Adapters\CustomInfoWindowAdapter.cs">
     <Files>
-      <File FileName="DroidMapping\Activities\MapActivity.cs" Line="119" Column="49" />
-      <File FileName="DroidMapping\Activities\MainActivity.cs" Line="102" Column="2" />
-      <File FileName="d:\_personal\mobile\DroidMapping\DroidMapping\Services\AnalyticsService.cs" Line="35" Column="54" />
-      <File FileName="DroidMapping\Activities\BaseActivity.cs" Line="69" Column="11" />
+      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="28" Column="49" />
+      <File FileName="DroidMapping\Adapters\CustomInfoWindowAdapter.cs" Line="37" Column="1" />
+      <File FileName="DroidMapping\Activities\MapActivity.cs" Line="216" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Fragments\MapFragment.cs" line="104" column="1" />
+      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Fragments\GameMapFragment.cs" line="65" column="39" />
+      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Fragments\GameMapFragment.cs" line="67" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.GoHunting AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>

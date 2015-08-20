@@ -31,10 +31,10 @@ namespace DroidMapping.Adapters
          return null;
       }
 
-      private async void SetContents (string deviceId, string pointId)
+      private async void SetContents (string deviceId, string pointId, string type)
       {
          _info = new PointInfo ();
-         _info = await Mvx.Resolve<IApiService> ().GetInfo (deviceId, pointId);
+         _info = await Mvx.Resolve<IApiService> ().GetInfo (deviceId, pointId, type);
 
          if (_marker != null && _marker.IsInfoWindowShown) {
             _marker.ShowInfoWindow ();
@@ -43,9 +43,10 @@ namespace DroidMapping.Adapters
 
       public View GetInfoContents (Marker marker)
       {
-         NeedToRefresh = marker.Snippet != _info.GetId.ToString ();
+         var parameters = marker.Snippet.Split ('|');
+         NeedToRefresh = parameters[0] != _info.GetId.ToString ();
          if (NeedToRefresh) {
-            SetContents (DeviceUtility.DeviceId, marker.Snippet);
+            SetContents (DeviceUtility.DeviceId, parameters[0], parameters[1]);
          }
 
          _marker = marker;

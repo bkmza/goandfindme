@@ -15,6 +15,14 @@ namespace GoHunting.Core.Data
       public string content;
       public string color;
       public string icon;
+      public string type;
+
+      public string GetType
+      {
+         get {
+            return type;
+         }
+      }
 
       public string GetIconName {
          get {

@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.HJA3XE3T" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.Nexus" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Adapters\CustomInfoWindowAdapter.cs">
     <Files>
-      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="28" Column="49" />
-      <File FileName="DroidMapping\Adapters\CustomInfoWindowAdapter.cs" Line="37" Column="1" />
-      <File FileName="DroidMapping\Activities\MapActivity.cs" Line="216" Column="30" />
+      <File FileName="DroidMapping\Adapters\CustomInfoWindowAdapter.cs" Line="43" Column="8" />
+      <File FileName="DroidMapping\Activities\MapActivity.cs" Line="1" Column="1" />
+      <File FileName="GoHunting.Core\Data\Point.cs" Line="1" Column="1" />
+      <File FileName="GoHunting.Core\Enums\MapItemType.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -17,4 +18,5 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.ItemProperties.GoHunting AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>

@@ -210,10 +210,9 @@ namespace DroidMapping
             if (point.IsValid ()) {
 
                BitmapDescriptor icon = BitmapDescriptorFactory.FromResource (Resources.GetIdentifier (point.GetIconName, "drawable", PackageName));
-
                var marker = new MarkerOptions ()
 						.SetPosition (new LatLng (point.GetLatitude, point.GetLongitude))
-                  .SetSnippet (string.Format ("{0}|{1}", point.GetId.ToString (), point.GetType))
+                  .SetSnippet (JsonConvert.SerializeObject (point))
 						.SetTitle (point.GetContent)
                   .InvokeIcon (icon);
                _markers.Add (marker);

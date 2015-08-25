@@ -119,7 +119,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\layout\CustomMarkerPopup.axml" />
     <AndroidResource Include="Resources\layout\DrawerListItem.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_drawer_light.png" />
@@ -885,6 +884,8 @@
     <AndroidResource Include="Resources\drawable-mdpi\sml_Y_lv.png" />
     <AndroidResource Include="Resources\drawable-mdpi\sml_Z.png" />
     <AndroidResource Include="Resources\drawable-mdpi\sml_Z_lv.png" />
+    <AndroidResource Include="Resources\layout\CustomMarkerPopupPoint.axml" />
+    <AndroidResource Include="Resources\layout\CustomMarkerPopupQuest.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

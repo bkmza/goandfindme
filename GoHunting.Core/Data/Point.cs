@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using GoHunting.Core.Enums;
 using Newtonsoft.Json;
 
 namespace GoHunting.Core.Data
@@ -17,9 +18,26 @@ namespace GoHunting.Core.Data
       public string icon;
       public string type;
 
-      public string GetType
-      {
+      public string GetType {
          get {
+            return type;
+         }
+      }
+
+      public MapItemType GetMapItemType {
+         get {
+            MapItemType type;
+            switch (this.GetType) {
+            case "point":
+               type = MapItemType.Point;
+               break;
+            case "quest":
+               type = MapItemType.Quest;
+               break;
+            default:
+               type = MapItemType.Point;
+               break;
+            }
             return type;
          }
       }
@@ -27,48 +45,6 @@ namespace GoHunting.Core.Data
       public string GetIconName {
          get {
             return icon.Substring (0, icon.IndexOf (".")).Replace ("-", "_");
-         }
-      }
-
-      public float GetColorHue {
-         get {
-            float hue;
-            switch (color) {
-            case "azure":
-               hue = 210; //HueAzure
-               break;
-            case "blue":
-               hue = 240; //HueBlue
-               break;
-            case "cyan":
-               hue = 180; //HueCyan
-               break;
-            case "green":
-               hue = 120; //HueGreen
-               break;
-            case "magenta":
-               hue = 300; //HueMagenta
-               break;
-            case "orange":
-               hue = 30; //HueOrange
-               break;
-            case "red":
-               hue = 0; //HueRed
-               break;
-            case "rose":
-               hue = 330; //HueRose
-               break;
-            case "violet":
-               hue = 270; //HueViolet
-               break;
-            case "yellow":
-               hue = 60; //HueYellow
-               break;
-            default:
-               hue = 210;
-               break;
-            }
-            return hue;
          }
       }
 

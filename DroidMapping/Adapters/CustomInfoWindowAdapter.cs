@@ -7,7 +7,9 @@ using Android.Widget;
 using Cirrious.CrossCore;
 using GoHunting.Core;
 using GoHunting.Core.Data;
+using GoHunting.Core.Enums;
 using GoHunting.Core.Services;
+using Newtonsoft.Json;
 
 namespace DroidMapping.Adapters
 {
@@ -16,7 +18,6 @@ namespace DroidMapping.Adapters
       private LayoutInflater _layoutInflater;
       Marker _marker;
       PointInfo _info;
-      bool NeedToRefresh;
 
       public IntPtr IJHandle { get { return IntPtr.Zero; } }
 
@@ -43,38 +44,47 @@ namespace DroidMapping.Adapters
 
       public View GetInfoContents (Marker marker)
       {
-         var parameters = marker.Snippet.Split ('|');
-         NeedToRefresh = parameters[0] != _info.GetId.ToString ();
-         if (NeedToRefresh) {
-            SetContents (DeviceUtility.DeviceId, parameters[0], parameters[1]);
+         Point item = JsonConvert.DeserializeObject<Point> (marker.Snippet);
+         bool needToRefresh = item.GetId != _info.GetId;
+         if (needToRefresh) {
+            SetContents (DeviceUtility.DeviceId, item.id, item.type);
          }
 
          _marker = marker;
-         var customPopup = _layoutInflater.Inflate (Resource.Layout.CustomMarkerPopup, null);
+
+         int customPopupId;
+         if (item.GetMapItemType == MapItemType.Point) {
+            customPopupId = Resource.Layout.CustomMarkerPopupPoint;
+         } else {
+            customPopupId = Resource.Layout.CustomMarkerPopupQuest;
+         }
+         var customPopup = _layoutInflater.Inflate (customPopupId, null);
 
          var nameTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_Name);
          if (nameTextView != null) {
-            nameTextView.Text = string.Format ("Name: {0}", marker.Title);
+            nameTextView.Text = string.Format ("Название: {0}", marker.Title);
          }
 
          var latLonTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_LatLonTextView);
          if (latLonTextView != null) {
-            latLonTextView.Text = string.Format ("LatLon: {0}; {1}", marker.Position.Latitude, marker.Position.Longitude);
+            latLonTextView.Text = string.Format ("Координаты: {0}; {1}", marker.Position.Latitude, marker.Position.Longitude);
          }
 
-         var allianceTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_AllianceTextView);
-         if (allianceTextView != null) {
-            allianceTextView.Text = string.Format ("Alliance: {0}", _info.alliance);
-         }
+         if (item.GetMapItemType == MapItemType.Point) {
+            var allianceTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_AllianceTextView);
+            if (allianceTextView != null) {
+               allianceTextView.Text = string.Format ("Альянс: {0}", _info.alliance);
+            }
 
-         var fractionTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_FractionTextView);
-         if (fractionTextView != null) {
-            fractionTextView.Text = string.Format ("Fraction: {0}", _info.fraction);
+            var fractionTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_FractionTextView);
+            if (fractionTextView != null) {
+               fractionTextView.Text = string.Format ("Фракция: {0}", _info.fraction);
+            }
          }
 
          var descriptionTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_DescriptionTextView);
          if (descriptionTextView != null) {
-            descriptionTextView.Text = string.Format ("Description: {0}", _info.description);
+            descriptionTextView.Text = string.Format ("Описание: {0}", _info.description);
          }
 
          return customPopup;

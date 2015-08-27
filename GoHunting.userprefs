@@ -1,13 +1,13 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.Core\Enums\UserStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.Core\Services\ApiService.cs">
     <Files>
-      <File FileName="DroidMapping\Adapters\CustomInfoWindowAdapter.cs" Line="34" Column="7" />
-      <File FileName="DroidMapping\Activities\MapActivity.cs" Line="215" Column="67" />
-      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="29" Column="71" />
-      <File FileName="GoHunting.Core\Services\LoginService.cs" Line="41" Column="69" />
-      <File FileName="GoHunting.Core\Data\RegisterStatus.cs" Line="15" Column="48" />
-      <File FileName="GoHunting.Core\Enums\UserStatus.cs" Line="14" Column="1" />
+      <File FileName="DroidMapping\Activities\MapActivity.cs" Line="210" Column="43" />
+      <File FileName="DroidMapping\Activities\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="29" Column="22" />
+      <File FileName="GoHunting.Core\Services\LoginService.cs" Line="1" Column="1" />
+      <File FileName="GoHunting.Core\Data\RegisterStatus.cs" Line="1" Column="1" />
+      <File FileName="GoHunting.Core\Enums\UserStatus.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

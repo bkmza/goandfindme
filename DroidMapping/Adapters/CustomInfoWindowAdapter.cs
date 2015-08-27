@@ -63,28 +63,33 @@ namespace DroidMapping.Adapters
          var nameTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_Name);
          if (nameTextView != null) {
             nameTextView.Text = string.Format ("Название: {0}", marker.Title);
+            nameTextView.SetTextColor(Android.Graphics.Color.ParseColor("#bdbdbd"));
          }
 
          var latLonTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_LatLonTextView);
          if (latLonTextView != null) {
             latLonTextView.Text = string.Format ("Координаты: {0}; {1}", marker.Position.Latitude, marker.Position.Longitude);
+            latLonTextView.SetTextColor(Android.Graphics.Color.ParseColor("#bdbdbd"));
          }
 
          if (item.GetMapItemType == MapItemType.Point) {
             var allianceTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_AllianceTextView);
             if (allianceTextView != null) {
                allianceTextView.Text = string.Format ("Альянс: {0}", _info.alliance);
+               allianceTextView.SetTextColor(Android.Graphics.Color.ParseColor("#bdbdbd"));
             }
 
             var fractionTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_FractionTextView);
             if (fractionTextView != null) {
                fractionTextView.Text = string.Format ("Фракция: {0}", _info.fraction);
+               fractionTextView.SetTextColor(Android.Graphics.Color.ParseColor("#bdbdbd"));
             }
          }
 
          var descriptionTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_DescriptionTextView);
          if (descriptionTextView != null) {
             descriptionTextView.Text = string.Format ("Описание: {0}", _info.description);
+            descriptionTextView.SetTextColor(Android.Graphics.Color.ParseColor("#bdbdbd"));
          }
 
          return customPopup;

@@ -70,6 +70,8 @@ namespace DroidMapping
          if (status.GetStatus == (int)UserStatus.RegisteredAndApproved) {
             IsLoading = false;
             GoToMapScreen ();
+         } else {
+            ShowAlert (status.GetDescription);
          }
 
          IsLoading = false;

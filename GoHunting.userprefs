@@ -1,19 +1,17 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.Nexus" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Adapters\CustomInfoWindowAdapter.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.Core\Enums\UserStatus.cs">
     <Files>
-      <File FileName="DroidMapping\Adapters\CustomInfoWindowAdapter.cs" Line="43" Column="8" />
-      <File FileName="DroidMapping\Activities\MapActivity.cs" Line="1" Column="1" />
-      <File FileName="GoHunting.Core\Data\Point.cs" Line="1" Column="1" />
-      <File FileName="GoHunting.Core\Enums\MapItemType.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\Adapters\CustomInfoWindowAdapter.cs" Line="34" Column="7" />
+      <File FileName="DroidMapping\Activities\MapActivity.cs" Line="215" Column="67" />
+      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="29" Column="71" />
+      <File FileName="GoHunting.Core\Services\LoginService.cs" Line="41" Column="69" />
+      <File FileName="GoHunting.Core\Data\RegisterStatus.cs" Line="15" Column="48" />
+      <File FileName="GoHunting.Core\Enums\UserStatus.cs" Line="14" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Fragments\MapFragment.cs" line="104" column="1" />
-      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Fragments\GameMapFragment.cs" line="65" column="39" />
-      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Fragments\GameMapFragment.cs" line="67" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />

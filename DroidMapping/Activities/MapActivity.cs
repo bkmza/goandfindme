@@ -205,20 +205,29 @@ namespace DroidMapping
 
          map.Clear ();
 
-         var points = await _apiService.GetAll (DeviceUtility.DeviceId);
-         foreach (var point in points) {
-            if (point.IsValid ()) {
+         ErrorInfo errorInfo = await _apiService.CheckUserAccess (DeviceUtility.DeviceId);
+         if (errorInfo.status == "blocked") {
+            ShowAlert (errorInfo.message);
+         } else {
 
-               BitmapDescriptor icon = BitmapDescriptorFactory.FromResource (Resources.GetIdentifier (point.GetIconName, "drawable", PackageName));
-               var marker = new MarkerOptions ()
-						.SetPosition (new LatLng (point.GetLatitude, point.GetLongitude))
-                  .SetSnippet (JsonConvert.SerializeObject (point))
-						.SetTitle (point.GetContent)
-                  .InvokeIcon (icon);
-               _markers.Add (marker);
-               map.AddMarker (marker);
+            var points = await _apiService.GetAll (DeviceUtility.DeviceId);
+            foreach (var point in points) {
+               if (point.IsValid ()) {
+
+                  BitmapDescriptor icon = BitmapDescriptorFactory.FromResource (Resources.GetIdentifier (point.GetIconName, "drawable", PackageName));
+                  var marker = new MarkerOptions ()
+                     .SetPosition (new LatLng (point.GetLatitude, point.GetLongitude))
+                     .SetSnippet (JsonConvert.SerializeObject (point))
+                     .SetTitle (point.GetContent)
+                     .InvokeIcon (icon);
+                  _markers.Add (marker);
+                  map.AddMarker (marker);
+               }
             }
+
          }
+
+
 
          IsLoading = false;
       }

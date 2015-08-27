@@ -7,7 +7,8 @@ namespace GoHunting.Core.Enums
       Pending = 1,
       RegisteredNotApproved = 2,
       Error = 3,
-      RegisteredAndApproved = 4
+      RegisteredAndApproved = 4,
+      Blocked = 5
    }
 }
 

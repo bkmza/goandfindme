@@ -7,7 +7,9 @@ namespace GoHunting.Core.Services
 {
 	public interface IApiService
 	{
-		Task<IEnumerable<Point>> GetAll (string deviceId);
+      Task<ErrorInfo> CheckUserAccess (string deviceId);
+
+      Task<IEnumerable<Point>> GetAll (string deviceId);
 
       Task<PointInfo> GetInfo (string deviceId, string pointId, string type);
 

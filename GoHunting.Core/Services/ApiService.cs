@@ -21,16 +21,34 @@ namespace GoHunting.Core.Services
          return client;
       }
 
+      public async Task<ErrorInfo> CheckUserAccess (string deviceId)
+      {
+         StopWatch.Start ("ApiService.CheckUserAccess");
+
+         HttpClient client = await GetClient ();
+         string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/markers.php?{0}", string.Format ("dev_id={0}", deviceId)));
+
+         ErrorInfo deserializedResult = JsonConvert.DeserializeObject<ErrorInfo> (result);
+         if (deserializedResult == null) {
+            deserializedResult = new ErrorInfo { status = "allowed", message = "all right" };
+         }
+
+         StopWatch.Stop ("ApiService.CheckUserAccess");
+
+         return deserializedResult;
+      }
+
       public async Task<IEnumerable<Point>> GetAll (string deviceId)
       {
          StopWatch.Start ("ApiService.GetAll");
 
          HttpClient client = await GetClient ();
+
          string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/markers.php?{0}", string.Format ("dev_id={0}", deviceId)));
 
          JObject parent = JObject.Parse (result);
          var points = parent.GetValue ("points").First.First;
-         var deserializedResult = JsonConvert.DeserializeObject<IEnumerable<Point>> (points.ToString ());
+         IEnumerable<Point> deserializedResult = JsonConvert.DeserializeObject<IEnumerable<Point>> (points.ToString ());
 
          StopWatch.Stop ("ApiService.GetAll");
 

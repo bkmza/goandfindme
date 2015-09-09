@@ -28,7 +28,7 @@ using Newtonsoft.Json;
 
 namespace DroidMapping
 {
-   [Activity (Label = "GO&Find Me", MainLauncher = true)]
+   [Activity (Label = "Paranoia", MainLauncher = true)]
    public class MainActivity : BaseActivity
    {
       IApiService _apiService;

@@ -26,7 +26,7 @@ namespace GoHunting.Core.Services
          StopWatch.Start ("ApiService.CheckUserAccess");
 
          HttpClient client = await GetClient ();
-         string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/markers.php?{0}", string.Format ("dev_id={0}", deviceId)));
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/markers.php?{1}",  AppSettings.BaseHost, string.Format ("dev_id={0}", deviceId)));
 
          ErrorInfo deserializedResult = JsonConvert.DeserializeObject<ErrorInfo> (result);
          if (deserializedResult == null) {
@@ -44,7 +44,7 @@ namespace GoHunting.Core.Services
 
          HttpClient client = await GetClient ();
 
-         string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/markers.php?{0}", string.Format ("dev_id={0}", deviceId)));
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/markers.php?{1}",  AppSettings.BaseHost, string.Format ("dev_id={0}", deviceId)));
 
          JObject parent = JObject.Parse (result);
          var points = parent.GetValue ("points").First.First;
@@ -61,7 +61,7 @@ namespace GoHunting.Core.Services
 
          HttpClient client = await GetClient ();
          string parameters = string.Format ("dev_id={0}&id={1}&type={2}", deviceId, pointId, type);
-         string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/marker.php?{0}", parameters));
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/marker.php?{1}", AppSettings.BaseHost, parameters));
 
          JObject parent = JObject.Parse (result);
          var point = parent.GetValue ("point").First;
@@ -78,7 +78,7 @@ namespace GoHunting.Core.Services
 
          HttpClient client = await GetClient ();
          string parameters = string.Format ("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
-         string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/takepoint.php?{0}", parameters));
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/takepoint.php?{1}", AppSettings.BaseHost, parameters));
          var deserializedResult = JsonConvert.DeserializeObject<Conquer> (result);
 
          StopWatch.Start (string.Format ("ApiService.Conquer for lat: {0} lon: {1}", lat, lon));
@@ -92,7 +92,7 @@ namespace GoHunting.Core.Services
 
          HttpClient client = await GetClient ();
          string parameters = string.Format ("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
-         string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/takequest.php?{0}", parameters));
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/takequest.php?{1}", AppSettings.BaseHost, parameters));
          var deserializedResult = JsonConvert.DeserializeObject<Conquer> (result);
 
          StopWatch.Stop (string.Format ("ApiService.Quest for lat: {0} lon: {1}", lat, lon));

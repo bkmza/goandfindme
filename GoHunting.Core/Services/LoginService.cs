@@ -16,14 +16,13 @@ namespace GoHunting.Core.Services
          return client;
       }
 
-      //http://gollars.letsmake.ru/gofind2/register.php?dev_id=111222333444555666&name=Royber&message=qwerty
       public async Task<RegisterStatus> Register (string name, string comment, string deviceId)
       {
          StopWatch.Start (string.Format ("LoginService.Register for name: {0} comment: {1}", name, comment));
 
          HttpClient client = await GetClient ();
          string parameters = string.Format ("dev_id={0}&name={1}&message={2}", deviceId, name, comment);
-         string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/register.php?{0}", parameters));
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/register.php?{1}", AppSettings.BaseHost, parameters));
          var deserializedResult = JsonConvert.DeserializeObject<RegisterStatus> (result);
 
          StopWatch.Stop (string.Format ("LoginService.Register for name: {0} comment: {1}", name, comment));
@@ -37,7 +36,7 @@ namespace GoHunting.Core.Services
 
          HttpClient client = await GetClient ();
          string parameters = string.Format ("dev_id={0}", deviceId);
-         string result = await client.GetStringAsync (string.Format ("http://gollars.letsmake.ru/gofind2/register.php?{0}", parameters));
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/register.php?{1}", AppSettings.BaseHost, parameters));
          var deserializedResult = JsonConvert.DeserializeObject<RegisterStatus> (result);
 
          StopWatch.Stop (string.Format ("LoginService.CheckUserExists for deviceId: {0}", deviceId));

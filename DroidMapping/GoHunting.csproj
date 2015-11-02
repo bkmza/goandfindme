@@ -94,7 +94,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GoogleMapsKey.cs" />
     <Compile Include="Adapters\CustomInfoWindowAdapter.cs" />
-    <Compile Include="MyActionBarDrawerToggle.cs" />
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\LocationServiceBinder.cs" />
     <Compile Include="Services\ServiceConnectedEventArgs.cs" />
@@ -123,13 +122,11 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\layout\DrawerListItem.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_drawer_light.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_drawer_light.png" />
     <AndroidResource Include="Resources\layout\MapLayout.axml" />
-    <AndroidResource Include="Resources\layout\DrawerLayout.axml" />
     <AndroidResource Include="Resources\drawable-mdpi\arrow.png" />
     <AndroidResource Include="Resources\drawable-mdpi\arrowshadow.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_drawer_dark.png" />

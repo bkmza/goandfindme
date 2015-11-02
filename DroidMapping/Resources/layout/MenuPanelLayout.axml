@@ -9,12 +9,12 @@
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:id="@+id/view1"
-        android:background="#ffff0000" />
+        android:background="#3f3f3f" />
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/frameLayout1"
-        android:background="#ffd00000">
+        android:background="#3f3f3f">
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"

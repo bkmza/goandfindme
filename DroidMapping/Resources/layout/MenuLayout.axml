@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="300dp"
     android:layout_height="fill_parent"
-    android:background="#ffa00000"
+    android:background="#3f3f3f"
     android:id="@+id/FlyOutMenu"
     android:padding="4dp">
     <TextView

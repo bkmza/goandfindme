@@ -105,12 +105,11 @@
     <Compile Include="AppLocation.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
-    <Compile Include="Activities\MapActivity.cs" />
     <Compile Include="Services\AnalyticsService.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="Activities\HomeActivity.cs" />
-    <Compile Include="Activities\FlyOutContainer.cs" />
     <Compile Include="Activities\FlyOutActivityBase.cs" />
+    <Compile Include="FrameLayouts\FlyOutContainer.cs" />
+    <Compile Include="Activities\HomeActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -912,6 +911,7 @@
     <Folder Include="Utility\" />
     <Folder Include="Activities\" />
     <Folder Include="Resources\drawable-mdpi\" />
+    <Folder Include="FrameLayouts\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv4-18">

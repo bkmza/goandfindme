@@ -27,6 +27,11 @@ namespace DroidMapping
          menuButton.Click += (sender, e) => {
             menu.AnimatedOpened = !menu.AnimatedOpened;
          };
+
+         var button1 = FindViewById (Resource.Id.linearLayout1);
+         button1.Click += (sender, e) => {
+            menu.AnimatedOpened = !menu.AnimatedOpened;
+         };
       }
 
       protected virtual int LayoutId

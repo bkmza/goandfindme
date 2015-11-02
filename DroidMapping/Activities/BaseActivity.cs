@@ -10,6 +10,7 @@ using GoHunting.Core.Services;
 using GoHunting.Core.Utilities;
 using DroidMapping.Utilities;
 using Android.Views;
+using GoHunting.Core;
 
 namespace DroidMapping
 {
@@ -25,10 +26,10 @@ namespace DroidMapping
       {
          base.OnCreate (savedInstanceState);
          RequestWindowFeature(WindowFeatures.NoTitle);
-//         _toastService = Mvx.Resolve<IToastService> ();
-//         AnalyticsService = Mvx.Resolve<IAnalyticsService> ();
-//
-//         _connectivityManager = (ConnectivityManager)GetSystemService (ConnectivityService);
+         _toastService = Mvx.Resolve<IToastService> ();
+         AnalyticsService = Mvx.Resolve<IAnalyticsService> ();
+
+         _connectivityManager = (ConnectivityManager)GetSystemService (ConnectivityService);
       }
 
       public bool CheckInternetConnection ()

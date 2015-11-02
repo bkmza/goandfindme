@@ -28,7 +28,7 @@ using Newtonsoft.Json;
 
 namespace DroidMapping
 {
-   [Activity (Label = "Paranoia")]
+   [Activity (MainLauncher = true)]
    public class MainActivity : BaseActivity
    {
       IApiService _apiService;
@@ -67,9 +67,11 @@ namespace DroidMapping
       public async void CheckUserExists ()
       {
          RegisterStatus status = await _loginService.CheckUserExists (DeviceUtility.DeviceId);
-         if (status.GetStatus == (int)UserStatus.RegisteredAndApproved) {
+//         TODO
+//         if (status.GetStatus == (int)UserStatus.RegisteredAndApproved) {
+         if(true) {
             IsLoading = false;
-            GoToMapScreen ();
+            GoToHomeScreen ();
          } else {
             ShowAlert (status.GetDescription);
          }
@@ -91,12 +93,12 @@ namespace DroidMapping
             return;
          }
 
-         GoToMapScreen ();
+         GoToHomeScreen ();
       }
 
-      public void GoToMapScreen ()
+      public void GoToHomeScreen ()
       {
-         var intent = new Intent (this, typeof(MapActivity));
+         var intent = new Intent (this, typeof(HomeActivity));
          intent.SetFlags (ActivityFlags.NewTask | ActivityFlags.ClearTask);
          StartActivity (intent);
       }

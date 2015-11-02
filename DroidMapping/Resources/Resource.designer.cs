@@ -2709,6 +2709,9 @@ namespace DroidMapping
 			// aapt resource value: 0x7f030008
 			public const int MenuLayout = 2130903048;
 			
+			// aapt resource value: 0x7f030009
+			public const int MenuPanelLayout = 2130903049;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

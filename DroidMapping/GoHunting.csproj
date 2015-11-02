@@ -897,6 +897,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\action_menu.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon1.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\iconelse.png" />
+    <AndroidResource Include="Resources\layout\MenuPanelLayout.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

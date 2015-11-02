@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.HJA3XE3T" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Activities\HomeActivity.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="DroidMapping\Activities\HomeActivity.cs" Line="19" Column="31" />
-      <File FileName="d:\_personal\mobile\DroidMapping\DroidMapping\Activities\BaseActivity.cs" Line="17" Column="5" />
+      <File FileName="DroidMapping\Activities\HomeActivity.cs" Line="28" Column="46" />
+      <File FileName="DroidMapping\Activities\FlyOutActivityBase.cs" Line="27" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

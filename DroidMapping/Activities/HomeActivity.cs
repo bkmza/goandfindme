@@ -13,20 +13,20 @@ using Android.Widget;
 
 namespace DroidMapping
 {
-   [Activity (Label = "FlyInMenu", MainLauncher = true)]
-   public class HomeActivity : BaseActivity
+   [Activity (MainLauncher = true)]
+   public class HomeActivity : FlyOutActivityBase
    {
       protected override void OnCreate (Bundle bundle)
       {
          base.OnCreate (bundle);
 
-         SetContentView (Resource.Layout.HomeLayout);
 
-         var menu = FindViewById<FlyOutContainer> (Resource.Id.FlyOutContainer);
-         var menuButton = FindViewById (Resource.Id.MenuButton);
-         menuButton.Click += (sender, e) => {
-            menu.AnimatedOpened = !menu.AnimatedOpened;
-         };
+      }
+
+      protected override int LayoutId {
+         get {
+            return Resource.Layout.HomeLayout;
+         }
       }
    }
 }

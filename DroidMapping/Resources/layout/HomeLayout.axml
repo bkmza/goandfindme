@@ -6,5 +6,5 @@
     <include
         layout="@layout/MenuLayout" />
     <include
-        layout="@layout/ContentLayout" />
+        layout="@layout/MapLayout" />
 </DroidMapping.FlyOutContainer>

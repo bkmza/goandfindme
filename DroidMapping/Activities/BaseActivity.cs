@@ -9,10 +9,11 @@ using DroidMapping.Services;
 using GoHunting.Core.Services;
 using GoHunting.Core.Utilities;
 using DroidMapping.Utilities;
+using Android.Views;
 
 namespace DroidMapping
 {
-   [Activity (Icon = "@drawable/Icon", ScreenOrientation = ScreenOrientation.Portrait)]
+   [Activity (/*Icon = "@drawable/Icon", */ScreenOrientation = ScreenOrientation.Portrait)]
    public class BaseActivity : Activity
    {
       ConnectivityManager _connectivityManager;
@@ -23,7 +24,7 @@ namespace DroidMapping
       protected override void OnCreate (Bundle savedInstanceState)
       {
          base.OnCreate (savedInstanceState);
-
+         RequestWindowFeature(WindowFeatures.NoTitle);
 //         _toastService = Mvx.Resolve<IToastService> ();
 //         AnalyticsService = Mvx.Resolve<IAnalyticsService> ();
 //

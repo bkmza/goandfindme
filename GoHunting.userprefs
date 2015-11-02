@@ -1,17 +1,13 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.HJA3XE3T" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Activities\MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Activities\HomeActivity.cs">
     <Files>
-      <File FileName="GoHunting.Core\AppSettings.cs" Line="1" Column="1" />
-      <File FileName="DroidMapping\Activities\BaseActivity.cs" Line="68" Column="27" />
-      <File FileName="DroidMapping\Activities\MainActivity.cs" Line="40" Column="36" />
-      <File FileName="DroidMapping\GoogleMapsKey.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\Activities\HomeActivity.cs" Line="19" Column="31" />
+      <File FileName="d:\_personal\mobile\DroidMapping\DroidMapping\Activities\BaseActivity.cs" Line="17" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="D:\_personal\mobile\DroidMapping\GoHunting.Core\Services\LoginService.cs" line="23" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />

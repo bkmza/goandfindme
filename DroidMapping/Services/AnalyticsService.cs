@@ -1,6 +1,6 @@
 ﻿using System;
 using GoHunting.Core.Services;
-using Android.Gms.Analytics;
+//using Android.Gms.Analytics;
 using GoHunting.Core;
 
 namespace DroidMapping
@@ -32,20 +32,20 @@ namespace DroidMapping
       {
          string trackingId = AppSettings.TrackingId;
 
-         var _tracker = GoogleAnalytics.GetInstance (Android.App.Application.Context).NewTracker (trackingId);
-         _tracker.SetScreenName (screenName);
-
-         _tracker.Send (new Android.Gms.Analytics.HitBuilders.ScreenViewBuilder ().Build ());
+//         var _tracker = GoogleAnalytics.GetInstance (Android.App.Application.Context).NewTracker (trackingId);
+//         _tracker.SetScreenName (screenName);
+//
+//         _tracker.Send (new Android.Gms.Analytics.HitBuilders.ScreenViewBuilder ().Build ());
       }
 
       public static void LogEvent (string category, string action, string userName, string label)
       {
          string trackingId = AppSettings.TrackingId;
 
-         var _tracker = GoogleAnalytics.GetInstance (Android.App.Application.Context).NewTracker (trackingId);
-         _tracker.SetScreenName (null);
+//         var _tracker = GoogleAnalytics.GetInstance (Android.App.Application.Context).NewTracker (trackingId);
+//         _tracker.SetScreenName (null);
 
-         _tracker.Send (new Android.Gms.Analytics.HitBuilders.EventBuilder ().SetCategory (category).SetAction (action).SetLabel (label).Build ());
+//         _tracker.Send (new Android.Gms.Analytics.HitBuilders.EventBuilder ().SetCategory (category).SetAction (action).SetLabel (label).Build ());
       }
    }
 }

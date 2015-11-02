@@ -24,10 +24,10 @@ namespace DroidMapping
       {
          base.OnCreate (savedInstanceState);
 
-         _toastService = Mvx.Resolve<IToastService> ();
-         AnalyticsService = Mvx.Resolve<IAnalyticsService> ();
-
-         _connectivityManager = (ConnectivityManager)GetSystemService (ConnectivityService);
+//         _toastService = Mvx.Resolve<IToastService> ();
+//         AnalyticsService = Mvx.Resolve<IAnalyticsService> ();
+//
+//         _connectivityManager = (ConnectivityManager)GetSystemService (ConnectivityService);
       }
 
       public bool CheckInternetConnection ()

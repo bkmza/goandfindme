@@ -15,7 +15,7 @@ using GoHunting.Core;
 namespace DroidMapping
 {
    [Activity (/*Icon = "@drawable/Icon", */ScreenOrientation = ScreenOrientation.Portrait)]
-   public class BaseActivity : Activity
+   public class ActivityBase : Activity
    {
       ConnectivityManager _connectivityManager;
       IToastService _toastService;

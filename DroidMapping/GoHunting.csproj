@@ -102,13 +102,14 @@
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Utility\AndroidLogger.cs" />
     <Compile Include="AppLocation.cs" />
-    <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Services\AnalyticsService.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Activities\FlyOutActivityBase.cs" />
     <Compile Include="FrameLayouts\FlyOutContainer.cs" />
     <Compile Include="Activities\HomeActivity.cs" />
+    <Compile Include="Activities\ActivityBase.cs" />
+    <Compile Include="Activities\PointsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -894,6 +895,8 @@
     <AndroidResource Include="Resources\drawable-xhdpi\icon1.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\iconelse.png" />
     <AndroidResource Include="Resources\layout\MenuPanelLayout.axml" />
+    <AndroidResource Include="Resources\layout\PointsLayout.axml" />
+    <AndroidResource Include="Resources\layout\PointsListLayout.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

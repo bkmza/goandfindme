@@ -14,7 +14,7 @@ using Android.Widget;
 namespace DroidMapping
 {
    [Activity]
-   public class FlyOutActivityBase : BaseActivity
+   public class FlyOutActivityBase : ActivityBase
    {
       protected override void OnCreate (Bundle bundle)
       {
@@ -30,7 +30,16 @@ namespace DroidMapping
 
          var button1 = FindViewById (Resource.Id.linearLayout1);
          button1.Click += (sender, e) => {
-            menu.AnimatedOpened = !menu.AnimatedOpened;
+            var intent = new Intent (this, typeof(HomeActivity));
+            intent.SetFlags (ActivityFlags.NewTask | ActivityFlags.ClearTask);
+            StartActivity (intent);
+         };
+
+         var button2 = FindViewById (Resource.Id.linearLayout2);
+         button2.Click += (sender, e) => {
+            var intent = new Intent (this, typeof(PointsActivity));
+            intent.SetFlags (ActivityFlags.NewTask | ActivityFlags.ClearTask);
+            StartActivity (intent);
          };
       }
 

@@ -29,7 +29,7 @@ using Newtonsoft.Json;
 namespace DroidMapping
 {
    [Activity (MainLauncher = true)]
-   public class MainActivity : BaseActivity
+   public class MainActivity : ActivityBase
    {
       IApiService _apiService;
       IToastService _toastService;

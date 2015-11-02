@@ -231,8 +231,6 @@ namespace DroidMapping
 
          }
 
-
-
          IsLoading = false;
       }
    }

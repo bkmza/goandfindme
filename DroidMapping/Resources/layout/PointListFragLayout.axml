@@ -4,7 +4,4 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/FlyOutContent"
-    android:background="#ffffffff">
-    <include
-        layout="@layout/MenuPanelLayout" />
-</LinearLayout>
+    android:background="#ffffffff" />

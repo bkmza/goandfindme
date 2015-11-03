@@ -37,9 +37,14 @@ namespace DroidMapping
 
          var button2 = FindViewById (Resource.Id.linearLayout2);
          button2.Click += (sender, e) => {
-            var intent = new Intent (this, typeof(PointsActivity));
-            intent.SetFlags (ActivityFlags.NewTask | ActivityFlags.ClearTask);
-            StartActivity (intent);
+
+            menu.AnimatedOpened = !menu.AnimatedOpened;
+
+            FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+            PointListFragment frag = new PointListFragment();
+            fragmentTx.Replace(Resource.Id.map, frag);
+            fragmentTx.AddToBackStack(null);
+            fragmentTx.Commit();
          };
       }
 

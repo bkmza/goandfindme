@@ -109,7 +109,7 @@
     <Compile Include="FrameLayouts\FlyOutContainer.cs" />
     <Compile Include="Activities\HomeActivity.cs" />
     <Compile Include="Activities\ActivityBase.cs" />
-    <Compile Include="Activities\PointsActivity.cs" />
+    <Compile Include="Fragments\PointListFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -888,15 +888,13 @@
     <AndroidResource Include="Resources\drawable-mdpi\sml_Z_lv.png" />
     <AndroidResource Include="Resources\layout\CustomMarkerPopupPoint.axml" />
     <AndroidResource Include="Resources\layout\CustomMarkerPopupQuest.axml" />
-    <AndroidResource Include="Resources\layout\ContentLayout.axml" />
     <AndroidResource Include="Resources\layout\MenuLayout.axml" />
     <AndroidResource Include="Resources\layout\HomeLayout.axml" />
     <AndroidResource Include="Resources\drawable-xhdpi\action_menu.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon1.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\iconelse.png" />
     <AndroidResource Include="Resources\layout\MenuPanelLayout.axml" />
-    <AndroidResource Include="Resources\layout\PointsLayout.axml" />
-    <AndroidResource Include="Resources\layout\PointsListLayout.axml" />
+    <AndroidResource Include="Resources\layout\PointListFragLayout.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -912,6 +910,7 @@
     <Folder Include="Activities\" />
     <Folder Include="Resources\drawable-mdpi\" />
     <Folder Include="FrameLayouts\" />
+    <Folder Include="Fragments\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv4-18">

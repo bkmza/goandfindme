@@ -105,8 +105,6 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Services\AnalyticsService.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="Activities\FlyOutActivityBase.cs" />
-    <Compile Include="FrameLayouts\FlyOutContainer.cs" />
     <Compile Include="Activities\HomeActivity.cs" />
     <Compile Include="Activities\ActivityBase.cs" />
     <Compile Include="Fragments\PointListFragment.cs" />
@@ -127,7 +125,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_drawer_light.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_drawer_light.png" />
-    <AndroidResource Include="Resources\layout\MapLayout.axml" />
     <AndroidResource Include="Resources\drawable-mdpi\arrow.png" />
     <AndroidResource Include="Resources\drawable-mdpi\arrowshadow.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_drawer_dark.png" />
@@ -888,13 +885,11 @@
     <AndroidResource Include="Resources\drawable-mdpi\sml_Z_lv.png" />
     <AndroidResource Include="Resources\layout\CustomMarkerPopupPoint.axml" />
     <AndroidResource Include="Resources\layout\CustomMarkerPopupQuest.axml" />
-    <AndroidResource Include="Resources\layout\MenuLayout.axml" />
-    <AndroidResource Include="Resources\layout\HomeLayout.axml" />
     <AndroidResource Include="Resources\drawable-xhdpi\action_menu.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon1.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\iconelse.png" />
-    <AndroidResource Include="Resources\layout\MenuPanelLayout.axml" />
     <AndroidResource Include="Resources\layout\PointListFragLayout.axml" />
+    <AndroidResource Include="Resources\layout\HomeLayout.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -909,7 +904,6 @@
     <Folder Include="Utility\" />
     <Folder Include="Activities\" />
     <Folder Include="Resources\drawable-mdpi\" />
-    <Folder Include="FrameLayouts\" />
     <Folder Include="Fragments\" />
   </ItemGroup>
   <ItemGroup>

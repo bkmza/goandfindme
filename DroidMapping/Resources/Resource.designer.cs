@@ -2551,17 +2551,8 @@ namespace DroidMapping
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f08000c
-			public const int FlyOutContainer = 2131230732;
-			
 			// aapt resource value: 0x7f080012
 			public const int FlyOutContent = 2131230738;
-			
-			// aapt resource value: 0x7f080014
-			public const int FlyOutMenu = 2131230740;
-			
-			// aapt resource value: 0x7f08001e
-			public const int MenuButton = 2131230750;
 			
 			// aapt resource value: 0x7f080005
 			public const int adjust_height = 2131230725;
@@ -2593,26 +2584,11 @@ namespace DroidMapping
 			// aapt resource value: 0x7f08000e
 			public const int editText_name = 2131230734;
 			
-			// aapt resource value: 0x7f08001d
-			public const int frameLayout1 = 2131230749;
-			
 			// aapt resource value: 0x7f080000
 			public const int hybrid = 2131230720;
 			
-			// aapt resource value: 0x7f080017
-			public const int imageView1 = 2131230743;
-			
-			// aapt resource value: 0x7f08001a
-			public const int imageView2 = 2131230746;
-			
-			// aapt resource value: 0x7f080016
-			public const int linearLayout1 = 2131230742;
-			
-			// aapt resource value: 0x7f080019
-			public const int linearLayout2 = 2131230745;
-			
-			// aapt resource value: 0x7f080013
-			public const int map = 2131230739;
+			// aapt resource value: 0x7f08000c
+			public const int map = 2131230732;
 			
 			// aapt resource value: 0x7f080001
 			public const int none = 2131230721;
@@ -2631,18 +2607,6 @@ namespace DroidMapping
 			
 			// aapt resource value: 0x7f08000f
 			public const int textView2 = 2131230735;
-			
-			// aapt resource value: 0x7f08001b
-			public const int textView3 = 2131230747;
-			
-			// aapt resource value: 0x7f080015
-			public const int view1 = 2131230741;
-			
-			// aapt resource value: 0x7f080018
-			public const int view2 = 2131230744;
-			
-			// aapt resource value: 0x7f08001c
-			public const int view3 = 2131230748;
 			
 			static Id()
 			{
@@ -2686,16 +2650,7 @@ namespace DroidMapping
 			public const int Main = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int MapLayout = 2130903044;
-			
-			// aapt resource value: 0x7f030005
-			public const int MenuLayout = 2130903045;
-			
-			// aapt resource value: 0x7f030006
-			public const int MenuPanelLayout = 2130903046;
-			
-			// aapt resource value: 0x7f030007
-			public const int PointListFragLayout = 2130903047;
+			public const int PointListFragLayout = 2130903044;
 			
 			static Layout()
 			{

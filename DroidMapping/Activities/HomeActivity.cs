@@ -29,7 +29,7 @@ using System.IO;
 namespace DroidMapping
 {
    [Activity]
-   public class HomeActivity : FlyOutActivityBase, IOnMapReadyCallback
+   public class HomeActivity : ActivityBase, IOnMapReadyCallback
    {
       IApiService _apiService;
       IToastService _toastService;
@@ -45,15 +45,11 @@ namespace DroidMapping
       {
       }
 
-      protected override int LayoutId {
-         get {
-            return Resource.Layout.HomeLayout;
-         }
-      }
-
       protected override void OnCreate (Bundle bundle)
       {
          base.OnCreate (bundle);
+
+         SetContentView (Resource.Layout.HomeLayout);
 
          _apiService = Mvx.Resolve<IApiService> ();
          _toastService = Mvx.Resolve<IToastService> ();

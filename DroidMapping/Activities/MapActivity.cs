@@ -54,12 +54,12 @@ namespace DroidMapping
          _apiService = Mvx.Resolve<IApiService> ();
          _toastService = Mvx.Resolve<IToastService> ();
 
-                  AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
+//                  AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
 
-                  _markers = new List<MarkerOptions> ();
+//                  _markers = new List<MarkerOptions> ();
 
-                  mapFragment = FragmentManager.FindFragmentById (Resource.Id.map) as MapFragment;
-                  mapFragment.GetMapAsync (this);
+//                  mapFragment = FragmentManager.FindFragmentById (Resource.Id.map) as MapFragment;
+//                  mapFragment.GetMapAsync (this);
       }
 
       protected override void OnDestroy ()

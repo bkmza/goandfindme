@@ -8,25 +8,24 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 
 namespace DroidMapping
 {
-   public class PointListFragment : Fragment
+   public class MapFragment : Fragment
    {
       public const string ARG_PLANET_NUMBER = "planet_number";
 
-      public PointListFragment ()
+      public MapFragment ()
       {
       }
 
       public static Android.App.Fragment NewInstance (int position)
       {
-         Android.App.Fragment fragment = new PointListFragment ();
+         Fragment fragment = new MapFragment ();
          Bundle args = new Bundle ();
-         args.PutInt (PointListFragment.ARG_PLANET_NUMBER, position);
+         args.PutInt (MapFragment.ARG_PLANET_NUMBER, position);
          fragment.Arguments = args;
          return fragment;
       }

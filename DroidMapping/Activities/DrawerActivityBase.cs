@@ -25,7 +25,7 @@ namespace DroidMapping
       private RecyclerView mDrawerList;
       private ActionBarDrawerToggle mDrawerToggle;
 
-      private string mDrawerTitle;
+      public string mDrawerTitle;
       private String[] mPlanetTitles;
 
       protected override void OnCreate (Bundle savedInstanceState)
@@ -35,24 +35,17 @@ namespace DroidMapping
          SetContentView (Resource.Layout.activity_navigation_drawer);
 
          mDrawerTitle = this.Title;
-         mPlanetTitles = this.Resources.GetStringArray (Resource.Array.planets_array);
+         mPlanetTitles = this.Resources.GetStringArray (Resource.Array.drawer_items);
          mDrawerLayout = FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
          mDrawerList = FindViewById<RecyclerView> (Resource.Id.left_drawer);
 
-         // set a custom shadow that overlays the main content when the drawer opens
 //         mDrawerLayout.SetDrawerShadow (Resource.Drawable.drawer_shadow, GravityCompat.Start);
-         // improve performance by indicating the list if fixed size.
          mDrawerList.HasFixedSize = true;
          mDrawerList.SetLayoutManager (new LinearLayoutManager (this));
 
-         // set up the drawer's list view with items and click listener
          mDrawerList.SetAdapter (new DrawerAdapter (mPlanetTitles, this));
-         // enable ActionBar app icon to behave as action to toggle nav drawer
          this.ActionBar.SetDisplayHomeAsUpEnabled (true);
          this.ActionBar.SetHomeButtonEnabled (true);
-
-         // ActionBarDrawerToggle ties together the the proper interactions
-         // between the sliding drawer and the action bar app icon
 
          mDrawerToggle = new MyActionBarDrawerToggle (this, mDrawerLayout,
             Resource.Drawable.ic_drawer, 
@@ -63,29 +56,6 @@ namespace DroidMapping
          if (savedInstanceState == null) //first launch
             selectItem (0);
 
-      }
-
-      internal class MyActionBarDrawerToggle : ActionBarDrawerToggle
-      {
-         DrawerActivityBase owner;
-
-         public MyActionBarDrawerToggle (DrawerActivityBase activity, DrawerLayout layout, int imgRes, int openRes, int closeRes)
-            : base (activity, layout, imgRes, openRes, closeRes)
-         {
-            owner = activity;
-         }
-
-         public override void OnDrawerClosed (View drawerView)
-         {
-            owner.ActionBar.Title = owner.Title;
-            owner.InvalidateOptionsMenu ();
-         }
-
-         public override void OnDrawerOpened (View drawerView)
-         {
-            owner.ActionBar.Title = owner.mDrawerTitle;
-            owner.InvalidateOptionsMenu ();
-         }
       }
 
       public override bool OnCreateOptionsMenu (IMenu menu)
@@ -129,7 +99,6 @@ namespace DroidMapping
          }
       }
 
-      /* The click listener for RecyclerView in the navigation drawer */
       public void OnClick (View view, int position)
       {
          selectItem (position);
@@ -137,8 +106,18 @@ namespace DroidMapping
 
       private void selectItem (int position)
       {
-         // update the main content by replacing fragments
-         var fragment = PlanetFragment.NewInstance (position);
+         Android.App.Fragment fragment;
+         switch (position) {
+         case 1:
+            fragment = MapFragment.NewInstance (position);
+            break;
+         case 2:
+            fragment = PointListFragment.NewInstance (position);
+            break;
+         default:
+            fragment = MapFragment.NewInstance (position);
+            break;
+         }
 
          var fragmentManager = this.FragmentManager;
          var ft = fragmentManager.BeginTransaction ();
@@ -162,62 +141,17 @@ namespace DroidMapping
          this.ActionBar.Title = title.ToString ();
       }
 
-      /**
-        * When using the ActionBarDrawerToggle, you must call it during
-        * onPostCreate() and onConfigurationChanged()...
-        */
-
       protected override void OnPostCreate (Bundle savedInstanceState)
       {
          base.OnPostCreate (savedInstanceState);
-         // Sync the toggle state after onRestoreInstanceState has occurred.
          mDrawerToggle.SyncState ();
       }
 
       public override void OnConfigurationChanged (Configuration newConfig)
       {
          base.OnConfigurationChanged (newConfig);
-         // Pass any configuration change to the drawer toggls
          mDrawerToggle.OnConfigurationChanged (newConfig);
       }
-
-      /**
-        * Fragment that appears in the "content_frame", shows a planet
-        */
-      internal class PlanetFragment : Android.App.Fragment
-      {
-         public const string ARG_PLANET_NUMBER = "planet_number";
-
-         public PlanetFragment ()
-         {
-            // Empty constructor required for fragment subclasses
-         }
-
-         public static Android.App.Fragment NewInstance (int position)
-         {
-            Android.App.Fragment fragment = new PlanetFragment ();
-            Bundle args = new Bundle ();
-            args.PutInt (PlanetFragment.ARG_PLANET_NUMBER, position);
-            fragment.Arguments = args;
-            return fragment;
-         }
-
-         public override View OnCreateView (LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState)
-         {
-            View rootView = inflater.Inflate (Resource.Layout.fragment_planet, container, false);
-            var i = this.Arguments.GetInt (ARG_PLANET_NUMBER);
-            var planet = this.Resources.GetStringArray (Resource.Array.planets_array) [i];
-            var imgId = this.Resources.GetIdentifier (planet.ToLower (),
-               "drawable", this.Activity.PackageName);
-            var iv = rootView.FindViewById<ImageView> (Resource.Id.image);
-            iv.SetImageResource (imgId);
-            this.Activity.Title = planet;
-            return rootView;
-         }
-      }
-
-
    }
 }
 

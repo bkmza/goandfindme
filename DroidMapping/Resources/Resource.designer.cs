@@ -37,7 +37,7 @@ namespace DroidMapping
 			public const int DrawerItemsArray = 2131296256;
 			
 			// aapt resource value: 0x7f090001
-			public const int planets_array = 2131296257;
+			public const int drawer_items = 2131296257;
 			
 			static Array()
 			{

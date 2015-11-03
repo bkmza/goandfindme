@@ -113,6 +113,8 @@
     <Compile Include="Activities\DrawerActivityBase.cs" />
     <Compile Include="Adapters\DrawerAdapter.cs" />
     <Compile Include="Activities\MapActivity.cs" />
+    <Compile Include="Fragments\MapFragment.cs" />
+    <Compile Include="Helpers\MyActionBarDrawerToggle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -930,6 +932,7 @@
     <Folder Include="Fragments\" />
     <Folder Include="Resources\menu\" />
     <Folder Include="Resources\drawable\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv4-18">

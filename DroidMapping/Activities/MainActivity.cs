@@ -98,7 +98,7 @@ namespace DroidMapping
 
       public void GoToHomeScreen ()
       {
-         var intent = new Intent (this, typeof(HomeActivity));
+         var intent = new Intent (this, typeof(DrawerActivityBase));
          intent.SetFlags (ActivityFlags.NewTask | ActivityFlags.ClearTask);
          StartActivity (intent);
       }

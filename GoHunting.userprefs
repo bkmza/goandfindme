@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="DroidMapping\GoHunting.csproj">
+﻿<Properties StartupItem="DroidMapping\GoHunting.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus" />
   <MonoDevelop.Ide.Workbench ActiveDocument="d:\_personal\mobile\DroidMapping\DroidMapping\Activities\FlyOutActivityBase.cs">
     <Files>

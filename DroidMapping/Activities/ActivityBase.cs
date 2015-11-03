@@ -25,7 +25,6 @@ namespace DroidMapping
       protected override void OnCreate (Bundle savedInstanceState)
       {
          base.OnCreate (savedInstanceState);
-         RequestWindowFeature(WindowFeatures.NoTitle);
          _toastService = Mvx.Resolve<IToastService> ();
          AnalyticsService = Mvx.Resolve<IAnalyticsService> ();
 

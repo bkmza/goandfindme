@@ -92,6 +92,15 @@
     <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
       <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.0.1.3\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
     </Reference>
+    <Reference Include="SQLite.Net">
+      <HintPath>..\packages\SQLite.Net-PCL.3.0.5\lib\MonoAndroid\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.XamarinAndroid">
+      <HintPath>..\packages\SQLite.Net-PCL.3.0.5\lib\MonoAndroid\SQLite.Net.Platform.XamarinAndroid.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteNetExtensions">
+      <HintPath>..\packages\SQLiteNetExtensions.1.3.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\SQLiteNetExtensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +124,7 @@
     <Compile Include="Helpers\MyActionBarDrawerToggle.cs" />
     <Compile Include="Fragments\CMapFragment.cs" />
     <Compile Include="Fragments\FragmentBase.cs" />
+    <Compile Include="Services\SQLiteAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />

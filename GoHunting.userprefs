@@ -1,13 +1,32 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.HJA3XE3T" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Activities\MapActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Fragments\CMapFragment.cs">
     <Files>
-      <File FileName="DroidMapping\Activities\DrawerActivityBase.cs" Line="109" Column="26" />
-      <File FileName="DroidMapping\Fragments\PointListFragment.cs" Line="34" Column="47" />
-      <File FileName="DroidMapping\Fragments\MapFragment.cs" Line="16" Column="39" />
-      <File FileName="DroidMapping\Helpers\MyActionBarDrawerToggle.cs" Line="35" Column="8" />
-      <File FileName="DroidMapping\Activities\MapActivity.cs" Line="58" Column="10" />
+      <File FileName="DroidMapping\Activities\DrawerActivityBase.cs" Line="119" Column="19" />
+      <File FileName="DroidMapping\Fragments\PointListFragment.cs" Line="27" Column="67" />
+      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="26" Column="65" />
+      <File FileName="DroidMapping\Fragments\FragmentBase.cs" Line="39" Column="40" />
+      <File FileName="DroidMapping\Activities\ActivityBase.cs" Line="23" Column="7" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GoHunting" expanded="True">
+            <Node name="GoHunting" expanded="True" selected="True">
+              <Node name="Activities" expanded="True" />
+              <Node name="Fragments" expanded="True" />
+              <Node name="Helpers" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="layout" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

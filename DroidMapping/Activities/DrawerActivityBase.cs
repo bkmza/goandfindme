@@ -15,6 +15,7 @@ using Android.Support.V7.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Content.Res;
+using GoHunting.Core.Services;
 
 namespace DroidMapping
 {

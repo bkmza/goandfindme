@@ -28,6 +28,8 @@ namespace DroidMapping
 		{
 			global::Acr.DeviceInfo.Resource.String.ApplicationName = global::DroidMapping.Resource.String.ApplicationName;
 			global::Acr.DeviceInfo.Resource.String.Hello = global::DroidMapping.Resource.String.Hello;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::DroidMapping.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::DroidMapping.Resource.String.Hello;
 		}
 		
 		public partial class Array

@@ -25,6 +25,8 @@ using GoHunting.Core.Helpers;
 using GoHunting.Core.Services;
 using GoHunting.Core.Utilities;
 using Newtonsoft.Json;
+using SQLite.Net.Interop;
+using SQLite.Net.Platform.XamarinAndroid;
 
 namespace DroidMapping
 {
@@ -43,6 +45,9 @@ namespace DroidMapping
          Logger.Instance = new AndroidLogger ();
          Mvx.RegisterType<IToastService, ToastService> ();
          Mvx.RegisterType<IAnalyticsService, AnalyticsService> ();
+         Mvx.RegisterType<ISQLitePlatform, SQLitePlatformAndroid> ();
+         Mvx.RegisterType<ISQLite, SQLiteAndroid> ();
+         Mvx.RegisterType<IDBService, DBService> ();
 
          base.OnCreate (bundle);
 
@@ -69,7 +74,7 @@ namespace DroidMapping
          RegisterStatus status = await _loginService.CheckUserExists (DeviceUtility.DeviceId);
 //         TODO
 //         if (status.GetStatus == (int)UserStatus.RegisteredAndApproved) {
-         if(true) {
+         if (true) {
             IsLoading = false;
             GoToHomeScreen ();
          } else {

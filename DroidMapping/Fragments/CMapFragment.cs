@@ -20,6 +20,7 @@ using GoHunting.Core.Data;
 using GoHunting.Core;
 using Newtonsoft.Json;
 using GoHunting.Core.Helpers;
+using GoHunting.Core.Entities;
 
 namespace DroidMapping
 {
@@ -31,6 +32,7 @@ namespace DroidMapping
 
       IApiService _apiService;
       IToastService _toastService;
+      IDBService _dbService;
 
       Location _currentLocation;
       GoogleMap map;
@@ -45,6 +47,7 @@ namespace DroidMapping
 
       public CMapFragment ()
       {
+         _dbService = Mvx.Resolve<IDBService> ();
       }
 
       public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

@@ -2624,8 +2624,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f080007
 			public const int adjust_width = 2131230727;
 			
-			// aapt resource value: 0x7f080015
-			public const int button_register = 2131230741;
+			// aapt resource value: 0x7f080016
+			public const int button_register = 2131230742;
 			
 			// aapt resource value: 0x7f080009
 			public const int content_frame = 2131230729;
@@ -2648,17 +2648,17 @@ namespace DroidMapping
 			// aapt resource value: 0x7f080008
 			public const int drawer_layout = 2131230728;
 			
-			// aapt resource value: 0x7f080014
-			public const int editText_comment = 2131230740;
+			// aapt resource value: 0x7f080015
+			public const int editText_comment = 2131230741;
 			
-			// aapt resource value: 0x7f080012
-			public const int editText_name = 2131230738;
+			// aapt resource value: 0x7f080013
+			public const int editText_name = 2131230739;
 			
 			// aapt resource value: 0x7f080001
 			public const int hybrid = 2131230721;
 			
-			// aapt resource value: 0x7f080010
-			public const int image = 2131230736;
+			// aapt resource value: 0x7f080011
+			public const int image = 2131230737;
 			
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
@@ -2666,8 +2666,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f08000a
 			public const int left_drawer = 2131230730;
 			
-			// aapt resource value: 0x7f080016
-			public const int map = 2131230742;
+			// aapt resource value: 0x7f080010
+			public const int map = 2131230736;
 			
 			// aapt resource value: 0x7f080002
 			public const int none = 2131230722;
@@ -2681,11 +2681,11 @@ namespace DroidMapping
 			// aapt resource value: 0x7f080005
 			public const int terrain = 2131230725;
 			
-			// aapt resource value: 0x7f080011
-			public const int textView1 = 2131230737;
+			// aapt resource value: 0x7f080012
+			public const int textView1 = 2131230738;
 			
-			// aapt resource value: 0x7f080013
-			public const int textView2 = 2131230739;
+			// aapt resource value: 0x7f080014
+			public const int textView2 = 2131230740;
 			
 			static Id()
 			{
@@ -2729,13 +2729,13 @@ namespace DroidMapping
 			public const int drawer_list_item = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int fragment_planet = 2130903044;
+			public const int fragment_cmap = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Main = 2130903045;
+			public const int fragment_planet = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int MapLayout = 2130903046;
+			public const int Main = 2130903046;
 			
 			// aapt resource value: 0x7f030007
 			public const int PointListFragLayout = 2130903047;

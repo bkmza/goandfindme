@@ -112,9 +112,9 @@
     <Compile Include="Fragments\PointListFragment.cs" />
     <Compile Include="Activities\DrawerActivityBase.cs" />
     <Compile Include="Adapters\DrawerAdapter.cs" />
-    <Compile Include="Activities\MapActivity.cs" />
-    <Compile Include="Fragments\MapFragment.cs" />
     <Compile Include="Helpers\MyActionBarDrawerToggle.cs" />
+    <Compile Include="Fragments\CMapFragment.cs" />
+    <Compile Include="Fragments\FragmentBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -914,7 +914,7 @@
     <AndroidResource Include="Resources\drawable\saturn.jpg" />
     <AndroidResource Include="Resources\drawable\uranus.jpg" />
     <AndroidResource Include="Resources\drawable\venus.jpg" />
-    <AndroidResource Include="Resources\layout\MapLayout.axml" />
+    <AndroidResource Include="Resources\layout\fragment_cmap.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

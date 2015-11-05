@@ -104,18 +104,24 @@ namespace DroidMapping
          selectItem (position);
       }
 
+      private CMapFragment _cMapFrag;
+
       private void selectItem (int position)
       {
          Android.App.Fragment fragment;
          switch (position) {
-         case 1:
-            fragment = MapFragment.NewInstance (position);
+         case 0:
+
+            if (_cMapFrag == null) {
+               _cMapFrag = new CMapFragment ();
+            }
+            fragment = _cMapFrag;
             break;
-         case 2:
+         case 1:
             fragment = PointListFragment.NewInstance (position);
             break;
          default:
-            fragment = MapFragment.NewInstance (position);
+            fragment = new CMapFragment ();
             break;
          }
 
@@ -125,7 +131,7 @@ namespace DroidMapping
          ft.Commit ();
 
          // update selected item title, then close the drawer
-         Title = mPlanetTitles [position];
+         Title = DateTime.Now.Millisecond.ToString ();
          mDrawerLayout.CloseDrawer (mDrawerList);
       }
 

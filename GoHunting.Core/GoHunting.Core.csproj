@@ -58,7 +58,6 @@
     <Compile Include="Services\Interfaces\ISQLite.cs" />
     <Compile Include="Entities\DBPoint.cs" />
     <Compile Include="Entities\DBEntityBase.cs" />
-    <Compile Include="DataDB\DBPoint.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
@@ -112,6 +111,5 @@
     <Folder Include="Utilities\Interfaces\" />
     <Folder Include="Enums\" />
     <Folder Include="Entities\" />
-    <Folder Include="DataDB\" />
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@ using SQLite.Net.Attributes;
 
 namespace GoHunting.Core.Entities
 {
-   public class DBAction : DBEntityBase
+   public class DBUserAction : DBEntityBase
    {
       [Column ("type")]
       public int Type { get; set; }

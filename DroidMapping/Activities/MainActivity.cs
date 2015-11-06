@@ -41,6 +41,7 @@ namespace DroidMapping
       {
          AppSettings.TrackingId = "UA-65892866-1";
          AppSettings.RegisterTypes ();
+         AppSettings.RegisterMapper ();
 
          Logger.Instance = new AndroidLogger ();
          Mvx.RegisterType<IToastService, ToastService> ();
@@ -48,6 +49,7 @@ namespace DroidMapping
          Mvx.RegisterType<ISQLitePlatform, SQLitePlatformAndroid> ();
          Mvx.RegisterType<ISQLite, SQLiteAndroid> ();
          Mvx.RegisterType<IDBService, DBService> ();
+         Mvx.RegisterType<IUserActionService, UserActionService> ();
 
          base.OnCreate (bundle);
 

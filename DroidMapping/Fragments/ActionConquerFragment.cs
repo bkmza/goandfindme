@@ -10,6 +10,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Cirrious.CrossCore;
+using GoHunting.Core.Services;
 
 namespace DroidMapping
 {
@@ -18,6 +20,8 @@ namespace DroidMapping
       public override void OnActivityCreated (Bundle savedInstanceState)
       {
          base.OnActivityCreated (savedInstanceState);
+
+         var userActionService = Mvx.Resolve<IUserActionService> ();
 
          var items = new[] { 
             new Tuple<string,string> ("1", "2")

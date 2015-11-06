@@ -1,6 +1,8 @@
 ﻿using System;
+using AutoMapper;
 using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
+using GoHunting.Core.Entities;
 using GoHunting.Core.Services;
 
 namespace GoHunting.Core
@@ -28,12 +30,19 @@ namespace GoHunting.Core
 
       public static string PackageName { get; set; }
 
-      public static void RegisterTypes()
+      public static void RegisterTypes ()
       {
          MvxSimpleIoCContainer.Initialize ();
          Mvx.RegisterType<ILoginService, LoginService> ();
          Mvx.RegisterType<IStopWatchWrapper, StopWatchWrapper> ();
          Mvx.RegisterType<IApiService, ApiService> ();
+      }
+
+      public static void RegisterMapper ()
+      {
+         Mapper.CreateMap<UserAction, DBUserAction> ();
+         Mapper.CreateMap<DBUserAction, UserAction> ();
+         Mapper.AssertConfigurationIsValid ();
       }
    }
 }

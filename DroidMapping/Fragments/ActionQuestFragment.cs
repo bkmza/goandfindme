@@ -13,14 +13,21 @@ using Android.Widget;
 
 namespace DroidMapping
 {
-   public class ActionQuestFragment : Fragment
+   public class ActionQuestFragment : ListFragment
    {
-      public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+      public override void OnActivityCreated (Bundle savedInstanceState)
       {
-         var view = inflater.Inflate (Resource.Layout.Tab, container, false);
-         var sampleTextView = view.FindViewById<TextView> (Resource.Id.textView);
-         sampleTextView.Text = "ActionQuestFragment";
-         return view;
+         base.OnActivityCreated (savedInstanceState);
+
+         var items = new[] { 
+            new Tuple<string,string> ("1", "2")
+         };
+         this.ListAdapter = new SimpleListItem2_Adapter (this.Activity, items);
+      }
+
+      public override void OnListItemClick (ListView l, View v, int position, long id)
+      {
+         base.OnListItemClick (l, v, position, id);
       }
    }
 }

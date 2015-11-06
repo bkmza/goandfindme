@@ -4,6 +4,7 @@ using GoHunting.Core.Entities;
 using SQLite.Net;
 using SQLite.Net.Interop;
 using SQLiteNetExtensions.Extensions;
+using GoHunting.Core.Enums;
 
 namespace GoHunting.Core.Services
 {
@@ -18,6 +19,7 @@ namespace GoHunting.Core.Services
          Connection = sqlite.GetConnection ();
 
          CreateDB ();
+         CreateTestData ();
       }
 
       private void CreateDB ()
@@ -26,6 +28,23 @@ namespace GoHunting.Core.Services
          Connection.CreateTable<DBPoint> ();
          Connection.CreateTable<DBAction> ();
          Connection.Commit ();
+      }
+
+      private void CreateTestData()
+      {
+         var predefinedActions = new[] {
+            new DBAction { Type = (int)MapItemType.Point, Title = "Conquer0", Description = "Description0", Date = DateTime.Now },
+            new DBAction { Type = (int)MapItemType.Point, Title = "Conquer1", Description = "Description1", Date = DateTime.Now },
+            new DBAction { Type = (int)MapItemType.Point, Title = "Conquer2", Description = "Description2", Date = DateTime.Now },
+
+            new DBAction { Type = (int)MapItemType.Quest, Title = "Quest0", Description = "Description0", Date = DateTime.Now },
+            new DBAction { Type = (int)MapItemType.Quest, Title = "Quest1", Description = "Description1", Date = DateTime.Now },
+            new DBAction { Type = (int)MapItemType.Quest, Title = "Quest2", Description = "Description2", Date = DateTime.Now },
+            new DBAction { Type = (int)MapItemType.Quest, Title = "Quest3", Description = "Description3", Date = DateTime.Now },
+         };
+         foreach (var item in predefinedActions) {
+            Add (item);
+         }
       }
 
       public void Add<T> (T data)

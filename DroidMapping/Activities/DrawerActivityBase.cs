@@ -111,6 +111,11 @@ namespace DroidMapping
 
       private void selectItem (int position)
       {
+         if (this.ActionBar.TabCount > 0) {
+            this.ActionBar.RemoveAllTabs ();
+            this.ActionBar.NavigationMode = ActionBarNavigationMode.Standard;
+         }
+
          Android.App.Fragment fragment;
          switch (position) {
          case 0:

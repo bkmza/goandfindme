@@ -31,8 +31,10 @@ namespace DroidMapping
 
       protected override void OnCreate (Bundle savedInstanceState)
       {
-
          base.OnCreate (savedInstanceState);
+
+         this.Window.SetFlags (WindowManagerFlags.Secure, WindowManagerFlags.Secure);
+
          SetContentView (Resource.Layout.activity_navigation_drawer);
 
          mDrawerTitle = this.Title;

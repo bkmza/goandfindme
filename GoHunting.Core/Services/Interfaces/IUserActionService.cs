@@ -9,6 +9,8 @@ namespace GoHunting.Core.Services
       List<UserAction> GetConquers ();
 
       List<UserAction> GetQuests ();
+
+      void Add (UserAction userAction);
    }
 }
 

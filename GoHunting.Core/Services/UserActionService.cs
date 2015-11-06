@@ -33,6 +33,13 @@ namespace GoHunting.Core.Services
 
          return items;
       }
+
+      public void Add (UserAction userAction)
+      {
+         var dbUserAction = Mapper.Map<DBUserAction> (userAction);
+
+         _dbService.Add<DBUserAction> (dbUserAction);
+      }
    }
 }
 

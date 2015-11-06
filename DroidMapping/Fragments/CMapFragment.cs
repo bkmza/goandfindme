@@ -21,6 +21,7 @@ using GoHunting.Core;
 using Newtonsoft.Json;
 using GoHunting.Core.Helpers;
 using GoHunting.Core.Entities;
+using GoHunting.Core.Enums;
 
 namespace DroidMapping
 {
@@ -33,6 +34,7 @@ namespace DroidMapping
       IApiService _apiService;
       IToastService _toastService;
       IDBService _dbService;
+      IUserActionService _userActionService;
 
       Location _currentLocation;
       GoogleMap map;
@@ -70,6 +72,7 @@ namespace DroidMapping
 
          _apiService = Mvx.Resolve<IApiService> ();
          _toastService = Mvx.Resolve<IToastService> ();
+         _userActionService = Mvx.Resolve<IUserActionService> ();
 
          AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
 
@@ -207,6 +210,12 @@ namespace DroidMapping
             description = result.GetDescription;
             if (result.IsSuccess) {
                UpdateMarkers ();
+               _userActionService.Add (new UserAction {
+                  Type = (int)MapItemType.Point,
+                  Title = "", // TODO get Title from response when it will implemented on back-end side
+                  Description = result.GetDescription,
+                  Date = DateTime.Now
+               });
             }
          }
 
@@ -227,6 +236,12 @@ namespace DroidMapping
             description = result.GetDescription;
             if (result.IsSuccess) {
                UpdateMarkers ();
+               _userActionService.Add (new UserAction {
+                  Type = (int)MapItemType.Quest,
+                  Title = "", // TODO get Title from response when it will implemented on back-end side
+                  Description = result.GetDescription,
+                  Date = DateTime.Now
+               });
             }
          }
 

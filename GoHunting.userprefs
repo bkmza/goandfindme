@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.HJA3XE3T" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Fragments\ActionConquerFragment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Fragments\ActionListFragment.cs">
     <Files>
-      <File FileName="DroidMapping\Fragments\ActionConquerFragment.cs" Line="24" Column="68" />
-      <File FileName="DroidMapping\Fragments\ActionQuestFragment.cs" Line="1" Column="1" />
+      <File FileName="GoHunting.Core\Services\UserActionService.cs" Line="42" Column="8" />
+      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="218" Column="19" />
+      <File FileName="DroidMapping\Fragments\ActionListFragment.cs" Line="24" Column="95" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

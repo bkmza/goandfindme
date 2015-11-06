@@ -119,6 +119,9 @@ namespace DroidMapping
             fragment = _cMapFrag;
             break;
          case 1:
+            fragment = new ActionListFragment ();
+            break;
+         case 2:
             fragment = PointListFragment.NewInstance (position);
             break;
          default:

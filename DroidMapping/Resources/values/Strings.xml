@@ -16,8 +16,11 @@
 	<string name="NeedInternetConnect">Необходимо подключение к интернету</string>
 	<string name="GPSNotDefined">GPS-координаты не определены, повторите попытку позже</string>
    <string name="Wait">Подождите...</string>
+   <string name="ActionTabConquers">Захваты</string>
+   <string name="ActionTabQuests">Квесты</string>
     <string-array name="drawer_items">
         <item>Map</item>
+        <item>Actions Log</item>
         <item>Venus</item>
     </string-array>
     <string name="drawer_open">Open navigation drawer</string>

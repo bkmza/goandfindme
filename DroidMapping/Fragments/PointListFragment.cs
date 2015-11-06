@@ -22,7 +22,7 @@ namespace DroidMapping
       {
       }
 
-      public static Android.App.Fragment NewInstance (int position)
+      public static Fragment NewInstance (int position)
       {
          Android.App.Fragment fragment = new PointListFragment ();
          Bundle args = new Bundle ();

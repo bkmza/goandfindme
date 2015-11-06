@@ -125,6 +125,9 @@
     <Compile Include="Fragments\CMapFragment.cs" />
     <Compile Include="Fragments\FragmentBase.cs" />
     <Compile Include="Services\SQLiteAndroid.cs" />
+    <Compile Include="Fragments\ActionListFragment.cs" />
+    <Compile Include="Fragments\ActionQuestFragment.cs" />
+    <Compile Include="Fragments\ActionConquerFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -925,6 +928,8 @@
     <AndroidResource Include="Resources\drawable\uranus.jpg" />
     <AndroidResource Include="Resources\drawable\venus.jpg" />
     <AndroidResource Include="Resources\layout\fragment_cmap.axml" />
+    <AndroidResource Include="Resources\layout\fragment_actions_list.axml" />
+    <AndroidResource Include="Resources\layout\Tab.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

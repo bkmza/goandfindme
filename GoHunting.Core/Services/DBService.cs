@@ -20,12 +20,11 @@ namespace GoHunting.Core.Services
          CreateDB ();
       }
 
-      private void CreateDB()
+      private void CreateDB ()
       {
-         List<SQLiteConnection.ColumnInfo> tableInfo = Connection.GetTableInfo ("DBPoint");
-
          Connection.BeginTransaction ();
          Connection.CreateTable<DBPoint> ();
+         Connection.CreateTable<DBAction> ();
          Connection.Commit ();
       }
 

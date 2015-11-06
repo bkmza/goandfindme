@@ -10,18 +10,25 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using GoHunting.Core.Services;
+using Cirrious.CrossCore;
 
 namespace DroidMapping
 {
    public class ActionQuestFragment : ListFragment
    {
+      IUserActionService _userActionService;
+
       public override void OnActivityCreated (Bundle savedInstanceState)
       {
          base.OnActivityCreated (savedInstanceState);
 
-         var items = new[] { 
-            new Tuple<string,string> ("1", "2")
-         };
+         _userActionService = Mvx.Resolve<IUserActionService> ();
+
+         var userActions = _userActionService.GetQuests ();
+
+         var items = userActions.Select (x => new Tuple<string,string> (x.Title, string.Format ("{0}, {1}", x.Date.ToString (), x.Description))).ToList ();
+
          this.ListAdapter = new SimpleListItem2_Adapter (this.Activity, items);
       }
 

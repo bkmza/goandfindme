@@ -17,15 +17,18 @@ namespace DroidMapping
 {
    public class ActionConquerFragment : ListFragment
    {
+      IUserActionService _userActionService;
+
       public override void OnActivityCreated (Bundle savedInstanceState)
       {
          base.OnActivityCreated (savedInstanceState);
 
-         var userActionService = Mvx.Resolve<IUserActionService> ();
+         _userActionService = Mvx.Resolve<IUserActionService> ();
 
-         var items = new[] { 
-            new Tuple<string,string> ("1", "2")
-         };
+         var userActions = _userActionService.GetConquers ();
+
+         var items = userActions.Select (x => new Tuple<string,string> (x.Title, string.Format ("{0}, {1}", x.Date.ToString (), x.Description))).ToList ();
+
          this.ListAdapter = new SimpleListItem2_Adapter (this.Activity, items);
       }
 

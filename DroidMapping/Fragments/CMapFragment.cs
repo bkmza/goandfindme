@@ -23,7 +23,7 @@ using GoHunting.Core.Helpers;
 using GoHunting.Core.Entities;
 using GoHunting.Core.Enums;
 
-namespace DroidMapping
+namespace DroidMapping.Fragments
 {
    public class CMapFragment : FragmentBase, IOnMapReadyCallback
    {
@@ -45,7 +45,6 @@ namespace DroidMapping
 
       double _distanceToNearestPoint;
       string _nameOfNearestPoint;
-
 
       public CMapFragment ()
       {
@@ -255,9 +254,9 @@ namespace DroidMapping
          this.ShowAlert (description);
       }
 
-      public override string Titile {
+      public override string FragmentTitle {
          get {
-            return "Map";
+            return Resources.GetString (Resource.String.DrawerMap);
          }
       }
    }

@@ -14,7 +14,7 @@ using Android.Net;
 using GoHunting.Core.Services;
 using Cirrious.CrossCore;
 
-namespace DroidMapping
+namespace DroidMapping.Fragments
 {
    public class FragmentBase : Fragment
    {
@@ -31,6 +31,8 @@ namespace DroidMapping
          AnalyticsService = Mvx.Resolve<IAnalyticsService> ();
 
          _connectivityManager = (ConnectivityManager)Activity.GetSystemService (Activity.ConnectivityService);
+
+         this.Activity.Title = this.FragmentTitle;
       }
 
       public bool CheckInternetConnection ()
@@ -72,7 +74,7 @@ namespace DroidMapping
          });
       }
 
-      public virtual string Titile
+      public virtual string FragmentTitle
       {
          get
          {

@@ -11,7 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace DroidMapping
+namespace DroidMapping.Fragments
 {
    public class ActionListFragment : FragmentBase
    {
@@ -42,9 +42,9 @@ namespace DroidMapping
          this.Activity.ActionBar.AddTab (tab);
       }
 
-      public override string Titile {
+      public override string FragmentTitle {
          get {
-            return "List";
+            return Resources.GetString (Resource.String.DrawerAction);
          }
       }
    }

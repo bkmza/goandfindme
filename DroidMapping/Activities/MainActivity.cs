@@ -73,6 +73,11 @@ namespace DroidMapping
 
       public async void CheckUserExists ()
       {
+         if (!CheckInternetConnection ()) {
+            IsLoading = false;
+            return;
+         }
+
          RegisterStatus status = await _loginService.CheckUserExists (DeviceUtility.DeviceId);
 //         TODO
 //         if (status.GetStatus == (int)UserStatus.RegisteredAndApproved) {

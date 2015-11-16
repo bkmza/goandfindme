@@ -36,10 +36,7 @@ namespace DroidMapping
 		{
 			
 			// aapt resource value: 0x7f090000
-			public const int DrawerItemsArray = 2131296256;
-			
-			// aapt resource value: 0x7f090001
-			public const int drawer_items = 2131296257;
+			public const int drawer_items = 2131296256;
 			
 			static Array()
 			{
@@ -2614,11 +2611,8 @@ namespace DroidMapping
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f080017
-			public const int FlyOutContent = 2131230743;
-			
-			// aapt resource value: 0x7f080019
-			public const int action_websearch = 2131230745;
+			// aapt resource value: 0x7f080018
+			public const int action_websearch = 2131230744;
 			
 			// aapt resource value: 0x7f080006
 			public const int adjust_height = 2131230726;
@@ -2660,7 +2654,7 @@ namespace DroidMapping
 			public const int hybrid = 2131230721;
 			
 			// aapt resource value: 0x7f080011
-			public const int image = 2131230737;
+			public const int isLoggingQuestsSwitch = 2131230737;
 			
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
@@ -2683,8 +2677,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f080005
 			public const int terrain = 2131230725;
 			
-			// aapt resource value: 0x7f080018
-			public const int textView = 2131230744;
+			// aapt resource value: 0x7f080017
+			public const int textView = 2131230743;
 			
 			// aapt resource value: 0x7f080012
 			public const int textView1 = 2131230738;
@@ -2740,16 +2734,13 @@ namespace DroidMapping
 			public const int fragment_cmap = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int fragment_planet = 2130903046;
+			public const int fragment_settings = 2130903046;
 			
 			// aapt resource value: 0x7f030007
 			public const int Main = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int PointListFragLayout = 2130903048;
-			
-			// aapt resource value: 0x7f030009
-			public const int Tab = 2130903049;
+			public const int Tab = 2130903048;
 			
 			static Layout()
 			{
@@ -2780,53 +2771,62 @@ namespace DroidMapping
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f04002e
-			public const int ActionTabConquers = 2130968622;
+			// aapt resource value: 0x7f040031
+			public const int ActionTabConquers = 2130968625;
 			
-			// aapt resource value: 0x7f04002f
-			public const int ActionTabQuests = 2130968623;
+			// aapt resource value: 0x7f040032
+			public const int ActionTabQuests = 2130968626;
 			
 			// aapt resource value: 0x7f040023
 			public const int ApplicationName = 2130968611;
 			
-			// aapt resource value: 0x7f040027
-			public const int ConquerMenuTitle = 2130968615;
+			// aapt resource value: 0x7f04002a
+			public const int ConquerMenuTitle = 2130968618;
+			
+			// aapt resource value: 0x7f040028
+			public const int DrawerAction = 2130968616;
 			
 			// aapt resource value: 0x7f040026
 			public const int DrawerClose = 2130968614;
 			
+			// aapt resource value: 0x7f040027
+			public const int DrawerMap = 2130968615;
+			
 			// aapt resource value: 0x7f040025
 			public const int DrawerOpen = 2130968613;
 			
-			// aapt resource value: 0x7f04002c
-			public const int GPSNotDefined = 2130968620;
+			// aapt resource value: 0x7f040029
+			public const int DrawerSettings = 2130968617;
+			
+			// aapt resource value: 0x7f04002f
+			public const int GPSNotDefined = 2130968623;
 			
 			// aapt resource value: 0x7f040022
 			public const int Hello = 2130968610;
 			
-			// aapt resource value: 0x7f04002a
-			public const int LogoutMenuTitle = 2130968618;
+			// aapt resource value: 0x7f04002d
+			public const int LogoutMenuTitle = 2130968621;
+			
+			// aapt resource value: 0x7f04002e
+			public const int NeedInternetConnect = 2130968622;
 			
 			// aapt resource value: 0x7f04002b
-			public const int NeedInternetConnect = 2130968619;
+			public const int QuestMenuTitle = 2130968619;
 			
-			// aapt resource value: 0x7f040028
-			public const int QuestMenuTitle = 2130968616;
+			// aapt resource value: 0x7f04002c
+			public const int RefreshMenuTitle = 2130968620;
 			
-			// aapt resource value: 0x7f040029
-			public const int RefreshMenuTitle = 2130968617;
+			// aapt resource value: 0x7f040030
+			public const int Wait = 2130968624;
 			
-			// aapt resource value: 0x7f04002d
-			public const int Wait = 2130968621;
-			
-			// aapt resource value: 0x7f040032
-			public const int action_websearch = 2130968626;
+			// aapt resource value: 0x7f040035
+			public const int action_websearch = 2130968629;
 			
 			// aapt resource value: 0x7f040024
 			public const int app_name = 2130968612;
 			
-			// aapt resource value: 0x7f040033
-			public const int app_not_available = 2130968627;
+			// aapt resource value: 0x7f040036
+			public const int app_not_available = 2130968630;
 			
 			// aapt resource value: 0x7f040001
 			public const int auth_google_play_services_client_facebook_display_name = 2130968577;
@@ -2930,11 +2930,11 @@ namespace DroidMapping
 			// aapt resource value: 0x7f040021
 			public const int common_signin_button_text_long = 2130968609;
 			
-			// aapt resource value: 0x7f040031
-			public const int drawer_close = 2130968625;
+			// aapt resource value: 0x7f040034
+			public const int drawer_close = 2130968628;
 			
-			// aapt resource value: 0x7f040030
-			public const int drawer_open = 2130968624;
+			// aapt resource value: 0x7f040033
+			public const int drawer_open = 2130968627;
 			
 			static String()
 			{

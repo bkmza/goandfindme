@@ -13,7 +13,7 @@ using Android.Widget;
 using GoHunting.Core.Services;
 using Cirrious.CrossCore;
 
-namespace DroidMapping
+namespace DroidMapping.Fragments
 {
    public class ActionQuestFragment : ListFragment
    {

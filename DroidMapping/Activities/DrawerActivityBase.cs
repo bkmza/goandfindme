@@ -58,7 +58,6 @@ namespace DroidMapping
          mDrawerLayout.SetDrawerListener (mDrawerToggle);
          if (savedInstanceState == null) //first launch
             selectItem (0);
-
       }
 
       public override bool OnCreateOptionsMenu (IMenu menu)
@@ -116,7 +115,7 @@ namespace DroidMapping
             this.ActionBar.NavigationMode = ActionBarNavigationMode.Standard;
          }
 
-         Android.App.Fragment fragment;
+         FragmentBase fragment;
          switch (position) {
          case 0:
 
@@ -129,7 +128,8 @@ namespace DroidMapping
             fragment = new ActionListFragment ();
             break;
          case 2:
-            fragment = PointListFragment.NewInstance (position);
+            fragment = new CMapFragment ();
+            //fragment = PointListFragment.NewInstance (position);
             break;
          default:
             fragment = new CMapFragment ();
@@ -141,8 +141,7 @@ namespace DroidMapping
          ft.Replace (Resource.Id.content_frame, fragment);
          ft.Commit ();
 
-         // update selected item title, then close the drawer
-         Title = DateTime.Now.Millisecond.ToString ();
+         Title = fragment.Titile;
          mDrawerLayout.CloseDrawer (mDrawerList);
       }
 
@@ -154,7 +153,6 @@ namespace DroidMapping
 
       protected override void OnTitleChanged (Java.Lang.ICharSequence title, Android.Graphics.Color color)
       {
-         //base.OnTitleChanged (title, color);
          this.ActionBar.Title = title.ToString ();
       }
 
@@ -168,6 +166,13 @@ namespace DroidMapping
       {
          base.OnConfigurationChanged (newConfig);
          mDrawerToggle.OnConfigurationChanged (newConfig);
+      }
+
+      protected override void OnDestroy ()
+      {
+         AppLocation.StopLocationService ();
+
+         base.OnDestroy ();
       }
    }
 }

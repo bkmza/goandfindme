@@ -81,12 +81,19 @@ namespace DroidMapping
          SetHasOptionsMenu (true);
       }
 
+      public override void OnStop ()
+      {
+         AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
+
+         base.OnStop ();
+      }
+
       public void HandleLocationChanged (object sender, LocationChangedEventArgs e)
       {
          _currentLocation = e.Location;
          if (_currentLocation != null) {
             UpdateNearestPointInformation ();
-            this.Activity.Title = string.Format ("{0}: {1} метров", _nameOfNearestPoint, _distanceToNearestPoint);
+            this.Activity.Title = string.Format ("{0} м: {1}", _distanceToNearestPoint.ToString("0.00"), _nameOfNearestPoint);
          }
       }
 
@@ -136,7 +143,6 @@ namespace DroidMapping
                   map.AddMarker (marker);
                }
             }
-
          }
 
          IsLoading = false;
@@ -249,6 +255,11 @@ namespace DroidMapping
          this.ShowAlert (description);
       }
 
+      public override string Titile {
+         get {
+            return "Map";
+         }
+      }
    }
 }
 

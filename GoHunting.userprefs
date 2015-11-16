@@ -1,14 +1,18 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.HJA3XE3T" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Fragments\ActionListFragment.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Medfield1B91FDDC" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Fragments\CMapFragment.cs">
     <Files>
-      <File FileName="GoHunting.Core\Services\UserActionService.cs" Line="42" Column="8" />
-      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="218" Column="19" />
-      <File FileName="DroidMapping\Fragments\ActionListFragment.cs" Line="24" Column="95" />
+      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="167" Column="8" />
+      <File FileName="DroidMapping\Activities\DrawerActivityBase.cs" Line="156" Column="1" />
+      <File FileName="DroidMapping\Fragments\ActionListFragment.cs" Line="41" Column="10" />
+      <File FileName="DroidMapping\Services\LocationService.cs" Line="16" Column="3" />
+      <File FileName="GoHunting.Core\Services\DBService.cs" Line="22" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Services\LocationService.cs" line="77" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />

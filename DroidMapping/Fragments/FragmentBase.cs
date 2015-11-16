@@ -71,6 +71,14 @@ namespace DroidMapping
             alert.Show ();
          });
       }
+
+      public virtual string Titile
+      {
+         get
+         {
+            return string.Empty;
+         }
+      }
    }
 }
 

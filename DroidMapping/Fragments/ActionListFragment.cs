@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace DroidMapping
 {
-   public class ActionListFragment : Fragment
+   public class ActionListFragment : FragmentBase
    {
       View _view;
 
@@ -40,6 +40,12 @@ namespace DroidMapping
          };
 
          this.Activity.ActionBar.AddTab (tab);
+      }
+
+      public override string Titile {
+         get {
+            return "List";
+         }
       }
    }
 }

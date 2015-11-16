@@ -19,7 +19,7 @@ namespace GoHunting.Core.Services
          Connection = sqlite.GetConnection ();
 
          CreateDB ();
-         CreateTestData ();
+//         CreateTestData ();
       }
 
       private void CreateDB ()

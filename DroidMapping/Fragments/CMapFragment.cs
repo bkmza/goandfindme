@@ -1,27 +1,21 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using GoHunting.Core.Services;
-using Android.Locations;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using Android.Locations;
+using Android.OS;
+using Android.Views;
 using Cirrious.CrossCore;
 using DroidMapping.Adapters;
-using GoHunting.Core.Data;
 using GoHunting.Core;
-using Newtonsoft.Json;
-using GoHunting.Core.Helpers;
+using GoHunting.Core.Data;
 using GoHunting.Core.Entities;
 using GoHunting.Core.Enums;
+using GoHunting.Core.Helpers;
+using GoHunting.Core.Services;
+using Newtonsoft.Json;
 
 namespace DroidMapping.Fragments
 {
@@ -199,7 +193,7 @@ namespace DroidMapping.Fragments
       async void Logout ()
       {
          AppLocation.StopLocationService ();
-         Android.OS.Process.KillProcess (Android.OS.Process.MyPid ());
+         Process.KillProcess (Process.MyPid ());
       }
 
       async void ConquerHandler ()
@@ -215,13 +209,14 @@ namespace DroidMapping.Fragments
             description = result.GetDescription;
             if (result.IsSuccess) {
                UpdateMarkers ();
-               _userActionService.Add (new UserAction {
-                  Type = (int)MapItemType.Point,
-                  Title = "", // TODO get Title from response when it will implemented on back-end side
-                  Description = result.GetDescription,
-                  Date = DateTime.Now
-               });
             }
+
+            _userActionService.Add (new UserAction {
+               Type = (int)MapItemType.Point,
+               Title = "Point title receiving from server", // TODO get Title from response when it will implemented on back-end side
+               Description = description,
+               Date = DateTime.Now
+            });
          }
 
          IsLoading = false;
@@ -241,13 +236,14 @@ namespace DroidMapping.Fragments
             description = result.GetDescription;
             if (result.IsSuccess) {
                UpdateMarkers ();
-               _userActionService.Add (new UserAction {
-                  Type = (int)MapItemType.Quest,
-                  Title = "", // TODO get Title from response when it will implemented on back-end side
-                  Description = result.GetDescription,
-                  Date = DateTime.Now
-               });
             }
+
+            _userActionService.Add (new UserAction {
+               Type = (int)MapItemType.Quest,
+               Title = "Point title receiving from server", // TODO get Title from response when it will implemented on back-end side
+               Description = string.Empty,
+               Date = DateTime.Now
+            });
          }
 
          IsLoading = false;

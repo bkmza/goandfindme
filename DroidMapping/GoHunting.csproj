@@ -934,7 +934,6 @@
     <AndroidResource Include="Resources\layout\Tab.axml" />
     <AndroidResource Include="Resources\layout\fragment_settings.axml" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\GoHunting.Core\GoHunting.Core.csproj">
       <Project>{B6D1A089-4230-4625-8C99-E27A23BBA0B3}</Project>
@@ -958,4 +957,5 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

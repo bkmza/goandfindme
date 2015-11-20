@@ -79,9 +79,7 @@ namespace DroidMapping
          }
 
          RegisterStatus status = await _loginService.CheckUserExists (DeviceUtility.DeviceId);
-//         TODO
-//         if (status.GetStatus == (int)UserStatus.RegisteredAndApproved) {
-         if (true) {
+         if (status.GetStatus == (int)UserStatus.RegisteredAndApproved) {
             IsLoading = false;
             GoToHomeScreen ();
          } else {

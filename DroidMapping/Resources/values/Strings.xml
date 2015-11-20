@@ -4,7 +4,7 @@
    <string name="DrawerOpen">Open</string>
    <string name="DrawerClose">Close</string>
    <string name="DrawerMap">Карта</string>
-   <string name="DrawerAction">Действия</string>
+   <string name="DrawerAction">Успешные действия</string>
    <string name="DrawerSettings">Настройки</string>
    <string-array name="drawer_items">
       <item>Map</item>

@@ -1,21 +1,15 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.Res;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using Android.Support.V4.App;
 using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
-using Android.Support.V4.App;
-using Android.Support.V4.View;
-using Android.Content.Res;
-using GoHunting.Core.Services;
+using Android.Views;
+using Android.Widget;
 using DroidMapping.Fragments;
 
 namespace DroidMapping
@@ -145,7 +139,7 @@ namespace DroidMapping
 
       protected override void OnTitleChanged (Java.Lang.ICharSequence title, Android.Graphics.Color color)
       {
-         this.ActionBar.Title = title.ToString ();
+         ActionBar.Title = title.ToString ();
       }
 
       protected override void OnPostCreate (Bundle savedInstanceState)

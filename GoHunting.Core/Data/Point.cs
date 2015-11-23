@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
+﻿using System.Text;
 using GoHunting.Core.Enums;
-using Newtonsoft.Json;
 
 namespace GoHunting.Core.Data
 {
@@ -13,6 +9,8 @@ namespace GoHunting.Core.Data
       {
       }
 
+      public string title;
+      public string number;
       public string content;
       public string color;
       public string icon;

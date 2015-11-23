@@ -1,7 +1,6 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Locations;
@@ -16,6 +15,7 @@ using GoHunting.Core.Enums;
 using GoHunting.Core.Helpers;
 using GoHunting.Core.Services;
 using Newtonsoft.Json;
+using GoHunting.Core.Utilities;
 
 namespace DroidMapping.Fragments
 {
@@ -39,6 +39,8 @@ namespace DroidMapping.Fragments
 
       double _distanceToNearestPoint;
       string _nameOfNearestPoint;
+
+      MapItemType? _mapItemFilterType;
 
       public CMapFragment ()
       {
@@ -86,7 +88,7 @@ namespace DroidMapping.Fragments
          _currentLocation = e.Location;
          if (_currentLocation != null) {
             UpdateNearestPointInformation ();
-            this.Activity.Title = string.Format ("{0} м: {1}", _distanceToNearestPoint.ToString("0.00"), _nameOfNearestPoint);
+            Activity.Title = string.Format ("{0} м: {1}", _distanceToNearestPoint.ToString ("0.00"), _nameOfNearestPoint);
          }
       }
 
@@ -105,7 +107,7 @@ namespace DroidMapping.Fragments
          UpdateMarkers ();
       }
 
-      private async void UpdateMarkers ()
+      async void UpdateMarkers ()
       {
          if (!CheckInternetConnection ()) {
             IsLoading = false;
@@ -124,16 +126,31 @@ namespace DroidMapping.Fragments
             ShowAlert (errorInfo.message);
          } else {
             var points = await _apiService.GetAll (DeviceUtility.DeviceId);
+
+            if (points == null) {
+               Logger.Instance.Debug ("CMapFragment.UpdateMarkers: points list is null");
+               return;
+            }
+
+            if (_mapItemFilterType.HasValue) {
+               points = points.Where (x => x.GetMapItemType == _mapItemFilterType);
+            }
+
             foreach (var point in points) {
-               if (point.IsValid ()) {
-                  BitmapDescriptor icon = BitmapDescriptorFactory.FromResource (Resources.GetIdentifier (point.GetIconName, "drawable", this.Activity.PackageName));
-                  var marker = new MarkerOptions ()
-                     .SetPosition (new LatLng (point.GetLatitude, point.GetLongitude))
-                     .SetSnippet (JsonConvert.SerializeObject (point))
-                     .SetTitle (point.GetContent)
-                     .SetIcon (icon);
-                  _markers.Add (marker);
-                  map.AddMarker (marker);
+               try {
+                  if (point.IsValid ()) {
+                     var iconName = point.GetIconName;
+                     BitmapDescriptor icon = BitmapDescriptorFactory.FromResource (Resources.GetIdentifier (iconName, "drawable", this.Activity.PackageName));
+                     var marker = new MarkerOptions ()
+                        .SetPosition (new LatLng (point.GetLatitude, point.GetLongitude))
+                        .SetSnippet (JsonConvert.SerializeObject (point))
+                        .SetTitle (point.GetContent)
+                        .SetIcon (icon);
+                     _markers.Add (marker);
+                     map.AddMarker (marker);
+                  }
+               } catch (Exception ex) {
+                  Logger.Instance.Error (string.Format ("CMapFragmer.UpdateMarkers exception: {0}", ex.Message));
                }
             }
          }
@@ -164,7 +181,9 @@ namespace DroidMapping.Fragments
          menu.Add (0, 0, 0, Resource.String.ConquerMenuTitle);
          menu.Add (0, 1, 1, Resource.String.QuestMenuTitle);
          menu.Add (0, 2, 2, Resource.String.RefreshMenuTitle);
-         menu.Add (0, 3, 3, Resource.String.LogoutMenuTitle);
+         menu.Add (0, 3, 3, Resource.String.ConquerFilterMenuTitle);
+         menu.Add (0, 4, 4, Resource.String.QuestFilterMenuTitle);
+         menu.Add (0, 5, 5, Resource.String.LogoutMenuTitle);
       }
 
       public override bool OnOptionsItemSelected (IMenuItem item)
@@ -179,10 +198,19 @@ namespace DroidMapping.Fragments
             QuestHandler ();
             return true;
          case 2:
+            _mapItemFilterType = null;
             UpdateMarkers ();
             return true;
          case 3:
-            base.AnalyticsService.TrackState ("Conquer", "Hit on Logout button", string.Format ("User {0} is logout", DeviceUtility.DeviceId));
+            _mapItemFilterType = MapItemType.Point;
+            UpdateMarkers ();
+            return true;
+         case 4:
+            _mapItemFilterType = MapItemType.Quest;
+            UpdateMarkers ();
+            return true;
+         case 5:
+            AnalyticsService.TrackState ("Conquer", "Hit on Logout button", string.Format ("User {0} is logout", DeviceUtility.DeviceId));
             Logout ();
             return true;
          default:

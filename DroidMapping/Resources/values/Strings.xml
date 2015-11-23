@@ -14,6 +14,8 @@
    <string name="ConquerMenuTitle">Захват</string>
    <string name="QuestMenuTitle">Квест</string>
    <string name="RefreshMenuTitle">Обновить</string>
+   <string name="ConquerFilterMenuTitle">Точки</string>
+   <string name="QuestFilterMenuTitle">Квесты</string>
    <string name="LogoutMenuTitle">Выход</string>
    <string name="NeedInternetConnect">Необходимо подключение к интернету</string>
    <string name="GPSNotDefined">GPS-координаты не определены, повторите попытку позже</string>

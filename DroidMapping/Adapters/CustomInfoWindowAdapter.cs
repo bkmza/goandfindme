@@ -15,7 +15,7 @@ namespace DroidMapping.Adapters
 {
    public class CustomInfoWindowAdapter : Java.Lang.Object, GoogleMap.IInfoWindowAdapter
    {
-      private LayoutInflater _layoutInflater;
+      LayoutInflater _layoutInflater;
       Marker _marker;
       PointInfo _info;
 
@@ -32,7 +32,7 @@ namespace DroidMapping.Adapters
          return null;
       }
 
-      private async void SetContents (string deviceId, string pointId, string type)
+      async void SetContents (string deviceId, string pointId, string type)
       {
          _info = new PointInfo ();
          _info = await Mvx.Resolve<IApiService> ().GetInfo (deviceId, pointId, type);

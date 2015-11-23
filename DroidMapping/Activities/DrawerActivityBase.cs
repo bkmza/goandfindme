@@ -57,8 +57,7 @@ namespace DroidMapping
 
       public override bool OnCreateOptionsMenu (IMenu menu)
       {
-         // Inflate the menu; this adds items to the action bar if it is present.
-         this.MenuInflater.Inflate (Resource.Menu.navigation_drawer, menu);
+         MenuInflater.Inflate (Resource.Menu.navigation_drawer, menu);
          return true;
       }
 

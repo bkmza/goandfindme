@@ -21,7 +21,7 @@ namespace DroidMapping.Fragments
       {
          _view = inflater.Inflate (Resource.Layout.fragment_actions_list, container, false);
 
-         this.Activity.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+         Activity.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
          AddTab (Resources.GetString (Resource.String.ActionTabConquers), Resource.Drawable.Icon, new ActionConquerFragment ());
          AddTab (Resources.GetString (Resource.String.ActionTabQuests), Resource.Drawable.Icon, new ActionQuestFragment ());
@@ -31,7 +31,7 @@ namespace DroidMapping.Fragments
 
       void AddTab (string tabText, int iconResourceId, Fragment fragment)
       {
-         var tab = this.Activity.ActionBar.NewTab ();
+         var tab = Activity.ActionBar.NewTab ();
          tab.SetText (tabText);
 //         tab.SetIcon (iconResourceId);
 
@@ -39,7 +39,7 @@ namespace DroidMapping.Fragments
             e.FragmentTransaction.Replace (Resource.Id.content_frame, fragment);
          };
 
-         this.Activity.ActionBar.AddTab (tab);
+         Activity.ActionBar.AddTab (tab);
       }
 
       public override string FragmentTitle {

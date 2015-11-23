@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
+﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using GoHunting.Core.Data;
 using GoHunting.Core.Utilities;
@@ -15,7 +11,7 @@ namespace GoHunting.Core.Services
 {
    public class ApiService : IApiService
    {
-      private async Task<HttpClient> GetClient ()
+      async Task<HttpClient> GetClient ()
       {
          HttpClient client = new HttpClient (new NativeMessageHandler ());
          return client;

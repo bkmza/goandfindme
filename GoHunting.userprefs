@@ -1,16 +1,13 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Medfield1B91FDDC" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Fragments\CMapFragment.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.Nexus" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="152" Column="22" />
-      <File FileName="DroidMapping\Adapters\CustomInfoWindowAdapter.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="139" Column="44" />
+      <File FileName="GoHunting.Core\AppSettings.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Adapters\CustomInfoWindowAdapter.cs" line="48" column="1" />
-      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Adapters\CustomInfoWindowAdapter.cs" line="47" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />

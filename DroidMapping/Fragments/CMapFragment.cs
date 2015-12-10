@@ -56,7 +56,10 @@ namespace DroidMapping.Fragments
          }
 
          mapFragment = FragmentManager.FindFragmentById (Resource.Id.map) as MapFragment;
-         mapFragment.GetMapAsync (this);
+
+         if (mapFragment != null) {
+            mapFragment.GetMapAsync (this);
+         }
 
          return _view;
       }
@@ -69,7 +72,13 @@ namespace DroidMapping.Fragments
          _toastService = Mvx.Resolve<IToastService> ();
          _userActionService = Mvx.Resolve<IUserActionService> ();
 
-         AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
+         try
+         {
+            AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
+         }
+         catch (Exception ex) {
+            ShowAlert(string.Format("LocationService: {0}", ex.Message));
+         }
 
          _markers = new List<MarkerOptions> ();
 
@@ -78,7 +87,13 @@ namespace DroidMapping.Fragments
 
       public override void OnStop ()
       {
-         AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
+         try
+         {
+            AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
+         }
+         catch (Exception ex) {
+            ShowAlert(string.Format("LocationService: {0}", ex.Message));
+         }
 
          base.OnStop ();
       }

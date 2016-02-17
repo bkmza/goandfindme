@@ -17,6 +17,7 @@ using GoHunting.Core.Services;
 using Newtonsoft.Json;
 using GoHunting.Core.Utilities;
 using System.Threading.Tasks;
+using Android.App;
 
 namespace DroidMapping.Fragments
 {
@@ -33,7 +34,7 @@ namespace DroidMapping.Fragments
 
       Location _currentLocation;
       GoogleMap map;
-      MapFragment mapFragment;
+      MapView mapFragment;
       List<MarkerOptions> _markers;
 
       LayoutInflater _layoutInflater;
@@ -56,17 +57,12 @@ namespace DroidMapping.Fragments
             _view = inflater.Inflate (Resource.Layout.fragment_cmap, container, false);
          }
 
-         return _view;
-      }
-
-      public override void OnStart ()
-      {
-         base.OnStart ();
-
-         mapFragment = Activity.FragmentManager.FindFragmentById (Resource.Id.map) as MapFragment;
+         mapFragment = _view.FindViewById<MapView> (Resource.Id.map);
          if (mapFragment != null) {
             mapFragment.GetMapAsync (this);
          }
+
+         return _view;
       }
 
       public override void OnCreate (Bundle savedInstanceState)
@@ -76,6 +72,7 @@ namespace DroidMapping.Fragments
          _apiService = Mvx.Resolve<IApiService> ();
          _toastService = Mvx.Resolve<IToastService> ();
          _userActionService = Mvx.Resolve<IUserActionService> ();
+
 
          try {
             AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;

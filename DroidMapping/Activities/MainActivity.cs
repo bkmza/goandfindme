@@ -59,6 +59,13 @@ namespace DroidMapping
 
       public async void CheckUserExists ()
       {
+         // TODO
+         //
+         IsLoading = false;
+         GoToHomeScreen ();
+         //
+         //
+
          if (!CheckInternetConnection ()) {
             IsLoading = false;
             return;

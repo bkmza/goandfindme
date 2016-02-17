@@ -16,6 +16,7 @@ using GoHunting.Core.Helpers;
 using GoHunting.Core.Services;
 using Newtonsoft.Json;
 using GoHunting.Core.Utilities;
+using System.Threading.Tasks;
 
 namespace DroidMapping.Fragments
 {
@@ -55,13 +56,17 @@ namespace DroidMapping.Fragments
             _view = inflater.Inflate (Resource.Layout.fragment_cmap, container, false);
          }
 
-         mapFragment = FragmentManager.FindFragmentById (Resource.Id.map) as MapFragment;
+         return _view;
+      }
 
+      public override void OnStart ()
+      {
+         base.OnStart ();
+
+         mapFragment = Activity.FragmentManager.FindFragmentById (Resource.Id.map) as MapFragment;
          if (mapFragment != null) {
             mapFragment.GetMapAsync (this);
          }
-
-         return _view;
       }
 
       public override void OnCreate (Bundle savedInstanceState)
@@ -72,12 +77,10 @@ namespace DroidMapping.Fragments
          _toastService = Mvx.Resolve<IToastService> ();
          _userActionService = Mvx.Resolve<IUserActionService> ();
 
-         try
-         {
+         try {
             AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
-         }
-         catch (Exception ex) {
-            ShowAlert(string.Format("LocationService: {0}", ex.Message));
+         } catch (Exception ex) {
+//            ShowAlert(string.Format("LocationService: {0}", ex.Message));
          }
 
          _markers = new List<MarkerOptions> ();
@@ -87,12 +90,10 @@ namespace DroidMapping.Fragments
 
       public override void OnStop ()
       {
-         try
-         {
+         try {
             AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
-         }
-         catch (Exception ex) {
-            ShowAlert(string.Format("LocationService: {0}", ex.Message));
+         } catch (Exception ex) {
+//            ShowAlert(string.Format("LocationService: {0}", ex.Message));
          }
 
          base.OnStop ();

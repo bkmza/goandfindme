@@ -51,6 +51,10 @@ namespace DroidMapping.Fragments
 
       public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
       {
+         if (container == null) {
+            return null;
+         }
+
          _layoutInflater = inflater;
 
          if (_view == null) {

@@ -688,20 +688,20 @@ namespace DroidMapping
 			// aapt resource value: 0x7f080009
 			public const int content_frame = 2131230729;
 			
-			// aapt resource value: 0x7f08000d
-			public const int customInfoWindow_AllianceTextView = 2131230733;
+			// aapt resource value: 0x7f08000e
+			public const int customInfoWindow_AllianceTextView = 2131230734;
+			
+			// aapt resource value: 0x7f080010
+			public const int customInfoWindow_DescriptionTextView = 2131230736;
 			
 			// aapt resource value: 0x7f08000f
-			public const int customInfoWindow_DescriptionTextView = 2131230735;
+			public const int customInfoWindow_FractionTextView = 2131230735;
 			
-			// aapt resource value: 0x7f08000e
-			public const int customInfoWindow_FractionTextView = 2131230734;
+			// aapt resource value: 0x7f08000d
+			public const int customInfoWindow_LatLonTextView = 2131230733;
 			
 			// aapt resource value: 0x7f08000c
-			public const int customInfoWindow_LatLonTextView = 2131230732;
-			
-			// aapt resource value: 0x7f08000b
-			public const int customInfoWindow_Name = 2131230731;
+			public const int customInfoWindow_Name = 2131230732;
 			
 			// aapt resource value: 0x7f080008
 			public const int drawer_layout = 2131230728;
@@ -721,11 +721,11 @@ namespace DroidMapping
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
 			
-			// aapt resource value: 0x7f08000a
-			public const int left_drawer = 2131230730;
+			// aapt resource value: 0x7f08000b
+			public const int left_drawer = 2131230731;
 			
-			// aapt resource value: 0x7f080010
-			public const int map = 2131230736;
+			// aapt resource value: 0x7f08000a
+			public const int map = 2131230730;
 			
 			// aapt resource value: 0x7f080002
 			public const int none = 2131230722;

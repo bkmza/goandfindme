@@ -45,6 +45,13 @@ namespace DroidMapping
          _toastService = Mvx.Resolve<IToastService> ();
          _loginService = Mvx.Resolve<ILoginService> ();
 
+         // TODO
+         //
+         IsLoading = false;
+         GoToHomeScreen ();
+         //
+         //
+
          IsLoading = true;
          CheckUserExists ();
 
@@ -59,13 +66,6 @@ namespace DroidMapping
 
       public async void CheckUserExists ()
       {
-         // TODO
-         //
-         IsLoading = false;
-         GoToHomeScreen ();
-         //
-         //
-
          if (!CheckInternetConnection ()) {
             IsLoading = false;
             return;

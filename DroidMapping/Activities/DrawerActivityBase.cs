@@ -11,11 +11,12 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using DroidMapping.Fragments;
+using Android.Gms.Maps;
 
 namespace DroidMapping
 {
    [Activity]
-   public class DrawerActivityBase : ActivityBase, DrawerAdapter.OnItemClickListener
+   public class DrawerActivityBase : ActivityBase, DrawerAdapter.OnItemClickListener, IOnMapReadyCallback
    {
       DrawerLayout mDrawerLayout;
       RecyclerView mDrawerList;
@@ -23,6 +24,10 @@ namespace DroidMapping
       String[] drawerItems;
 
       public string mDrawerTitle;
+
+      public void OnMapReady (GoogleMap googleMap)
+      {
+      }
 
       protected override void OnCreate (Bundle savedInstanceState)
       {

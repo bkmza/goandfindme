@@ -64,6 +64,7 @@ namespace DroidMapping.Fragments
          mapFragment = _view.FindViewById<MapView> (Resource.Id.map);
          if (mapFragment != null) {
             mapFragment.OnCreate (savedInstanceState);
+            mapFragment.OnResume ();
             mapFragment.GetMapAsync (this);
          }
 

@@ -1,15 +1,11 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
+﻿using System;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
+using Cirrious.CrossCore;
+using GoHunting.Core.Services;
 
 namespace DroidMapping.Fragments
 {
@@ -17,6 +13,14 @@ namespace DroidMapping.Fragments
    {
       View _view;
       Switch _isLoggingQuestsSwitch;
+      EditText _updateMapFrequencyEditText;
+
+      IMapSettingsService _mapSettingsService;
+
+      public SettingsFragment()
+      {
+         _mapSettingsService = Mvx.Resolve<IMapSettingsService> ();
+      }
 
       public override void OnCreate (Bundle savedInstanceState)
       {
@@ -27,6 +31,9 @@ namespace DroidMapping.Fragments
       {
          _view = inflater.Inflate (Resource.Layout.fragment_settings, container, false);
          _isLoggingQuestsSwitch = _view.FindViewById<Switch> (Resource.Id.isLoggingQuestsSwitch);
+         _updateMapFrequencyEditText = _view.FindViewById<EditText>(Resource.Id.mapUpdateFrequency);
+
+         _updateMapFrequencyEditText.Text = _mapSettingsService.GetUpdateFrequency ().ToString ();
 
          RegisterHandlers ();
 
@@ -42,16 +49,36 @@ namespace DroidMapping.Fragments
       private void RegisterHandlers()
       {
          _isLoggingQuestsSwitch.CheckedChange += IsLoggingQuestsSwitchHandler;
+         _updateMapFrequencyEditText.KeyPress += UpdateMapFrequencyEditTextHandler;
       }
 
       private void UnregisterHandler()
       {
          _isLoggingQuestsSwitch.CheckedChange -= IsLoggingQuestsSwitchHandler;
+         _updateMapFrequencyEditText.KeyPress -= UpdateMapFrequencyEditTextHandler;
       }
 
       private void IsLoggingQuestsSwitchHandler(object sender, CompoundButton.CheckedChangeEventArgs e)
       {
          var result = e.IsChecked;
+      }
+
+      private void UpdateMapFrequencyEditTextHandler(object sender, View.KeyEventArgs e)
+      {
+         e.Handled = false;
+         if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter) {
+
+            InputMethodManager inputManager = (InputMethodManager) this.Activity.GetSystemService(Context.InputMethodService);
+            inputManager.HideSoftInputFromWindow(this.Activity.CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
+
+            int updateFrequency;
+            if (int.TryParse (_updateMapFrequencyEditText.Text, out updateFrequency)) {
+               _mapSettingsService.SetUpdateFrequency (updateFrequency);
+               _updateMapFrequencyEditText.ClearFocus ();
+            }
+
+            e.Handled = true;
+         }
       }
 
       public override void OnStop ()

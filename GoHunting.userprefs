@@ -2,8 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Fragments\CMapFragment.cs">
     <Files>
-      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="62" Column="11" />
-      <File FileName="DroidMapping\Activities\DrawerActivityBase.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="109" Column="33" />
+      <File FileName="DroidMapping\Activities\DrawerActivityBase.cs" Line="60" Column="56" />
+      <File FileName="DroidMapping\Activities\MainActivity.cs" Line="38" Column="45" />
+      <File FileName="DroidMapping\Fragments\SettingsFragment.cs" Line="22" Column="63" />
+      <File FileName="GoHunting.Core\Services\MapSettingsService.cs" Line="6" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

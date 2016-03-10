@@ -36,6 +36,7 @@ namespace DroidMapping
          Mvx.RegisterType<ISQLite, SQLiteAndroid> ();
          Mvx.RegisterType<IDBService, DBService> ();
          Mvx.RegisterType<IUserActionService, UserActionService> ();
+         Mvx.RegisterType<IMapSettingsService, MapSettingsService> ();
 
          base.OnCreate (bundle);
 
@@ -45,7 +46,7 @@ namespace DroidMapping
          _toastService = Mvx.Resolve<IToastService> ();
          _loginService = Mvx.Resolve<ILoginService> ();
 
-         // TODO
+         // TEST ONLY
          //
          IsLoading = false;
          GoToHomeScreen ();

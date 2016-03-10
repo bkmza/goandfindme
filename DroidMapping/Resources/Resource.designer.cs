@@ -673,8 +673,8 @@ namespace DroidMapping
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f080018
-			public const int action_websearch = 2131230744;
+			// aapt resource value: 0x7f08001b
+			public const int action_websearch = 2131230747;
 			
 			// aapt resource value: 0x7f080006
 			public const int adjust_height = 2131230726;
@@ -682,8 +682,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f080007
 			public const int adjust_width = 2131230727;
 			
-			// aapt resource value: 0x7f080016
-			public const int button_register = 2131230742;
+			// aapt resource value: 0x7f080019
+			public const int button_register = 2131230745;
 			
 			// aapt resource value: 0x7f080009
 			public const int content_frame = 2131230729;
@@ -706,11 +706,14 @@ namespace DroidMapping
 			// aapt resource value: 0x7f080008
 			public const int drawer_layout = 2131230728;
 			
-			// aapt resource value: 0x7f080015
-			public const int editText_comment = 2131230741;
+			// aapt resource value: 0x7f080018
+			public const int editText_comment = 2131230744;
 			
-			// aapt resource value: 0x7f080013
-			public const int editText_name = 2131230739;
+			// aapt resource value: 0x7f080016
+			public const int editText_name = 2131230742;
+			
+			// aapt resource value: 0x7f080012
+			public const int gridLayout1 = 2131230738;
 			
 			// aapt resource value: 0x7f080001
 			public const int hybrid = 2131230721;
@@ -727,6 +730,12 @@ namespace DroidMapping
 			// aapt resource value: 0x7f08000a
 			public const int map = 2131230730;
 			
+			// aapt resource value: 0x7f080014
+			public const int mapUpdateFrequency = 2131230740;
+			
+			// aapt resource value: 0x7f080013
+			public const int mapUpdateLabel = 2131230739;
+			
 			// aapt resource value: 0x7f080002
 			public const int none = 2131230722;
 			
@@ -739,14 +748,14 @@ namespace DroidMapping
 			// aapt resource value: 0x7f080005
 			public const int terrain = 2131230725;
 			
+			// aapt resource value: 0x7f08001a
+			public const int textView = 2131230746;
+			
+			// aapt resource value: 0x7f080015
+			public const int textView1 = 2131230741;
+			
 			// aapt resource value: 0x7f080017
-			public const int textView = 2131230743;
-			
-			// aapt resource value: 0x7f080012
-			public const int textView1 = 2131230738;
-			
-			// aapt resource value: 0x7f080014
-			public const int textView2 = 2131230740;
+			public const int textView2 = 2131230743;
 			
 			static Id()
 			{

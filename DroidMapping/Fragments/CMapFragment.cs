@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Locations;
@@ -14,10 +16,8 @@ using GoHunting.Core.Entities;
 using GoHunting.Core.Enums;
 using GoHunting.Core.Helpers;
 using GoHunting.Core.Services;
-using Newtonsoft.Json;
 using GoHunting.Core.Utilities;
-using System.Threading.Tasks;
-using Android.App;
+using Newtonsoft.Json;
 
 namespace DroidMapping.Fragments
 {
@@ -31,6 +31,7 @@ namespace DroidMapping.Fragments
       IToastService _toastService;
       IDBService _dbService;
       IUserActionService _userActionService;
+      IMapSettingsService _mapSettingsService;
 
       Location _currentLocation;
       GoogleMap map;
@@ -42,11 +43,19 @@ namespace DroidMapping.Fragments
       double _distanceToNearestPoint;
       string _nameOfNearestPoint;
 
+      private int UpdateFrequency;
+      private DateTime LastUpdated;
+      private CancellationTokenSource _cancellationMapAutoUpdate;
+
       MapItemType? _mapItemFilterType;
 
       public CMapFragment ()
       {
          _dbService = Mvx.Resolve<IDBService> ();
+         _apiService = Mvx.Resolve<IApiService> ();
+         _toastService = Mvx.Resolve<IToastService> ();
+         _userActionService = Mvx.Resolve<IUserActionService> ();
+         _mapSettingsService = Mvx.Resolve<IMapSettingsService> ();
       }
 
       public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -75,10 +84,7 @@ namespace DroidMapping.Fragments
       {
          base.OnCreate (savedInstanceState);
 
-         _apiService = Mvx.Resolve<IApiService> ();
-         _toastService = Mvx.Resolve<IToastService> ();
-         _userActionService = Mvx.Resolve<IUserActionService> ();
-
+         UpdateFrequency = _mapSettingsService.GetUpdateFrequency ();
 
          try {
             AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
@@ -91,6 +97,35 @@ namespace DroidMapping.Fragments
          SetHasOptionsMenu (true);
       }
 
+      private async void StartAutoMapUpdate()
+      {
+         LastUpdated = DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc);
+         _cancellationMapAutoUpdate = new CancellationTokenSource ();
+
+         while (!_cancellationMapAutoUpdate.Token.IsCancellationRequested) {
+            await Task.Delay (2000);
+            var pastMinutes = (DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc) - LastUpdated).TotalMinutes;
+            if (pastMinutes > UpdateFrequency) {
+               UpdateMarkers ();
+               LastUpdated = DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc);
+            }
+         }
+      }
+
+      private void StopAutoMapUpdate()
+      {
+         if (_cancellationMapAutoUpdate.Token.CanBeCanceled && !_cancellationMapAutoUpdate.Token.IsCancellationRequested) {
+            _cancellationMapAutoUpdate.Cancel ();
+         }
+      }
+
+      public override void OnStart ()
+      {
+         base.OnStart ();
+
+         StartAutoMapUpdate ();
+      }
+
       public override void OnStop ()
       {
          try {
@@ -98,6 +133,8 @@ namespace DroidMapping.Fragments
          } catch (Exception ex) {
 //            ShowAlert(string.Format("LocationService: {0}", ex.Message));
          }
+
+         StopAutoMapUpdate ();
 
          base.OnStop ();
       }

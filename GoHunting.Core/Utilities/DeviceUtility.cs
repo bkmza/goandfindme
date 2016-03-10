@@ -7,8 +7,8 @@ namespace GoHunting.Core
 	{
 		public static string DeviceId
 		{
-         get { return "HJA3XE3T"; }//DeviceInfo.Hardware.DeviceId; }
+         get { return "HJA3XE3T"; } /*DeviceInfo.Hardware.DeviceId;*/ }
 		}
-	}
 }
+
 

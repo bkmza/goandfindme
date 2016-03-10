@@ -19,15 +19,25 @@ namespace GoHunting.Core.Services
          Connection = sqlite.GetConnection ();
 
          CreateDB ();
+         CreateDBSettings ();
 //         CreateTestData ();
       }
 
       private void CreateDB ()
       {
          Connection.BeginTransaction ();
+         Connection.CreateTable<DBMapSettings> ();
          Connection.CreateTable<DBPoint> ();
          Connection.CreateTable<DBUserAction> ();
          Connection.Commit ();
+      }
+
+      private void CreateDBSettings()
+      {
+         var initialMapSettings = new DBMapSettings {
+            UpdateFrequency = 5
+         };
+         Add (initialMapSettings);
       }
 
       private void CreateTestData()

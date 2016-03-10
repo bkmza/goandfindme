@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using DroidMapping.Fragments;
 using Android.Gms.Maps;
+using Android.Views.InputMethods;
 
 namespace DroidMapping
 {

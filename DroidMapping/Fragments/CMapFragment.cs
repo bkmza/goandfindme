@@ -97,7 +97,7 @@ namespace DroidMapping.Fragments
          SetHasOptionsMenu (true);
       }
 
-      private async void StartAutoMapUpdate()
+      private async void StartAutoMapUpdate ()
       {
          LastUpdated = DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc);
          _cancellationMapAutoUpdate = new CancellationTokenSource ();
@@ -106,13 +106,14 @@ namespace DroidMapping.Fragments
             await Task.Delay (2000);
             var pastMinutes = (DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc) - LastUpdated).TotalMinutes;
             if (pastMinutes > UpdateFrequency) {
+               IsLoading = true;
                UpdateMarkers ();
                LastUpdated = DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc);
             }
          }
       }
 
-      private void StopAutoMapUpdate()
+      private void StopAutoMapUpdate ()
       {
          if (_cancellationMapAutoUpdate.Token.CanBeCanceled && !_cancellationMapAutoUpdate.Token.IsCancellationRequested) {
             _cancellationMapAutoUpdate.Cancel ();
@@ -232,14 +233,19 @@ namespace DroidMapping.Fragments
          _nameOfNearestPoint = nearestMarker.Title;
       }
 
+      private IMenu _menu;
+      private MenuInflater _menuInflater;
+
       public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
       {
-         menu.Add (0, 0, 0, Resource.String.ConquerMenuTitle);
-         menu.Add (0, 1, 1, Resource.String.QuestMenuTitle);
-         menu.Add (0, 2, 2, Resource.String.RefreshMenuTitle);
-         menu.Add (0, 3, 3, Resource.String.ConquerFilterMenuTitle);
-         menu.Add (0, 4, 4, Resource.String.QuestFilterMenuTitle);
-         menu.Add (0, 5, 5, Resource.String.LogoutMenuTitle);
+         _menu = menu;
+         _menuInflater = inflater;
+
+         _menu.Add (0, 0, 0, Resource.String.ConquerMenuTitle);
+         _menu.Add (0, 1, 1, Resource.String.QuestMenuTitle);
+         _menu.Add (0, 2, 2, Resource.String.RefreshMenuTitle);
+         _menu.Add (0, 3, 3, _mapItemFilterType.HasValue && _mapItemFilterType == MapItemType.Point ? Resource.String.AllObjectsMenuTitle : Resource.String.OnlyPointsMenuTitle);
+         _menu.Add (0, 4, 4, Resource.String.LogoutMenuTitle);
       }
 
       public override bool OnOptionsItemSelected (IMenuItem item)
@@ -258,14 +264,16 @@ namespace DroidMapping.Fragments
             UpdateMarkers ();
             return true;
          case 3:
-            _mapItemFilterType = MapItemType.Point;
+            if (_mapItemFilterType.HasValue && _mapItemFilterType == MapItemType.Point) {
+               _mapItemFilterType = null;
+            } else {
+               _mapItemFilterType = MapItemType.Point;
+            }
+            _menu.Clear ();
+            Activity.InvalidateOptionsMenu();
             UpdateMarkers ();
             return true;
          case 4:
-            _mapItemFilterType = MapItemType.Quest;
-            UpdateMarkers ();
-            return true;
-         case 5:
             AnalyticsService.TrackState ("Conquer", "Hit on Logout button", string.Format ("User {0} is logout", DeviceUtility.DeviceId));
             Logout ();
             return true;

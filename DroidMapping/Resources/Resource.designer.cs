@@ -848,11 +848,11 @@ namespace DroidMapping
 			// aapt resource value: 0x7f040034
 			public const int ActionTabQuests = 2130968628;
 			
+			// aapt resource value: 0x7f04002e
+			public const int AllObjectsMenuTitle = 2130968622;
+			
 			// aapt resource value: 0x7f040023
 			public const int ApplicationName = 2130968611;
-			
-			// aapt resource value: 0x7f04002d
-			public const int ConquerFilterMenuTitle = 2130968621;
 			
 			// aapt resource value: 0x7f04002a
 			public const int ConquerMenuTitle = 2130968618;
@@ -884,8 +884,8 @@ namespace DroidMapping
 			// aapt resource value: 0x7f040030
 			public const int NeedInternetConnect = 2130968624;
 			
-			// aapt resource value: 0x7f04002e
-			public const int QuestFilterMenuTitle = 2130968622;
+			// aapt resource value: 0x7f04002d
+			public const int OnlyPointsMenuTitle = 2130968621;
 			
 			// aapt resource value: 0x7f04002b
 			public const int QuestMenuTitle = 2130968619;

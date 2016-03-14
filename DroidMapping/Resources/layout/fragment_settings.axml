@@ -33,6 +33,9 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="0.0dp"
             android:layout_gravity="right"
-            android:focusableInTouchMode="true" />
+            android:focusableInTouchMode="true"
+            android:inputType="numberDecimal"
+            android:digits="0123456789"
+            android:maxLength="2" />
     </GridLayout>
 </LinearLayout>

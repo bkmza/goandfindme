@@ -72,9 +72,11 @@ namespace DroidMapping.Fragments
             inputManager.HideSoftInputFromWindow(this.Activity.CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
 
             int updateFrequency;
-            if (int.TryParse (_updateMapFrequencyEditText.Text, out updateFrequency)) {
+            if (int.TryParse (_updateMapFrequencyEditText.Text, out updateFrequency) && updateFrequency > 0) {
                _mapSettingsService.SetUpdateFrequency (updateFrequency);
                _updateMapFrequencyEditText.ClearFocus ();
+            } else {
+               ShowAlert ("Please, enter a one or two-digit integer value greater than zero. Settings not updated.");
             }
 
             e.Handled = true;

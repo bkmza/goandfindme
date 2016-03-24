@@ -244,8 +244,10 @@ namespace DroidMapping.Fragments
          _menu.Add (0, 0, 0, Resource.String.ConquerMenuTitle);
          _menu.Add (0, 1, 1, Resource.String.QuestMenuTitle);
          _menu.Add (0, 2, 2, Resource.String.RefreshMenuTitle);
-         _menu.Add (0, 3, 3, _mapItemFilterType.HasValue && _mapItemFilterType == MapItemType.Point ? Resource.String.AllObjectsMenuTitle : Resource.String.OnlyPointsMenuTitle);
-         _menu.Add (0, 4, 4, Resource.String.LogoutMenuTitle);
+         _menu.Add (0, 3, 3, Resource.String.OnlyPointsMenuTitle);
+         _menu.Add (0, 4, 4, Resource.String.OnlyQuestsMenuTitle);
+         _menu.Add (0, 5, 5, Resource.String.AllObjectsMenuTitle);
+         _menu.Add (0, 6, 6, Resource.String.LogoutMenuTitle);
       }
 
       public override bool OnOptionsItemSelected (IMenuItem item)
@@ -264,16 +266,24 @@ namespace DroidMapping.Fragments
             UpdateMarkers ();
             return true;
          case 3:
-            if (_mapItemFilterType.HasValue && _mapItemFilterType == MapItemType.Point) {
-               _mapItemFilterType = null;
-            } else {
-               _mapItemFilterType = MapItemType.Point;
-            }
+            _mapItemFilterType = MapItemType.Point;
             _menu.Clear ();
             Activity.InvalidateOptionsMenu();
             UpdateMarkers ();
             return true;
          case 4:
+            _mapItemFilterType = MapItemType.Quest;
+            _menu.Clear ();
+            Activity.InvalidateOptionsMenu();
+            UpdateMarkers ();
+            return true;
+         case 5:
+            _mapItemFilterType = null;
+            _menu.Clear ();
+            Activity.InvalidateOptionsMenu();
+            UpdateMarkers ();
+            return true;
+         case 6:
             AnalyticsService.TrackState ("Conquer", "Hit on Logout button", string.Format ("User {0} is logout", DeviceUtility.DeviceId));
             Logout ();
             return true;

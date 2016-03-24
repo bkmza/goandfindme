@@ -15,6 +15,7 @@
    <string name="QuestMenuTitle">Квест</string>
    <string name="RefreshMenuTitle">Обновить</string>
    <string name="OnlyPointsMenuTitle">Только точки</string>
+   <string name="OnlyQuestsMenuTitle">Только квесты</string>
    <string name="AllObjectsMenuTitle">Все объекты</string>
    <string name="LogoutMenuTitle">Выход</string>
    <string name="NeedInternetConnect">Необходимо подключение к интернету</string>

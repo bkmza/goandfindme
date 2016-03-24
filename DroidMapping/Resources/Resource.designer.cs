@@ -842,14 +842,14 @@ namespace DroidMapping
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040033
-			public const int ActionTabConquers = 2130968627;
-			
 			// aapt resource value: 0x7f040034
-			public const int ActionTabQuests = 2130968628;
+			public const int ActionTabConquers = 2130968628;
 			
-			// aapt resource value: 0x7f04002e
-			public const int AllObjectsMenuTitle = 2130968622;
+			// aapt resource value: 0x7f040035
+			public const int ActionTabQuests = 2130968629;
+			
+			// aapt resource value: 0x7f04002f
+			public const int AllObjectsMenuTitle = 2130968623;
 			
 			// aapt resource value: 0x7f040023
 			public const int ApplicationName = 2130968611;
@@ -872,20 +872,23 @@ namespace DroidMapping
 			// aapt resource value: 0x7f040029
 			public const int DrawerSettings = 2130968617;
 			
-			// aapt resource value: 0x7f040031
-			public const int GPSNotDefined = 2130968625;
+			// aapt resource value: 0x7f040032
+			public const int GPSNotDefined = 2130968626;
 			
 			// aapt resource value: 0x7f040022
 			public const int Hello = 2130968610;
 			
-			// aapt resource value: 0x7f04002f
-			public const int LogoutMenuTitle = 2130968623;
-			
 			// aapt resource value: 0x7f040030
-			public const int NeedInternetConnect = 2130968624;
+			public const int LogoutMenuTitle = 2130968624;
+			
+			// aapt resource value: 0x7f040031
+			public const int NeedInternetConnect = 2130968625;
 			
 			// aapt resource value: 0x7f04002d
 			public const int OnlyPointsMenuTitle = 2130968621;
+			
+			// aapt resource value: 0x7f04002e
+			public const int OnlyQuestsMenuTitle = 2130968622;
 			
 			// aapt resource value: 0x7f04002b
 			public const int QuestMenuTitle = 2130968619;
@@ -893,17 +896,17 @@ namespace DroidMapping
 			// aapt resource value: 0x7f04002c
 			public const int RefreshMenuTitle = 2130968620;
 			
-			// aapt resource value: 0x7f040032
-			public const int Wait = 2130968626;
+			// aapt resource value: 0x7f040033
+			public const int Wait = 2130968627;
 			
-			// aapt resource value: 0x7f040037
-			public const int action_websearch = 2130968631;
+			// aapt resource value: 0x7f040038
+			public const int action_websearch = 2130968632;
 			
 			// aapt resource value: 0x7f040024
 			public const int app_name = 2130968612;
 			
-			// aapt resource value: 0x7f040038
-			public const int app_not_available = 2130968632;
+			// aapt resource value: 0x7f040039
+			public const int app_not_available = 2130968633;
 			
 			// aapt resource value: 0x7f040001
 			public const int auth_google_play_services_client_facebook_display_name = 2130968577;
@@ -1007,11 +1010,11 @@ namespace DroidMapping
 			// aapt resource value: 0x7f040021
 			public const int common_signin_button_text_long = 2130968609;
 			
-			// aapt resource value: 0x7f040036
-			public const int drawer_close = 2130968630;
+			// aapt resource value: 0x7f040037
+			public const int drawer_close = 2130968631;
 			
-			// aapt resource value: 0x7f040035
-			public const int drawer_open = 2130968629;
+			// aapt resource value: 0x7f040036
+			public const int drawer_open = 2130968630;
 			
 			static String()
 			{

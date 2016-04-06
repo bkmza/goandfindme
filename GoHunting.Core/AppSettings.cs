@@ -12,14 +12,14 @@ namespace GoHunting.Core
       static AppSettings ()
       {
          // GoHunting // packageName: com.go.goandfindme
-         //BaseHost = "http://gollars.letsmake.ru/";
-         //ApplicationName = @"GO&Find Me";
-         //PackageName = "com.go.goandfindme";
+         BaseHost = "gohunting.greyorder.su/";
+         ApplicationName = @"GOhunting";
+         PackageName = "com.go.goandfindme";
 
          // Paranoia // packageName: com.go.paranoia
-         BaseHost = "http://goandpay.greyorder.su/";
-         ApplicationName = @"Paranoia";
-         PackageName = "com.go.paranoia";
+//         BaseHost = "http://goandpay.greyorder.su/";
+//         ApplicationName = @"Paranoia";
+//         PackageName = "com.go.paranoia";
       }
 
       public static string TrackingId { get; set; }

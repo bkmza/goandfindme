@@ -12,7 +12,7 @@ namespace GoHunting.Core
       static AppSettings ()
       {
          // GoHunting // packageName: com.go.goandfindme
-         BaseHost = "gohunting.greyorder.su/";
+         BaseHost = "http://gohunting.greyorder.su/";
          ApplicationName = @"GOhunting";
          PackageName = "com.go.goandfindme";
 

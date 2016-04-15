@@ -16,6 +16,9 @@ namespace GoHunting.Core.Entities
 
       [Column ("date")]
       public DateTime Date { get; set; }
+
+      [Column ("number")]
+      public string Number { get; set; }
    }
 }
 

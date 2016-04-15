@@ -27,7 +27,7 @@ namespace DroidMapping.Fragments
 
          var userActions = _userActionService.GetConquers ();
 
-         var items = userActions.Select (x => new Tuple<string,string> (x.Title, string.Format ("{0}, {1}", x.Date.ToString (), x.Description))).ToList ();
+         var items = userActions.Select (x => new Tuple<string,string> (string.Format("{0} - {1}", x.Number, x.Title), string.Format ("{0}, {1}", x.Date, x.Description))).ToList ();
 
          this.ListAdapter = new SimpleListItem2_Adapter (this.Activity, items);
       }

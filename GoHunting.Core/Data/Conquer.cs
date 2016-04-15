@@ -12,6 +12,8 @@ namespace GoHunting.Core
 
 		public string status;
 		public string description;
+      public string title;
+      public string number;
 
 		public string GetDescription
 		{

@@ -1,22 +1,19 @@
 ﻿<Properties StartupItem="DroidMapping\GoHunting.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.Nexus" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\GoogleMapsKey.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.LGD8559a34c0c8" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="DroidMapping\Activities\MainActivity.cs" Line="51" Column="1" />
-      <File FileName="GoHunting.Core\Utilities\DeviceUtility.cs" Line="9" Column="23" />
-      <File FileName="DroidMapping\Fragments\ActionQuestFragment.cs" Line="26" Column="66" />
-      <File FileName="DroidMapping\Fragments\ActionConquerFragment.cs" Line="30" Column="118" />
-      <File FileName="GoHunting.Core\Services\UserActionService.cs" Line="10" Column="55" />
-      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="321" Column="19" />
-      <File FileName="GoHunting.Core\Data\Conquer.cs" Line="16" Column="28" />
-      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="12" Column="13" />
-      <File FileName="DroidMapping\GoogleMapsKey.cs" Line="7" Column="7" />
+      <File FileName="DroidMapping\Fragments\ActionQuestFragment.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\Fragments\ActionConquerFragment.cs" Line="1" Column="1" />
+      <File FileName="GoHunting.Core\Services\UserActionService.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="343" Column="56" />
+      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\GoogleMapsKey.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\Properties\AndroidManifest.xml" Line="12" Column="12" />
+      <File FileName="GoHunting.Core\Data\Conquer.cs" Line="6" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="D:\_personal\mobile\DroidMapping\DroidMapping\Fragments\CMapFragment.cs" line="343" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />

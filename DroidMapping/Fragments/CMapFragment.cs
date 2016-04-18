@@ -337,7 +337,7 @@ namespace DroidMapping.Fragments
          if (_currentLocation != null) {
             Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate (), _currentLocation.Longitude.ProcessCoordinate ());
             description = result.GetDescription;
-            if (result.IsSuccess) {
+            if (result.IsSuccess || description.Contains("Взятие квеста")) {
                UpdateMarkers ();
 
                _userActionService.Add (new UserAction {

@@ -52,13 +52,16 @@ namespace DroidMapping.Fragments
          }
          set {
             _isLoading = value;
-            if (_isLoading) {
-               _progressDialog = ProgressDialog.Show (this.Activity, string.Empty, Resources.GetString (Resource.String.Wait), true, false);
-            } else {
-               if (_progressDialog != null && _progressDialog.IsShowing) {
-                  _progressDialog.Dismiss ();
+            Activity.RunOnUiThread (() => {
+               if (_isLoading) {
+                  _progressDialog = ProgressDialog.Show (this.Activity, string.Empty, Resources.GetString (Resource.String.Wait), true, false);
+               } else {
+                  if (_progressDialog != null && _progressDialog.IsShowing) {
+
+                     _progressDialog.Dismiss ();
+                  }
                }
-            }
+            });
          }
       }
 
@@ -74,10 +77,8 @@ namespace DroidMapping.Fragments
          });
       }
 
-      public virtual string FragmentTitle
-      {
-         get
-         {
+      public virtual string FragmentTitle {
+         get {
             return string.Empty;
          }
       }

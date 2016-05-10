@@ -89,7 +89,7 @@ namespace DroidMapping.Fragments
          try {
             AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
          } catch (Exception ex) {
-//            ShowAlert(string.Format("LocationService: {0}", ex.Message));
+            ShowAlert (string.Format ("LocationService: {0}", ex.Message));
          }
 
          _markers = new List<MarkerOptions> ();
@@ -106,8 +106,7 @@ namespace DroidMapping.Fragments
             await Task.Delay (2000);
             var pastMinutes = (DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc) - LastUpdated).TotalMinutes;
             if (pastMinutes > UpdateFrequency) {
-               IsLoading = true;
-               UpdateMarkers ();
+               await UpdateMarkersAsync ();
                LastUpdated = DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc);
             }
          }
@@ -115,6 +114,9 @@ namespace DroidMapping.Fragments
 
       private void StopAutoMapUpdate ()
       {
+         if (_cancellationMapAutoUpdate == null)
+            return;
+
          if (_cancellationMapAutoUpdate.Token.CanBeCanceled && !_cancellationMapAutoUpdate.Token.IsCancellationRequested) {
             _cancellationMapAutoUpdate.Cancel ();
          }
@@ -132,7 +134,7 @@ namespace DroidMapping.Fragments
          try {
             AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
          } catch (Exception ex) {
-//            ShowAlert(string.Format("LocationService: {0}", ex.Message));
+            ShowAlert (string.Format ("LocationService: {0}", ex.Message));
          }
 
          StopAutoMapUpdate ();
@@ -161,10 +163,34 @@ namespace DroidMapping.Fragments
          CameraUpdate update = CameraUpdateFactory.NewLatLngZoom (Location_Minsk, 11);
          map.MoveCamera (update);
 
-         UpdateMarkers ();
+         Task.Run (async () => {
+            await UpdateMarkersAsync ();
+         });
       }
 
-      async void UpdateMarkers ()
+      private async Task UpdateMarkersAsync ()
+      {
+         IsLoading = true;
+
+         Activity.RunOnUiThread (() => {
+            AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
+            AppLocation.StopLocationService();
+            Activity.Title = FragmentTitle;
+         });
+
+         StopAutoMapUpdate ();
+         await UpdateMarkers ();
+         StartAutoMapUpdate ();
+
+         Activity.RunOnUiThread (() => {
+            AppLocation.StartLocationService();
+            AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
+         });
+
+         IsLoading = false;
+      }
+
+      async Task UpdateMarkers ()
       {
          if (!CheckInternetConnection ()) {
             IsLoading = false;
@@ -176,7 +202,7 @@ namespace DroidMapping.Fragments
             return;
          }
 
-         map.Clear ();
+         ClearMap ();
 
          ErrorInfo errorInfo = await _apiService.CheckUserAccess (DeviceUtility.DeviceId);
          if (errorInfo.status == "blocked") {
@@ -193,21 +219,26 @@ namespace DroidMapping.Fragments
                points = points.Where (x => x.GetMapItemType == _mapItemFilterType);
             }
 
-            foreach (var point in points) {
-               try {
-                  if (point.IsValid ()) {
-                     var iconName = point.GetIconName;
-                     BitmapDescriptor icon = BitmapDescriptorFactory.FromResource (Resources.GetIdentifier (iconName, "drawable", this.Activity.PackageName));
-                     var marker = new MarkerOptions ()
+            IsLoading = false;
+
+            lock (_lockObject) {
+               foreach (var point in points) {
+                  try {
+                     if (point.IsValid ()) {
+                        var iconName = point.GetIconName;
+                        BitmapDescriptor icon = BitmapDescriptorFactory.FromResource (Resources.GetIdentifier (iconName, "drawable", this.Activity.PackageName));
+                        var marker = new MarkerOptions ()
                         .SetPosition (new LatLng (point.GetLatitude, point.GetLongitude))
                         .SetSnippet (JsonConvert.SerializeObject (point))
                         .SetTitle (point.GetContent)
                         .SetIcon (icon);
-                     _markers.Add (marker);
-                     map.AddMarker (marker);
+                        _markers.Add (marker);
+
+                        AddMarkerOnMap (marker);
+                     }
+                  } catch (Exception ex) {
+                     Logger.Instance.Error (string.Format ("CMapFragmer.UpdateMarkers exception: {0}", ex.Message));
                   }
-               } catch (Exception ex) {
-                  Logger.Instance.Error (string.Format ("CMapFragmer.UpdateMarkers exception: {0}", ex.Message));
                }
             }
          }
@@ -215,17 +246,21 @@ namespace DroidMapping.Fragments
          IsLoading = false;
       }
 
+      private object _lockObject = new object ();
+
       void UpdateNearestPointInformation ()
       {
          _distanceToNearestPoint = float.MaxValue;
          MarkerOptions nearestMarker = new MarkerOptions ();
          if (_currentLocation != null) {
-            foreach (var marker in _markers) {
-               float[] results = new float[] { 0 };
-               Location.DistanceBetween (_currentLocation.Latitude, _currentLocation.Longitude, marker.Position.Latitude, marker.Position.Longitude, results);
-               if (_distanceToNearestPoint > results [0]) {
-                  _distanceToNearestPoint = results [0];
-                  nearestMarker = marker;
+            lock (_lockObject) {
+               foreach (var marker in _markers) {
+                  float[] results = new float[] { 0 };
+                  Location.DistanceBetween (_currentLocation.Latitude, _currentLocation.Longitude, marker.Position.Latitude, marker.Position.Longitude, results);
+                  if (_distanceToNearestPoint > results [0]) {
+                     _distanceToNearestPoint = results [0];
+                     nearestMarker = marker;
+                  }
                }
             }
          }
@@ -252,7 +287,6 @@ namespace DroidMapping.Fragments
 
       public override bool OnOptionsItemSelected (IMenuItem item)
       {
-         IsLoading = true;
          switch (item.ItemId) {
          case 0:
             base.AnalyticsService.TrackState ("Conquer", "Hit on Conquer button", string.Format ("User {0} is tryuing to conquer point {1}", DeviceUtility.DeviceId, _nameOfNearestPoint));
@@ -263,25 +297,25 @@ namespace DroidMapping.Fragments
             return true;
          case 2:
             _mapItemFilterType = null;
-            UpdateMarkers ();
+            UpdateMarkersAsync ();
             return true;
          case 3:
             _mapItemFilterType = MapItemType.Point;
             _menu.Clear ();
-            Activity.InvalidateOptionsMenu();
-            UpdateMarkers ();
+            Activity.InvalidateOptionsMenu ();
+            UpdateMarkersAsync ();
             return true;
          case 4:
             _mapItemFilterType = MapItemType.Quest;
             _menu.Clear ();
-            Activity.InvalidateOptionsMenu();
-            UpdateMarkers ();
+            Activity.InvalidateOptionsMenu ();
+            UpdateMarkersAsync ();
             return true;
          case 5:
             _mapItemFilterType = null;
             _menu.Clear ();
-            Activity.InvalidateOptionsMenu();
-            UpdateMarkers ();
+            Activity.InvalidateOptionsMenu ();
+            UpdateMarkersAsync ();
             return true;
          case 6:
             AnalyticsService.TrackState ("Conquer", "Hit on Logout button", string.Format ("User {0} is logout", DeviceUtility.DeviceId));
@@ -298,7 +332,7 @@ namespace DroidMapping.Fragments
          Process.KillProcess (Process.MyPid ());
       }
 
-      async void ConquerHandler ()
+      private async void ConquerHandler ()
       {
          if (!CheckInternetConnection ()) {
             IsLoading = false;
@@ -310,14 +344,14 @@ namespace DroidMapping.Fragments
             Conquer result = await _apiService.Conquer (DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate (), _currentLocation.Longitude.ProcessCoordinate ());
             description = result.GetDescription;
             if (result.IsSuccess) {
-               UpdateMarkers ();
+               await UpdateMarkersAsync ();
 
                _userActionService.Add (new UserAction {
                   Type = (int)MapItemType.Point,
                   Title = result.title,
                   Number = result.number,
                   Description = result.GetDescription,
-                  Date = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc)
+                  Date = DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc)
                });
             }
          }
@@ -326,7 +360,7 @@ namespace DroidMapping.Fragments
          this.ShowAlert (description);
       }
 
-      async void QuestHandler ()
+      private async void QuestHandler ()
       {
          if (!CheckInternetConnection ()) {
             IsLoading = false;
@@ -337,15 +371,15 @@ namespace DroidMapping.Fragments
          if (_currentLocation != null) {
             Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate (), _currentLocation.Longitude.ProcessCoordinate ());
             description = result.GetDescription;
-            if (result.IsSuccess || description.Contains("Взятие квеста")) {
-               UpdateMarkers ();
+            if (result.IsSuccess || description.Contains ("Взятие квеста")) {
+               await UpdateMarkersAsync ();
 
                _userActionService.Add (new UserAction {
                   Type = (int)MapItemType.Quest,
                   Title = result.title,
                   Number = result.number,
                   Description = result.GetDescription,
-                  Date = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc)
+                  Date = DateTime.SpecifyKind (DateTime.Now, DateTimeKind.Utc)
                });
             }
          }
@@ -358,6 +392,28 @@ namespace DroidMapping.Fragments
          get {
             return Resources.GetString (Resource.String.DrawerMap);
          }
+      }
+
+      private void ClearMap ()
+      {
+         Activity.RunOnUiThread (() => {
+            try {
+               map.Clear ();
+            } catch (Exception ex) {
+               Logger.Instance.Error (ex.Message);
+            }
+         });
+      }
+
+      private void AddMarkerOnMap (MarkerOptions marker)
+      {
+         Activity.RunOnUiThread (() => {
+            try {
+               map.AddMarker (marker);
+            } catch (Exception ex) {
+               Logger.Instance.Error (ex.Message);
+            }
+         });
       }
    }
 }

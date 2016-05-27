@@ -15,6 +15,14 @@ namespace DroidMapping.Services
          Toast toast = Toast.MakeText (context, message, ToastLength.Short);
          toast.Show ();
       }
+
+      public void ShowMessageLongPeriod(string message)
+      {
+         Context context = Application.Context;
+
+         Toast toast = Toast.MakeText (context, message, ToastLength.Long);
+         toast.Show ();
+      }
 	}
 }
 

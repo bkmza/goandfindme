@@ -44,13 +44,13 @@ namespace GoHunting.Core.Services
       {
          var predefinedActions = new[] {
             new DBUserAction { Type = (int)MapItemType.Point, Title = "Conquer0", Description = "Description0", Date = DateTime.Now },
-            new DBUserAction { Type = (int)MapItemType.Point, Title = "Conquer1", Description = "Description1", Date = DateTime.Now },
-            new DBUserAction { Type = (int)MapItemType.Point, Title = "Conquer2", Description = "Description2", Date = DateTime.Now },
+            new DBUserAction { Type = (int)MapItemType.Point, Title = "Conquer1", Description = "Description1", Date = DateTime.Now.AddMinutes(1) },
+            new DBUserAction { Type = (int)MapItemType.Point, Title = "Conquer2", Description = "Description2", Date = DateTime.Now.AddDays(1) },
 
             new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest0", Description = "Description0", Date = DateTime.Now },
-            new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest1", Description = "Description1", Date = DateTime.Now },
-            new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest2", Description = "Description2", Date = DateTime.Now },
-            new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest3", Description = "Description3", Date = DateTime.Now },
+            new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest1", Description = "Description1", Date = DateTime.Now.AddMinutes(1) },
+            new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest2", Description = "Description2", Date = DateTime.Now.AddDays(1) },
+            new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest3", Description = "Description3", Date = DateTime.Now.AddDays(2) },
          };
          foreach (var item in predefinedActions) {
             Add (item);

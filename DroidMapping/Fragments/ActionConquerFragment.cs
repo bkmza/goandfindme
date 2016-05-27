@@ -2,12 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Cirrious.CrossCore;
@@ -27,7 +24,8 @@ namespace DroidMapping.Fragments
 
          var userActions = _userActionService.GetConquers ();
 
-         var items = userActions.Select (x => new Tuple<string,string> (string.Format("{0} - {1}", x.Number, x.Title), string.Format ("{0}, {1}", x.Date, x.Description))).ToList ();
+         var items = userActions.OrderByDescending(x=>x.Date)
+            .Select (x => new Tuple<string,string> (string.Format("{0} - {1}", x.Number, x.Title), string.Format ("{0}, {1}", x.Date, x.Description))).ToList ();
 
          this.ListAdapter = new SimpleListItem2_Adapter (this.Activity, items);
       }

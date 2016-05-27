@@ -88,6 +88,8 @@ namespace DroidMapping.Fragments
 
          try {
             AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
+            AppLocation.Current.LocationService.ProviderEnabled += HandleLocationEnabled;
+            AppLocation.Current.LocationService.ProviderDisabled += HandleLocationDisabled;
          } catch (Exception ex) {
             ShowAlert (string.Format ("LocationService: {0}", ex.Message));
          }
@@ -133,6 +135,8 @@ namespace DroidMapping.Fragments
       {
          try {
             AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
+            AppLocation.Current.LocationService.ProviderEnabled -= HandleLocationEnabled;
+            AppLocation.Current.LocationService.ProviderDisabled -= HandleLocationDisabled;
          } catch (Exception ex) {
             ShowAlert (string.Format ("LocationService: {0}", ex.Message));
          }
@@ -140,6 +144,23 @@ namespace DroidMapping.Fragments
          StopAutoMapUpdate ();
 
          base.OnStop ();
+      }
+
+      public void HandleLocationEnabled (object sender, ProviderEnabledEventArgs e)
+      {
+         Activity.RunOnUiThread (() => {
+            AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
+            _toastService.ShowMessageLongPeriod (string.Format ("Started processing your location. Looks like you turned on GPS."));
+         });
+      }
+
+      public void HandleLocationDisabled (object sender, ProviderDisabledEventArgs e)
+      {
+         Activity.RunOnUiThread (() => {
+            AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
+            _toastService.ShowMessageLongPeriod (string.Format ("Stopped processing your location. Looks like you turned off GPS."));
+            Activity.Title = FragmentTitle;
+         });
       }
 
       public void HandleLocationChanged (object sender, LocationChangedEventArgs e)
@@ -173,19 +194,12 @@ namespace DroidMapping.Fragments
          IsLoading = true;
 
          Activity.RunOnUiThread (() => {
-            AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
-            AppLocation.StopLocationService();
             Activity.Title = FragmentTitle;
          });
 
          StopAutoMapUpdate ();
          await UpdateMarkers ();
          StartAutoMapUpdate ();
-
-         Activity.RunOnUiThread (() => {
-            AppLocation.StartLocationService();
-            AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
-         });
 
          IsLoading = false;
       }

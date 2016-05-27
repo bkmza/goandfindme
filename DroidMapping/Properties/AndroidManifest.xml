@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="2.0.16" package="com.go.goandfindme" android:versionCode="7">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="2.0.17" package="com.go.goandfindme" android:versionCode="8">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="23" />
 	<application android:label="GOhunting" android:icon="@drawable/icon"></application>
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />

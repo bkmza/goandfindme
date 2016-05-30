@@ -85,15 +85,6 @@ namespace DroidMapping.Fragments
          base.OnCreate (savedInstanceState);
 
          UpdateFrequency = _mapSettingsService.GetUpdateFrequency ();
-
-         try {
-            AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
-            AppLocation.Current.LocationService.ProviderEnabled += HandleLocationEnabled;
-            AppLocation.Current.LocationService.ProviderDisabled += HandleLocationDisabled;
-         } catch (Exception ex) {
-            ShowAlert (string.Format ("LocationService: {0}", ex.Message));
-         }
-
          _markers = new List<MarkerOptions> ();
 
          SetHasOptionsMenu (true);
@@ -127,7 +118,13 @@ namespace DroidMapping.Fragments
       public override void OnStart ()
       {
          base.OnStart ();
-
+         try {
+            AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
+            AppLocation.Current.LocationService.ProviderEnabled += HandleLocationEnabled;
+            AppLocation.Current.LocationService.ProviderDisabled += HandleLocationDisabled;
+         } catch (Exception ex) {
+            ShowAlert (string.Format ("LocationService: {0}", ex.Message));
+         }
          StartAutoMapUpdate ();
       }
 

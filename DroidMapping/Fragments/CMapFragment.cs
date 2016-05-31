@@ -190,10 +190,6 @@ namespace DroidMapping.Fragments
       {
          IsLoading = true;
 
-         Activity.RunOnUiThread (() => {
-            Activity.Title = FragmentTitle;
-         });
-
          StopAutoMapUpdate ();
          await UpdateMarkers ();
          StartAutoMapUpdate ();
@@ -233,6 +229,7 @@ namespace DroidMapping.Fragments
             IsLoading = false;
 
             lock (_lockObject) {
+               _markers = new List<MarkerOptions> ();
                foreach (var point in points) {
                   try {
                      if (point.IsValid ()) {
@@ -266,7 +263,7 @@ namespace DroidMapping.Fragments
          if (_currentLocation != null) {
             lock (_lockObject) {
                foreach (var marker in _markers) {
-                  float[] results = new float[] { 0 };
+                  float[] results = { 0 };
                   Location.DistanceBetween (_currentLocation.Latitude, _currentLocation.Longitude, marker.Position.Latitude, marker.Position.Longitude, results);
                   if (_distanceToNearestPoint > results [0]) {
                      _distanceToNearestPoint = results [0];

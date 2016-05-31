@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.LGD8559a34c0c8" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Fragments\CMapFragment.cs">
     <Files>
-      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="177" Column="47" />
+      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="342" Column="7" />
       <File FileName="GoHunting.Core\Services\ApiService.cs" Line="22" Column="57" />
-      <File FileName="DroidMapping\Activities\MainActivity.cs" Line="50" Column="12" />
+      <File FileName="DroidMapping\GoogleMapsKey.cs" Line="7" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

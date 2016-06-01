@@ -44,6 +44,7 @@ namespace DroidMapping.Fragments
       string _nameOfNearestPoint;
 
       private int UpdateFrequency;
+      private MapType MapType;
       private DateTime LastUpdated;
       private CancellationTokenSource _cancellationMapAutoUpdate;
 
@@ -85,6 +86,7 @@ namespace DroidMapping.Fragments
          base.OnCreate (savedInstanceState);
 
          UpdateFrequency = _mapSettingsService.GetUpdateFrequency ();
+         MapType = (MapType)_mapSettingsService.GetMapType ();
          _markers = new List<MarkerOptions> ();
 
          SetHasOptionsMenu (true);
@@ -172,7 +174,17 @@ namespace DroidMapping.Fragments
       public void OnMapReady (GoogleMap googleMap)
       {
          map = googleMap;
-         map.MapType = GoogleMap.MapTypeNormal;
+         switch (MapType) {
+         case MapType.Normal:
+            map.MapType = GoogleMap.MapTypeNormal;
+            break;
+         case MapType.Hybrid:
+            map.MapType = GoogleMap.MapTypeHybrid;
+            break;
+         case MapType.Terrain:
+            map.MapType = GoogleMap.MapTypeTerrain;
+            break;
+         }
          map.MyLocationEnabled = true;
          map.UiSettings.MyLocationButtonEnabled = true;
          map.UiSettings.ZoomControlsEnabled = true;
@@ -379,7 +391,7 @@ namespace DroidMapping.Fragments
          if (_currentLocation != null) {
             Conquer result = await _apiService.Quest (DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate (), _currentLocation.Longitude.ProcessCoordinate ());
             description = result.GetDescription;
-            if (result.IsSuccess || description.Contains ("Взятие квеста")) {
+            if (result.IsSuccess) {
                await UpdateMarkersAsync ();
 
                _userActionService.Add (new UserAction {

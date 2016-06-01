@@ -8,6 +8,9 @@ namespace GoHunting.Core.Entities
       // Map update frequency in minutes
       [Column ("update_frequency")]
       public int UpdateFrequency { get; set; }
+
+      [Column ("map_type")]
+      public int MapType { get; set; }
    }
 }
 

@@ -24,6 +24,19 @@ namespace GoHunting.Core.Services
          dbMapSettings.UpdateFrequency = value;
          _dbService.Update (dbMapSettings);
       }
+
+      public int GetMapType()
+      {
+         var dbMapSettings = _dbService.Get<DBMapSettings> (1);
+         return dbMapSettings.MapType;
+      }
+
+      public void SetMapType(int mapType)
+      {
+         var dbMapSettings = _dbService.Get<DBMapSettings> (1);
+         dbMapSettings.MapType = mapType;
+         _dbService.Update (dbMapSettings);
+      }
    }
 }
 

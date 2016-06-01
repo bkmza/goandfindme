@@ -7,6 +7,10 @@ namespace GoHunting.Core.Services
       int GetUpdateFrequency();
 
       void SetUpdateFrequency(int value);
+
+      int GetMapType();
+
+      void SetMapType(int mapType);
    }
 }
 

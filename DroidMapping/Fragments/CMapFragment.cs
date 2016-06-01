@@ -184,6 +184,9 @@ namespace DroidMapping.Fragments
          case MapType.Terrain:
             map.MapType = GoogleMap.MapTypeTerrain;
             break;
+         default:
+            map.MapType = GoogleMap.MapTypeNormal;
+            break;
          }
          map.MyLocationEnabled = true;
          map.UiSettings.MyLocationButtonEnabled = true;

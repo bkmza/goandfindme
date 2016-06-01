@@ -56,6 +56,9 @@ namespace DroidMapping.Fragments
          case MapType.Terrain:
             _mapTerrainType.Checked = true;
             break;
+         default:
+            _mapNormalType.Checked = true;
+            break;
          }
 
          RegisterHandlers ();

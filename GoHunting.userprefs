@@ -1,21 +1,18 @@
-﻿<Properties StartupItem="DroidMapping\GoHunting.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.LGD8559a34c0c8" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\GoogleMapsKey.cs">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="DroidMapping\GoHunting.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.ItemProperties.GoHunting AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.LGD8559a34c0c8" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\Fragments\CMapFragment.cs">
     <Files>
-      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="65" Column="25" />
-      <File FileName="GoHunting.Core\Services\ApiService.cs" Line="1" Column="1" />
-      <File FileName="DroidMapping\Fragments\SettingsFragment.cs" Line="1" Column="1" />
-      <File FileName="DroidMapping\GoogleMapsKey.cs" Line="7" Column="7" />
-      <File FileName="d:\_personal\mobile\DroidMapping\DroidMapping\Services\LocationService.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="153" Column="75" />
+      <File FileName="DroidMapping\Services\LocationService.cs" Line="1" Column="1" />
       <File FileName="DroidMapping\Activities\MainActivity.cs" Line="1" Column="1" />
       <File FileName="DroidMapping\AppLocation.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
-  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.GoHunting AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>

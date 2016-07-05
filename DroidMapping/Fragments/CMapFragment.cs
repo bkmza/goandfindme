@@ -148,6 +148,7 @@ namespace DroidMapping.Fragments
       public void HandleLocationEnabled (object sender, ProviderEnabledEventArgs e)
       {
          Activity.RunOnUiThread (() => {
+            _currentLocation = null;
             AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
             _toastService.ShowMessageLongPeriod (string.Format ("Started processing your location. Looks like you turned on GPS."));
          });
@@ -156,6 +157,7 @@ namespace DroidMapping.Fragments
       public void HandleLocationDisabled (object sender, ProviderDisabledEventArgs e)
       {
          Activity.RunOnUiThread (() => {
+            _currentLocation = null;
             AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
             _toastService.ShowMessageLongPeriod (string.Format ("Stopped processing your location. Looks like you turned off GPS."));
             Activity.Title = FragmentTitle;

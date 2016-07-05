@@ -152,6 +152,7 @@
     <Compile Include="Fragments\SettingsFragment.cs" />
     <Compile Include="Utilities\InternetUtility.cs" />
     <Compile Include="Utilities\AndroidLogger.cs" />
+    <Compile Include="Utilities\PermissionUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />

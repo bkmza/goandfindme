@@ -14,6 +14,7 @@ namespace GoHunting.Core.Services
       async Task<HttpClient> GetClient ()
       {
          HttpClient client = new HttpClient (new NativeMessageHandler ());
+         client.Timeout = new System.TimeSpan (1, 0, 0);
          return client;
       }
 
@@ -22,7 +23,7 @@ namespace GoHunting.Core.Services
          StopWatch.Start ("ApiService.CheckUserAccess");
 
          HttpClient client = await GetClient ();
-         string result = await client.GetStringAsync (string.Format ("{0}gofind2/markers.php?{1}",  AppSettings.BaseHost, string.Format ("dev_id={0}", deviceId)));
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/markers.php?{1}", AppSettings.BaseHost, string.Format ("dev_id={0}", deviceId)));
 
          ErrorInfo deserializedResult = JsonConvert.DeserializeObject<ErrorInfo> (result);
          if (deserializedResult == null) {
@@ -40,7 +41,7 @@ namespace GoHunting.Core.Services
 
          HttpClient client = await GetClient ();
 
-         string result = await client.GetStringAsync (string.Format ("{0}gofind2/markers.php?{1}",  AppSettings.BaseHost, string.Format ("dev_id={0}", deviceId)));
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/markers.php?{1}", AppSettings.BaseHost, string.Format ("dev_id={0}", deviceId)));
 
          JObject parent = JObject.Parse (result);
          var points = parent.GetValue ("points").First.First;

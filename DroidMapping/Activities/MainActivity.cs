@@ -13,11 +13,15 @@ using GoHunting.Core.Services;
 using GoHunting.Core.Utilities;
 using SQLite.Net.Interop;
 using SQLite.Net.Platform.XamarinAndroid;
+using Android.Content.PM;
+using Android;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
 
 namespace DroidMapping
 {
    [Activity (MainLauncher = true)]
-   public class MainActivity : ActivityBase
+   public class MainActivity : ActivityBase, ActivityCompat.IOnRequestPermissionsResultCallback
    {
       IApiService _apiService;
       IToastService _toastService;
@@ -53,6 +57,11 @@ namespace DroidMapping
          //
          //
 
+         if (ContextCompat.CheckSelfPermission (this, Manifest.Permission.AccessFineLocation) != (int)Permission.Granted) {
+            ShowAlert (string.Format ("Разрешите использовать GPS и гео-локации в настройках телефона и перезапустите приложение."));
+            return;
+         }
+
          IsLoading = true;
          CheckUserExists ();
 
@@ -62,8 +71,17 @@ namespace DroidMapping
 
          AppLocation.Current.LocationServiceConnected += (object sender, ServiceConnectedEventArgs e) => {
          };
+
          AppLocation.StartLocationService ();
       }
+
+
+      readonly string[] PermissionsLocation = {
+         Manifest.Permission.AccessCoarseLocation,
+         Manifest.Permission.AccessFineLocation
+      };
+
+      const int RequestLocationId = 0;
 
       public async void CheckUserExists ()
       {
@@ -105,6 +123,15 @@ namespace DroidMapping
          var intent = new Intent (this, typeof(DrawerActivityBase));
          intent.SetFlags (ActivityFlags.NewTask | ActivityFlags.ClearTask);
          StartActivity (intent);
+      }
+
+      public void OnRequestPermissionsResult (int requestCode, string[] permissions, Permission[] grantResults)
+      {
+         if (PermissionUtility.VerifyPermissions (grantResults)) {
+            
+         } else {
+            _toastService.ShowMessageLongPeriod (string.Format("Разрешите использовать GPS и гео-локации в настройках телефона перед использование приложения."));
+         }
       }
    }
 }

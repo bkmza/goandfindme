@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="GoHunting.iOS/GoHunting.iOS.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/ViewControllers/StartViewController.cs">
+    <Files>
+      <File FileName="GoHunting.iOS/AppDelegate.cs" Line="4" Column="37" />
+      <File FileName="GoHunting.iOS/Main.cs" Line="1" Column="1" />
+      <File FileName="GoHunting.iOS/ViewControllers/StartViewController.cs" Line="28" Column="38" />
+      <File FileName="GoHunting.iOS/ViewControllers/Common/BaseViewController.cs" Line="27" Column="8" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

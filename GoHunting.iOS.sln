@@ -1,0 +1,73 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHunting.iOS", "GoHunting.iOS\GoHunting.iOS.csproj", "{79D8EC38-5966-46F6-81D2-C0C500AB811A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHunting.Core", "GoHunting.Core\GoHunting.Core.csproj", "{B6D1A089-4230-4625-8C99-E27A23BBA0B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79D8EC38-5966-46F6-81D2-C0C500AB811A}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{79D8EC38-5966-46F6-81D2-C0C500AB811A}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{79D8EC38-5966-46F6-81D2-C0C500AB811A}.Release|iPhone.ActiveCfg = Release|iPhone
+		{79D8EC38-5966-46F6-81D2-C0C500AB811A}.Release|iPhone.Build.0 = Release|iPhone
+		{79D8EC38-5966-46F6-81D2-C0C500AB811A}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{79D8EC38-5966-46F6-81D2-C0C500AB811A}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{79D8EC38-5966-46F6-81D2-C0C500AB811A}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{79D8EC38-5966-46F6-81D2-C0C500AB811A}.Debug|iPhone.Build.0 = Debug|iPhone
+		{B6D1A089-4230-4625-8C99-E27A23BBA0B3}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B6D1A089-4230-4625-8C99-E27A23BBA0B3}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B6D1A089-4230-4625-8C99-E27A23BBA0B3}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B6D1A089-4230-4625-8C99-E27A23BBA0B3}.Release|iPhone.Build.0 = Release|Any CPU
+		{B6D1A089-4230-4625-8C99-E27A23BBA0B3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B6D1A089-4230-4625-8C99-E27A23BBA0B3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{B6D1A089-4230-4625-8C99-E27A23BBA0B3}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B6D1A089-4230-4625-8C99-E27A23BBA0B3}.Debug|iPhone.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 120
+		$1.TabWidth = 3
+		$1.IndentWidth = 3
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/x-csharp
+		$0.TextStylePolicy = $2
+		$2.TabWidth = 3
+		$2.IndentWidth = 3
+		$2.inheritsSet = VisualStudio
+		$2.inheritsScope = text/plain
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.IndentSwitchSection = True
+		$3.NewLinesForBracesInProperties = True
+		$3.NewLinesForBracesInAccessors = True
+		$3.NewLinesForBracesInAnonymousMethods = True
+		$3.NewLinesForBracesInControlBlocks = True
+		$3.NewLinesForBracesInAnonymousTypes = True
+		$3.NewLinesForBracesInObjectCollectionArrayInitializers = True
+		$3.NewLinesForBracesInLambdaExpressionBody = True
+		$3.NewLineForElse = True
+		$3.NewLineForCatch = True
+		$3.NewLineForFinally = True
+		$3.NewLineForMembersInObjectInit = True
+		$3.NewLineForMembersInAnonymousTypes = True
+		$3.NewLineForClausesInQuery = True
+		$3.SpacingAfterMethodDeclarationName = False
+		$3.SpaceAfterMethodCallName = False
+		$3.SpaceBeforeOpenSquareBracket = False
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/x-csharp
+		$3.scope = text/x-csharp
+		$0.StandardHeader = $4
+		$4.Text = 
+		$4.IncludeInNewFiles = True
+	EndGlobalSection
+EndGlobal

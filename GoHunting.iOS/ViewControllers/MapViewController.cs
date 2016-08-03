@@ -1,11 +1,16 @@
 ﻿using System;
 using UIKit;
+using CoreGraphics;
+
+using Google.Maps;
 
 namespace GoHunting.iOS.ViewControllers
 {
    public class MapViewController : BaseViewController
    {
       private UIBarButtonItem _actionsButton;
+
+      private MapView mapView;
 
       public MapViewController()
       {
@@ -18,6 +23,18 @@ namespace GoHunting.iOS.ViewControllers
 
          _actionsButton = new UIBarButtonItem("Действия", UIBarButtonItemStyle.Plain, ShowMenu);
          NavigationItem.SetRightBarButtonItems(new[] { _actionsButton }, true);
+      }
+
+      public override void Initialize()
+      {
+         base.Initialize();
+
+         var camera = CameraPosition.FromCamera(latitude: 37.79, 
+                                         longitude: -122.40,
+                                         zoom: 6);
+         mapView = MapView.FromCamera(CGRect.Empty, camera);
+         mapView.MyLocationEnabled = true;
+         View = mapView;
       }
 
       public void ShowMenu(object sender, EventArgs e)

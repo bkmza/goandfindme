@@ -1,6 +1,8 @@
 ﻿using Foundation;
 using UIKit;
 
+using Google.Maps;
+
 using GoHunting.iOS.ViewControllers;
 
 namespace GoHunting.iOS
@@ -12,8 +14,12 @@ namespace GoHunting.iOS
 
       private UIWindow _window;
 
+      private const string MapsApiKey = "AIzaSyA30bwNoT0erSJKRZCvHexg0TO0K9acfcw";
+
       public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
       {
+         MapServices.ProvideAPIKey(MapsApiKey);
+
          Shared = this;
 
          _window = new UIWindow (UIScreen.MainScreen.Bounds);

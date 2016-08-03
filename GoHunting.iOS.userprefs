@@ -1,15 +1,33 @@
 ﻿<Properties StartupItem="GoHunting.iOS/GoHunting.iOS.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/ViewControllers/StartViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/ViewControllers/MapViewController.cs">
     <Files>
-      <File FileName="GoHunting.iOS/AppDelegate.cs" Line="4" Column="37" />
-      <File FileName="GoHunting.iOS/Main.cs" Line="1" Column="1" />
-      <File FileName="GoHunting.iOS/ViewControllers/StartViewController.cs" Line="28" Column="38" />
-      <File FileName="GoHunting.iOS/ViewControllers/Common/BaseViewController.cs" Line="27" Column="8" />
+      <File FileName="GoHunting.iOS/AppDelegate.cs" Line="13" Column="14" />
+      <File FileName="GoHunting.iOS/ViewControllers/StartViewController.cs" Line="116" Column="8" />
+      <File FileName="GoHunting.iOS/ViewControllers/MapViewController.cs" Line="4" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GoHunting.iOS" expanded="True">
+            <Node name="GoHunting.iOS" expanded="True">
+              <Node name="ComponentReferenceFolder" expanded="True" />
+              <Node name="Helpers" expanded="True" />
+              <Node name="ViewControllers" expanded="True">
+                <Node name="MapViewController.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Common" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.GoHunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7C0A484C-5390-443D-8357-CD80186F0240" />
 </Properties>

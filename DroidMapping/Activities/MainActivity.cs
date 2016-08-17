@@ -52,8 +52,8 @@ namespace DroidMapping
 
          // TEST ONLY
          //
-         IsLoading = false;
-         GoToHomeScreen ();
+         //IsLoading = false;
+         //GoToHomeScreen ();
          //
          //
 

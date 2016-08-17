@@ -40,6 +40,12 @@ namespace DroidMapping.Adapters
          _info = new PointInfo ();
          _info = await Mvx.Resolve<IApiService> ().GetInfo (deviceId, pointId, type);
 
+         if (_info == null)
+         {
+            _toastService.ShowMessage(string.Format("Невозможно получить или обновить информацию. Проверьте подключение к интернету."));
+            return;
+         }
+
          if (_marker != null && _marker.IsInfoWindowShown) {
             _marker.ShowInfoWindow ();
          }
@@ -47,14 +53,10 @@ namespace DroidMapping.Adapters
 
       public View GetInfoContents (Marker marker)
       {
-         if (_info == null)
-         {
-            _toastService.ShowMessageLongPeriod(string.Format("Невозможно получить или обновить информацию. Проверьте подключение к интернету."));
-            return null;
-         }
+         var info = _info ?? new PointInfo();
 
          Point item = JsonConvert.DeserializeObject<Point> (marker.Snippet);
-         bool needToRefresh = item.GetId != _info.GetId;
+         bool needToRefresh = item.GetId != info.GetId;
          if (needToRefresh) {
             SetContents (DeviceUtility.DeviceId, item.id, item.type);
          }
@@ -84,20 +86,20 @@ namespace DroidMapping.Adapters
          if (item.GetMapItemType == MapItemType.Point) {
             var allianceTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_AllianceTextView);
             if (allianceTextView != null) {
-               allianceTextView.Text = string.Format ("Альянс: {0}", _info.alliance);
+               allianceTextView.Text = string.Format ("Альянс: {0}", info.alliance);
                allianceTextView.SetTextColor(Android.Graphics.Color.ParseColor("#bdbdbd"));
             }
 
             var fractionTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_FractionTextView);
             if (fractionTextView != null) {
-               fractionTextView.Text = string.Format ("Фракция: {0}", _info.fraction);
+               fractionTextView.Text = string.Format ("Фракция: {0}", info.fraction);
                fractionTextView.SetTextColor(Android.Graphics.Color.ParseColor("#bdbdbd"));
             }
          }
 
          var descriptionTextView = customPopup.FindViewById<TextView> (Resource.Id.customInfoWindow_DescriptionTextView);
          if (descriptionTextView != null) {
-            descriptionTextView.Text = string.Format ("Описание: {0}", _info.description);
+            descriptionTextView.Text = string.Format ("Описание: {0}", info.description);
             descriptionTextView.SetTextColor(Android.Graphics.Color.ParseColor("#bdbdbd"));
          }
 

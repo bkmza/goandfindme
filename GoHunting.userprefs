@@ -7,12 +7,14 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping\GoogleMapsKey.cs">
     <Files>
-      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="167" Column="53" />
+      <File FileName="DroidMapping\Fragments\CMapFragment.cs" Line="165" Column="8" />
       <File FileName="DroidMapping\Services\LocationService.cs" Line="1" Column="1" />
-      <File FileName="DroidMapping\Activities\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\Activities\MainActivity.cs" Line="55" Column="1" />
       <File FileName="DroidMapping\AppLocation.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping\GoogleMapsKey.cs" Line="7" Column="7" />
+      <File FileName="GoHunting.Core\Utilities\DeviceUtility.cs" Line="11" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

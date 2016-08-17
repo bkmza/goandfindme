@@ -193,7 +193,7 @@ namespace DroidMapping.Fragments
          map.MyLocationEnabled = true;
          map.UiSettings.MyLocationButtonEnabled = true;
          map.UiSettings.ZoomControlsEnabled = true;
-         map.SetInfoWindowAdapter (new CustomInfoWindowAdapter (_layoutInflater));
+         map.SetInfoWindowAdapter (new CustomInfoWindowAdapter (_layoutInflater, _toastService));
 
          CameraUpdate update = CameraUpdateFactory.NewLatLngZoom (Location_Minsk, 11);
          map.MoveCamera (update);

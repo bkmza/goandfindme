@@ -6,7 +6,7 @@ namespace GoHunting.Core
    public class DeviceUtility
    {
       public static string DeviceId {
-         get { return DeviceInfo.Hardware.DeviceId; }
+         get { return "359169052536117"; }//DeviceInfo.Hardware.DeviceId; }
       }
    }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using GoHunting.Core.Data;
@@ -58,11 +59,20 @@ namespace GoHunting.Core.Services
 
          HttpClient client = await GetClient ();
          string parameters = string.Format ("dev_id={0}&id={1}&type={2}", deviceId, pointId, type);
-         string result = await client.GetStringAsync (string.Format ("{0}gofind2/marker.php?{1}", AppSettings.BaseHost, parameters));
 
-         JObject parent = JObject.Parse (result);
-         var point = parent.GetValue ("point").First;
-         var deserializedResult = JsonConvert.DeserializeObject<PointInfo> (point.ToString ());
+         PointInfo deserializedResult = null;
+         try
+         {
+            string result = await client.GetStringAsync(string.Format("{0}gofind2/marker.php?{1}", AppSettings.BaseHost, parameters));
+
+            JObject parent = JObject.Parse(result);
+            var point = parent.GetValue("point").First;
+            deserializedResult = JsonConvert.DeserializeObject<PointInfo>(point.ToString());
+         }
+         catch (Exception ex)
+         {
+            Logger.Instance.Error(string.Format("ApiService.GetInfo: {0}", ex.Message));
+         }
 
          StopWatch.Stop (string.Format ("ApiService.GetInfo for pointId: {0}", pointId));
 

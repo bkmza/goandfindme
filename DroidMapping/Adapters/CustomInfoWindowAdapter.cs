@@ -19,12 +19,15 @@ namespace DroidMapping.Adapters
       Marker _marker;
       PointInfo _info;
 
+      IToastService _toastService;
+
       public IntPtr IJHandle { get { return IntPtr.Zero; } }
 
-      public CustomInfoWindowAdapter (LayoutInflater inflater)
+      public CustomInfoWindowAdapter (LayoutInflater inflater, IToastService toastService)
       {
          _info = new PointInfo ();
          _layoutInflater = inflater;
+         _toastService = toastService;
       }
 
       public View GetInfoWindow (Marker marker)
@@ -44,6 +47,12 @@ namespace DroidMapping.Adapters
 
       public View GetInfoContents (Marker marker)
       {
+         if (_info == null)
+         {
+            _toastService.ShowMessageLongPeriod(string.Format("Невозможно получить или обновить информацию. Проверьте подключение к интернету."));
+            return null;
+         }
+
          Point item = JsonConvert.DeserializeObject<Point> (marker.Snippet);
          bool needToRefresh = item.GetId != _info.GetId;
          if (needToRefresh) {

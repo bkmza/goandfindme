@@ -3,3 +3,6 @@ bin
 /DroidMapping/obj
 /GoHunting.Core/obj
 /GoHunting.Core/bin
+/GoHunting.iOS/obj
+/GoHunting.iOS/bin
+/Components

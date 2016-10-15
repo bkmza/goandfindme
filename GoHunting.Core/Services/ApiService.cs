@@ -12,6 +12,13 @@ namespace GoHunting.Core.Services
 {
    public class ApiService : IApiService
    {
+      private HttpClient GetClientSync()
+      {
+         HttpClient client = new HttpClient(new NativeMessageHandler());
+         client.Timeout = new System.TimeSpan(1, 0, 0);
+         return client;
+      }
+
       async Task<HttpClient> GetClient ()
       {
          HttpClient client = new HttpClient (new NativeMessageHandler ());
@@ -42,7 +49,15 @@ namespace GoHunting.Core.Services
 
          HttpClient client = await GetClient ();
 
-         string result = await client.GetStringAsync (string.Format ("{0}gofind2/markers.php?{1}", AppSettings.BaseHost, string.Format ("dev_id={0}", deviceId)));
+         string result = string.Empty;
+         try
+         {
+            result = await client.GetStringAsync(string.Format("{0}gofind2/markers.php?{1}", AppSettings.BaseHost, string.Format("dev_id={0}", deviceId)));
+         }
+         catch (Exception ex)
+         {
+            Logger.Instance.Error(string.Format("ApiService.GetAll exception: {0}", ex.Message));
+         }
 
          JObject parent = JObject.Parse (result);
          var points = parent.GetValue ("points").First.First;
@@ -53,26 +68,41 @@ namespace GoHunting.Core.Services
          return deserializedResult;
       }
 
-      public async Task<PointInfo> GetInfo (string deviceId, string pointId, string type)
+      public PointInfo GetInfo(string deviceId, string pointId, string type)
+      {
+         StopWatch.Start(string.Format("ApiService.GetInfo for pointId: {0}", pointId));
+
+         HttpClient client = GetClientSync();
+         string parameters = string.Format("dev_id={0}&id={1}&type={2}", deviceId, pointId, type);
+         var response = client.GetAsync(string.Format("{0}gofind2/marker.php?{1}", AppSettings.BaseHost, parameters)).Result;
+
+         PointInfo deserializedResult = null;
+         if (response.IsSuccessStatusCode)
+         {
+            var responseContent = response.Content;
+            string responseString = responseContent.ReadAsStringAsync().Result;
+
+            JObject parent = JObject.Parse(responseString);
+            var point = parent.GetValue("point").First;
+            deserializedResult = JsonConvert.DeserializeObject<PointInfo>(point.ToString());
+         }
+
+         StopWatch.Stop(string.Format("ApiService.GetInfo for pointId: {0}", pointId));
+
+         return deserializedResult;
+      }
+
+      public async Task<PointInfo> GetInfoAsync (string deviceId, string pointId, string type)
       {
          StopWatch.Start (string.Format ("ApiService.GetInfo for pointId: {0}", pointId));
 
          HttpClient client = await GetClient ();
          string parameters = string.Format ("dev_id={0}&id={1}&type={2}", deviceId, pointId, type);
+         string result = await client.GetStringAsync (string.Format ("{0}gofind2/marker.php?{1}", AppSettings.BaseHost, parameters));
 
-         PointInfo deserializedResult = null;
-         try
-         {
-            string result = await client.GetStringAsync(string.Format("{0}gofind2/marker.php?{1}", AppSettings.BaseHost, parameters));
-
-            JObject parent = JObject.Parse(result);
-            var point = parent.GetValue("point").First;
-            deserializedResult = JsonConvert.DeserializeObject<PointInfo>(point.ToString());
-         }
-         catch (Exception ex)
-         {
-            Logger.Instance.Error(string.Format("ApiService.GetInfo: {0}", ex.Message));
-         }
+         JObject parent = JObject.Parse (result);
+         var point = parent.GetValue ("point").First;
+         var deserializedResult = JsonConvert.DeserializeObject<PointInfo> (point.ToString ());
 
          StopWatch.Stop (string.Format ("ApiService.GetInfo for pointId: {0}", pointId));
 

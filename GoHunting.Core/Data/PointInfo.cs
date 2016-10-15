@@ -13,6 +13,7 @@ namespace GoHunting.Core.Data
 		public string description;
 		public string alliance;
 		public string fraction;
+      public string type;
 	}
 }
 

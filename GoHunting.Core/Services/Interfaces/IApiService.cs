@@ -11,7 +11,9 @@ namespace GoHunting.Core.Services
 
       Task<IEnumerable<Point>> GetAll (string deviceId);
 
-      Task<PointInfo> GetInfo (string deviceId, string pointId, string type);
+      PointInfo GetInfo (string deviceId, string pointId, string type);
+
+      Task<PointInfo> GetInfoAsync(string deviceId, string pointId, string type);
 
 		Task<Conquer> Conquer (string deviceId, string lat, string lon);
 

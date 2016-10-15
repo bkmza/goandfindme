@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="GoHunting.iOS/GoHunting.iOS.csproj">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="GoHunting.iOS/ViewControllers/StartViewController.cs" Line="198" Column="83" />
+      <File FileName="GoHunting.iOS/Info.plist" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.GoHunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+</Properties>

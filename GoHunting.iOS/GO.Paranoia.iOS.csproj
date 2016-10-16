@@ -178,7 +178,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Resources\Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -194,129 +193,6 @@
       <Version>1.13.2.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Images\action_search.png" />
-    <BundleResource Include="Resources\Images\ic_drawer.png" />
-    <BundleResource Include="Resources\Images\ic_place.png" />
-    <BundleResource Include="Resources\Images\ic_rel.png" />
-    <BundleResource Include="Resources\Images\ic_shield.png" />
-    <BundleResource Include="Resources\Images\ic_sphere.png" />
-    <BundleResource Include="Resources\Images\mm_20_aqua.png" />
-    <BundleResource Include="Resources\Images\mm_20_ash.png" />
-    <BundleResource Include="Resources\Images\mm_20_beige.png" />
-    <BundleResource Include="Resources\Images\mm_20_crimson.png" />
-    <BundleResource Include="Resources\Images\mm_20_dark_blue.png" />
-    <BundleResource Include="Resources\Images\mm_20_dark_green.png" />
-    <BundleResource Include="Resources\Images\mm_20_lime.png" />
-    <BundleResource Include="Resources\Images\mm_20_magenta.png" />
-    <BundleResource Include="Resources\Images\mm_20_nickel.png" />
-    <BundleResource Include="Resources\Images\mm_20_olive_drab.png" />
-    <BundleResource Include="Resources\Images\mm_20_olive.png" />
-    <BundleResource Include="Resources\Images\mm_20_pale_green.png" />
-    <BundleResource Include="Resources\Images\mm_20_pink.png" />
-    <BundleResource Include="Resources\Images\mm_20_teal.png" />
-    <BundleResource Include="Resources\Images\mm_20_terracote.png" />
-    <BundleResource Include="Resources\Images\ms_poi.png" />
-    <BundleResource Include="Resources\Images\arrow.png" />
-    <BundleResource Include="Resources\Images\arrowshadow.png" />
-    <BundleResource Include="Resources\Images\ic_drawer_dark.png" />
-    <BundleResource Include="Resources\Images\ic_drawer_light.png" />
-    <BundleResource Include="Resources\Images\mm_20_black.png" />
-    <BundleResource Include="Resources\Images\mm_20_blue.png" />
-    <BundleResource Include="Resources\Images\mm_20_brown.png" />
-    <BundleResource Include="Resources\Images\mm_20_gray.png" />
-    <BundleResource Include="Resources\Images\mm_20_green.png" />
-    <BundleResource Include="Resources\Images\mm_20_orange.png" />
-    <BundleResource Include="Resources\Images\mm_20_purple.png" />
-    <BundleResource Include="Resources\Images\mm_20_red.png" />
-    <BundleResource Include="Resources\Images\mm_20_white.png" />
-    <BundleResource Include="Resources\Images\mm_20_yellow.png" />
-    <BundleResource Include="Resources\Images\ms_arts.png" />
-    <BundleResource Include="Resources\Images\ms_bar.png" />
-    <BundleResource Include="Resources\Images\ms_blue_pushpin.png" />
-    <BundleResource Include="Resources\Images\ms_bus.png" />
-    <BundleResource Include="Resources\Images\ms_cabs.png" />
-    <BundleResource Include="Resources\Images\ms_camera.png" />
-    <BundleResource Include="Resources\Images\ms_campfire.png" />
-    <BundleResource Include="Resources\Images\ms_campground.png" />
-    <BundleResource Include="Resources\Images\ms_caution.png" />
-    <BundleResource Include="Resources\Images\ms_coffeehouse.png" />
-    <BundleResource Include="Resources\Images\ms_convienancestore.png" />
-    <BundleResource Include="Resources\Images\ms_cycling.png" />
-    <BundleResource Include="Resources\Images\ms_dollar.png" />
-    <BundleResource Include="Resources\Images\ms_drinking_water.png" />
-    <BundleResource Include="Resources\Images\ms_earthquake.png" />
-    <BundleResource Include="Resources\Images\ms_electronics.png" />
-    <BundleResource Include="Resources\Images\ms_euro.png" />
-    <BundleResource Include="Resources\Images\ms_fallingrocks.png" />
-    <BundleResource Include="Resources\Images\ms_ferry.png" />
-    <BundleResource Include="Resources\Images\ms_firedept.png" />
-    <BundleResource Include="Resources\Images\ms_fishing.png" />
-    <BundleResource Include="Resources\Images\ms_flag.png" />
-    <BundleResource Include="Resources\Images\ms_gas.png" />
-    <BundleResource Include="Resources\Images\ms_golfer.png" />
-    <BundleResource Include="Resources\Images\ms_grn_pushpin.png" />
-    <BundleResource Include="Resources\Images\ms_grocerystore.png" />
-    <BundleResource Include="Resources\Images\ms_groecerystore.png" />
-    <BundleResource Include="Resources\Images\ms_helicopter.png" />
-    <BundleResource Include="Resources\Images\ms_hiker.png" />
-    <BundleResource Include="Resources\Images\ms_homegardenbusiness.png" />
-    <BundleResource Include="Resources\Images\ms_horsebackriding.png" />
-    <BundleResource Include="Resources\Images\ms_hospitals.png" />
-    <BundleResource Include="Resources\Images\ms_hotsprings.png" />
-    <BundleResource Include="Resources\Images\ms_info_circle.png" />
-    <BundleResource Include="Resources\Images\ms_info.png" />
-    <BundleResource Include="Resources\Images\ms_landmarks_jp.png" />
-    <BundleResource Include="Resources\Images\ms_lodging.png" />
-    <BundleResource Include="Resources\Images\ms_ltblu_pushpin.png" />
-    <BundleResource Include="Resources\Images\ms_man.png" />
-    <BundleResource Include="Resources\Images\ms_marina.png" />
-    <BundleResource Include="Resources\Images\ms_mechanic.png" />
-    <BundleResource Include="Resources\Images\ms_motorcycling.png" />
-    <BundleResource Include="Resources\Images\ms_movies.png" />
-    <BundleResource Include="Resources\Images\ms_parkinglot.png" />
-    <BundleResource Include="Resources\Images\ms_partly_cloudy.png" />
-    <BundleResource Include="Resources\Images\ms_pharmacy_us.png" />
-    <BundleResource Include="Resources\Images\ms_phone.png" />
-    <BundleResource Include="Resources\Images\ms_picnic.png" />
-    <BundleResource Include="Resources\Images\ms_pink_pushpin.png" />
-    <BundleResource Include="Resources\Images\ms_plane.png" />
-    <BundleResource Include="Resources\Images\ms_police.png" />
-    <BundleResource Include="Resources\Images\ms_postoffice_jp.png" />
-    <BundleResource Include="Resources\Images\ms_postoffice_us.png" />
-    <BundleResource Include="Resources\Images\ms_purple_pushpin.png" />
-    <BundleResource Include="Resources\Images\ms_question.png" />
-    <BundleResource Include="Resources\Images\ms_rail.png" />
-    <BundleResource Include="Resources\Images\ms_rainy.png" />
-    <BundleResource Include="Resources\Images\ms_rangerstation.png" />
-    <BundleResource Include="Resources\Images\ms_realestate.png" />
-    <BundleResource Include="Resources\Images\ms_recycle.png" />
-    <BundleResource Include="Resources\Images\ms_red_pushpin.png" />
-    <BundleResource Include="Resources\Images\ms_restaurant.png" />
-    <BundleResource Include="Resources\Images\ms_sailing.png" />
-    <BundleResource Include="Resources\Images\ms_salon.png" />
-    <BundleResource Include="Resources\Images\ms_shopping.png" />
-    <BundleResource Include="Resources\Images\ms_ski.png" />
-    <BundleResource Include="Resources\Images\ms_snack_bar.png" />
-    <BundleResource Include="Resources\Images\ms_snowflake_simple.png" />
-    <BundleResource Include="Resources\Images\ms_sportvenue.png" />
-    <BundleResource Include="Resources\Images\ms_subway.png" />
-    <BundleResource Include="Resources\Images\ms_sunny.png" />
-    <BundleResource Include="Resources\Images\ms_swimming.png" />
-    <BundleResource Include="Resources\Images\ms_toilets.png" />
-    <BundleResource Include="Resources\Images\ms_trail.png" />
-    <BundleResource Include="Resources\Images\ms_tram.png" />
-    <BundleResource Include="Resources\Images\ms_tree.png" />
-    <BundleResource Include="Resources\Images\ms_truck.png" />
-    <BundleResource Include="Resources\Images\ms_volcano.png" />
-    <BundleResource Include="Resources\Images\ms_water.png" />
-    <BundleResource Include="Resources\Images\ms_waterfalls.png" />
-    <BundleResource Include="Resources\Images\ms_webcam.png" />
-    <BundleResource Include="Resources\Images\ms_wheel_chair_accessible.png" />
-    <BundleResource Include="Resources\Images\ms_woman.png" />
-    <BundleResource Include="Resources\Images\ms_yen.png" />
-    <BundleResource Include="Resources\Images\ms_ylw_pushpin.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork" />

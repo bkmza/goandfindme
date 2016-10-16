@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{79D8EC38-5966-46F6-81D2-C0C500AB811A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/MapViewController.cs">
+    <Files>
+      <File FileName="GoHunting.iOS/Info.plist" />
+      <File FileName="GO.Common.iOS/ViewControllers/HistoryViewController.cs" Line="1" Column="1" />
+      <File FileName="GO.Common.iOS/ViewControllers/MainTabBarViewController.cs" Line="1" Column="1" />
+      <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="52" Column="25" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GoHunting.iOS" expanded="True">
+            <Node name="GO.Common.iOS" expanded="True">
+              <Node name="ViewControllers" expanded="True">
+                <Node name="MapViewController.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Map" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" />
+  <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" />
+</Properties>

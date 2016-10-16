@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Hunting.iOS
+namespace GO.Hunting.iOS
 {
    public class Application
    {

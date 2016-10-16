@@ -1,17 +1,16 @@
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
 using Google.Maps;
-using Cirrious.CrossCore;
-
-using GoHunting.iOS.ViewControllers;
-using GoHunting.Core.Services;
 using GoHunting.Core;
 using GoHunting.Core.Utilities;
+using MvvmCross.Platform;
+using GO.Common.iOS.Services;
+using GoHunting.Core.Services;
+using GO.Common.iOS.ViewControllers;
 using GO.Common.iOS.Utilities;
-using GoHunting.iOS.Services;
 
-namespace Hunting.iOS
+namespace GO.Hunting.iOS
 {
    [Register("AppDelegate")]
    public class AppDelegate : UIApplicationDelegate
@@ -31,6 +30,12 @@ namespace Hunting.iOS
          AppSettings.TrackingId = "UA-65892866-1";
          AppSettings.RegisterTypes();
          AppSettings.RegisterMapper();
+
+         // GoHunting // packageName: com.go.goandfindme
+         AppSettings.BaseHost = "http://gohunting.greyorder.su/";
+         AppSettings.ApplicationName = @"GOhunting";
+         AppSettings.PackageName = "com.go.goandfindme";
+
          Logger.Instance = new IOSLogger();
 
          Mvx.RegisterType<IToastService, ToastService>();

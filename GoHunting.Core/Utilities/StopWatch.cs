@@ -1,6 +1,6 @@
 ﻿using System;
-using Cirrious.CrossCore;
 using GoHunting.Core.Services;
+using MvvmCross.Platform;
 
 namespace GoHunting.Core.Utilities
 {

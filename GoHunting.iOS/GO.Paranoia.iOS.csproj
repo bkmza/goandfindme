@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.props')" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -94,9 +94,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Google.Maps">
-      <HintPath>..\packages\Xamarin.Google.iOS.Maps.1.13.2\lib\Xamarin.iOS10\Google.Maps.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -119,6 +116,42 @@
       <HintPath>..\packages\Acr.DeviceInfo.4.0.2\lib\Xamarin.iOS10\Acr.DeviceInfo.Interface.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\packages\MvvmCross.Platform.4.3.0\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.iOS">
+      <HintPath>..\packages\MvvmCross.Platform.4.3.0\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Core">
+      <HintPath>..\packages\MvvmCross.Core.4.3.0\lib\Xamarin.iOS10\MvvmCross.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS">
+      <HintPath>..\packages\MvvmCross.Core.4.3.0\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.Binding.4.3.0\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding.iOS">
+      <HintPath>..\packages\MvvmCross.Binding.4.3.0\lib\Xamarin.iOS10\MvvmCross.Binding.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.Binding.4.3.0\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="CrossUI.Core">
+      <HintPath>..\packages\MvvmCross.Dialog.iOS.4.3.0\lib\Xamarin.iOS10\CrossUI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CrossUI.iOS">
+      <HintPath>..\packages\MvvmCross.Dialog.iOS.4.3.0\lib\Xamarin.iOS10\CrossUI.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Dialog.iOS">
+      <HintPath>..\packages\MvvmCross.Dialog.iOS.4.3.0\lib\Xamarin.iOS10\MvvmCross.Dialog.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS.Support">
+      <HintPath>..\packages\MvvmCross.iOS.Support.4.3.0\lib\Xamarin.iOS10\MvvmCross.iOS.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Maps">
+      <HintPath>..\packages\Xamarin.Google.iOS.Maps.2.1.0\lib\Xamarin.iOS10\Google.Maps.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
@@ -289,7 +322,17 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoHunting.Core\GoHunting.Core.csproj">
+      <Project>{B6D1A089-4230-4625-8C99-E27A23BBA0B3}</Project>
+      <Name>GoHunting.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GO.Common.iOS\GO.Common.iOS.csproj">
+      <Project>{DA37D640-C896-41D6-89B1-36712794934D}</Project>
+      <Name>GO.Common.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.1\build\Xamarin.Build.Download.targets')" />
-  <Import Project="..\packages\Xamarin.Google.iOS.Maps.1.13.2\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Maps.1.13.2\build\Xamarin.Google.iOS.Maps.targets')" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.2.2\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\packages\Xamarin.Google.iOS.Maps.2.1.0\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Maps.2.1.0\build\Xamarin.Google.iOS.Maps.targets')" />
 </Project>

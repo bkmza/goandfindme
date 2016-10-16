@@ -103,8 +103,7 @@ namespace GO.Common.iOS.ViewControllers
 
          tabBarViewController.SetViewControllers(new[] { mapController/*, historyController, settingsController*/ }, true);
 
-         // TODO
-         //AppDelegate.Shared.SetRootViewController(tabBarViewController);
+         UIApplication.SharedApplication.KeyWindow.RootViewController = tabBarViewController;
       }
 
       public override void Initialize()

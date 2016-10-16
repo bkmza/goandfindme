@@ -2,14 +2,13 @@ using Foundation;
 using UIKit;
 
 using Google.Maps;
-using Cirrious.CrossCore;
-
-using GoHunting.iOS.ViewControllers;
-using GoHunting.Core.Services;
 using GoHunting.Core;
 using GoHunting.Core.Utilities;
+using MvvmCross.Platform;
+using GO.Common.iOS.Services;
+using GoHunting.Core.Services;
+using GO.Common.iOS.ViewControllers;
 using GO.Common.iOS.Utilities;
-using GoHunting.iOS.Services;
 
 namespace GoHunting.iOS
 {
@@ -31,6 +30,12 @@ namespace GoHunting.iOS
          AppSettings.TrackingId = "UA-65892866-1";
          AppSettings.RegisterTypes();
          AppSettings.RegisterMapper();
+
+         // Paranoia // packageName: com.go.paranoia
+         AppSettings.BaseHost = "http://goandpay.greyorder.su/";
+         AppSettings.ApplicationName = @"Paranoia";
+         AppSettings.PackageName = "com.go.paranoia";
+
          Logger.Instance = new IOSLogger();
 
          Mvx.RegisterType<IToastService, ToastService>();

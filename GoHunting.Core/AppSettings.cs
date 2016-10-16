@@ -1,9 +1,8 @@
-﻿using System;
-using AutoMapper;
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
+﻿using AutoMapper;
 using GoHunting.Core.Entities;
 using GoHunting.Core.Services;
+using MvvmCross.Platform;
+using MvvmCross.Platform.IoC;
 
 namespace GoHunting.Core
 {
@@ -17,9 +16,9 @@ namespace GoHunting.Core
          //PackageName = "com.go.goandfindme";
 
          // Paranoia // packageName: com.go.paranoia
-         BaseHost = "http://goandpay.greyorder.su/";
-         ApplicationName = @"Paranoia";
-         PackageName = "com.go.paranoia";
+         //BaseHost = "http://goandpay.greyorder.su/";
+         //ApplicationName = @"Paranoia";
+         //PackageName = "com.go.paranoia";
       }
 
       public static string TrackingId { get; set; }

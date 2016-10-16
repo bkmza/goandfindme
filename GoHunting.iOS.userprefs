@@ -1,15 +1,23 @@
 ﻿<Properties StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.iOS/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.Core/Services/LoginService.cs">
     <Files>
-      <File FileName="GO.Hunting.iOS/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="GO.Hunting.iOS/Main.cs" Line="14" Column="17" />
+      <File FileName="GO.Hunting.iOS/AppDelegate.cs" Line="36" Column="53" />
+      <File FileName="GO.Hunting.iOS/Main.cs" Line="18" Column="8" />
+      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="77" Column="1" />
+      <File FileName="GoHunting.Core/Services/LoginService.cs" Line="40" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ilyausikov/Projects/mobile/paranoia/GO.Common.iOS/ViewControllers/StartViewController.cs" line="77" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/mobile/paranoia/GO.Common.iOS/ViewControllers/StartViewController.cs" line="78" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/mobile/paranoia/GoHunting.Core/Services/LoginService.cs" line="40" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/mobile/paranoia/GoHunting.Core/Services/LoginService.cs" line="39" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/mobile/paranoia/GO.Hunting.iOS/Main.cs" line="17" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" />
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6EF3D736-A8E4-44B6-8905-7F83AFC5EB63" />
   <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" />
 </Properties>

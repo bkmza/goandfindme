@@ -3,7 +3,7 @@
 using UIKit;
 using CoreGraphics;
 
-using GoHunting.iOS.Helpers;
+using GO.Common.iOS.Helpers;
 
 namespace GO.Common.iOS.Views
 {

@@ -8,7 +8,6 @@ using CoreGraphics;
 using CoreLocation;
 
 using Google.Maps;
-using Cirrious.CrossCore;
 
 using Newtonsoft.Json;
 
@@ -21,6 +20,7 @@ using GoHunting.Core.Data;
 using GO.Common.iOS.Views;
 using GoHunting.Core.Utilities;
 using Foundation;
+using MvvmCross.Platform;
 
 namespace GO.Common.iOS.ViewControllers
 {

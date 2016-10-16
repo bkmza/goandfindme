@@ -3,7 +3,7 @@ using CoreGraphics;
 using GoHunting.Core.Data;
 using GoHunting.Core.Enums;
 using GoHunting.Core.Utilities;
-using GoHunting.iOS.Helpers;
+using GO.Common.iOS.Helpers;
 using Google.Maps;
 using Newtonsoft.Json;
 using UIKit;

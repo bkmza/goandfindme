@@ -1,14 +1,30 @@
 ﻿<Properties StartupConfiguration="{79D8EC38-5966-46F6-81D2-C0C500AB811A}|Default">
   <MonoDevelop.Ide.ItemProperties.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/Common/BaseViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/Views/Map/MarkerInfoWindowView.cs">
     <Files>
-      <File FileName="GO.Common.iOS/ViewControllers/Common/BaseViewController.cs" Line="102" Column="47" />
+      <File FileName="GO.Common.iOS/ViewControllers/Common/BaseViewController.cs" Line="8" Column="31" />
+      <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="10" Column="19" />
+      <File FileName="GoHunting.iOS/packages.config" Line="12" Column="12" />
+      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="6" Column="27" />
+      <File FileName="GO.Common.iOS/Views/Common/LoadingView.cs" Line="4" Column="17" />
+      <File FileName="GO.Common.iOS/Views/Map/MarkerInfoWindowView.cs" Line="6" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="GoHunting.iOS" expanded="True" selected="True">
-            <Node name="GO.Common.iOS" expanded="True" />
+          <Node name="GoHunting.iOS" expanded="True">
+            <Node name="GO.Common.iOS" expanded="True">
+              <Node name="ViewControllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Common" expanded="True" />
+                <Node name="Map" expanded="True">
+                  <Node name="MarkerInfoWindowView.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="GoHunting.iOS" expanded="True">
+              <Node name="Packages" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

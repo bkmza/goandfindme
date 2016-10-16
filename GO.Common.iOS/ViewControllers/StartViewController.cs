@@ -4,15 +4,12 @@ using Foundation;
 using UIKit;
 
 using GO.Common.iOS.Views;
-using GoHunting.iOS.Helpers;
-using GO.Common.iOS.Utilities;
-using GoHunting.Core.Utilities;
 using GoHunting.Core.Data;
 using GoHunting.Core.Services;
 using GoHunting.Core.Enums;
 using GoHunting.Core;
-
-using Cirrious.CrossCore;
+using MvvmCross.Platform;
+using GO.Common.iOS.Helpers;
 
 namespace GO.Common.iOS.ViewControllers
 {
@@ -106,7 +103,8 @@ namespace GO.Common.iOS.ViewControllers
 
          tabBarViewController.SetViewControllers(new[] { mapController/*, historyController, settingsController*/ }, true);
 
-         AppDelegate.Shared.SetRootViewController(tabBarViewController);
+         // TODO
+         //AppDelegate.Shared.SetRootViewController(tabBarViewController);
       }
 
       public override void Initialize()

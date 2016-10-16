@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHunting.Core", "GoHunting
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoHunting", "DroidMapping\GoHunting.csproj", "{F4A65140-3D1F-45FD-B411-B8D044242A54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hunting.iOS", "Hunting.iOS\Hunting.iOS.csproj", "{14D8A589-C4E8-4B67-93A0-B4989F8F3137}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GO.Common.iOS", "GO.Common.iOS\GO.Common.iOS.csproj", "{DA37D640-C896-41D6-89B1-36712794934D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -39,11 +43,26 @@ Global
 		{F4A65140-3D1F-45FD-B411-B8D044242A54}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F4A65140-3D1F-45FD-B411-B8D044242A54}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{F4A65140-3D1F-45FD-B411-B8D044242A54}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{14D8A589-C4E8-4B67-93A0-B4989F8F3137}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{14D8A589-C4E8-4B67-93A0-B4989F8F3137}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{14D8A589-C4E8-4B67-93A0-B4989F8F3137}.Release|iPhone.ActiveCfg = Release|iPhone
+		{14D8A589-C4E8-4B67-93A0-B4989F8F3137}.Release|iPhone.Build.0 = Release|iPhone
+		{14D8A589-C4E8-4B67-93A0-B4989F8F3137}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{14D8A589-C4E8-4B67-93A0-B4989F8F3137}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{14D8A589-C4E8-4B67-93A0-B4989F8F3137}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{14D8A589-C4E8-4B67-93A0-B4989F8F3137}.Debug|iPhone.Build.0 = Debug|iPhone
+		{DA37D640-C896-41D6-89B1-36712794934D}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{DA37D640-C896-41D6-89B1-36712794934D}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{DA37D640-C896-41D6-89B1-36712794934D}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{DA37D640-C896-41D6-89B1-36712794934D}.Release|iPhone.Build.0 = Release|Any CPU
+		{DA37D640-C896-41D6-89B1-36712794934D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{DA37D640-C896-41D6-89B1-36712794934D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{DA37D640-C896-41D6-89B1-36712794934D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{DA37D640-C896-41D6-89B1-36712794934D}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.TextStylePolicy = $1
-		$1.FileWidth = 120
 		$1.TabWidth = 3
 		$1.IndentWidth = 3
 		$1.inheritsSet = VisualStudio

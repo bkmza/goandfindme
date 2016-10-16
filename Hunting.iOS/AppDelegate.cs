@@ -11,9 +11,9 @@ using GoHunting.Core.Utilities;
 using GO.Common.iOS.Utilities;
 using GoHunting.iOS.Services;
 
-namespace GoHunting.iOS
+namespace Hunting.iOS
 {
-   [Register ("AppDelegate")]
+   [Register("AppDelegate")]
    public class AppDelegate : UIApplicationDelegate
    {
       public static AppDelegate Shared;
@@ -22,7 +22,7 @@ namespace GoHunting.iOS
 
       private const string MapsApiKey = "AIzaSyA30bwNoT0erSJKRZCvHexg0TO0K9acfcw";
 
-      public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+      public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
       {
          MapServices.ProvideAPIKey(MapsApiKey);
 
@@ -36,35 +36,35 @@ namespace GoHunting.iOS
          Mvx.RegisterType<IToastService, ToastService>();
          Mvx.RegisterType<IAnalyticsService, AnalyticsService>();
 
-         _window = new UIWindow (UIScreen.MainScreen.Bounds);
+         _window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-         _window.RootViewController = new StartViewController ();
+         _window.RootViewController = new StartViewController();
 
-         _window.MakeKeyAndVisible ();
+         _window.MakeKeyAndVisible();
 
          return true;
       }
 
-      public override void OnResignActivation (UIApplication application)
+      public override void OnResignActivation(UIApplication application)
       {
 
       }
 
-      public override void DidEnterBackground (UIApplication application)
+      public override void DidEnterBackground(UIApplication application)
       {
 
       }
 
-      public override void WillEnterForeground (UIApplication application)
+      public override void WillEnterForeground(UIApplication application)
       {
 
       }
 
-      public override void OnActivated (UIApplication application)
+      public override void OnActivated(UIApplication application)
       {
       }
 
-      public override void WillTerminate (UIApplication application)
+      public override void WillTerminate(UIApplication application)
       {
       }
 

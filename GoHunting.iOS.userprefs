@@ -1,15 +1,23 @@
 ﻿<Properties StartupConfiguration="{79D8EC38-5966-46F6-81D2-C0C500AB811A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/AppDelegate.cs">
+  <MonoDevelop.Ide.ItemProperties.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/Common/BaseViewController.cs">
     <Files>
-      <File FileName="GoHunting.iOS/ViewControllers/StartViewController.cs" Line="138" Column="12" />
-      <File FileName="GoHunting.iOS/Info.plist" />
-      <File FileName="GoHunting.iOS/AppDelegate.cs" Line="61" Column="39" />
+      <File FileName="GO.Common.iOS/ViewControllers/Common/BaseViewController.cs" Line="102" Column="47" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GoHunting.iOS" expanded="True" selected="True">
+            <Node name="GO.Common.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GoHunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" />
+  <MonoDevelop.Ide.ItemProperties.GoHunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6EF3D736-A8E4-44B6-8905-7F83AFC5EB63" />
 </Properties>

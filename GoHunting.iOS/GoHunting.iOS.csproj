@@ -20,7 +20,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Ivan Artsiomau (J4V7E2M99A)</CodesignKey>
+    <CodesignKey>iPhone Developer: Ivan Artsiomau (VL8F7R3EKU)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
     <MtouchUseSGen>true</MtouchUseSGen>
@@ -30,7 +30,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>420f5355-d78e-423f-a3d8-7ce162542cb5</CodesignProvision>
+    <CodesignProvision>ad9d9480-bce5-4a2a-aa5b-472fbfdf461b</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -87,7 +87,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>f7ff2883-cef8-4778-b288-2d70793100fb</CodesignProvision>
+    <CodesignProvision>ad9d9480-bce5-4a2a-aa5b-472fbfdf461b</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -184,15 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="ViewControllers\" />
-    <Folder Include="ViewControllers\Common\" />
-    <Folder Include="Views\" />
-    <Folder Include="Views\Common\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="Utilities\" />
     <Folder Include="Resources\Images\" />
-    <Folder Include="Services\" />
-    <Folder Include="Views\Map\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -202,28 +194,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewControllers\StartViewController.cs" />
-    <Compile Include="ViewControllers\Common\BaseViewController.cs" />
-    <Compile Include="Views\Common\BaseView.cs" />
-    <Compile Include="Views\Common\BaseButton.cs" />
-    <Compile Include="Helpers\EasyLayout.cs" />
-    <Compile Include="Views\Common\BaseLabel.cs" />
-    <Compile Include="Helpers\StringHelper.cs" />
-    <Compile Include="Views\Common\BaseTextField.cs" />
-    <Compile Include="ViewControllers\MainTabBarViewController.cs" />
-    <Compile Include="ViewControllers\MapViewController.cs" />
-    <Compile Include="ViewControllers\Common\BaseNavigationViewController.cs" />
-    <Compile Include="ViewControllers\HistoryViewController.cs" />
-    <Compile Include="ViewControllers\SettingsViewController.cs" />
-    <Compile Include="Utilities\IOSLogger.cs" />
-    <Compile Include="Views\Common\LoadingView.cs" />
-    <Compile Include="Views\Common\WaitActivityIndicator.cs" />
-    <Compile Include="Helpers\UIHelper.cs" />
-    <Compile Include="Utilities\LocationManager.cs" />
-    <Compile Include="Services\ToastService.cs" />
-    <Compile Include="Utilities\ReachabilityHost.cs" />
-    <Compile Include="Services\AnalyticsService.cs" />
-    <Compile Include="Views\Map\MarkerInfoWindowView.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="googleiosmaps">
@@ -235,6 +205,10 @@
     <ProjectReference Include="..\GoHunting.Core\GoHunting.Core.csproj">
       <Project>{B6D1A089-4230-4625-8C99-E27A23BBA0B3}</Project>
       <Name>GoHunting.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GO.Common.iOS\GO.Common.iOS.csproj">
+      <Project>{DA37D640-C896-41D6-89B1-36712794934D}</Project>
+      <Name>GO.Common.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

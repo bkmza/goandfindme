@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA37D640-C896-41D6-89B1-36712794934D}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GO.Common.iOS</RootNamespace>
+    <AssemblyName>GO.Common.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchLink></MtouchLink>
+    <MtouchHttpClientHandler></MtouchHttpClientHandler>
+    <MtouchTlsProvider></MtouchTlsProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchLink></MtouchLink>
+    <MtouchHttpClientHandler></MtouchHttpClientHandler>
+    <MtouchTlsProvider></MtouchTlsProvider>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Services\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="ViewControllers\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\EasyLayout.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Helpers\UIHelper.cs" />
+    <Compile Include="Services\AnalyticsService.cs" />
+    <Compile Include="Services\ToastService.cs" />
+    <Compile Include="Utilities\IOSLogger.cs" />
+    <Compile Include="Utilities\LocationManager.cs" />
+    <Compile Include="Utilities\ReachabilityHost.cs" />
+    <Compile Include="ViewControllers\Common\BaseNavigationViewController.cs" />
+    <Compile Include="ViewControllers\Common\BaseViewController.cs" />
+    <Compile Include="ViewControllers\HistoryViewController.cs" />
+    <Compile Include="ViewControllers\MainTabBarViewController.cs" />
+    <Compile Include="ViewControllers\MapViewController.cs" />
+    <Compile Include="ViewControllers\SettingsViewController.cs" />
+    <Compile Include="ViewControllers\StartViewController.cs" />
+    <Compile Include="Views\Common\BaseButton.cs" />
+    <Compile Include="Views\Common\BaseLabel.cs" />
+    <Compile Include="Views\Common\BaseTextField.cs" />
+    <Compile Include="Views\Common\BaseView.cs" />
+    <Compile Include="Views\Common\LoadingView.cs" />
+    <Compile Include="Views\Common\WaitActivityIndicator.cs" />
+    <Compile Include="Views\Map\MarkerInfoWindowView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoHunting.Core\GoHunting.Core.csproj">
+      <Project>{B6D1A089-4230-4625-8C99-E27A23BBA0B3}</Project>
+      <Name>GoHunting.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

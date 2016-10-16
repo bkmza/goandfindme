@@ -1,4 +1,5 @@
-﻿using UIKit;
+﻿using System;
+using UIKit;
 
 namespace GO.Hunting.iOS
 {

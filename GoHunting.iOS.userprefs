@@ -1,17 +1,24 @@
 ﻿<Properties StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/StartViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.iOS/Info.plist">
     <Files>
       <File FileName="GO.Hunting.iOS/AppDelegate.cs" Line="36" Column="53" />
       <File FileName="GO.Hunting.iOS/Main.cs" Line="18" Column="8" />
-      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="198" Column="49" />
+      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="190" Column="7" />
       <File FileName="GoHunting.Core/Services/LoginService.cs" Line="38" Column="67" />
       <File FileName="GoHunting.iOS/packages.config" Line="1" Column="1" />
+      <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="111" Column="1" />
+      <File FileName="GO.Common.iOS/Utilities/LocationManager.cs" Line="46" Column="1" />
+      <File FileName="GO.Hunting.iOS/Info.plist" />
+      <File FileName="GoHunting.iOS/Info.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/ilyausikov/Projects/mobile/paranoia/GO.Hunting.iOS/Main.cs" line="17" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/mobile/paranoia/GO.Common.iOS/ViewControllers/MapViewController.cs" line="258" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/mobile/paranoia/GO.Common.iOS/ViewControllers/MapViewController.cs" line="111" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/mobile/paranoia/GO.Common.iOS/Utilities/LocationManager.cs" line="37" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

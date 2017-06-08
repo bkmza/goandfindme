@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="2.0.7" package="com.go.paranoia" android:versionCode="3">
-	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23" />
-	<application android:label="Paranoia" android:icon="@drawable/icon"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="2.0.8" package="com.go.paranoia" android:installLocation="auto" android:versionCode="4">
+	<uses-sdk android:minSdkVersion="14" />
+	<application android:label="Paranoia"></application>
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="2.0.10" package="com.go.paranoia" android:versionCode="6" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="2.0.11" package="com.go.paranoia" android:installLocation="auto" android:versionCode="7">
 	<uses-sdk android:minSdkVersion="16" />
 	<application android:label="Paranoia" android:icon="@drawable/Icon"></application>
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />

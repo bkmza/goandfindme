@@ -38,7 +38,7 @@ namespace DroidMapping.Adapters
       async void SetContents (string deviceId, string pointId, string type)
       {
          _info = new PointInfo ();
-         _info = await Mvx.Resolve<IApiService> ().GetInfo (deviceId, pointId, type);
+         _info = await Mvx.Resolve<IApiService> ().GetInfoAsync (deviceId, pointId, type);
 
          if (_info == null)
          {

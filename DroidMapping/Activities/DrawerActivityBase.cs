@@ -34,7 +34,8 @@ namespace DroidMapping
       {
          base.OnCreate (savedInstanceState);
 
-         this.Window.SetFlags (WindowManagerFlags.Secure, WindowManagerFlags.Secure);
+         // Preventing screen capturing
+         //this.Window.SetFlags (WindowManagerFlags.Secure, WindowManagerFlags.Secure);
 
          SetContentView (Resource.Layout.activity_navigation_drawer);
 

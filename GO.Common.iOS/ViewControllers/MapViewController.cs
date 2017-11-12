@@ -15,11 +15,11 @@ using GoHunting.Core.Services;
 using GoHunting.Core;
 using GoHunting.Core.Enums;
 using GoHunting.Core.Helpers;
-using GO.Common.iOS.Utilities;
 using GoHunting.Core.Data;
-using GO.Common.iOS.Views;
 using GoHunting.Core.Utilities;
-using Foundation;
+using GO.Common.iOS.Utilities;
+using GO.Common.iOS.Views;
+
 using MvvmCross.Platform;
 
 namespace GO.Common.iOS.ViewControllers
@@ -38,11 +38,9 @@ namespace GO.Common.iOS.ViewControllers
       private double _distanceToNearestPoint;
       private string _nameOfNearestPoint;
 
-      public static bool UserInterfaceIdiomIsPhone
-      {
-         get { return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone; }
-      }
+      private object _lockObject = new object();
 
+      public static bool UserInterfaceIdiomIsPhone => UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone;
       public static LocationManager Manager { get; set; }
 
       public MapViewController()
@@ -77,6 +75,10 @@ namespace GO.Common.iOS.ViewControllers
       public override void ViewDidLoad()
       {
          base.ViewDidLoad();
+
+         EdgesForExtendedLayout = UIRectEdge.None;
+         ExtendedLayoutIncludesOpaqueBars = false;
+         AutomaticallyAdjustsScrollViewInsets = false;
       }
 
       public override void Initialize()
@@ -86,6 +88,7 @@ namespace GO.Common.iOS.ViewControllers
          var camera = CameraPosition.FromCamera(latitude: 53.900819, longitude: 27.558823, zoom: 10);
          _mapView = MapView.FromCamera(CGRect.Empty, camera);
          _mapView.MyLocationEnabled = true;
+         _mapView.Settings.MyLocationButton = true;
 
          _mapView.TappedMarker = (MapView mapView, Marker marker) =>
          {
@@ -102,14 +105,13 @@ namespace GO.Common.iOS.ViewControllers
             _mapView.MarkerInfoWindow = new GMSInfoFor(MarkerInfoWindow);
             return false;
          };
-
-         View = _mapView;
-
          _markersList = new List<Marker>();
 
          UpdateMap();
          Manager = new LocationManager();
          Manager.StartLocationUpdates();
+
+         View = _mapView;
       }
 
       private void UpdateMap()
@@ -148,11 +150,7 @@ namespace GO.Common.iOS.ViewControllers
          });
       }
 
-      private UIView MarkerInfoWindow(UIView view, Marker marker)
-      {
-         MarkerInfoWindowView v = new MarkerInfoWindowView(marker);
-         return v;
-      }
+      private UIView MarkerInfoWindow(UIView view, Marker marker) => new MarkerInfoWindowView(marker);
 
       public void ShowMenu(object sender, EventArgs e)
       {
@@ -201,7 +199,7 @@ namespace GO.Common.iOS.ViewControllers
             alert.AddAction(UIAlertAction.Create("Закрыть", UIAlertActionStyle.Cancel, null));
             PresentViewController(alert, true, null);
          }
-         else 
+         else
          {
             UIActionSheet actionSheetAlert = new UIActionSheet("Выберите действие");
 
@@ -327,8 +325,6 @@ namespace GO.Common.iOS.ViewControllers
          ToastService.ShowMessage(description);
       }
 
-      private object _lockObject = new object();
-
       private void UpdateNearestPointInformation()
       {
          _distanceToNearestPoint = float.MaxValue;
@@ -352,13 +348,6 @@ namespace GO.Common.iOS.ViewControllers
          _nameOfNearestPoint = nearestMarker.Title;
       }
 
-      protected override string LoadingMessage
-      {
-         get
-         {
-            return "Please, wait...";
-         }
-      }
+      protected override string LoadingMessage => "Please, wait...";
    }
 }
-

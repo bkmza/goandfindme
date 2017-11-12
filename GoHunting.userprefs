@@ -1,5 +1,10 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/MapViewController.cs">
+    <Files>
+      <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="87" Column="62" />
+      <File FileName="GO.Common.iOS/ViewControllers/MainTabBarViewController.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

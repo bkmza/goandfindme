@@ -1,23 +1,16 @@
-﻿<Properties StartupItem="GoHunting.iOS/GoHunting.iOS.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/ViewControllers/MapViewController.cs">
+﻿<Properties StartupConfiguration="{79D8EC38-5966-46F6-81D2-C0C500AB811A}|Default">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="GoHunting.iOS/AppDelegate.cs" Line="13" Column="14" />
-      <File FileName="GoHunting.iOS/ViewControllers/StartViewController.cs" Line="116" Column="8" />
-      <File FileName="GoHunting.iOS/ViewControllers/MapViewController.cs" Line="4" Column="1" />
+      <File FileName="GoHunting.iOS/AppDelegate.cs" Line="22" Column="10" />
+      <File FileName="GoHunting.iOS/Main.cs" Line="12" Column="1" />
+      <File FileName="GoHunting.iOS/Info.plist" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GoHunting.iOS" expanded="True">
             <Node name="GoHunting.iOS" expanded="True">
-              <Node name="ComponentReferenceFolder" expanded="True" />
-              <Node name="Helpers" expanded="True" />
-              <Node name="ViewControllers" expanded="True">
-                <Node name="MapViewController.cs" selected="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Common" expanded="True" />
-              </Node>
+              <Node name="Resources" selected="True" />
             </Node>
           </Node>
         </State>
@@ -29,5 +22,6 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GoHunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7C0A484C-5390-443D-8357-CD80186F0240" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.GoHunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DBC6E0A7-1025-4F7D-B12A-D10D846AE062" />
 </Properties>

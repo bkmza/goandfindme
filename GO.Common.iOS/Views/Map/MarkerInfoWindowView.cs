@@ -1,12 +1,14 @@
 ﻿using System;
+
 using CoreGraphics;
+using UIKit;
+
 using GoHunting.Core.Data;
-using GoHunting.Core.Enums;
 using GoHunting.Core.Utilities;
 using GO.Common.iOS.Helpers;
+
 using Google.Maps;
 using Newtonsoft.Json;
-using UIKit;
 
 namespace GO.Common.iOS.Views
 {
@@ -40,8 +42,10 @@ namespace GO.Common.iOS.Views
          {
             Lines = 0,
             LineBreakMode = UILineBreakMode.WordWrap,
-            Text = string.Format("Название: {0}", item.name)
+            Text = string.Format("Название: {0}", item.name + item.name + item.name + item.name)
          };
+         _titleLabel.SizeToFit();
+         _titleLabel.Frame = new CGRect(0, 0, UIHelper.ScreenWidth, _titleLabel.Frame.Height);
          AddSubview(_titleLabel);
 
          _coordLabel = new BaseLabel(new CGRect(0, _titleLabel.Frame.Bottom, UIHelper.ScreenWidth, 20))
@@ -83,4 +87,3 @@ namespace GO.Common.iOS.Views
       }
    }
 }
-

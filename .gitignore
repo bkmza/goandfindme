@@ -1,12 +1,30 @@
-bin
+*/bin
+*/obj
 /packages
-/DroidMapping/obj
-/GoHunting.Core/obj
-/GoHunting.Core/bin
-/GoHunting.iOS/obj
-/GoHunting.iOS/bin
-/GO.Common.iOS/bin
-/GO.Common.iOS/obj
-/GO.Hunting.iOS/bin
-/GO.Hunting.iOS/obj
-/Components
+/plugins
+*.orig
+*/*/bin
+*/*/obj
+*/packages
+*.DS_Store
+*.userprefs
+Components/*
+
+# User-specific files
+*.suo
+*.user
+
+# Build results
+*.mdb
+*.pdb
+
+# Unsorted
+*.bak
+/.vs/config/applicationhost.config
+*Resource.Designer.cs
+/_ReSharper.Caches
+/.idea/.idea.LTHealth.Android
+/.vs/LTHealth.Android.sqlite-journal
+/.vs/LTHealth.Android.sqlite
+/.vs
+/ClearObj.bat

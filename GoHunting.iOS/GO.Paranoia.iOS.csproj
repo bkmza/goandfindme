@@ -170,6 +170,7 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-667h%402x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default%402x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\goandfindme_1024appstore_2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

@@ -1,5 +1,5 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.iOS/Info.plist">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="GO.Hunting.iOS/Info.plist" />
     </Files>

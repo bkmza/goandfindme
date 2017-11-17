@@ -1,9 +1,13 @@
 {
   "images": [
     {
-      "filename": "Icon-App-29x29@1x.png",
-      "size": "29x29",
-      "scale": "1x",
+      "size": "20x20",
+      "scale": "2x",
+      "idiom": "iphone"
+    },
+    {
+      "size": "20x20",
+      "scale": "3x",
       "idiom": "iphone"
     },
     {
@@ -31,18 +35,6 @@
       "idiom": "iphone"
     },
     {
-      "filename": "iTunesArtwork2x-57.png",
-      "size": "57x57",
-      "scale": "1x",
-      "idiom": "iphone"
-    },
-    {
-      "filename": "iTunesArtwork2x-114.png",
-      "size": "57x57",
-      "scale": "2x",
-      "idiom": "iphone"
-    },
-    {
       "filename": "Icon-App-60x60@2x.png",
       "size": "60x60",
       "scale": "2x",
@@ -55,6 +47,16 @@
       "idiom": "iphone"
     },
     {
+      "size": "20x20",
+      "scale": "1x",
+      "idiom": "ipad"
+    },
+    {
+      "size": "20x20",
+      "scale": "2x",
+      "idiom": "ipad"
+    },
+    {
       "size": "29x29",
       "scale": "1x",
       "idiom": "ipad"
@@ -71,16 +73,6 @@
     },
     {
       "size": "40x40",
-      "scale": "2x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "50x50",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "50x50",
       "scale": "2x",
       "idiom": "ipad"
     },
@@ -90,16 +82,6 @@
       "idiom": "ipad"
     },
     {
-      "size": "72x72",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "72x72",
-      "scale": "2x",
-      "idiom": "ipad"
-    },
-    {
       "size": "76x76",
       "scale": "1x",
       "idiom": "ipad"
@@ -108,6 +90,12 @@
       "size": "76x76",
       "scale": "2x",
       "idiom": "ipad"
+    },
+    {
+      "filename": "goandfindme_1024appstore_2.png",
+      "size": "1024x1024",
+      "scale": "1x",
+      "idiom": "ios-marketing"
     },
     {
       "role": "notificationCenter",

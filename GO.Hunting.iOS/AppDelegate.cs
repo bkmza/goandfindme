@@ -9,6 +9,8 @@ using GO.Common.iOS.Services;
 using GoHunting.Core.Services;
 using GO.Common.iOS.ViewControllers;
 using GO.Common.iOS.Utilities;
+using SQLite.Net.Interop;
+using SQLite.Net.Platform.XamarinIOS;
 
 namespace GO.Hunting.iOS
 {
@@ -40,6 +42,11 @@ namespace GO.Hunting.iOS
 
          Mvx.RegisterType<IToastService, ToastService>();
          Mvx.RegisterType<IAnalyticsService, AnalyticsService>();
+         Mvx.RegisterType<ISQLitePlatform, SQLitePlatformIOS>();
+         Mvx.RegisterType<ISQLite, SQLiteIOS>();
+         Mvx.RegisterType<IDBService, DBService>();
+         Mvx.RegisterType<IUserActionService, UserActionService>();
+         Mvx.RegisterType<IMapSettingsService, MapSettingsService>();
 
          _window = new UIWindow(UIScreen.MainScreen.Bounds);
 

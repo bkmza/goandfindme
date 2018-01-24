@@ -101,7 +101,7 @@ namespace GO.Common.iOS.ViewControllers
          var settingsController = new UINavigationController();
          settingsController.PushViewController(new SettingsViewController(), false);
 
-         tabBarViewController.SetViewControllers(new[] { mapController/*, historyController, settingsController*/ }, true);
+         tabBarViewController.SetViewControllers(new[] { mapController, historyController /*, settingsController*/ }, true);
 
          UIApplication.SharedApplication.KeyWindow.RootViewController = tabBarViewController;
       }

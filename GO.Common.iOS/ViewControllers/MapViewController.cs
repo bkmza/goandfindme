@@ -236,16 +236,6 @@ namespace GO.Common.iOS.ViewControllers
                      break;
                }
             };
-
-            //actionSheetAlert.AddAction(UIAlertAction.Create("Захват", UIAlertActionStyle.Default, (action) => { ConquerHandler(); }));
-            //actionSheetAlert.AddAction(UIAlertAction.Create("Квест", UIAlertActionStyle.Default, (action) => { QuestHandler(); }));
-            //actionSheetAlert.AddAction(UIAlertAction.Create("Обновить", UIAlertActionStyle.Default, (action) => { UpdateMap(); }));
-            //actionSheetAlert.AddAction(UIAlertAction.Create("Только точки", UIAlertActionStyle.Default, (action) => { _currentMapItemType = MapItemType.Point; UpdateMap(); }));
-            //actionSheetAlert.AddAction(UIAlertAction.Create("Только квесты", UIAlertActionStyle.Default, (action) => { _currentMapItemType = MapItemType.Quest; UpdateMap(); }));
-            //actionSheetAlert.AddAction(UIAlertAction.Create("Все объекты", UIAlertActionStyle.Default, (action) => { _currentMapItemType = null; UpdateMap(); }));
-
-            //actionSheetAlert.AddAction(UIAlertAction.Create("Закрыть", UIAlertActionStyle.Cancel, (action) => Console.WriteLine("Cancel button pressed.")));
-            //PresentViewController(actionSheetAlert, true, null);
             actionSheetAlert.ShowInView(View);
          }
 

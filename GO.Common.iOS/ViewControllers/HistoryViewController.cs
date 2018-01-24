@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using GO.Common.iOS.Helpers;
 using GO.Common.iOS.Views;
+using GoHunting.Core.Entities;
 using GoHunting.Core.Services;
 using MvvmCross.Platform;
 using UIKit;
@@ -11,14 +13,27 @@ namespace GO.Common.iOS.ViewControllers
    {
       private IUserActionService _userActionService;
 
+      private UIBarButtonItem _actionsButton;
       private UITableView _tableView;
-      private UITableViewSource _tableViewSource;
+      private HistoryTableViewSource _tableViewSource;
 
       public HistoryViewController()
       {
          TabBarItem = new UITabBarItem(UITabBarSystemItem.History, 1);
+         NavigationItem.Title = "History";
 
          _userActionService = Mvx.Resolve<IUserActionService>();
+      }
+
+      public override void ViewWillAppear(bool animated)
+      {
+         base.ViewWillAppear(animated);
+
+         _actionsButton = new UIBarButtonItem(UIBarButtonSystemItem.Action, ShowMenu)
+         {
+            TintColor = UIColor.Black
+         };
+         NavigationItem.SetRightBarButtonItems(new[] { _actionsButton }, true);
       }
 
       public override void Initialize()
@@ -55,6 +70,30 @@ namespace GO.Common.iOS.ViewControllers
             _tableView.Frame.Bottom == View.Frame.Bottom
          );
       }
+
+      public void ShowMenu(object sender, EventArgs e)
+      {
+         List<UserAction> userActions = null;
+         var alert = UIAlertController.Create("Выберите действие", null, UIAlertControllerStyle.ActionSheet);
+         alert.AddAction(UIAlertAction.Create("Все", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            userActions = _userActionService.GetAllTypes();
+            _tableViewSource.UpdateSource(_tableView, userActions.ToArray());
+         }));
+
+         alert.AddAction(UIAlertAction.Create("Только точки", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            userActions = _userActionService.GetConquers();
+            _tableViewSource.UpdateSource(_tableView, userActions.ToArray());
+         }));
+
+         alert.AddAction(UIAlertAction.Create("Только квесты", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            userActions = _userActionService.GetQuests();
+            _tableViewSource.UpdateSource(_tableView, userActions.ToArray());
+         }));
+         alert.AddAction(UIAlertAction.Create("Закрыть", UIAlertActionStyle.Cancel, null));
+         PresentViewController(alert, true, null);
+      }
    }
 }
-

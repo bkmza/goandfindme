@@ -7,7 +7,7 @@ namespace GO.Common.iOS.ViewControllers
 {
    public class HistoryTableViewSource : UITableViewSource
    {
-      private readonly UserAction[] _userActions;
+      private UserAction[] _userActions;
 
       public HistoryTableViewSource(UserAction[] userActions)
       {
@@ -27,11 +27,17 @@ namespace GO.Common.iOS.ViewControllers
          if (cell == null)
             cell = new HistoryCell();
 
-         if(cell is HistoryCell historyCell)
+         if (cell is HistoryCell historyCell)
          {
             historyCell.Update(item);
          }
          return cell;
+      }
+
+      public void UpdateSource(UITableView tableView, UserAction[] userActions)
+      {
+         _userActions = userActions;
+         tableView.ReloadData();
       }
    }
 }

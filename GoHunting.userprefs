@@ -1,50 +1,31 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/HistoryTableViewSource.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.iOS/Info.plist">
     <Files>
       <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="76" Column="8" />
-      <File FileName="GO.Common.iOS/ViewControllers/HistoryViewController.cs" Line="8" Column="13" />
+      <File FileName="GO.Common.iOS/ViewControllers/HistoryViewController.cs" Line="43" Column="40" />
       <File FileName="GO.Common.iOS/ViewControllers/HistoryTableViewSource.cs" Line="15" Column="8" />
       <File FileName="GO.Common.iOS/ViewControllers/HistoryCell.cs" Line="54" Column="66" />
       <File FileName="GoHunting.Core/Services/DBService.cs" Line="23" Column="29" />
+      <File FileName="GO.Hunting.iOS/Info.plist" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GoHunting" expanded="True">
-            <Node name="GO.Common.iOS" expanded="True">
-              <Node name="ViewControllers" expanded="True">
-                <Node name="Common" expanded="True" />
-                <Node name="HistoryTableViewSource.cs" selected="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Map" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="GO.Hunting.iOS" expanded="True" />
-            <Node name="GoHunting" expanded="True">
-              <Node name="Activities" expanded="True" />
-              <Node name="Fragments" expanded="True" />
-              <Node name="Services" expanded="True" />
-            </Node>
-            <Node name="GoHunting.Core" expanded="True">
-              <Node name="Entities" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="Interfaces" expanded="True" />
-              </Node>
-            </Node>
+            <Node name="GO.Hunting.iOS" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" automaticSigning="False" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MonoDevelop.Ide.ItemProperties.GoHunting AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Test" />

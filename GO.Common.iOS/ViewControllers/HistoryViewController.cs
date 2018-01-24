@@ -37,7 +37,7 @@ namespace GO.Common.iOS.ViewControllers
             BackgroundColor = UIColor.White
          };
 
-         var userActions = _userActionService.GetQuests();
+         var userActions = _userActionService.GetAllTypes();
          _tableViewSource = new HistoryTableViewSource(userActions.ToArray());
          _tableView.Source = _tableViewSource;
       }

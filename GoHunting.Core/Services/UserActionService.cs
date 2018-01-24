@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using GoHunting.Core.Entities;
@@ -11,34 +10,43 @@ namespace GoHunting.Core.Services
    {
       IDBService _dbService;
 
-      public UserActionService (IDBService dbService)
+      public UserActionService(IDBService dbService)
       {
          _dbService = dbService;
       }
 
-      public List<UserAction> GetConquers ()
+      public List<UserAction> GetConquers()
       {
-         var dbItems = _dbService.Get<DBUserAction> ().Where (x => x.Type == (int)MapItemType.Point).ToList ();
+         var dbItems = _dbService.Get<DBUserAction>().Where(x => x.Type == (int)MapItemType.Point).ToList();
 
-         var items = Mapper.Map<List<UserAction>> (dbItems);
+         var items = Mapper.Map<List<UserAction>>(dbItems);
 
          return items;
       }
 
-      public List<UserAction> GetQuests ()
+      public List<UserAction> GetQuests()
       {
-         var dbItems = _dbService.Get<DBUserAction> ().Where (x => x.Type == (int)MapItemType.Quest).ToList ();
+         var dbItems = _dbService.Get<DBUserAction>().Where(x => x.Type == (int)MapItemType.Quest).ToList();
 
-         var items = Mapper.Map<List<UserAction>> (dbItems);
+         var items = Mapper.Map<List<UserAction>>(dbItems);
 
          return items;
       }
 
-      public void Add (UserAction userAction)
+      public List<UserAction> GetAllTypes()
       {
-         var dbUserAction = Mapper.Map<DBUserAction> (userAction);
+         var dbItems = _dbService.Get<DBUserAction>().ToList();
 
-         _dbService.Add<DBUserAction> (dbUserAction);
+         var items = Mapper.Map<List<UserAction>>(dbItems);
+
+         return items;
+      }
+
+      public void Add(UserAction userAction)
+      {
+         var dbUserAction = Mapper.Map<DBUserAction>(userAction);
+
+         _dbService.Add<DBUserAction>(dbUserAction);
       }
    }
 }

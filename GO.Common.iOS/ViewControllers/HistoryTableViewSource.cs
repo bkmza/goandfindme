@@ -27,6 +27,10 @@ namespace GO.Common.iOS.ViewControllers
          if (cell == null)
             cell = new HistoryCell();
 
+         if(cell is HistoryCell historyCell)
+         {
+            historyCell.Update(item);
+         }
          return cell;
       }
    }

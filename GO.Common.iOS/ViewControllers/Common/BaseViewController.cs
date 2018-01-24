@@ -37,6 +37,10 @@ namespace GO.Common.iOS.ViewControllers
          Initialize ();
 
          Build ();
+
+         EdgesForExtendedLayout = UIRectEdge.None;
+         ExtendedLayoutIncludesOpaqueBars = false;
+         AutomaticallyAdjustsScrollViewInsets = false;
       }
 
       public virtual void Initialize ()

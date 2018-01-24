@@ -75,15 +75,6 @@ namespace GO.Common.iOS.ViewControllers
          }
       }
 
-      public override void ViewDidLoad()
-      {
-         base.ViewDidLoad();
-
-         EdgesForExtendedLayout = UIRectEdge.None;
-         ExtendedLayoutIncludesOpaqueBars = false;
-         AutomaticallyAdjustsScrollViewInsets = false;
-      }
-
       public override void Initialize()
       {
          base.Initialize();

@@ -29,7 +29,7 @@ namespace GO.Common.iOS.ViewControllers
       {
          base.ViewWillAppear(animated);
 
-         _actionsButton = new UIBarButtonItem(UIBarButtonSystemItem.Action, ShowMenu)
+         _actionsButton = new UIBarButtonItem(UIBarButtonSystemItem.Search, ShowMenu)
          {
             TintColor = UIColor.Black
          };

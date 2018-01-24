@@ -192,7 +192,7 @@ namespace GO.Common.iOS.ViewControllers
       {
          IsLoading = true;
 
-         if (_nameTextField.Text == "Apple" && _commentTextField.Text == "Apple123")
+         if (_nameTextField.Text.Trim() == "Apple" && _commentTextField.Text.Trim() == "Apple123")
          {
             DeviceUtility.TestId = "0123456789";
          }

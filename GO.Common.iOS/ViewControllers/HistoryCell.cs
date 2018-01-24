@@ -43,15 +43,15 @@ namespace GO.Common.iOS.ViewControllers
 
          ContentView.ConstrainLayout(() =>
              _titleLabel.Frame.Top == ContentView.Frame.Top + 3 &&
-             _titleLabel.Frame.Left == ContentView.Frame.Left &&
+             _titleLabel.Frame.Left == ContentView.Frame.Left + 10 &&
              _titleLabel.Frame.Right == ContentView.Frame.Right &&
 
              _descriptionLabel.Frame.Top == _titleLabel.Frame.Bottom + 5 &&
-             _descriptionLabel.Frame.Left == ContentView.Frame.Left &&
+             _descriptionLabel.Frame.Left == ContentView.Frame.Left + 10&&
              _descriptionLabel.Frame.Right == ContentView.Frame.Right &&
 
              _dateLabel.Frame.Top == _descriptionLabel.Frame.Bottom + 5 &&
-             _dateLabel.Frame.Left == ContentView.Frame.Left &&
+             _dateLabel.Frame.Left == ContentView.Frame.Left + 10 &&
              _dateLabel.Frame.Right == ContentView.Frame.Right &&
              _dateLabel.Frame.Bottom == ContentView.Frame.Bottom - 3
          );

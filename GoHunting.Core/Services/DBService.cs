@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using GoHunting.Core.Entities;
 using GoHunting.Core.Enums;
 using SQLite.Net;
-using SQLite.Net.Interop;
 using SQLiteNetExtensions.Extensions;
 
 namespace GoHunting.Core.Services
@@ -11,8 +10,6 @@ namespace GoHunting.Core.Services
    public class DBService : IDBService
    {
       SQLiteConnection Connection;
-      SQLiteConnectionString ConnectionString;
-      ISQLitePlatform Platform;
 
       public DBService(ISQLite sqlite)
       {

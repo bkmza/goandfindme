@@ -1,22 +1,20 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{79D8EC38-5966-46F6-81D2-C0C500AB811A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.Core/Services/DBService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/AppDelegate.cs">
     <Files>
       <File FileName="GO.Hunting.iOS/AppDelegate.cs" Line="7" Column="16" />
       <File FileName="GoHunting.iOS/AppDelegate.cs" Line="14" Column="13" />
-      <File FileName="GoHunting.Core/Services/DBService.cs" Line="6" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GoHunting" expanded="True">
-            <Node name="GO.Hunting.iOS" expanded="True">
+            <Node name="GO.Hunting.iOS" expanded="True" />
+            <Node name="GO.Paranoia.iOS" expanded="True">
               <Node name="Packages" expanded="True" />
+              <Node name="AppDelegate.cs" selected="True" />
             </Node>
-            <Node name="GO.Paranoia.iOS" expanded="True" />
             <Node name="GoHunting.Core" expanded="True">
-              <Node name="Services" expanded="True">
-                <Node name="DBService.cs" selected="True" />
-              </Node>
+              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>

@@ -7,9 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.go.hunting</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.3</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.3</string>
+	<string>1.0.9</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -36,5 +34,7 @@
 	<string>New Entry</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>New Entry</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 </dict>
 </plist>

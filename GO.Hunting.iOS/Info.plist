@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>GO.Hunting.iOS</string>
+	<string>Hunting</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.go.hunting</string>
 	<key>CFBundleShortVersionString</key>

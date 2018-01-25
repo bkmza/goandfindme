@@ -113,9 +113,6 @@
     <Reference Include="CrossUI.iOS">
       <HintPath>..\packages\MvvmCross.Dialog.iOS.4.4.0\lib\Xamarin.iOS10\CrossUI.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Dialog.iOS">
-      <HintPath>..\packages\MvvmCross.Dialog.iOS.4.4.0\lib\Xamarin.iOS10\MvvmCross.Dialog.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="MvvmCross.iOS.Support">
       <HintPath>..\packages\MvvmCross.iOS.Support.5.4.2\lib\Xamarin.iOS10\MvvmCross.iOS.Support.dll</HintPath>
     </Reference>
@@ -141,9 +138,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Maps">
-      <HintPath>..\packages\Xamarin.Google.iOS.Maps.2.1.0.2\lib\Xamarin.iOS10\Google.Maps.dll</HintPath>
-    </Reference>
     <Reference Include="MvvmCross.iOS">
       <HintPath>..\packages\MvvmCross.Core.5.4.2\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
     </Reference>
@@ -164,6 +158,12 @@
     </Reference>
     <Reference Include="SQLitePCLRaw.batteries_green">
       <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Maps">
+      <HintPath>..\packages\Xamarin.Google.iOS.Maps.2.5.0\lib\Xamarin.iOS10\Google.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Dialog.iOS">
+      <HintPath>..\packages\MvvmCross.Dialog.iOS.4.4.0\lib\Xamarin.iOS10\MvvmCross.Dialog.iOS.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.batteries_v2">
       <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
@@ -206,12 +206,6 @@
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="googleiosmaps">
-      <Version>1.13.2.1</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
@@ -227,5 +221,5 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets')" />
-  <Import Project="..\packages\Xamarin.Google.iOS.Maps.2.1.0.2\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Maps.2.1.0.2\build\Xamarin.Google.iOS.Maps.targets')" />
+  <Import Project="..\packages\Xamarin.Google.iOS.Maps.2.5.0\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Maps.2.5.0\build\Xamarin.Google.iOS.Maps.targets')" />
 </Project>

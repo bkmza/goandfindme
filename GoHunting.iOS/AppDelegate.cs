@@ -1,18 +1,19 @@
 using Foundation;
+using GO.Common.iOS.Services;
+using GO.Common.iOS.Utilities;
+using GO.Common.iOS.ViewControllers;
+using GoHunting.Core;
+using GoHunting.Core.Services;
+using GoHunting.Core.Utilities;
+using Google.Maps;
+using MvvmCross.Platform;
+using SQLite.Net.Interop;
+using SQLite.Net.Platform.XamarinIOS;
 using UIKit;
 
-using Google.Maps;
-using GoHunting.Core;
-using GoHunting.Core.Utilities;
-using MvvmCross.Platform;
-using GO.Common.iOS.Services;
-using GoHunting.Core.Services;
-using GO.Common.iOS.ViewControllers;
-using GO.Common.iOS.Utilities;
-
-namespace GoHunting.iOS
+namespace GO.Paranoia.iOS
 {
-   [Register ("AppDelegate")]
+   [Register("AppDelegate")]
    public class AppDelegate : UIApplicationDelegate
    {
       public static AppDelegate Shared;
@@ -21,7 +22,7 @@ namespace GoHunting.iOS
 
       private const string MapsApiKey = "AIzaSyA30bwNoT0erSJKRZCvHexg0TO0K9acfcw";
 
-      public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+      public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
       {
          MapServices.ProvideAPIKey(MapsApiKey);
 
@@ -40,36 +41,41 @@ namespace GoHunting.iOS
 
          Mvx.RegisterType<IToastService, ToastService>();
          Mvx.RegisterType<IAnalyticsService, AnalyticsService>();
+         Mvx.RegisterType<ISQLitePlatform, SQLitePlatformIOS>();
+         Mvx.RegisterType<ISQLite, SQLiteIOS>();
+         Mvx.RegisterType<IDBService, DBService>();
+         Mvx.RegisterType<IUserActionService, UserActionService>();
+         Mvx.RegisterType<IMapSettingsService, MapSettingsService>();
 
-         _window = new UIWindow (UIScreen.MainScreen.Bounds);
+         _window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-         _window.RootViewController = new StartViewController ();
+         _window.RootViewController = new StartViewController();
 
-         _window.MakeKeyAndVisible ();
+         _window.MakeKeyAndVisible();
 
          return true;
       }
 
-      public override void OnResignActivation (UIApplication application)
+      public override void OnResignActivation(UIApplication application)
       {
 
       }
 
-      public override void DidEnterBackground (UIApplication application)
+      public override void DidEnterBackground(UIApplication application)
       {
 
       }
 
-      public override void WillEnterForeground (UIApplication application)
+      public override void WillEnterForeground(UIApplication application)
       {
 
       }
 
-      public override void OnActivated (UIApplication application)
+      public override void OnActivated(UIApplication application)
       {
       }
 
-      public override void WillTerminate (UIApplication application)
+      public override void WillTerminate(UIApplication application)
       {
       }
 
@@ -79,5 +85,3 @@ namespace GoHunting.iOS
       }
    }
 }
-
-

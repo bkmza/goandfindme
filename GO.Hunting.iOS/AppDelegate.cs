@@ -1,16 +1,15 @@
 ﻿using Foundation;
-using UIKit;
-
-using Google.Maps;
-using GoHunting.Core;
-using GoHunting.Core.Utilities;
-using MvvmCross.Platform;
 using GO.Common.iOS.Services;
-using GoHunting.Core.Services;
-using GO.Common.iOS.ViewControllers;
 using GO.Common.iOS.Utilities;
+using GO.Common.iOS.ViewControllers;
+using GoHunting.Core;
+using GoHunting.Core.Services;
+using GoHunting.Core.Utilities;
+using Google.Maps;
+using MvvmCross.Platform;
 using SQLite.Net.Interop;
 using SQLite.Net.Platform.XamarinIOS;
+using UIKit;
 
 namespace GO.Hunting.iOS
 {

@@ -1,4 +1,4 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{79D8EC38-5966-46F6-81D2-C0C500AB811A}|Default">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/MapViewController.cs">
     <Files>
       <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="222" Column="53" />

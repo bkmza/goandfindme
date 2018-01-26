@@ -34,11 +34,11 @@
 	<string>New Entry</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>New Entry</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>arm64</string>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>2</string>
 </dict>
 </plist>

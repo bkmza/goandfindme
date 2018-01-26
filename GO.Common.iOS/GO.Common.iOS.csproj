@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Images\action_search.png" />

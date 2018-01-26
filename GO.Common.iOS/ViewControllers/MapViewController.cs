@@ -47,7 +47,7 @@ namespace GO.Common.iOS.ViewControllers
 
       public MapViewController()
       {
-         TabBarItem = new UITabBarItem(UITabBarSystemItem.Favorites, 0);
+         TabBarItem = new UITabBarItem(UITabBarSystemItem.Search, 0);
 
          _apiService = Mvx.Resolve<IApiService>();
          _userActionService = Mvx.Resolve<IUserActionService>();

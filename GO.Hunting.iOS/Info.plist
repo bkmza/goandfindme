@@ -39,6 +39,6 @@
 		<string>arm64</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 </dict>
 </plist>

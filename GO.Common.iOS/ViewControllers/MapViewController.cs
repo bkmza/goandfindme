@@ -1,27 +1,22 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-
-using UIKit;
 using CoreGraphics;
 using CoreLocation;
-
-using Google.Maps;
-
-using Newtonsoft.Json;
-
-using GoHunting.Core.Services;
-using GoHunting.Core;
-using GoHunting.Core.Enums;
-using GoHunting.Core.Helpers;
-using GoHunting.Core.Data;
-using GoHunting.Core.Utilities;
 using GO.Common.iOS.Utilities;
 using GO.Common.iOS.Views;
-
-using MvvmCross.Platform;
+using GoHunting.Core;
+using GoHunting.Core.Data;
 using GoHunting.Core.Entities;
+using GoHunting.Core.Enums;
+using GoHunting.Core.Helpers;
+using GoHunting.Core.Services;
+using GoHunting.Core.Utilities;
+using Google.Maps;
+using MvvmCross.Platform;
+using Newtonsoft.Json;
+using UIKit;
 
 namespace GO.Common.iOS.ViewControllers
 {
@@ -119,8 +114,24 @@ namespace GO.Common.iOS.ViewControllers
          });
       }
 
+      private async Task<bool> ValidateUserAccess()
+      {
+         ErrorInfo errorInfo = await _apiService.CheckUserAccess(DeviceUtility.DeviceId);
+         if (errorInfo.status == "blocked")
+         {
+            ToastService.ShowMessage(errorInfo.message);
+            return false;
+         }
+         return true;
+      }
+
       private async Task UpdateMapAsync()
       {
+         if (await ValidateUserAccess() == false)
+         {
+            return;
+         }
+
          var points = await _apiService.GetAll(DeviceUtility.DeviceId);
 
          if (_currentMapItemType != null)
@@ -210,6 +221,11 @@ namespace GO.Common.iOS.ViewControllers
             return;
          }
 
+         if (await ValidateUserAccess() == false)
+         {
+            return;
+         }
+
          string description = "GPS-координаты не определены, повторите попытку позже";
          if (_currentLocation != null)
          {
@@ -239,6 +255,11 @@ namespace GO.Common.iOS.ViewControllers
          if (!CheckInternetConnection())
          {
             IsLoading = false;
+            return;
+         }
+
+         if (await ValidateUserAccess() == false)
+         {
             return;
          }
 

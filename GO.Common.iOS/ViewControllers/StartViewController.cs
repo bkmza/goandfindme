@@ -1,15 +1,13 @@
 using System;
-
 using Foundation;
-using UIKit;
-
-using GO.Common.iOS.Views;
-using GoHunting.Core.Data;
-using GoHunting.Core.Services;
-using GoHunting.Core.Enums;
-using GoHunting.Core;
-using MvvmCross.Platform;
 using GO.Common.iOS.Helpers;
+using GO.Common.iOS.Views;
+using GoHunting.Core;
+using GoHunting.Core.Data;
+using GoHunting.Core.Enums;
+using GoHunting.Core.Services;
+using MvvmCross.Platform;
+using UIKit;
 
 namespace GO.Common.iOS.ViewControllers
 {

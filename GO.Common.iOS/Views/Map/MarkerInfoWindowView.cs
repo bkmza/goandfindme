@@ -42,7 +42,7 @@ namespace GO.Common.iOS.Views
          {
             Lines = 0,
             LineBreakMode = UILineBreakMode.WordWrap,
-            Text = string.Format("Название: {0}", item.name + item.name + item.name + item.name)
+            Text = string.Format("Название: {0}", item.name)
          };
          _titleLabel.SizeToFit();
          _titleLabel.Frame = new CGRect(0, 0, UIHelper.ScreenWidth, _titleLabel.Frame.Height);

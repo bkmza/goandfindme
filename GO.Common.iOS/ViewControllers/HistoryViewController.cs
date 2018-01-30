@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GO.Common.iOS.Helpers;
 using GO.Common.iOS.Views;
 using GoHunting.Core.Entities;
@@ -52,8 +53,8 @@ namespace GO.Common.iOS.ViewControllers
             BackgroundColor = UIColor.White
          };
 
-         var userActions = _userActionService.GetAllTypes();
-         _tableViewSource = new HistoryTableViewSource(userActions.ToArray());
+         var userActions = _userActionService.GetAllTypes().OrderByDescending(x => x.Date);
+         _tableViewSource = new HistoryTableViewSource(userActions, new WeakReference(this));
          _tableView.Source = _tableViewSource;
       }
 
@@ -78,19 +79,19 @@ namespace GO.Common.iOS.ViewControllers
          alert.AddAction(UIAlertAction.Create("Все", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
             userActions = _userActionService.GetAllTypes();
-            _tableViewSource.UpdateSource(_tableView, userActions.ToArray());
+            _tableViewSource.UpdateSource(_tableView, userActions.OrderByDescending(x => x.Date).ToArray());
          }));
 
          alert.AddAction(UIAlertAction.Create("Только точки", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
             userActions = _userActionService.GetConquers();
-            _tableViewSource.UpdateSource(_tableView, userActions.ToArray());
+            _tableViewSource.UpdateSource(_tableView, userActions.OrderByDescending(x => x.Date).ToArray());
          }));
 
          alert.AddAction(UIAlertAction.Create("Только квесты", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
             userActions = _userActionService.GetQuests();
-            _tableViewSource.UpdateSource(_tableView, userActions.ToArray());
+            _tableViewSource.UpdateSource(_tableView, userActions.OrderByDescending(x => x.Date).ToArray());
          }));
          alert.AddAction(UIAlertAction.Create("Закрыть", UIAlertActionStyle.Cancel, null));
          PresentViewController(alert, true, null);

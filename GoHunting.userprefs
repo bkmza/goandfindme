@@ -1,12 +1,12 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/Info.plist">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{79D8EC38-5966-46F6-81D2-C0C500AB811A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.iOS/Info.plist">
     <Files>
-      <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="11" Column="31" />
-      <File FileName="DroidMapping/Fragments/CMapFragment.cs" Line="202" Column="32" />
-      <File FileName="GoHunting.Core/Services/ApiService.cs" Line="113" Column="8" />
-      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="3" Column="7" />
-      <File FileName="GO.Hunting.iOS/Info.plist" />
+      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="94" Column="23" />
+      <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="12" Column="28" />
+      <File FileName="GO.Common.iOS/ViewControllers/HistoryViewController.cs" Line="100" Column="2" />
+      <File FileName="GO.Common.iOS/ViewControllers/HistoryTableViewSource.cs" Line="7" Column="13" />
       <File FileName="GoHunting.iOS/Info.plist" />
+      <File FileName="GO.Hunting.iOS/Info.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />

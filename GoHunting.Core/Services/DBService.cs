@@ -48,7 +48,7 @@ namespace GoHunting.Core.Services
             new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest0", Description = "Description0", Date = DateTime.Now },
             new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest1", Description = "Description1", Date = DateTime.Now.AddMinutes(1) },
             new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest2", Description = "Description2", Date = DateTime.Now.AddDays(1) },
-            new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest3", Description = "Description3", Date = DateTime.Now.AddDays(2) },
+            new DBUserAction { Type = (int)MapItemType.Quest, Title = "Quest3", Description = "Description3 with URL https://docs.google.com/spreadsheets/d/11FY9vt-7hJ4R15azA97droPWXSMHA5l6hG24y6JgLFI/edit#gid=0 and some additional notes", Date = DateTime.Now.AddDays(2) },
          };
          foreach (var item in predefinedActions)
          {

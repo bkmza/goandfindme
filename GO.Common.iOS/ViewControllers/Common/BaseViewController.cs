@@ -6,7 +6,7 @@ using Foundation;
 
 using GO.Common.iOS.Views;
 using GO.Common.iOS.Utilities;
-using GoHunting.Core.Services;
+using GO.Core.Services;
 using MvvmCross.Platform;
 
 namespace GO.Common.iOS.ViewControllers

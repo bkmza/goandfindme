@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Foundation;
-using GoHunting.Core.Entities;
+using GO.Core.Entities;
 using UIKit;
 
 namespace GO.Common.iOS.ViewControllers

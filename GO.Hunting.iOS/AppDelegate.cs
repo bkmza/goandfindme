@@ -2,9 +2,9 @@
 using GO.Common.iOS.Services;
 using GO.Common.iOS.Utilities;
 using GO.Common.iOS.ViewControllers;
-using GoHunting.Core;
-using GoHunting.Core.Services;
-using GoHunting.Core.Utilities;
+using GO.Core;
+using GO.Core.Services;
+using GO.Core.Utilities;
 using Google.Maps;
 using MvvmCross.Platform;
 using SQLite.Net.Interop;

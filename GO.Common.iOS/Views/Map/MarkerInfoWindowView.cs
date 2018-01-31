@@ -3,8 +3,8 @@
 using CoreGraphics;
 using UIKit;
 
-using GoHunting.Core.Data;
-using GoHunting.Core.Utilities;
+using GO.Core.Data;
+using GO.Core.Utilities;
 using GO.Common.iOS.Helpers;
 
 using Google.Maps;

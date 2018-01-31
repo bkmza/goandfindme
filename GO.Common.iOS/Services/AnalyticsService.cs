@@ -1,5 +1,5 @@
 ﻿using System;
-using GoHunting.Core.Services;
+using GO.Core.Services;
 
 namespace GO.Common.iOS.Services
 {

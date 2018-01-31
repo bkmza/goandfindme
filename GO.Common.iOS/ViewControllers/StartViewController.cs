@@ -2,10 +2,10 @@ using System;
 using Foundation;
 using GO.Common.iOS.Helpers;
 using GO.Common.iOS.Views;
-using GoHunting.Core;
-using GoHunting.Core.Data;
-using GoHunting.Core.Enums;
-using GoHunting.Core.Services;
+using GO.Core;
+using GO.Core.Data;
+using GO.Core.Enums;
+using GO.Core.Services;
 using MvvmCross.Platform;
 using UIKit;
 

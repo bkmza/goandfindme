@@ -210,13 +210,13 @@
     <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GoHunting.Core\GoHunting.Core.csproj">
-      <Project>{B6D1A089-4230-4625-8C99-E27A23BBA0B3}</Project>
-      <Name>GoHunting.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GO.Common.iOS\GO.Common.iOS.csproj">
       <Project>{DA37D640-C896-41D6-89B1-36712794934D}</Project>
       <Name>GO.Common.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GO.Core\GO.Core.csproj">
+      <Project>{8CF263AB-FEB5-4C47-8AFF-8AAA860A18EF}</Project>
+      <Name>GO.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

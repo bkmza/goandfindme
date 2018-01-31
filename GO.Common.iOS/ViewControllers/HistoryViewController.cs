@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using GO.Common.iOS.Helpers;
 using GO.Common.iOS.Views;
-using GoHunting.Core.Entities;
-using GoHunting.Core.Services;
+using GO.Core.Entities;
+using GO.Core.Services;
 using MvvmCross.Platform;
 using UIKit;
 

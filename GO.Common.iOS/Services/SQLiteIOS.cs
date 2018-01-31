@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using GoHunting.Core.Services;
+using GO.Core.Services;
 using MvvmCross.Platform;
 using SQLite.Net;
 using SQLite.Net.Interop;

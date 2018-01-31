@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using GO.Common.iOS.Helpers;
 using GO.Common.iOS.Views;
-using GoHunting.Core.Entities;
+using GO.Core.Entities;
 using UIKit;
 
 namespace GO.Common.iOS.ViewControllers

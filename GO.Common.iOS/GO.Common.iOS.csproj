@@ -152,12 +152,6 @@
     <Compile Include="Services\SQLiteIOS.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GoHunting.Core\GoHunting.Core.csproj">
-      <Project>{B6D1A089-4230-4625-8C99-E27A23BBA0B3}</Project>
-      <Name>GoHunting.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
     <None Include="Entitlements.plist" />
   </ItemGroup>
@@ -283,6 +277,12 @@
     <BundleResource Include="Resources\Images\ms_woman.png" />
     <BundleResource Include="Resources\Images\ms_yen.png" />
     <BundleResource Include="Resources\Images\ms_ylw_pushpin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GO.Core\GO.Core.csproj">
+      <Project>{8CF263AB-FEB5-4C47-8AFF-8AAA860A18EF}</Project>
+      <Name>GO.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets')" />

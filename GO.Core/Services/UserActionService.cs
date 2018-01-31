@@ -19,7 +19,7 @@ namespace GO.Core.Services
       {
          var dbItems = _dbService.Get<DBUserAction>().Where(x => x.Type == (int)MapItemType.Point).ToList();
 
-         var items = Mapper.Map<List<UserAction>>(dbItems);
+         var items = AppSettings.MapperInstance.Map<List<UserAction>>(dbItems);
 
          return items;
       }
@@ -28,7 +28,7 @@ namespace GO.Core.Services
       {
          var dbItems = _dbService.Get<DBUserAction>().Where(x => x.Type == (int)MapItemType.Quest).ToList();
 
-         var items = Mapper.Map<List<UserAction>>(dbItems);
+         var items = AppSettings.MapperInstance.Map<List<UserAction>>(dbItems);
 
          return items;
       }
@@ -37,14 +37,14 @@ namespace GO.Core.Services
       {
          var dbItems = _dbService.Get<DBUserAction>().ToList();
 
-         var items = Mapper.Map<List<UserAction>>(dbItems);
+         var items = AppSettings.MapperInstance.Map<List<UserAction>>(dbItems);
 
          return items;
       }
 
       public void Add(UserAction userAction)
       {
-         var dbUserAction = Mapper.Map<DBUserAction>(userAction);
+         var dbUserAction = AppSettings.MapperInstance.Map<DBUserAction>(userAction);
 
          _dbService.Add(dbUserAction);
       }

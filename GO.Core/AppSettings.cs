@@ -39,9 +39,17 @@ namespace GO.Core
 
       public static void RegisterMapper()
       {
-         Mapper.CreateMap<UserAction, DBUserAction>();
-         Mapper.CreateMap<DBUserAction, UserAction>();
+         _mapperConfig = new MapperConfiguration(cfg => {
+            cfg.CreateMap<UserAction, DBUserAction>();
+            cfg.CreateMap<DBUserAction, UserAction>();
+         });
+
          Mapper.AssertConfigurationIsValid();
+         MapperInstance = _mapperConfig.CreateMapper();
       }
+
+      private static MapperConfiguration _mapperConfig;
+
+      public static IMapper MapperInstance;
    }
 }

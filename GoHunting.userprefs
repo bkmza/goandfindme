@@ -1,8 +1,8 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Core/Services/UserActionService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Core/AppSettings.cs">
     <Files>
-      <File FileName="GO.Core/AppSettings.cs" Line="53" Column="43" />
-      <File FileName="GO.Core/Services/UserActionService.cs" Line="40" Column="48" />
+      <File FileName="GO.Core/AppSettings.cs" Line="1" Column="17" />
+      <File FileName="GO.Common.iOS/ViewControllers/Common/BaseViewController.cs" Line="16" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,15 +10,8 @@
           <Node name="GoHunting" expanded="True">
             <Node name="GO.Core" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="UserActionService.cs" selected="True" />
-              </Node>
             </Node>
-            <Node name="GO.Hunting.iOS" expanded="True" />
-            <Node name="GO.Paranoia.iOS" expanded="True" />
-            <Node name="GoHunting.Core" expanded="True">
-              <Node name="Services" expanded="True" />
-            </Node>
+            <Node name="GoHunting.Core" selected="True" />
           </Node>
         </State>
       </Pad>

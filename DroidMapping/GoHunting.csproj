@@ -30,6 +30,7 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -40,6 +41,7 @@
     <ConsolePause>false</ConsolePause>
     <DebugType>full</DebugType>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

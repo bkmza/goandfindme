@@ -1,16 +1,12 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{F4A65140-3D1F-45FD-B411-B8D044242A54}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping/Fragments/SettingsFragment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping/AppLocation.cs">
     <Files>
-      <File FileName="DroidMapping/Activities/MainActivity.cs" Line="36" Column="12" />
-      <File FileName="DroidMapping/Fragments/FragmentBase.cs" Line="31" Column="29" />
-      <File FileName="DroidMapping/Fragments/ActionQuestFragment.cs" Line="26" Column="32" />
-      <File FileName="DroidMapping/Fragments/SettingsFragment.cs" Line="7" Column="16" />
-      <File FileName="DroidMapping/Services/SQLiteAndroid.cs" Line="18" Column="27" />
-      <File FileName="DroidMapping/Fragments/CMapFragment.cs" Line="57" Column="26" />
-      <File FileName="DroidMapping/Adapters/CustomInfoWindowAdapter.cs" Line="41" Column="26" />
-      <File FileName="DroidMapping/Services/LocationService.cs" Line="25" Column="28" />
-      <File FileName="DroidMapping/Activities/ActivityBase.cs" Line="27" Column="27" />
-      <File FileName="DroidMapping/Fragments/ActionConquerFragment.cs" Line="23" Column="32" />
+      <File FileName="DroidMapping/Activities/DrawerActivityBase.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping/Activities/ActivityBase.cs" Line="52" Column="21" />
+      <File FileName="DroidMapping/Activities/MainActivity.cs" Line="24" Column="38" />
+      <File FileName="DroidMapping/GoogleMapsKey.cs" Line="1" Column="1" />
+      <File FileName="DroidMapping/AppLocation.cs" Line="7" Column="9" />
+      <File FileName="GO.Core/AppSettings.cs" Line="17" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,16 +15,18 @@
             <Node name="GO.Common.iOS" expanded="True">
               <Node name="ViewControllers" expanded="True" />
             </Node>
-            <Node name="GO.Core" expanded="True">
-              <Node name="Helpers" expanded="True" />
-            </Node>
+            <Node name="GO.Core" expanded="True" />
             <Node name="GoHunting" expanded="True">
               <Node name="Activities" expanded="True" />
               <Node name="Adapters" expanded="True" />
-              <Node name="Fragments" expanded="True">
-                <Node name="SettingsFragment.cs" selected="True" />
+              <Node name="Assets" expanded="True" />
+              <Node name="Fragments" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="layout" expanded="True" />
               </Node>
               <Node name="Services" expanded="True" />
+              <Node name="Utilities" expanded="True" />
+              <Node name="AppLocation.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -37,7 +35,17 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/MainActivity.cs" relfile="DroidMapping/Activities/MainActivity.cs" line="87" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/MainActivity.cs" relfile="DroidMapping/Activities/MainActivity.cs" line="122" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/MainActivity.cs" relfile="DroidMapping/Activities/MainActivity.cs" line="129" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/MainActivity.cs" relfile="DroidMapping/Activities/MainActivity.cs" line="105" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/MainActivity.cs" relfile="DroidMapping/Activities/MainActivity.cs" line="32" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/DrawerActivityBase.cs" relfile="DroidMapping/Activities/DrawerActivityBase.cs" line="35" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/ActivityBase.cs" relfile="DroidMapping/Activities/ActivityBase.cs" line="26" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/MainActivity.cs" relfile="DroidMapping/Activities/MainActivity.cs" line="26" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Core/AppSettings.cs" relfile="GO.Core/AppSettings.cs" line="32" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
@@ -45,5 +53,5 @@
   <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" automaticSigning="False" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" automaticSigning="False" />
-  <MonoDevelop.Ide.ItemProperties.GoHunting PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.ItemProperties.GoHunting AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.ZY222ZDR6C" />
 </Properties>

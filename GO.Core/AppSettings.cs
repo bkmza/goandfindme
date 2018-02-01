@@ -13,10 +13,10 @@ namespace GO.Core
          //ApplicationName = @"GOhunting";
          //PackageName = "com.go.goandfindme";
 
-         // Paranoia // packageName: com.go.paranoia
-         //BaseHost = "http://goandpay.greyorder.su/";
-         //ApplicationName = @"Paranoia";
-         //PackageName = "com.go.paranoia";
+         //Paranoia // packageName: com.go.paranoia
+         BaseHost = "http://goandpay.greyorder.su/";
+         ApplicationName = @"Paranoia";
+         PackageName = "com.go.paranoia";
       }
 
       public static string TrackingId { get; set; }

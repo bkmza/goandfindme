@@ -1,4 +1,4 @@
-﻿namespace GoHunting.Core.Helpers
+﻿namespace GO.Core.Helpers
 {
    public static class CoordinateHelper
    {

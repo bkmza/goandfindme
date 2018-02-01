@@ -3,14 +3,13 @@ using Android.App;
 using Android.Content.PM;
 using Android.Net;
 using Android.OS;
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
 using DroidMapping.Services;
-using GoHunting.Core.Services;
-using GoHunting.Core.Utilities;
+using GO.Core.Services;
+using GO.Core.Utilities;
 using DroidMapping.Utilities;
 using Android.Views;
-using GoHunting.Core;
+using GO.Core;
+using MvvmCross.Platform;
 
 namespace DroidMapping
 {

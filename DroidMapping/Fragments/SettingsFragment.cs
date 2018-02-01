@@ -1,12 +1,11 @@
-﻿using System;
-using Android.Content;
+﻿using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
-using Cirrious.CrossCore;
-using GoHunting.Core.Services;
-using GoHunting.Core.Enums;
+using GO.Core.Enums;
+using GO.Core.Services;
+using MvvmCross.Platform;
 
 namespace DroidMapping.Fragments
 {

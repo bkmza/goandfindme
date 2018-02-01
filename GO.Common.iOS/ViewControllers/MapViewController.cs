@@ -10,7 +10,7 @@ using GO.Core;
 using GO.Core.Data;
 using GO.Core.Entities;
 using GO.Core.Enums;
-using GoHunting.Core.Helpers;
+using GO.Core.Helpers;
 using GO.Core.Services;
 using GO.Core.Utilities;
 using Google.Maps;

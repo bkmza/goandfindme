@@ -10,8 +10,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using GoHunting.Core.Services;
-using Cirrious.CrossCore;
+using GO.Core.Services;
+using MvvmCross.Platform;
 
 namespace DroidMapping.Fragments
 {

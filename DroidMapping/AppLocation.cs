@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 using Android.Content;
 using Android.Util;
-using GoHunting.Core.Utilities;
+using GO.Core.Utilities;
 
 namespace DroidMapping
 {

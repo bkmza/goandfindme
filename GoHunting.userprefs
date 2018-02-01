@@ -1,26 +1,41 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/HistoryTableViewSource.cs">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{F4A65140-3D1F-45FD-B411-B8D044242A54}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroidMapping/Fragments/SettingsFragment.cs">
     <Files>
-      <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="9" Column="9" />
-      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="7" Column="9" />
-      <File FileName="GO.Common.iOS/ViewControllers/HistoryViewController.cs" Line="60" Column="44" />
-      <File FileName="GO.Common.iOS/ViewControllers/HistoryTableViewSource.cs" Line="29" Column="28" />
+      <File FileName="DroidMapping/Activities/MainActivity.cs" Line="36" Column="12" />
+      <File FileName="DroidMapping/Fragments/FragmentBase.cs" Line="31" Column="29" />
+      <File FileName="DroidMapping/Fragments/ActionQuestFragment.cs" Line="26" Column="32" />
+      <File FileName="DroidMapping/Fragments/SettingsFragment.cs" Line="7" Column="16" />
+      <File FileName="DroidMapping/Services/SQLiteAndroid.cs" Line="18" Column="27" />
+      <File FileName="DroidMapping/Fragments/CMapFragment.cs" Line="57" Column="26" />
+      <File FileName="DroidMapping/Adapters/CustomInfoWindowAdapter.cs" Line="41" Column="26" />
+      <File FileName="DroidMapping/Services/LocationService.cs" Line="25" Column="28" />
+      <File FileName="DroidMapping/Activities/ActivityBase.cs" Line="27" Column="27" />
+      <File FileName="DroidMapping/Fragments/ActionConquerFragment.cs" Line="23" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GoHunting" expanded="True">
             <Node name="GO.Common.iOS" expanded="True">
-              <Node name="ViewControllers" expanded="True">
-                <Node name="HistoryTableViewSource.cs" selected="True" />
+              <Node name="ViewControllers" expanded="True" />
+            </Node>
+            <Node name="GO.Core" expanded="True">
+              <Node name="Helpers" expanded="True" />
+            </Node>
+            <Node name="GoHunting" expanded="True">
+              <Node name="Activities" expanded="True" />
+              <Node name="Adapters" expanded="True" />
+              <Node name="Fragments" expanded="True">
+                <Node name="SettingsFragment.cs" selected="True" />
               </Node>
+              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -29,9 +44,6 @@
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
   <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" automaticSigning="False" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" automaticSigning="False" />
-  <DisabledProjects>
-    <String>DroidMapping/GoHunting.csproj</String>
-    <String>GoHunting.Core/GoHunting.Core.csproj</String>
-  </DisabledProjects>
+  <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.GoHunting PreferredExecutionTarget="Android.SelectDevice" />
 </Properties>

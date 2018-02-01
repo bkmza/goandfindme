@@ -8,16 +8,16 @@ using Android.Gms.Maps.Model;
 using Android.Locations;
 using Android.OS;
 using Android.Views;
-using Cirrious.CrossCore;
 using DroidMapping.Adapters;
-using GoHunting.Core;
-using GoHunting.Core.Data;
-using GoHunting.Core.Entities;
-using GoHunting.Core.Enums;
-using GoHunting.Core.Helpers;
-using GoHunting.Core.Services;
-using GoHunting.Core.Utilities;
+using GO.Core;
+using GO.Core.Data;
+using GO.Core.Entities;
+using GO.Core.Enums;
+using GO.Core.Services;
+using GO.Core.Utilities;
+using GO.Core.Helpers;
 using Newtonsoft.Json;
+using MvvmCross.Platform;
 
 namespace DroidMapping.Fragments
 {

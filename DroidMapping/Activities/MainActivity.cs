@@ -3,20 +3,20 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Cirrious.CrossCore;
 using DroidMapping.Services;
 using DroidMapping.Utilities;
-using GoHunting.Core;
-using GoHunting.Core.Data;
-using GoHunting.Core.Enums;
-using GoHunting.Core.Services;
-using GoHunting.Core.Utilities;
+using GO.Core.Data;
+using GO.Core.Enums;
+using GO.Core.Services;
+using GO.Core.Utilities;
 using SQLite.Net.Interop;
 using SQLite.Net.Platform.XamarinAndroid;
 using Android.Content.PM;
 using Android;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
+using GO.Core;
+using MvvmCross.Platform;
 
 namespace DroidMapping
 {
@@ -31,7 +31,6 @@ namespace DroidMapping
       {
          AppSettings.TrackingId = "UA-65892866-1";
          AppSettings.RegisterTypes ();
-         AppSettings.RegisterMapper ();
 
          Logger.Instance = new AndroidLogger ();
          Mvx.RegisterType<IToastService, ToastService> ();

@@ -1,4 +1,4 @@
-﻿using GoHunting.Core.Utilities;
+﻿using GO.Core.Utilities;
 
 namespace DroidMapping.Utilities
 {

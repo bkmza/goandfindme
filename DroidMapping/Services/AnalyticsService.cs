@@ -1,7 +1,7 @@
 ﻿using System;
-using GoHunting.Core.Services;
+using GO.Core;
+using GO.Core.Services;
 //using Android.Gms.Analytics;
-using GoHunting.Core;
 
 namespace DroidMapping
 {

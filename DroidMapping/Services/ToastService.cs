@@ -2,7 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.Widget;
-using GoHunting.Core.Services;
+using GO.Core.Services;
 
 namespace DroidMapping.Services
 {

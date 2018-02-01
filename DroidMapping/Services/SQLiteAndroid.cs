@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using Cirrious.CrossCore;
-using GoHunting.Core.Services;
+using GO.Core.Services;
+using MvvmCross.Platform;
 using SQLite.Net;
 using SQLite.Net.Interop;
 

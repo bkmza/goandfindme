@@ -1,5 +1,4 @@
-﻿
-namespace GO.Core.Enums
+﻿namespace GO.Core.Enums
 {
    public enum UserStatus
    {

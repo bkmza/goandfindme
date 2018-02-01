@@ -4,11 +4,11 @@ using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Views;
 using Android.Widget;
-using Cirrious.CrossCore;
-using GoHunting.Core;
-using GoHunting.Core.Data;
-using GoHunting.Core.Enums;
-using GoHunting.Core.Services;
+using GO.Core;
+using GO.Core.Data;
+using GO.Core.Enums;
+using GO.Core.Services;
+using MvvmCross.Platform;
 using Newtonsoft.Json;
 
 namespace DroidMapping.Adapters

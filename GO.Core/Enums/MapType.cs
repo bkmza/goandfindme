@@ -1,4 +1,4 @@
-﻿namespace GoHunting.Core.Enums
+﻿namespace GO.Core.Enums
 {
    public enum MapType
    {

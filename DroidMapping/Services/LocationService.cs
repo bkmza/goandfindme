@@ -5,8 +5,8 @@ using Android.Util;
 using Android.Content;
 using Android.OS;
 using Android.Locations;
-using GoHunting.Core.Services;
-using Cirrious.CrossCore;
+using GO.Core.Services;
+using MvvmCross.Platform;
 
 namespace DroidMapping
 {

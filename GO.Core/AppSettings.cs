@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using GO.Core.Entities;
-using GO.Core.Services;
+﻿using GO.Core.Services;
 using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
 
@@ -36,20 +34,5 @@ namespace GO.Core
          Mvx.RegisterType<IStopWatchWrapper, StopWatchWrapper>();
          Mvx.RegisterType<IApiService, ApiService>();
       }
-
-      public static void RegisterMapper()
-      {
-         _mapperConfig = new MapperConfiguration(cfg => {
-            cfg.CreateMap<UserAction, DBUserAction>();
-            cfg.CreateMap<DBUserAction, UserAction>();
-         });
-
-         Mapper.AssertConfigurationIsValid();
-         MapperInstance = _mapperConfig.CreateMapper();
-      }
-
-      private static MapperConfiguration _mapperConfig;
-
-      public static IMapper MapperInstance;
    }
 }

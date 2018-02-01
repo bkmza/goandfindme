@@ -35,6 +35,9 @@ namespace GO.Common.iOS.ViewControllers
             TintColor = UIColor.Black
          };
          NavigationItem.SetRightBarButtonItems(new[] { _actionsButton }, true);
+
+         var userActions = _userActionService.GetAllTypes().OrderByDescending(x => x.Date);
+         _tableViewSource.UpdateSource(_tableView, userActions.OrderByDescending(x => x.Date).ToArray());
       }
 
       public override void Initialize()
@@ -53,8 +56,7 @@ namespace GO.Common.iOS.ViewControllers
             BackgroundColor = UIColor.White
          };
 
-         var userActions = _userActionService.GetAllTypes().OrderByDescending(x => x.Date);
-         _tableViewSource = new HistoryTableViewSource(userActions, new WeakReference(this));
+         _tableViewSource = new HistoryTableViewSource(new WeakReference(this));
          _tableView.Source = _tableViewSource;
       }
 

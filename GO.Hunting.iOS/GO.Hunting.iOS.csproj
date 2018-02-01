@@ -41,14 +41,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Distribution: Ivan Artsiomau (J4V7E2M99A)</CodesignKey>
-    <MtouchFloat32>false</MtouchFloat32>
+    <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <CodesignProvision>Go.Hunting.AppStore</CodesignProvision>
-    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchUseLlvm>false</MtouchUseLlvm>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchExtraArgs>--linkskip=AutoMapper --linkskip=Newtonsoft.Json --linkskip=Newtonsoft.Json.Serialization</MtouchExtraArgs>
     <LangVersion>Latest</LangVersion>

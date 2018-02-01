@@ -2,9 +2,9 @@ using Foundation;
 using GO.Common.iOS.Services;
 using GO.Common.iOS.Utilities;
 using GO.Common.iOS.ViewControllers;
-using GoHunting.Core;
-using GoHunting.Core.Services;
-using GoHunting.Core.Utilities;
+using GO.Core;
+using GO.Core.Services;
+using GO.Core.Utilities;
 using Google.Maps;
 using MvvmCross.Platform;
 using SQLite.Net.Interop;
@@ -30,7 +30,6 @@ namespace GO.Paranoia.iOS
 
          AppSettings.TrackingId = "UA-65892866-1";
          AppSettings.RegisterTypes();
-         AppSettings.RegisterMapper();
 
          // Paranoia // packageName: com.go.paranoia
          AppSettings.BaseHost = "http://goandpay.greyorder.su/";

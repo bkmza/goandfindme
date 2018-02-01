@@ -30,7 +30,6 @@ namespace GO.Hunting.iOS
 
          AppSettings.TrackingId = "UA-65892866-1";
          AppSettings.RegisterTypes();
-         AppSettings.RegisterMapper();
 
          // GoHunting // packageName: com.go.goandfindme
          AppSettings.BaseHost = "http://gohunting.greyorder.su/";

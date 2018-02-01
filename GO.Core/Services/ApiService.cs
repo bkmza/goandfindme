@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using GO.Core.Data;
 using GO.Core.Utilities;
-using ModernHttpClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -14,14 +13,14 @@ namespace GO.Core.Services
    {
       private HttpClient GetClientSync()
       {
-         HttpClient client = new HttpClient(new NativeMessageHandler());
+         HttpClient client = new HttpClient();
          client.Timeout = new TimeSpan(1, 0, 0);
          return client;
       }
 
       async Task<HttpClient> GetClient()
       {
-         HttpClient client = new HttpClient(new NativeMessageHandler());
+         HttpClient client = new HttpClient();
          client.Timeout = new TimeSpan(1, 0, 0);
          return client;
       }

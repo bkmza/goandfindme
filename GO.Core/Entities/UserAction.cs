@@ -4,8 +4,15 @@ namespace GO.Core.Entities
 {
    public class UserAction
    {
-      public UserAction()
+      public UserAction() { }
+
+      public UserAction(DBUserAction item)
       {
+         Id = item.Id;
+         Type = item.Type;
+         Number = item.Number;
+         Description = item.Description;
+         Date = item.Date;
       }
 
       public int Id { get; set; }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GO.Core.Entities;
 using GO.Core.Enums;
 using SQLite.Net;
-using SQLiteNetExtensions.Extensions;
 
 namespace GO.Core.Services
 {
@@ -83,7 +83,7 @@ namespace GO.Core.Services
 
       public List<T> Get<T>() where T : class, new()
       {
-         return Connection.GetAllWithChildren<T>();
+         return Connection.Table<T>().Where(x => true).ToList();
       }
    }
 }

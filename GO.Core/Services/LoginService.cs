@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using GO.Core.Data;
 using GO.Core.Utilities;
-using ModernHttpClient;
 using Newtonsoft.Json;
 
 namespace GO.Core.Services
@@ -11,7 +10,7 @@ namespace GO.Core.Services
    {
       private async Task<HttpClient> GetClient()
       {
-         HttpClient client = new HttpClient(new NativeMessageHandler());
+         HttpClient client = new HttpClient();
          return client;
       }
 

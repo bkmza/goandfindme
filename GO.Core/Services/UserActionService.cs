@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using GO.Core.Entities;
 using GO.Core.Enums;
 
@@ -19,7 +18,7 @@ namespace GO.Core.Services
       {
          var dbItems = _dbService.Get<DBUserAction>().Where(x => x.Type == (int)MapItemType.Point).ToList();
 
-         var items = AppSettings.MapperInstance.Map<List<UserAction>>(dbItems);
+         List<UserAction> items = dbItems.Select(item => new UserAction(item)).ToList();
 
          return items;
       }
@@ -28,7 +27,7 @@ namespace GO.Core.Services
       {
          var dbItems = _dbService.Get<DBUserAction>().Where(x => x.Type == (int)MapItemType.Quest).ToList();
 
-         var items = AppSettings.MapperInstance.Map<List<UserAction>>(dbItems);
+         List<UserAction> items = dbItems.Select(item => new UserAction(item)).ToList();
 
          return items;
       }
@@ -37,14 +36,21 @@ namespace GO.Core.Services
       {
          var dbItems = _dbService.Get<DBUserAction>().ToList();
 
-         var items = AppSettings.MapperInstance.Map<List<UserAction>>(dbItems);
+         List<UserAction> items = dbItems.Select(item => new UserAction(item)).ToList();
 
          return items;
       }
 
       public void Add(UserAction userAction)
       {
-         var dbUserAction = AppSettings.MapperInstance.Map<DBUserAction>(userAction);
+         var dbUserAction = new DBUserAction
+         {
+            Type = userAction.Type,
+            Title = userAction.Title,
+            Description = userAction.Description,
+            Date = userAction.Date,
+            Number = userAction.Number
+         };
 
          _dbService.Add(dbUserAction);
       }

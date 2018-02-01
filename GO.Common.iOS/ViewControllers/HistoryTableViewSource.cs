@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 using Foundation;
 using GO.Core.Entities;
@@ -24,9 +23,9 @@ namespace GO.Common.iOS.ViewControllers
          }
       }
 
-      public HistoryTableViewSource(IEnumerable<UserAction> userActions, WeakReference weakViewController)
+      public HistoryTableViewSource(WeakReference weakViewController)
       {
-         _userActions = userActions.ToArray();
+         _userActions = new List<UserAction>().ToArray();
          _weakViewController = weakViewController;
       }
 

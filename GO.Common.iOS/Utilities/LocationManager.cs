@@ -1,7 +1,5 @@
 ﻿using System;
-
 using CoreLocation;
-using UIKit;
 
 namespace GO.Common.iOS.Utilities
 {
@@ -16,15 +14,8 @@ namespace GO.Common.iOS.Utilities
          this.locMgr = new CLLocationManager();
          this.locMgr.PausesLocationUpdatesAutomatically = false;
 
-         if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
-         {
-            locMgr.RequestAlwaysAuthorization();
-         }
-
-         if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
-         {
-            locMgr.AllowsBackgroundLocationUpdates = true;
-         }
+         locMgr.RequestWhenInUseAuthorization();
+         //locMgr.AllowsBackgroundLocationUpdates = true;
       }
 
       public CLLocationManager LocMgr
@@ -50,17 +41,13 @@ namespace GO.Common.iOS.Utilities
 
    public class LocationUpdatedEventArgs : EventArgs
    {
-      CLLocation location;
+      private readonly CLLocation location;
 
       public LocationUpdatedEventArgs(CLLocation location)
       {
          this.location = location;
       }
 
-      public CLLocation Location
-      {
-         get { return location; }
-      }
+      public CLLocation Location => location;
    }
 }
-

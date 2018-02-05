@@ -1,20 +1,22 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Core/Services/DBService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/Info.plist">
     <Files>
-      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="217" Column="2" />
+      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="213" Column="1" />
       <File FileName="GO.Common.iOS/ViewControllers/MapViewController.cs" Line="238" Column="53" />
       <File FileName="GO.Core/Services/UserActionService.cs" Line="58" Column="28" />
       <File FileName="GO.Core/Services/DBService.cs" Line="20" Column="27" />
+      <File FileName="GO.Hunting.iOS/Info.plist" />
+      <File FileName="GoHunting.iOS/Info.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" automaticSigning="False" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" automaticSigning="False" />
   <MonoDevelop.Ide.ItemProperties.GoHunting AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.SelectDevice" />

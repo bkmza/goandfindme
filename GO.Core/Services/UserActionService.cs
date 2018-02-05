@@ -54,5 +54,10 @@ namespace GO.Core.Services
 
          _dbService.Add(dbUserAction);
       }
+
+      public void DeleteAll()
+      {
+         _dbService.DeleteAll<DBUserAction>();
+      }
    }
 }

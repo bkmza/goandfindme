@@ -13,6 +13,8 @@ namespace GO.Core.Services
 
       void Delete<T>(T data);
 
+      void DeleteAll<T>();
+
       T Get<T>(long id) where T : DBEntityBase;
 
       List<T> Get<T>() where T : class, new();

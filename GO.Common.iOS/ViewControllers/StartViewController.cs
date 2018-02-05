@@ -23,10 +23,12 @@ namespace GO.Common.iOS.ViewControllers
       private BaseLabel _versionLabel;
 
       private ILoginService _loginService;
+      private IUserActionService _userActionService;
 
       public StartViewController()
       {
          _loginService = Mvx.Resolve<ILoginService>();
+         _userActionService = Mvx.Resolve<IUserActionService>();
       }
 
       public override void ViewDidLoad()
@@ -78,7 +80,8 @@ namespace GO.Common.iOS.ViewControllers
             IsLoading = false;
             GoToHomeScreen();
          }
-         else {
+         else
+         {
             ToastService.ShowMessage(status.GetDescription);
          }
 
@@ -190,7 +193,11 @@ namespace GO.Common.iOS.ViewControllers
       {
          IsLoading = true;
 
-         if (_nameTextField.Text.Trim() == "Apple" && _commentTextField.Text.Trim() == "Apple123")
+         if (_nameTextField.Text.Trim().ToLower() == "apple" && _commentTextField.Text.Trim().ToLower() == "apple123")
+         {
+            DeviceUtility.TestId = "0123456789";
+         }
+         else if (_nameTextField.Text.Trim().ToLower() == "google" && _commentTextField.Text.Trim().ToLower() == "google123")
          {
             DeviceUtility.TestId = "0123456789";
          }
@@ -203,8 +210,8 @@ namespace GO.Common.iOS.ViewControllers
             return;
          }
 
+         _userActionService.DeleteAll();
          GoToHomeScreen();
       }
    }
 }
-

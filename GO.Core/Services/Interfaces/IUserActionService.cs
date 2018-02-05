@@ -12,5 +12,7 @@ namespace GO.Core.Services
       List<UserAction> GetAllTypes();
 
       void Add(UserAction userAction);
+
+      void DeleteAll();
    }
 }

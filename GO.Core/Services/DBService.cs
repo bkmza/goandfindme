@@ -76,6 +76,11 @@ namespace GO.Core.Services
          Connection.Delete(data);
       }
 
+      public void DeleteAll<T>()
+      {
+         Connection.DeleteAll<T>();
+      }
+
       public T Get<T>(long id) where T : DBEntityBase
       {
          return Connection.Get<T>(x => x.Id == id);

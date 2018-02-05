@@ -52,6 +52,9 @@ namespace GO.Hunting.iOS
 
          _window.MakeKeyAndVisible();
 
+         UINavigationBar.Appearance.BarTintColor = UIColor.White;
+         UITabBar.Appearance.BarTintColor = UIColor.White;
+
          return true;
       }
 

@@ -1,19 +1,36 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.iOS/AppDelegate.cs">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{3D8083D0-C012-4D3B-B4D8-56CAE8A8FE93}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Paranoia.Droid/Activities/MainActivity.cs">
     <Files>
-      <File FileName="GO.Common.iOS/ViewControllers/StartViewController.cs" Line="99" Column="63" />
-      <File FileName="GO.Hunting.iOS/AppDelegate.cs" Line="56" Column="59" />
+      <File FileName="GO.Core/Utilities/DeviceUtility.cs" Line="7" Column="1" />
+      <File FileName="GO.Paranoia.Droid/Activities/ActivityBase.cs" Line="11" Column="17" />
+      <File FileName="GO.Paranoia.Droid/Activities/MainActivity.cs" Line="99" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GoHunting" expanded="True">
+            <Node name="GO.Paranoia.Droid" expanded="True">
+              <Node name="Activities" expanded="True">
+                <Node name="MainActivity.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/MainActivity.cs" relfile="DroidMapping/Activities/MainActivity.cs" line="65" column="10" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Core/Utilities/DeviceUtility.cs" relfile="GO.Core/Utilities/DeviceUtility.cs" line="7" column="46" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.GO.Paranoia.Droid PreferredExecutionTarget="Android.ZY222ZDR6C" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" automaticSigning="False" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" automaticSigning="False" />
-  <MonoDevelop.Ide.ItemProperties.GoHunting AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" automaticSigning="False" />
 </Properties>

@@ -1,6 +1,6 @@
 ﻿using GO.Core.Utilities;
 
-namespace GO.Paranoia.Droid.Utilities
+namespace GO.Common.Droid.Utilities
 {
 	public class AndroidLogger : ILogger
 	{

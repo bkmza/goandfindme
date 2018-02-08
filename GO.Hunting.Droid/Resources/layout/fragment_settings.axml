@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:focusableInTouchMode="true">
+    <Switch
+        android:id="@+id/isLoggingQuestsSwitch"
+        android:text="Логировать квесты?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textOn="ДА"
+        android:textOff="НЕТ" />
+    <GridLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dp"
+        android:id="@+id/gridLayout1"
+        android:columnCount="2"
+        android:rowCount="1">
+        <TextView
+            android:text="Частота обновления карты"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/mapUpdateLabel"
+            android:layout_gravity="left" />
+        <EditText
+            android:id="@+id/mapUpdateFrequency"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0.0dp"
+            android:layout_gravity="right"
+            android:focusableInTouchMode="true"
+            android:inputType="numberDecimal"
+            android:digits="0123456789"
+            android:maxLength="2" />
+    </GridLayout>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mapTypeRadioGroup">
+        <TextView
+            android:text="Тип карты:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Normal"
+            android:id="@+id/mapNormalTypeButton" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hybrid "
+            android:id="@+id/mapHybridTypeButton" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terrain "
+            android:id="@+id/mapTerrainTypeButton" />
+    </RadioGroup>
+</LinearLayout>

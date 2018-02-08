@@ -12,14 +12,14 @@ using GO.Core.Data;
 using GO.Core.Enums;
 using GO.Core.Services;
 using GO.Core.Utilities;
-using GO.Paranoia.Droid.Services;
+using GO.Hunting.Droid.Services;
 using GO.Common.Droid.Utilities;
 using MvvmCross.Platform;
 using Plugin.CurrentActivity;
 using SQLite.Net.Interop;
 using SQLite.Net.Platform.XamarinAndroid;
 
-namespace GO.Paranoia.Droid
+namespace GO.Hunting.Droid
 {
    [Activity(MainLauncher = true)]
    public class MainActivity : ActivityBase, ActivityCompat.IOnRequestPermissionsResultCallback

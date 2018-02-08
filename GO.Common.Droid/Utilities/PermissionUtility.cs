@@ -1,9 +1,6 @@
-﻿using System;
-using Android.Content.PM;
-using Android.OS;
-using Android.App;
+﻿using Android.Content.PM;
 
-namespace GO.Paranoia.Droid.Utilities
+namespace GO.Common.Droid.Utilities
 {
    public abstract class PermissionUtility
    {
@@ -13,15 +10,17 @@ namespace GO.Paranoia.Droid.Utilities
       *
       * See Activity#onRequestPermissionsResult (int, String[], int[])
       */
-      public static bool VerifyPermissions (Permission[] grantResults)
+      public static bool VerifyPermissions(Permission[] grantResults)
       {
          // At least one result must be checked.
          if (grantResults.Length < 1)
             return false;
 
          // Verify that each required permission has been granted, otherwise return false.
-         foreach (Permission result in grantResults) {
-            if (result != Permission.Granted) {
+         foreach (Permission result in grantResults)
+         {
+            if (result != Permission.Granted)
+            {
                return false;
             }
          }
@@ -29,4 +28,3 @@ namespace GO.Paranoia.Droid.Utilities
       }
    }
 }
-

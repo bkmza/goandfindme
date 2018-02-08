@@ -1,19 +1,15 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{DB39052E-54BD-467A-86CD-52137DDFDFCA}|Default">
-  <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.LGD8559a34c0c8" HideGettingStarted="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.Droid/Properties/AndroidManifest.xml">
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.SelectDevice" HideGettingStarted="True" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="GO.Hunting.Droid/Properties/AndroidManifest.xml" Line="1" Column="1" />
-      <File FileName="GO.Paranoia.Droid/Properties/AndroidManifest.xml" Line="10" Column="2" />
+      <File FileName="../../../../../Library/Frameworks/Xamarin.Android.framework/Versions/8.1.5-0/lib/xamarin.android/xbuild/Xamarin/Android/Xamarin.Android.Common.targets" Line="2053" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GoHunting" expanded="True">
-            <Node name="GO.Hunting.Droid" expanded="True">
-              <Node name="Properties" expanded="True">
-                <Node name="AndroidManifest.xml" selected="True" />
-              </Node>
-            </Node>
+            <Node name="GO.Hunting.Droid" expanded="True" />
+            <Node name="GO.Paranoia.Droid" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>

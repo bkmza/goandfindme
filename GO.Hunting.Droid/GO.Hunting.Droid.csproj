@@ -211,12 +211,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
-    <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\activity_navigation_drawer.axml" />
     <AndroidResource Include="Resources\layout\CustomMarkerPopupPoint.axml" />
     <AndroidResource Include="Resources\layout\CustomMarkerPopupQuest.axml" />
@@ -227,19 +221,21 @@
     <AndroidResource Include="Resources\layout\Tab.axml" />
     <AndroidResource Include="Resources\menu\navigation_drawer.axml" />
     <AndroidResource Include="Resources\mipmap-hdpi\action_search.png" />
-    <AndroidResource Include="Resources\mipmap-hdpi\ic_drawer.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_drawer_light.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_drawer.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\action_search.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\arrow.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\arrowshadow.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\ic_drawer.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ic_drawer_light.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_drawer.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ic_place.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ic_rel.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ic_shield.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ic_sphere.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_aqua.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_ash.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_beige.png" />
@@ -254,8 +250,8 @@
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_lime.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_magenta.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_nickel.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\mm_20_olive.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_olive_drab.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\mm_20_olive.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_orange.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_pale_green.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\mm_20_pink.png" />
@@ -298,8 +294,8 @@
     <AndroidResource Include="Resources\mipmap-mdpi\ms_horsebackriding.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ms_hospitals.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ms_hotsprings.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\ms_info.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ms_info_circle.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ms_info.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ms_landmarks_jp.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ms_lodging.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ms_ltblu_pushpin.png" />
@@ -353,11 +349,15 @@
     <AndroidResource Include="Resources\mipmap-mdpi\ms_ylw_pushpin.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\action_menu.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\action_search.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\ic_drawer.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\ic_drawer_light.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_drawer.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\icon1.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\iconelse.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -368,6 +368,12 @@
     <Folder Include="Helpers\" />
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
+    <Folder Include="Resources\mipmap-hdpi\" />
+    <Folder Include="Resources\mipmap-mdpi\" />
+    <Folder Include="Resources\mipmap-xhdpi\" />
+    <Folder Include="Resources\mipmap-xxhdpi\" />
+    <Folder Include="Resources\mipmap-xxxhdpi\" />
+    <Folder Include="Resources\values\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GO.Core\GO.Core.csproj">

@@ -2,13 +2,16 @@
   <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.LGD8559a34c0c8" />
   <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.Droid/GoogleMapsKey.cs">
     <Files>
-      <File FileName="GO.Hunting.Droid/GoogleMapsKey.cs" Line="6" Column="114" />
+      <File FileName="GO.Hunting.Droid/GoogleMapsKey.cs" Line="7" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GoHunting" expanded="True">
-            <Node name="GO.Hunting.Droid" expanded="True" selected="True" />
+            <Node name="GO.Hunting.Droid" expanded="True">
+              <Node name="Resources" expanded="True" />
+              <Node name="GoogleMapsKey.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

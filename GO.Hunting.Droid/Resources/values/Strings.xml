@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-   <string name="app_name">Hunting</string>
+   <string name="app_name">GOhunting</string>
    <string name="DrawerOpen">Open</string>
    <string name="DrawerClose">Close</string>
    <string name="DrawerMap">Карта</string>

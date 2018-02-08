@@ -35,6 +35,11 @@ namespace GO.Hunting.Droid
          AppSettings.TrackingId = "UA-65892866-1";
          AppSettings.RegisterTypes();
 
+         // GoHunting // packageName: com.go.goandfindme
+         AppSettings.BaseHost = "http://gohunting.greyorder.su/";
+         AppSettings.ApplicationName = @"GOhunting";
+         AppSettings.PackageName = "com.go.goandfindme";
+
          Logger.Instance = new AndroidLogger();
          Mvx.RegisterType<IToastService, ToastService>();
          Mvx.RegisterType<IAnalyticsService, AnalyticsService>();

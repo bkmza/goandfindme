@@ -1,16 +1,22 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{DB39052E-54BD-467A-86CD-52137DDFDFCA}|Default">
   <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.LGD8559a34c0c8" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.Droid/GoogleMapsKey.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.Droid/Activities/DrawerActivityBase.cs">
     <Files>
-      <File FileName="GO.Hunting.Droid/GoogleMapsKey.cs" Line="7" Column="7" />
+      <File FileName="GO.Hunting.Droid/Activities/DrawerActivityBase.cs" Line="56" Column="72" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GoHunting" expanded="True">
             <Node name="GO.Hunting.Droid" expanded="True">
-              <Node name="Resources" expanded="True" />
-              <Node name="GoogleMapsKey.cs" selected="True" />
+              <Node name="Activities" expanded="True">
+                <Node name="DrawerActivityBase.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="GO.Paranoia.Droid" expanded="True">
+              <Node name="Resources" expanded="True">
+                <Node name="menu" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>

@@ -53,7 +53,7 @@ namespace GO.Hunting.Droid
          this.ActionBar.SetHomeButtonEnabled (true);
 
          mDrawerToggle = new MyActionBarDrawerToggle (this, mDrawerLayout,
-                                                      Resource.Mipmap.ic_drawer, 
+                                                      Resource.Drawable.ic_drawer, 
             Resource.String.drawer_open, 
             Resource.String.drawer_close);
 

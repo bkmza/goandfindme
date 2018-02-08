@@ -35,6 +35,11 @@ namespace GO.Paranoia.Droid
          AppSettings.TrackingId = "UA-65892866-1";
          AppSettings.RegisterTypes();
 
+         // Paranoia // packageName: com.go.paranoia
+         AppSettings.BaseHost = "http://goandpay.greyorder.su/";
+         AppSettings.ApplicationName = @"Paranoia";
+         AppSettings.PackageName = "com.go.paranoia";
+
          Logger.Instance = new AndroidLogger();
          Mvx.RegisterType<IToastService, ToastService>();
          Mvx.RegisterType<IAnalyticsService, AnalyticsService>();

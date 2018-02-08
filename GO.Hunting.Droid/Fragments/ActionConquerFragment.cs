@@ -1,11 +1,13 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-
+using System.Text.RegularExpressions;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using GO.Core.Entities;
 using GO.Core.Services;
 using GO.Hunting.Droid.Adapters;
 using MvvmCross.Platform;
@@ -15,6 +17,7 @@ namespace GO.Hunting.Droid.Fragments
    public class ActionConquerFragment : ListFragment
    {
       IUserActionService _userActionService;
+      List<UserAction> _userActions;
 
       public override void OnActivityCreated (Bundle savedInstanceState)
       {
@@ -22,9 +25,9 @@ namespace GO.Hunting.Droid.Fragments
 
          _userActionService = Mvx.Resolve<IUserActionService> ();
 
-         var userActions = _userActionService.GetConquers ();
+         _userActions = _userActionService.GetConquers ();
 
-         var items = userActions.OrderByDescending(x=>x.Date)
+         var items = _userActions.OrderByDescending(x=>x.Date)
             .Select (x => new Tuple<string,string> (string.Format("{0} - {1}", x.Number, x.Title), string.Format ("{0}, {1}", x.Date, x.Description))).ToList ();
 
          this.ListAdapter = new SimpleListItem2_Adapter (this.Activity, items);
@@ -33,7 +36,18 @@ namespace GO.Hunting.Droid.Fragments
       public override void OnListItemClick (ListView l, View v, int position, long id)
       {
          base.OnListItemClick (l, v, position, id);
+
+         // TODO
+         // move it to helper
+         // Description can contains URL to the web
+         // if yes - open webview
+         foreach (Match match in Regex.Matches(_userActions[(int)id].Description, @"(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?"))
+         {
+            var uri = Android.Net.Uri.Parse(match.Value);
+            var intent = new Intent(Intent.ActionView, uri);
+            StartActivity(intent);
+            return;
+         }
       }
    }
 }
-

@@ -1,43 +1,29 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{DB39052E-54BD-467A-86CD-52137DDFDFCA}|Default">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{3D8083D0-C012-4D3B-B4D8-56CAE8A8FE93}|Default">
   <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.LGD8559a34c0c8" HideGettingStarted="True" />
   <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.Droid/Fragments/ActionQuestFragment.cs">
     <Files>
-      <File FileName="GO.Hunting.Droid/Fragments/ActionQuestFragment.cs" Line="45" Column="10" />
-      <File FileName="GO.Hunting.Droid/Fragments/ActionConquerFragment.cs" Line="42" Column="30" />
-      <File FileName="GO.Core/Services/DBService.cs" Line="20" Column="27" />
-      <File FileName="GO.Paranoia.Droid/Fragments/ActionConquerFragment.cs" Line="38" Column="30" />
-      <File FileName="GO.Paranoia.Droid/Fragments/ActionQuestFragment.cs" Line="35" Column="44" />
+      <File FileName="GO.Hunting.Droid/Fragments/ActionQuestFragment.cs" Line="30" Column="34" />
+      <File FileName="GO.Hunting.Droid/Fragments/ActionConquerFragment.cs" Line="48" Column="1" />
+      <File FileName="GO.Core/Services/DBService.cs" Line="20" Column="29" />
+      <File FileName="GO.Paranoia.Droid/Fragments/ActionConquerFragment.cs" Line="14" Column="1" />
+      <File FileName="GO.Paranoia.Droid/Fragments/ActionQuestFragment.cs" Line="30" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GoHunting" expanded="True">
-            <Node name="GO.Common.iOS" expanded="True">
-              <Node name="ViewControllers" expanded="True" />
-            </Node>
-            <Node name="GO.Core" expanded="True">
-              <Node name="Services" expanded="True" />
-            </Node>
             <Node name="GO.Hunting.Droid" expanded="True">
-              <Node name="Activities" expanded="True" />
-              <Node name="Adapters" expanded="True" />
-              <Node name="Fragments" expanded="True">
-                <Node name="ActionQuestFragment.cs" selected="True" />
-              </Node>
-            </Node>
-            <Node name="GO.Paranoia.Droid" expanded="True">
               <Node name="Fragments" expanded="True" />
             </Node>
+            <Node name="GO.Paranoia.Droid" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/DroidMapping/Activities/MainActivity.cs" relfile="DroidMapping/Activities/MainActivity.cs" line="65" column="10" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.GO.Paranoia.Droid PreferredExecutionTarget="Android.LGD8559a34c0c8" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

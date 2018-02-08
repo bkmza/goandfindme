@@ -43,6 +43,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -19,23 +19,24 @@ namespace GO.Hunting.Droid.Fragments
       IUserActionService _userActionService;
       List<UserAction> _userActions;
 
-      public override void OnActivityCreated (Bundle savedInstanceState)
+      public override void OnActivityCreated(Bundle savedInstanceState)
       {
-         base.OnActivityCreated (savedInstanceState);
+         base.OnActivityCreated(savedInstanceState);
 
-         _userActionService = Mvx.Resolve<IUserActionService> ();
+         _userActionService = Mvx.Resolve<IUserActionService>();
 
-         _userActions = _userActionService.GetConquers ();
+         _userActions = _userActionService.GetQuests().OrderByDescending(x => x.Date).ToList();
 
-         var items = _userActions.OrderByDescending(x=>x.Date)
-            .Select (x => new Tuple<string,string> (string.Format("{0} - {1}", x.Number, x.Title), string.Format ("{0}, {1}", x.Date, x.Description))).ToList ();
+         var items = _userActions
+            .Select(x => new Tuple<string, string>(string.Format("{0} - {1}", x.Number, x.Title), string.Format("{0}, {1}", x.Date, x.Description)))
+            .ToList();
 
-         this.ListAdapter = new SimpleListItem2_Adapter (this.Activity, items);
+         this.ListAdapter = new SimpleListItem2_Adapter(this.Activity, items);
       }
 
-      public override void OnListItemClick (ListView l, View v, int position, long id)
+      public override void OnListItemClick(ListView l, View v, int position, long id)
       {
-         base.OnListItemClick (l, v, position, id);
+         base.OnListItemClick(l, v, position, id);
 
          // TODO
          // move it to helper

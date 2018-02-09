@@ -46,10 +46,10 @@ namespace GO.Hunting.iOS
          Mvx.RegisterType<IUserActionService, UserActionService>();
          Mvx.RegisterType<IMapSettingsService, MapSettingsService>();
 
-         _window = new UIWindow(UIScreen.MainScreen.Bounds);
-
-         _window.RootViewController = new StartViewController();
-
+         _window = new UIWindow(UIScreen.MainScreen.Bounds)
+         {
+            RootViewController = new StartViewController()
+         };
          _window.MakeKeyAndVisible();
 
          UINavigationBar.Appearance.BarTintColor = UIColor.White;
@@ -87,5 +87,3 @@ namespace GO.Hunting.iOS
       }
    }
 }
-
-

@@ -1,18 +1,14 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
   <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.SelectDevice" HideGettingStarted="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/Info.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoHunting.iOS/AppDelegate.cs">
     <Files>
-      <File FileName="GO.Hunting.iOS/Info.plist" />
-      <File FileName="GoHunting.iOS/Info.plist" />
+      <File FileName="GO.Hunting.iOS/AppDelegate.cs" Line="49" Column="21" />
+      <File FileName="GoHunting.iOS/AppDelegate.cs" Line="34" Column="25" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="GoHunting" expanded="True">
-            <Node name="GO.Paranoia.iOS" expanded="True">
-              <Node name="Info.plist" selected="True" />
-            </Node>
-          </Node>
+          <Node name="GoHunting" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

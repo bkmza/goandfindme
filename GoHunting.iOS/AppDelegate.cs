@@ -46,10 +46,10 @@ namespace GO.Paranoia.iOS
          Mvx.RegisterType<IUserActionService, UserActionService>();
          Mvx.RegisterType<IMapSettingsService, MapSettingsService>();
 
-         _window = new UIWindow(UIScreen.MainScreen.Bounds);
-
-         _window.RootViewController = new StartViewController();
-
+         _window = new UIWindow(UIScreen.MainScreen.Bounds)
+         {
+            RootViewController = new StartViewController()
+         };
          _window.MakeKeyAndVisible();
 
          return true;

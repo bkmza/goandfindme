@@ -1,49 +1,23 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{3D8083D0-C012-4D3B-B4D8-56CAE8A8FE93}|Default">
-  <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.LGD8559a34c0c8" HideGettingStarted="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.Droid/Fragments/CMapFragment.cs">
-    <Files>
-      <File FileName="GO.Hunting.Droid/Fragments/ActionQuestFragment.cs" Line="30" Column="34" />
-      <File FileName="GO.Hunting.Droid/Fragments/ActionConquerFragment.cs" Line="48" Column="1" />
-      <File FileName="GO.Core/Services/DBService.cs" Line="20" Column="29" />
-      <File FileName="GO.Paranoia.Droid/Fragments/ActionConquerFragment.cs" Line="14" Column="1" />
-      <File FileName="GO.Paranoia.Droid/Fragments/ActionQuestFragment.cs" Line="30" Column="23" />
-      <File FileName="GO.Paranoia.Droid/Fragments/CMapFragment.cs" Line="442" Column="10" />
-      <File FileName="GO.Hunting.Droid/Fragments/CMapFragment.cs" Line="18" Column="17" />
-    </Files>
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.SelectDevice" HideGettingStarted="True" />
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="GoHunting" expanded="True">
-            <Node name="GO.Hunting.Droid" expanded="True">
-              <Node name="Fragments" expanded="True">
-                <Node name="CMapFragment.cs" selected="True" />
-              </Node>
-              <Node name="Resources" expanded="True">
-                <Node name="values" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="GO.Paranoia.Droid" expanded="True">
-              <Node name="Fragments" expanded="True" />
-              <Node name="Resources" expanded="True">
-                <Node name="values" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="GoHunting" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Paranoia.Droid/Fragments/CMapFragment.cs" relfile="GO.Paranoia.Droid/Fragments/CMapFragment.cs" line="405" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.GO.Paranoia.Droid PreferredExecutionTarget="Android.LGD8559a34c0c8" />
+  <MonoDevelop.Ide.ItemProperties.GO.Paranoia.Droid PreferredExecutionTarget="Android.SelectDevice" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" automaticSigning="False" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" automaticSigning="False" />
 </Properties>

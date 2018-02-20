@@ -17,7 +17,10 @@ namespace GO.Core.Services
 
          CreateDB();
          CreateDBSettings();
-         //CreateTestData();
+
+#if DEBUG
+         CreateTestData();
+#endif
       }
 
       private void CreateDB()

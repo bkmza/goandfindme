@@ -15,7 +15,7 @@ namespace GO.Common.iOS.ViewControllers
       private IUserActionService _userActionService;
 
       private UIBarButtonItem _actionsButton;
-      private UITableView _tableView;
+      public UITableView HistoryTableView;
       private HistoryTableViewSource _tableViewSource;
 
       public HistoryViewController()
@@ -37,14 +37,14 @@ namespace GO.Common.iOS.ViewControllers
          NavigationItem.SetRightBarButtonItems(new[] { _actionsButton }, true);
 
          var userActions = _userActionService.GetAllTypes().OrderByDescending(x => x.Date);
-         _tableViewSource.UpdateSource(_tableView, userActions.OrderByDescending(x => x.Date).ToArray());
+         _tableViewSource.UpdateSource(HistoryTableView, userActions.OrderByDescending(x => x.Date).ToArray());
       }
 
       public override void Initialize()
       {
          base.Initialize();
 
-         _tableView = new BaseTableView
+         HistoryTableView = new BaseTableView
          {
             ScrollEnabled = true,
             TableHeaderView = new UIView(),
@@ -57,20 +57,20 @@ namespace GO.Common.iOS.ViewControllers
          };
 
          _tableViewSource = new HistoryTableViewSource(new WeakReference(this));
-         _tableView.Source = _tableViewSource;
+         HistoryTableView.Source = _tableViewSource;
       }
 
       public override void Build()
       {
          base.Build();
 
-         View.AddSubviews(_tableView);
+         View.AddSubviews(HistoryTableView);
 
          View.ConstrainLayout(() =>
-            _tableView.Frame.Top == View.Frame.Top &&
-            _tableView.Frame.Left == View.Frame.Left &&
-            _tableView.Frame.Right == View.Frame.Right &&
-            _tableView.Frame.Bottom == View.Frame.Bottom
+            HistoryTableView.Frame.Top == View.Frame.Top &&
+            HistoryTableView.Frame.Left == View.Frame.Left &&
+            HistoryTableView.Frame.Right == View.Frame.Right &&
+            HistoryTableView.Frame.Bottom == View.Frame.Bottom
          );
       }
 
@@ -81,22 +81,32 @@ namespace GO.Common.iOS.ViewControllers
          alert.AddAction(UIAlertAction.Create("Все", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
             userActions = _userActionService.GetAllTypes();
-            _tableViewSource.UpdateSource(_tableView, userActions.OrderByDescending(x => x.Date).ToArray());
+            _tableViewSource.UpdateSource(HistoryTableView, userActions.OrderByDescending(x => x.Date).ToArray());
          }));
 
          alert.AddAction(UIAlertAction.Create("Только точки", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
             userActions = _userActionService.GetConquers();
-            _tableViewSource.UpdateSource(_tableView, userActions.OrderByDescending(x => x.Date).ToArray());
+            _tableViewSource.UpdateSource(HistoryTableView, userActions.OrderByDescending(x => x.Date).ToArray());
          }));
 
          alert.AddAction(UIAlertAction.Create("Только квесты", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
             userActions = _userActionService.GetQuests();
-            _tableViewSource.UpdateSource(_tableView, userActions.OrderByDescending(x => x.Date).ToArray());
+            _tableViewSource.UpdateSource(HistoryTableView, userActions.OrderByDescending(x => x.Date).ToArray());
          }));
          alert.AddAction(UIAlertAction.Create("Закрыть", UIAlertActionStyle.Cancel, null));
          PresentViewController(alert, true, null);
+      }
+
+      public override void TraitCollectionDidChange(UITraitCollection previousTraitCollection)
+      {
+         base.TraitCollectionDidChange(previousTraitCollection);
+
+         if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
+         {
+            RegisterForPreviewingWithDelegate(new HistoryViewControllerPreviewingDelegate(this), View);
+         }
       }
    }
 }

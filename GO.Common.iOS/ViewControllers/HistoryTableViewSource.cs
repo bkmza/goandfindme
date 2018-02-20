@@ -9,7 +9,7 @@ namespace GO.Common.iOS.ViewControllers
 {
    public class HistoryTableViewSource : UITableViewSource
    {
-      private UserAction[] _userActions;
+      public UserAction[] UserActionsItems;
 
       private readonly WeakReference _weakViewController;
 
@@ -25,19 +25,19 @@ namespace GO.Common.iOS.ViewControllers
 
       public HistoryTableViewSource(WeakReference weakViewController)
       {
-         _userActions = new List<UserAction>().ToArray();
+         UserActionsItems = new List<UserAction>().ToArray();
          _weakViewController = weakViewController;
       }
 
       public override nint RowsInSection(UITableView tableview, nint section)
       {
-         return _userActions.Length;
+         return UserActionsItems.Length;
       }
 
       public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
       {
          var cell = tableView.DequeueReusableCell(HistoryCell.CellIdentifier);
-         var item = _userActions[indexPath.Row];
+         var item = UserActionsItems[indexPath.Row];
 
          if (cell == null)
             cell = new HistoryCell();
@@ -51,7 +51,7 @@ namespace GO.Common.iOS.ViewControllers
 
       public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
       {
-         var item = _userActions[indexPath.Row];
+         var item = UserActionsItems[indexPath.Row];
          // Description can contains URL to the web
          // if yes - open webview
          foreach (Match match in Regex.Matches(item.Description, @"(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?"))
@@ -64,7 +64,7 @@ namespace GO.Common.iOS.ViewControllers
 
       public void UpdateSource(UITableView tableView, UserAction[] userActions)
       {
-         _userActions = userActions;
+         UserActionsItems = userActions;
          tableView.ReloadData();
       }
    }

@@ -1,24 +1,46 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{DB39052E-54BD-467A-86CD-52137DDFDFCA}|Default">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
   <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.SelectDevice" HideGettingStarted="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Paranoia.Droid/Fragments/ActionConquerFragment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/HistoryViewController.cs">
     <Files>
-      <File FileName="GO.Hunting.Droid/Fragments/CMapFragment.cs" Line="448" Column="14" />
-      <File FileName="GO.Paranoia.Droid/Fragments/CMapFragment.cs" Line="442" Column="87" />
-      <File FileName="GO.Hunting.Droid/Fragments/ActionConquerFragment.cs" Line="28" Column="53" />
-      <File FileName="GO.Hunting.Droid/Fragments/ActionQuestFragment.cs" Line="1" Column="1" />
-      <File FileName="GO.Paranoia.Droid/Fragments/ActionConquerFragment.cs" Line="1" Column="1" />
-      <File FileName="GO.Paranoia.Droid/Fragments/ActionQuestFragment.cs" Line="1" Column="1" />
+      <File FileName="GO.Common.iOS/ViewControllers/HistoryViewController.cs" Line="102" Column="27" />
+      <File FileName="GO.Common.iOS/ViewControllers/HistoryViewControllerPreviewingDelegate.cs" Line="8" Column="56" />
+      <File FileName="GO.Common.iOS/ViewControllers/HistoryDetailsViewController.cs" Line="12" Column="40" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GoHunting" expanded="True">
+            <Node name="GO.Common.iOS" expanded="True">
+              <Node name="ViewControllers" expanded="True" />
+            </Node>
+            <Node name="GO.Core" expanded="True">
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="GO.Hunting.iOS" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Core/Services/UserActionService.cs" relfile="GO.Core/Services/UserActionService.cs" line="23" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Core/Services/UserActionService.cs" relfile="GO.Core/Services/UserActionService.cs" line="32" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Core/Services/UserActionService.cs" relfile="GO.Core/Services/UserActionService.cs" line="41" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Common.iOS/ViewControllers/HistoryViewController.cs" relfile="GO.Common.iOS/ViewControllers/HistoryViewController.cs" line="106" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Common.iOS/ViewControllers/HistoryViewController.cs" relfile="GO.Common.iOS/ViewControllers/HistoryViewController.cs" line="108" column="95" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Common.iOS/ViewControllers/HistoryViewController.cs" relfile="GO.Common.iOS/ViewControllers/HistoryViewController.cs" line="104" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Common.iOS/ViewControllers/HistoryViewController.cs" relfile="GO.Common.iOS/ViewControllers/HistoryViewController.cs" line="23" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Common.iOS/ViewControllers/HistoryViewController.cs" relfile="GO.Common.iOS/ViewControllers/HistoryViewController.cs" line="31" column="1" />
+      <Breakpoint file="/Users/ilyausikov/Projects/_personal/goandfindme/GO.Common.iOS/ViewControllers/HistoryViewController.cs" relfile="GO.Common.iOS/ViewControllers/HistoryViewController.cs" line="45" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.GO.Paranoia.Droid PreferredExecutionTarget="Android.SelectDevice" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.6d3c29a23bc6f568235ee33641c35cd4eaf76648" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" automaticSigning="False" />
 </Properties>

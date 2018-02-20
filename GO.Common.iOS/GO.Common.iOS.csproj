@@ -152,6 +152,8 @@
     <Compile Include="ViewControllers\HistoryTableViewSource.cs" />
     <Compile Include="ViewControllers\HistoryCell.cs" />
     <Compile Include="Services\SQLiteIOS.cs" />
+    <Compile Include="ViewControllers\HistoryViewControllerPreviewingDelegate.cs" />
+    <Compile Include="ViewControllers\HistoryDetailsViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>Hunting</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.go.hunting</string>
+	<string>com.lifetimefitness.interests.lthealth</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.9</string>
 	<key>LSRequiresIPhoneOS</key>

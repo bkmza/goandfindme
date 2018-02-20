@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GO.Common.iOS.Helpers;
-using GO.Common.iOS.Views;
+using System.Text.RegularExpressions;
+using CoreGraphics;
+using Foundation;
 using GO.Core.Entities;
 using GO.Core.Services;
 using MvvmCross.Platform;
@@ -10,13 +11,13 @@ using UIKit;
 
 namespace GO.Common.iOS.ViewControllers
 {
-   public class HistoryViewController : BaseViewController
+   public class HistoryViewController : UITableViewController, IUIViewControllerPreviewingDelegate
    {
       private IUserActionService _userActionService;
 
+      public List<UserAction> UserActionsItems;
+
       private UIBarButtonItem _actionsButton;
-      public UITableView HistoryTableView;
-      private HistoryTableViewSource _tableViewSource;
 
       public HistoryViewController()
       {
@@ -24,6 +25,14 @@ namespace GO.Common.iOS.ViewControllers
          NavigationItem.Title = "History";
 
          _userActionService = Mvx.Resolve<IUserActionService>();
+      }
+
+      public override void ViewDidLoad()
+      {
+         base.ViewDidLoad();
+
+         var userActions = _userActionService.GetAllTypes().OrderByDescending(x => x.Date);
+         UserActionsItems = userActions.ToList();
       }
 
       public override void ViewWillAppear(bool animated)
@@ -37,63 +46,26 @@ namespace GO.Common.iOS.ViewControllers
          NavigationItem.SetRightBarButtonItems(new[] { _actionsButton }, true);
 
          var userActions = _userActionService.GetAllTypes().OrderByDescending(x => x.Date);
-         _tableViewSource.UpdateSource(HistoryTableView, userActions.OrderByDescending(x => x.Date).ToArray());
-      }
-
-      public override void Initialize()
-      {
-         base.Initialize();
-
-         HistoryTableView = new BaseTableView
-         {
-            ScrollEnabled = true,
-            TableHeaderView = new UIView(),
-            TableFooterView = new UIView(),
-            SeparatorInset = UIEdgeInsets.Zero,
-            LayoutMargins = UIEdgeInsets.Zero,
-            EstimatedRowHeight = UITableView.AutomaticDimension,
-            RowHeight = UITableView.AutomaticDimension,
-            BackgroundColor = UIColor.White
-         };
-
-         _tableViewSource = new HistoryTableViewSource(new WeakReference(this));
-         HistoryTableView.Source = _tableViewSource;
-      }
-
-      public override void Build()
-      {
-         base.Build();
-
-         View.AddSubviews(HistoryTableView);
-
-         View.ConstrainLayout(() =>
-            HistoryTableView.Frame.Top == View.Frame.Top &&
-            HistoryTableView.Frame.Left == View.Frame.Left &&
-            HistoryTableView.Frame.Right == View.Frame.Right &&
-            HistoryTableView.Frame.Bottom == View.Frame.Bottom
-         );
+         UserActionsItems = userActions.ToList();
+         TableView.ReloadData();
       }
 
       public void ShowMenu(object sender, EventArgs e)
       {
-         List<UserAction> userActions = null;
          var alert = UIAlertController.Create("Выберите действие", null, UIAlertControllerStyle.ActionSheet);
          alert.AddAction(UIAlertAction.Create("Все", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
-            userActions = _userActionService.GetAllTypes();
-            _tableViewSource.UpdateSource(HistoryTableView, userActions.OrderByDescending(x => x.Date).ToArray());
+            UserActionsItems = _userActionService.GetAllTypes();
          }));
 
          alert.AddAction(UIAlertAction.Create("Только точки", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
-            userActions = _userActionService.GetConquers();
-            _tableViewSource.UpdateSource(HistoryTableView, userActions.OrderByDescending(x => x.Date).ToArray());
+            UserActionsItems = _userActionService.GetConquers();
          }));
 
          alert.AddAction(UIAlertAction.Create("Только квесты", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
-            userActions = _userActionService.GetQuests();
-            _tableViewSource.UpdateSource(HistoryTableView, userActions.OrderByDescending(x => x.Date).ToArray());
+            UserActionsItems = _userActionService.GetQuests();
          }));
          alert.AddAction(UIAlertAction.Create("Закрыть", UIAlertActionStyle.Cancel, null));
          PresentViewController(alert, true, null);
@@ -105,8 +77,58 @@ namespace GO.Common.iOS.ViewControllers
 
          if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
          {
-            RegisterForPreviewingWithDelegate(new HistoryViewControllerPreviewingDelegate(this), View);
+            RegisterForPreviewingWithDelegate(this, View);
          }
+      }
+
+      public override nint RowsInSection(UITableView tableView, nint section) => UserActionsItems.Count;
+
+      public override UITableViewCell GetCell(UITableView tableView, Foundation.NSIndexPath indexPath)
+      {
+         var cell = tableView.DequeueReusableCell(HistoryCell.CellIdentifier);
+         var item = UserActionsItems[indexPath.Row];
+
+         if (cell == null)
+            cell = new HistoryCell();
+
+         if (cell is HistoryCell historyCell)
+         {
+            historyCell.Update(item);
+         }
+         return cell;
+      }
+
+      public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+      {
+         var item = UserActionsItems[indexPath.Row];
+         // Description can contains URL to the web
+         // if yes - open webview
+         foreach (Match match in Regex.Matches(item.Description, @"(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?"))
+         {
+            NSUrl url = NSUrl.FromString(match.Value);
+            UIApplication.SharedApplication.OpenUrl(url);
+            return;
+         }
+      }
+
+      public UIViewController GetViewControllerForPreview(IUIViewControllerPreviewing previewingContext, CGPoint location)
+      {
+         var indexPath = TableView.IndexPathForRowAtPoint(location);
+         var cell = TableView.CellAt(indexPath);
+         var item = UserActionsItems[indexPath.Row];
+
+         var controller = new HistoryDetailsViewController();
+         controller.PreferredContentSize = new CGSize(0, 0);
+         controller.SetDetailItem(item);
+
+         previewingContext.SourceRect = cell.Frame;
+
+         return controller;
+      }
+
+      public void CommitViewController(IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
+      {
+         ShowViewController(viewControllerToCommit, this);
       }
    }
 }

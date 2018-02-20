@@ -149,10 +149,8 @@
     <Compile Include="Views\Common\WaitActivityIndicator.cs" />
     <Compile Include="Views\Map\MarkerInfoWindowView.cs" />
     <Compile Include="Views\Common\BaseTableView.cs" />
-    <Compile Include="ViewControllers\HistoryTableViewSource.cs" />
     <Compile Include="ViewControllers\HistoryCell.cs" />
     <Compile Include="Services\SQLiteIOS.cs" />
-    <Compile Include="ViewControllers\HistoryViewControllerPreviewingDelegate.cs" />
     <Compile Include="ViewControllers\HistoryDetailsViewController.cs" />
   </ItemGroup>
   <ItemGroup>

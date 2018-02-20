@@ -1,12 +1,13 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{D9B266CC-E674-4745-8D64-CEF5819E55C1}|Default">
   <MonoDevelop.Ide.ItemProperties.GO.Hunting.Droid PreferredExecutionTarget="Android.SelectDevice" HideGettingStarted="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Common.iOS/ViewControllers/HistoryViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GO.Hunting.iOS/Info.plist">
     <Files>
-      <File FileName="GO.Common.iOS/ViewControllers/HistoryViewController.cs" Line="121" Column="34" />
-      <File FileName="GO.Common.iOS/ViewControllers/HistoryDetailsViewController.cs" Line="12" Column="49" />
+      <File FileName="GO.Common.iOS/ViewControllers/HistoryViewController.cs" Line="122" Column="41" />
+      <File FileName="GO.Common.iOS/ViewControllers/HistoryDetailsViewController.cs" Line="17" Column="52" />
+      <File FileName="GO.Hunting.iOS/Info.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -14,7 +15,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="GoHunting.Core\Utilities\DeviceUtility.cs" line="10" offsetX="438" offsetY="144" expression="DeviceInfo.Plugin.CrossDeviceInfo.Current" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.2e686e2fae5a5855acf604e91f68318a6ec8b496" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.GO.Hunting.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" automaticSigning="False" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.GO.Paranoia.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8450F454-5FA8-482C-A549-BC1B12754A37" automaticSigning="False" />
 </Properties>

@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
+using GO.Common.Droid.Fragments;
 using GO.Core.Enums;
 using GO.Core.Services;
 using MvvmCross.Platform;

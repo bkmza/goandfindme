@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using GO.Common.Droid.Fragments;
 
 namespace GO.Hunting.Droid.Fragments
 {

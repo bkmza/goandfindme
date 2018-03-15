@@ -43,7 +43,7 @@ namespace GO.Paranoia.Droid.Fragments
       double _distanceToNearestPoint;
       string _nameOfNearestPoint;
 
-      private int UpdateFrequency;
+      private double UpdateFrequency;
       private MapType MapType;
       private DateTime LastUpdated;
       private CancellationTokenSource _cancellationMapAutoUpdate;
@@ -108,6 +108,7 @@ namespace GO.Paranoia.Droid.Fragments
             {
                await UpdateMarkersAsync();
                LastUpdated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+               break;
             }
          }
       }

@@ -22,6 +22,7 @@ namespace GO.Core
          Mvx.RegisterType<ILoginService, LoginService>();
          Mvx.RegisterType<IStopWatchWrapper, StopWatchWrapper>();
          Mvx.RegisterType<IApiService, ApiService>();
+         Mvx.RegisterType<IAppSettingsService, AppSettingsService>();
       }
    }
 }

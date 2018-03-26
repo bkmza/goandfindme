@@ -27,6 +27,7 @@ namespace GO.Paranoia.Droid
       IApiService _apiService;
       IToastService _toastService;
       ILoginService _loginService;
+      IAppSettingsService _appSettingsService;
 
       protected override void OnCreate(Bundle bundle)
       {
@@ -42,10 +43,11 @@ namespace GO.Paranoia.Droid
 
          Logger.Instance = new AndroidLogger();
          Mvx.RegisterType<IToastService, ToastService>();
-         Mvx.RegisterType<IAnalyticsService, AnalyticsService>();
          Mvx.RegisterType<ISQLitePlatform, SQLitePlatformAndroid>();
          Mvx.RegisterType<ISQLite, SQLiteAndroid>();
          Mvx.RegisterType<IDBService, DBService>();
+         _appSettingsService = Mvx.Resolve<IAppSettingsService>();
+         Mvx.RegisterType<IAnalyticsService>(() => new AnalyticsService(_appSettingsService));
          Mvx.RegisterType<IUserActionService, UserActionService>();
          Mvx.RegisterType<IMapSettingsService, MapSettingsService>();
 
@@ -100,7 +102,9 @@ namespace GO.Paranoia.Droid
             return;
          }
 
-         RegisterStatus status = await _loginService.CheckUserExists(DeviceUtility.DeviceId);
+         var appId = GetAppId();
+         _appSettingsService.SetAppId(appId);
+         RegisterStatus status = await _loginService.CheckUserExists(appId);
          if (status.GetStatus == (int)UserStatus.RegisteredAndApproved)
          {
             IsLoading = false;
@@ -114,6 +118,21 @@ namespace GO.Paranoia.Droid
          IsLoading = false;
       }
 
+      private string GetAppId()
+      {
+         string appId = null;
+         string deviceId = _appSettingsService.GetAppId() ?? DeviceUtility.DeviceId;
+         if (deviceId.ToLower() == "0123456789abcdef")
+         {
+            appId = DeviceUtility.GenerateAppId;
+         }
+         else
+         {
+            appId = deviceId;
+         }
+         return appId;
+      }
+
       public async void ClickHandler(object sender, EventArgs e)
       {
          EditText editTextName = FindViewById<EditText>(Resource.Id.editText_name);
@@ -121,12 +140,12 @@ namespace GO.Paranoia.Droid
 
          if (editTextName.Text.Trim().ToLower() == "google" && editTextComment.Text.Trim().ToLower() == "google123")
          {
-            DeviceUtility.TestId = "0123456789";
+            _appSettingsService.SetAppId("0123456789");
          }
 
          ProgressDialog progressDialog = ProgressDialog.Show(this, string.Empty, Resources.GetString(Resource.String.Wait), true, false);
 
-         RegisterStatus result = await _loginService.Register(editTextName.Text, editTextComment.Text, DeviceUtility.DeviceId);
+         RegisterStatus result = await _loginService.Register(editTextName.Text, editTextComment.Text, _appSettingsService.GetAppId());
          if (result.GetStatus != (int)UserStatus.RegisteredAndApproved)
          {
             progressDialog.Dismiss();
@@ -157,5 +176,3 @@ namespace GO.Paranoia.Droid
       }
    }
 }
-
-

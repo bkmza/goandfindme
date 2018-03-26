@@ -20,14 +20,16 @@ namespace GO.Paranoia.Droid.Adapters
       PointInfo _info;
 
       IToastService _toastService;
+      IAppSettingsService _appSettingsService;
 
       public IntPtr IJHandle { get { return IntPtr.Zero; } }
 
-      public CustomInfoWindowAdapter (LayoutInflater inflater, IToastService toastService)
+      public CustomInfoWindowAdapter (LayoutInflater inflater, IToastService toastService, IAppSettingsService appSettingsService)
       {
          _info = new PointInfo ();
          _layoutInflater = inflater;
          _toastService = toastService;
+         _appSettingsService = appSettingsService;
       }
 
       public View GetInfoWindow (Marker marker)
@@ -58,7 +60,7 @@ namespace GO.Paranoia.Droid.Adapters
          Point item = JsonConvert.DeserializeObject<Point> (marker.Snippet);
          bool needToRefresh = item.GetId != info.GetId;
          if (needToRefresh) {
-            SetContents (DeviceUtility.DeviceId, item.id, item.type);
+            SetContents (_appSettingsService.GetAppId(), item.id, item.type);
          }
 
          _marker = marker;

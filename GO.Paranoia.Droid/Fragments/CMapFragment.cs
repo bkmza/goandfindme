@@ -33,6 +33,7 @@ namespace GO.Paranoia.Droid.Fragments
       IDBService _dbService;
       IUserActionService _userActionService;
       IMapSettingsService _mapSettingsService;
+      IAppSettingsService _appSettingsService;
 
       Location _currentLocation;
       GoogleMap map;
@@ -58,6 +59,7 @@ namespace GO.Paranoia.Droid.Fragments
          _toastService = Mvx.Resolve<IToastService>();
          _userActionService = Mvx.Resolve<IUserActionService>();
          _mapSettingsService = Mvx.Resolve<IMapSettingsService>();
+         _appSettingsService = Mvx.Resolve<IAppSettingsService>();
       }
 
       public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -211,7 +213,7 @@ namespace GO.Paranoia.Droid.Fragments
          map.MyLocationEnabled = true;
          map.UiSettings.MyLocationButtonEnabled = true;
          map.UiSettings.ZoomControlsEnabled = true;
-         map.SetInfoWindowAdapter(new CustomInfoWindowAdapter(_layoutInflater, _toastService));
+         map.SetInfoWindowAdapter(new CustomInfoWindowAdapter(_layoutInflater, _toastService, _appSettingsService));
 
          CameraUpdate update = CameraUpdateFactory.NewLatLngZoom(Location_Minsk, 11);
          map.MoveCamera(update);
@@ -249,14 +251,14 @@ namespace GO.Paranoia.Droid.Fragments
 
          ClearMap();
 
-         ErrorInfo errorInfo = await _apiService.CheckUserAccess(DeviceUtility.DeviceId);
+         ErrorInfo errorInfo = await _apiService.CheckUserAccess(_appSettingsService.GetAppId());
          if (errorInfo.status == "blocked")
          {
             ShowAlert(errorInfo.message);
          }
          else
          {
-            var points = await _apiService.GetAll(DeviceUtility.DeviceId);
+            var points = await _apiService.GetAll(_appSettingsService.GetAppId());
 
             if (points == null)
             {
@@ -351,7 +353,7 @@ namespace GO.Paranoia.Droid.Fragments
          switch (item.ItemId)
          {
             case 0:
-               base.AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", DeviceUtility.DeviceId, _nameOfNearestPoint));
+               base.AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", _appSettingsService.GetAppId(), _nameOfNearestPoint));
                ConquerHandler();
                return true;
             case 1:
@@ -380,7 +382,7 @@ namespace GO.Paranoia.Droid.Fragments
                UpdateMarkersAsync();
                return true;
             case 6:
-               AnalyticsService.TrackState("Conquer", "Hit on Logout button", string.Format("User {0} is logout", DeviceUtility.DeviceId));
+               AnalyticsService.TrackState("Conquer", "Hit on Logout button", string.Format("User {0} is logout", _appSettingsService.GetAppId()));
                Logout();
                return true;
             default:
@@ -411,7 +413,7 @@ namespace GO.Paranoia.Droid.Fragments
             }
             else
             {
-               Conquer result = await _apiService.Conquer(DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate(), _currentLocation.Longitude.ProcessCoordinate());
+               Conquer result = await _apiService.Conquer(_appSettingsService.GetAppId(), _currentLocation.Latitude.ProcessCoordinate(), _currentLocation.Longitude.ProcessCoordinate());
                description = result.GetDescription;
                if (result.IsSuccess)
                {
@@ -450,7 +452,7 @@ namespace GO.Paranoia.Droid.Fragments
             }
             else
             {
-               Conquer result = await _apiService.Quest(DeviceUtility.DeviceId, _currentLocation.Latitude.ProcessCoordinate(), _currentLocation.Longitude.ProcessCoordinate());
+               Conquer result = await _apiService.Quest(_appSettingsService.GetAppId(), _currentLocation.Latitude.ProcessCoordinate(), _currentLocation.Longitude.ProcessCoordinate());
                description = result.GetDescription;
                if (result.IsSuccess)
                {

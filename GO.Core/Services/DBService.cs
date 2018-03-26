@@ -29,6 +29,7 @@ namespace GO.Core.Services
          Connection.CreateTable<DBMapSettings>();
          Connection.CreateTable<DBPoint>();
          Connection.CreateTable<DBUserAction>();
+         Connection.CreateTable<DBAppSettings>();
          Connection.Commit();
       }
 
@@ -39,6 +40,9 @@ namespace GO.Core.Services
             UpdateFrequency = 5
          };
          Add(initialMapSettings);
+
+         var initialAppSettings = new DBAppSettings();
+         Add(initialAppSettings);
       }
 
       private void CreateTestData()

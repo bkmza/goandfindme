@@ -1,10 +1,8 @@
 ﻿using System;
-using Android.App;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Views;
 using Android.Widget;
-using GO.Core;
 using GO.Core.Data;
 using GO.Core.Enums;
 using GO.Core.Services;
@@ -20,14 +18,16 @@ namespace GO.Hunting.Droid.Adapters
       PointInfo _info;
 
       IToastService _toastService;
+      IAppSettingsService _appSettingsService;
 
       public IntPtr IJHandle { get { return IntPtr.Zero; } }
 
-      public CustomInfoWindowAdapter (LayoutInflater inflater, IToastService toastService)
+      public CustomInfoWindowAdapter (LayoutInflater inflater, IToastService toastService, IAppSettingsService appSettingsService)
       {
          _info = new PointInfo ();
          _layoutInflater = inflater;
          _toastService = toastService;
+         _appSettingsService = appSettingsService;
       }
 
       public View GetInfoWindow (Marker marker)
@@ -58,7 +58,7 @@ namespace GO.Hunting.Droid.Adapters
          Point item = JsonConvert.DeserializeObject<Point> (marker.Snippet);
          bool needToRefresh = item.GetId != info.GetId;
          if (needToRefresh) {
-            SetContents (DeviceUtility.DeviceId, item.id, item.type);
+            SetContents (_appSettingsService.GetAppId(), item.id, item.type);
          }
 
          _marker = marker;

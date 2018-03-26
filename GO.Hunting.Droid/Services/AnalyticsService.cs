@@ -7,13 +7,16 @@ namespace GO.Hunting.Droid.Services
 {
    public class AnalyticsService : IAnalyticsService
    {
-      public AnalyticsService ()
+      private IAppSettingsService _appSettingsService;
+
+      public AnalyticsService(IAppSettingsService appSettingsService)
       {
+         _appSettingsService = appSettingsService;
       }
 
       public void TrackState (string category, string action, string label)
       {
-         GAService.LogEvent (category, action, DeviceUtility.DeviceId, label);
+         GAService.LogEvent (category, action, _appSettingsService.GetAppId(), label);
       }
 
       public void TackException (Exception exception, bool isFatal, string additionalMessage = "")
@@ -22,7 +25,7 @@ namespace GO.Hunting.Droid.Services
 
       public void TrackScreenView (string title)
       {
-         GAService.LogScreen (title, DeviceUtility.DeviceId);
+         GAService.LogScreen (title, _appSettingsService.GetAppId());
       }
    }
 

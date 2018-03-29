@@ -3,7 +3,7 @@ using GO.Core;
 using GO.Core.Services;
 //using Android.Gms.Analytics;
 
-namespace GO.Paranoia.Droid.Services
+namespace GO.Common.Droid.Services
 {
    public class AnalyticsService : IAnalyticsService
    {

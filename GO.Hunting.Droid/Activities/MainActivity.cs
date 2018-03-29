@@ -4,53 +4,36 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Widget;
+using GO.Common.Droid.Activities;
+using GO.Common.Droid.Utilities;
 using GO.Core;
 using GO.Core.Data;
 using GO.Core.Enums;
 using GO.Core.Services;
-using GO.Core.Utilities;
 using GO.Hunting.Droid.Services;
-using GO.Common.Droid.Utilities;
 using MvvmCross.Platform;
-using Plugin.CurrentActivity;
-using SQLite.Net.Interop;
-using SQLite.Net.Platform.XamarinAndroid;
 
 namespace GO.Hunting.Droid
 {
    [Activity(MainLauncher = true)]
-   public class MainActivity : ActivityBase, ActivityCompat.IOnRequestPermissionsResultCallback
+   public class MainActivity : MainActivityBase
    {
       IApiService _apiService;
       IToastService _toastService;
       ILoginService _loginService;
-      IAppSettingsService _appSettingsService;
 
       protected override void OnCreate(Bundle bundle)
       {
-         CrossCurrentActivity.Current.Activity = this;
+         base.OnCreate(bundle);
 
          AppSettings.TrackingId = "UA-65892866-1";
-         AppSettings.RegisterTypes();
 
          // GoHunting // packageName: com.go.goandfindme
          AppSettings.BaseHost = "http://gohunting.greyorder.su/";
          AppSettings.ApplicationName = @"GOhunting";
          AppSettings.PackageName = "com.go.goandfindme";
-
-         Logger.Instance = new AndroidLogger();
-         Mvx.RegisterType<IToastService, ToastService>();
-         Mvx.RegisterType<IAnalyticsService, AnalyticsService>();
-         Mvx.RegisterType<ISQLitePlatform, SQLitePlatformAndroid>();
-         Mvx.RegisterType<ISQLite, SQLiteAndroid>();
-         Mvx.RegisterType<IDBService, DBService>();
-         _appSettingsService = Mvx.Resolve<IAppSettingsService>();
-         Mvx.RegisterType<IAnalyticsService>(() => new AnalyticsService(_appSettingsService));
-         Mvx.RegisterType<IUserActionService, UserActionService>();
-         Mvx.RegisterType<IMapSettingsService, MapSettingsService>();
 
          base.OnCreate(bundle);
 
@@ -104,7 +87,7 @@ namespace GO.Hunting.Droid
          }
 
          var appId = GetAppId();
-         _appSettingsService.SetAppId(appId);
+         AppSettingsService.SetAppId(appId);
          RegisterStatus status = await _loginService.CheckUserExists(appId);
          if (status.GetStatus == (int)UserStatus.RegisteredAndApproved)
          {
@@ -122,7 +105,7 @@ namespace GO.Hunting.Droid
       private string GetAppId()
       {
          string appId = null;
-         string deviceId = _appSettingsService.GetAppId() ?? DeviceUtility.DeviceId;
+         string deviceId = AppSettingsService.GetAppId() ?? DeviceUtility.DeviceId;
          if (deviceId.ToLower() == "0123456789abcdef")
          {
             appId = DeviceUtility.GenerateAppId;
@@ -141,12 +124,12 @@ namespace GO.Hunting.Droid
 
          if (editTextName.Text.Trim().ToLower() == "google" && editTextComment.Text.Trim().ToLower() == "google123")
          {
-            DeviceUtility.TestId = "0123456789";
+            AppSettingsService.SetAppId("0123456789");
          }
 
          ProgressDialog progressDialog = ProgressDialog.Show(this, string.Empty, Resources.GetString(Resource.String.Wait), true, false);
 
-         RegisterStatus result = await _loginService.Register(editTextName.Text, editTextComment.Text, _appSettingsService.GetAppId());
+         RegisterStatus result = await _loginService.Register(editTextName.Text, editTextComment.Text, AppSettingsService.GetAppId());
          if (result.GetStatus != (int)UserStatus.RegisteredAndApproved)
          {
             progressDialog.Dismiss();
@@ -177,5 +160,3 @@ namespace GO.Hunting.Droid
       }
    }
 }
-
-

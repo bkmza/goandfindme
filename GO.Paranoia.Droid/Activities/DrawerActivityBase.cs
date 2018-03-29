@@ -10,6 +10,7 @@ using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using GO.Common.Droid.Activities;
 using GO.Common.Droid.Fragments;
 using GO.Paranoia.Droid.Adapters;
 using GO.Paranoia.Droid.Fragments;

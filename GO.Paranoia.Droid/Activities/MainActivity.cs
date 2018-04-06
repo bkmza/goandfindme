@@ -1,61 +1,22 @@
 ﻿using System;
-using Android;
 using Android.App;
 using Android.Content;
-using Android.Content.PM;
 using Android.OS;
-using Android.Support.V4.Content;
 using Android.Widget;
 using GO.Common.Droid.Activities;
-using GO.Common.Droid.Utilities;
 using GO.Core;
 using GO.Core.Data;
 using GO.Core.Enums;
-using GO.Core.Services;
 using GO.Paranoia.Droid.Services;
-using MvvmCross.Platform;
 
 namespace GO.Paranoia.Droid
 {
    [Activity(MainLauncher = true)]
    public class MainActivity : MainActivityBase
    {
-      IApiService _apiService;
-      IToastService _toastService;
-      ILoginService _loginService;
-
       protected override void OnCreate(Bundle bundle)
       {
          base.OnCreate(bundle);
-
-         AppSettings.TrackingId = "UA-65892866-1";
-
-         // Paranoia // packageName: com.go.paranoia
-         AppSettings.BaseHost = "http://goandpay.greyorder.su/";
-         AppSettings.ApplicationName = @"Paranoia";
-         AppSettings.PackageName = "com.go.paranoia";
-
-         SetContentView(Resource.Layout.Main);
-
-         _apiService = Mvx.Resolve<IApiService>();
-         _toastService = Mvx.Resolve<IToastService>();
-         _loginService = Mvx.Resolve<ILoginService>();
-
-         // TEST ONLY
-         //
-         //IsLoading = false;
-         //GoToHomeScreen ();
-         //
-         //
-
-         if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation) != (int)Permission.Granted)
-         {
-            ShowAlert(string.Format("Разрешите использовать GPS и гео-локации в настройках телефона и перезапустите приложение."));
-            return;
-         }
-
-         IsLoading = true;
-         CheckUserExists();
 
          Button button = FindViewById<Button>(Resource.Id.button_register);
 
@@ -68,52 +29,17 @@ namespace GO.Paranoia.Droid
          AppLocation.StartLocationService();
       }
 
-
-      readonly string[] PermissionsLocation = {
-         Manifest.Permission.AccessCoarseLocation,
-         Manifest.Permission.AccessFineLocation
-      };
-
-      const int RequestLocationId = 0;
-
-      public async void CheckUserExists()
+      protected override void InitAppSettings()
       {
-         if (!CheckInternetConnection())
-         {
-            IsLoading = false;
-            return;
-         }
+         AppSettings.TrackingId = "UA-65892866-1";
 
-         var appId = GetAppId();
-         AppSettingsService.SetAppId(appId);
-         RegisterStatus status = await _loginService.CheckUserExists(appId);
-         if (status.GetStatus == (int)UserStatus.RegisteredAndApproved)
-         {
-            IsLoading = false;
-            GoToHomeScreen();
-         }
-         else
-         {
-            ShowAlert(status.GetDescription);
-         }
-
-         IsLoading = false;
+         // Paranoia // packageName: com.go.paranoia
+         AppSettings.BaseHost = "http://goandpay.greyorder.su/";
+         AppSettings.ApplicationName = @"Paranoia";
+         AppSettings.PackageName = "com.go.paranoia";
       }
 
-      private string GetAppId()
-      {
-         string appId = null;
-         string deviceId = AppSettingsService.GetAppId() ?? DeviceUtility.DeviceId;
-         if (deviceId.ToLower() == "0123456789abcdef")
-         {
-            appId = DeviceUtility.GenerateAppId;
-         }
-         else
-         {
-            appId = deviceId;
-         }
-         return appId;
-      }
+      protected override void InitContentView() => SetContentView(Resource.Layout.Main);
 
       public async void ClickHandler(object sender, EventArgs e)
       {
@@ -127,34 +53,22 @@ namespace GO.Paranoia.Droid
 
          ProgressDialog progressDialog = ProgressDialog.Show(this, string.Empty, Resources.GetString(Resource.String.Wait), true, false);
 
-         RegisterStatus result = await _loginService.Register(editTextName.Text, editTextComment.Text, AppSettingsService.GetAppId());
+         RegisterStatus result = await LoginService.Register(editTextName.Text, editTextComment.Text, AppSettingsService.GetAppId());
          if (result.GetStatus != (int)UserStatus.RegisteredAndApproved)
          {
             progressDialog.Dismiss();
-            _toastService.ShowMessage(result.GetDescription);
+            ToastService.ShowMessage(result.GetDescription);
             return;
          }
 
          GoToHomeScreen();
       }
 
-      public void GoToHomeScreen()
+      protected override void GoToHomeScreen()
       {
          var intent = new Intent(this, typeof(DrawerActivityBase));
          intent.SetFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);
          StartActivity(intent);
-      }
-
-      public void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
-      {
-         if (PermissionUtility.VerifyPermissions(grantResults))
-         {
-
-         }
-         else
-         {
-            _toastService.ShowMessageLongPeriod(string.Format("Разрешите использовать GPS и гео-локации в настройках телефона перед использование приложения."));
-         }
       }
    }
 }

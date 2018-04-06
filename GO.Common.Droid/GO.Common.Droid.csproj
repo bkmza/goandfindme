@@ -146,12 +146,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\layout\Main.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />
     <Folder Include="Fragments\" />
     <Folder Include="Activities\" />
     <Folder Include="Services\" />
+    <Folder Include="Resources\layout\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GO.Core\GO.Core.csproj">

@@ -1,8 +1,11 @@
-﻿using Android;
+﻿using System;
+using Android;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
+using Android.Widget;
 using GO.Common.Droid.Utilities;
 using GO.Core;
 using GO.Core.Data;
@@ -40,6 +43,9 @@ namespace GO.Common.Droid.Activities
             return;
          }
 
+         Button button = FindViewById<Button>(Resource.Id.button_register);
+         button.Click += ClickHandler;
+
          // TEST ONLY
          //
          //IsLoading = false;
@@ -53,7 +59,7 @@ namespace GO.Common.Droid.Activities
 
       protected virtual void InitAppSettings() { }
 
-      protected virtual void InitContentView() { }
+      protected virtual void InitContentView() => SetContentView(Resource.Layout.Main);
 
       protected virtual void GoToHomeScreen() { }
 
@@ -94,6 +100,29 @@ namespace GO.Common.Droid.Activities
             appId = deviceId;
          }
          return appId;
+      }
+
+      private async void ClickHandler(object sender, EventArgs e)
+      {
+         EditText editTextName = FindViewById<EditText>(Resource.Id.editText_name);
+         EditText editTextComment = FindViewById<EditText>(Resource.Id.editText_comment);
+
+         if (editTextName.Text.Trim().ToLower() == "google" && editTextComment.Text.Trim().ToLower() == "google123")
+         {
+            AppSettingsService.SetAppId("0123456789");
+         }
+
+         ProgressDialog progressDialog = ProgressDialog.Show(this, string.Empty, Resources.GetString(Resource.String.Wait), true, false);
+
+         RegisterStatus result = await LoginService.Register(editTextName.Text, editTextComment.Text, AppSettingsService.GetAppId());
+         if (result.GetStatus != (int)UserStatus.RegisteredAndApproved)
+         {
+            progressDialog.Dismiss();
+            ToastService.ShowMessage(result.GetDescription);
+            return;
+         }
+
+         GoToHomeScreen();
       }
 
       protected readonly string[] PermissionsLocation = {

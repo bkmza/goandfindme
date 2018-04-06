@@ -169,7 +169,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\layout\activity_navigation_drawer.axml" />
     <AndroidResource Include="Resources\layout\CustomMarkerPopupPoint.axml" />
     <AndroidResource Include="Resources\layout\CustomMarkerPopupQuest.axml" />

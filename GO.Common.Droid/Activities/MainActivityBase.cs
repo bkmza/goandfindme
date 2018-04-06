@@ -6,6 +6,7 @@ using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Widget;
+using GO.Common.Droid.Services;
 using GO.Common.Droid.Utilities;
 using GO.Core;
 using GO.Core.Data;
@@ -55,6 +56,12 @@ namespace GO.Common.Droid.Activities
 
          IsLoading = true;
          CheckUserExists();
+
+
+         AppLocation.Current.LocationServiceConnected += (object sender, ServiceConnectedEventArgs e) =>
+         {
+         };
+         AppLocation.StartLocationService();
       }
 
       protected virtual void InitAppSettings() { }

@@ -57,9 +57,6 @@
     <Reference Include="MvvmCross.Binding">
       <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\MonoAndroid\MvvmCross.Binding.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Binding.Droid">
-      <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\MonoAndroid\MvvmCross.Binding.Droid.dll</HintPath>
-    </Reference>
     <Reference Include="MvvmCross.Localization">
       <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\MonoAndroid\MvvmCross.Localization.dll</HintPath>
     </Reference>
@@ -127,6 +124,9 @@
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\packages\Xamarin.Android.Support.v4.27.0.2\lib\MonoAndroid81\Xamarin.Android.Support.v4.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Binding.Droid">
+      <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\MonoAndroid\MvvmCross.Binding.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -139,6 +139,11 @@
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\AnalyticsService.cs" />
     <Compile Include="Services\SQLiteAndroid.cs" />
+    <Compile Include="AppLocation.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\LocationServiceBinder.cs" />
+    <Compile Include="Services\LocationServiceConnection.cs" />
+    <Compile Include="Services\ServiceConnectedEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

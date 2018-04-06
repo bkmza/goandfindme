@@ -8,6 +8,7 @@ using Android.Gms.Maps.Model;
 using Android.Locations;
 using Android.OS;
 using Android.Views;
+using GO.Common.Droid;
 using GO.Common.Droid.Fragments;
 using GO.Core;
 using GO.Core.Data;

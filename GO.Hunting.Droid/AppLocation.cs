@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
-
 using Android.Content;
 using Android.Util;
+using GO.Common.Droid.Services;
 using GO.Core.Utilities;
-using GO.Hunting.Droid.Services;
 
 namespace GO.Hunting.Droid
 {
-	public class AppLocation
+   public class AppLocation
 	{
 		// events
 		public event EventHandler<ServiceConnectedEventArgs> LocationServiceConnected = delegate {};

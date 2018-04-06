@@ -118,9 +118,6 @@
     <Reference Include="Xamarin.Android.Support.Core.UI">
       <HintPath>..\packages\Xamarin.Android.Support.Core.UI.27.0.2\lib\MonoAndroid81\Xamarin.Android.Support.Core.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Android.Support.Core.Utils">
-      <HintPath>..\packages\Xamarin.Android.Support.Core.Utils.27.0.2\lib\MonoAndroid81\Xamarin.Android.Support.Core.Utils.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Support.Fragment">
       <HintPath>..\packages\Xamarin.Android.Support.Fragment.27.0.2\lib\MonoAndroid81\Xamarin.Android.Support.Fragment.dll</HintPath>
     </Reference>
@@ -138,6 +135,9 @@
     </Reference>
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
       <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.27.0.2\lib\MonoAndroid81\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Core.Utils">
+      <HintPath>..\packages\Xamarin.Android.Support.Core.Utils.27.0.2\lib\MonoAndroid81\Xamarin.Android.Support.Core.Utils.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -157,10 +157,6 @@
     <Compile Include="Fragments\CMapFragment.cs" />
     <Compile Include="Fragments\SettingsFragment.cs" />
     <Compile Include="Helpers\MyActionBarDrawerToggle.cs" />
-    <Compile Include="Services\LocationService.cs" />
-    <Compile Include="Services\LocationServiceBinder.cs" />
-    <Compile Include="Services\LocationServiceConnection.cs" />
-    <Compile Include="Services\ServiceConnectedEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -324,7 +320,6 @@
     <Folder Include="Fragments\" />
     <Folder Include="Helpers\" />
     <Folder Include="Resources\" />
-    <Folder Include="Services\" />
     <Folder Include="Resources\mipmap-hdpi\" />
     <Folder Include="Resources\mipmap-mdpi\" />
     <Folder Include="Resources\mipmap-xhdpi\" />

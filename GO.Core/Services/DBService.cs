@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using GO.Core.Entities;
 using GO.Core.Enums;
-using SQLite.Net;
+using Realms;
 
 namespace GO.Core.Services
 {
    public class DBService : IDBService
    {
-      SQLiteConnection Connection;
+      private Realm _realm;
 
-      public DBService(ISQLite sqlite)
+      public DBService()
       {
-         Connection = sqlite.GetConnection();
+         _realm = Realm.GetInstance();
 
          CreateDB();
          CreateDBSettings();
@@ -25,12 +25,12 @@ namespace GO.Core.Services
 
       private void CreateDB()
       {
-         Connection.BeginTransaction();
-         Connection.CreateTable<DBMapSettings>();
-         Connection.CreateTable<DBPoint>();
-         Connection.CreateTable<DBUserAction>();
-         Connection.CreateTable<DBAppSettings>();
-         Connection.Commit();
+         //Connection.BeginTransaction();
+         //Connection.CreateTable<DBMapSettings>();
+         //Connection.CreateTable<DBPoint>();
+         //Connection.CreateTable<DBUserAction>();
+         //Connection.CreateTable<DBAppSettings>();
+         //Connection.Commit();
       }
 
       private void CreateDBSettings()
@@ -39,10 +39,10 @@ namespace GO.Core.Services
          {
             UpdateFrequency = 5
          };
-         Add(initialMapSettings);
+         _realm.Add(initialMapSettings);
 
          var initialAppSettings = new DBAppSettings();
-         Add(initialAppSettings);
+         _realm.Add(initialAppSettings);
       }
 
       private void CreateTestData()
@@ -59,43 +59,44 @@ namespace GO.Core.Services
          };
          foreach (var item in predefinedActions)
          {
-            Add(item);
+            _realm.Add(item);
          }
       }
 
-      public void Add<T>(T data)
+      public void Add<T>(T data) where T : DBEntityBase
       {
-         Connection.Insert(data);
+         _realm.Add(data, false);
       }
 
-      public void Add<T>(List<T> data, bool isRunInTransaction = true)
+      public void Add<T>(List<T> data) where T : DBEntityBase
       {
-         Connection.InsertAll(data, isRunInTransaction);
+         _realm.Write(() =>
+         {
+            foreach (var item in data)
+            {
+               _realm.Add(item);
+            }
+         });
       }
 
-      public void Update<T>(T data)
+      public void Delete<T>(T data) where T : DBEntityBase
       {
-         Connection.Update(data);
+         _realm.Remove(data);
       }
 
-      public void Delete<T>(T data)
+      public void DeleteAll<T>() where T : DBEntityBase
       {
-         Connection.Delete(data);
+         _realm.RemoveAll<T>();
       }
 
-      public void DeleteAll<T>()
+      public T Get<T>(string id) where T : DBEntityBase
       {
-         Connection.DeleteAll<T>();
+         return _realm.All<T>().Where(x => x.Id == id).FirstOrDefault();
       }
 
-      public T Get<T>(long id) where T : DBEntityBase
+      public List<T> Get<T>() where T : DBEntityBase
       {
-         return Connection.Get<T>(x => x.Id == id);
-      }
-
-      public List<T> Get<T>() where T : class, new()
-      {
-         return Connection.Table<T>().Where(x => true).ToList();
+         return _realm.All<T>().ToList();
       }
    }
 }

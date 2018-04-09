@@ -1,23 +1,23 @@
 ﻿using System;
-using SQLite.Net.Attributes;
+using Realms;
 
 namespace GO.Core.Entities
 {
    public class DBUserAction : DBEntityBase
    {
-      [Column("type")]
+      [MapTo("type")]
       public int Type { get; set; }
 
-      [Column("title")]
+      [MapTo("title")]
       public string Title { get; set; }
 
-      [Column("description")]
+      [MapTo("description")]
       public string Description { get; set; }
 
-      [Column("date")]
+      [MapTo("date")]
       public DateTime Date { get; set; }
 
-      [Column("number")]
+      [MapTo("number")]
       public string Number { get; set; }
    }
 }

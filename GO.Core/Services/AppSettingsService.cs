@@ -1,4 +1,5 @@
-﻿using GO.Core.Entities;
+﻿using System.Linq;
+using GO.Core.Entities;
 
 namespace GO.Core.Services
 {
@@ -13,14 +14,14 @@ namespace GO.Core.Services
 
       public void SetAppId(string value)
       {
-         var dbAppSettings = _dbService.Get<DBAppSettings>(1);
+         var dbAppSettings = _dbService.Get<DBAppSettings>().First();
          dbAppSettings.AppId = value;
-         _dbService.Update(dbAppSettings);
+         _dbService.Add(dbAppSettings);
       }
 
       public string GetAppId()
       {
-         var dbAppSettings = _dbService.Get<DBAppSettings>(1);
+         var dbAppSettings = _dbService.Get<DBAppSettings>().First();
          return dbAppSettings.AppId;
       }
    }

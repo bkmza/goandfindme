@@ -1,10 +1,19 @@
-﻿using SQLite.Net.Attributes;
+﻿using System;
+using Realms;
 
 namespace GO.Core.Entities
 {
-   public class DBEntityBase
+   public class DBEntityBase : RealmObject
    {
-      [PrimaryKey, AutoIncrement, Column("id")]
-      public int Id { get; set; }
+      // TODO realm
+      // add autoincrement
+      // 
+      [PrimaryKey, MapTo("id")]
+      public string Id { get; private set; }
+
+      public DBEntityBase()
+      {
+         Id = Guid.NewGuid().ToString();
+      }
    }
 }

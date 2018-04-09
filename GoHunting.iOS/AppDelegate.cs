@@ -7,8 +7,6 @@ using GO.Core.Services;
 using GO.Core.Utilities;
 using Google.Maps;
 using MvvmCross.Platform;
-using SQLite.Net.Interop;
-using SQLite.Net.Platform.XamarinIOS;
 using UIKit;
 
 namespace GO.Paranoia.iOS
@@ -40,8 +38,6 @@ namespace GO.Paranoia.iOS
 
          Mvx.RegisterType<IToastService, ToastService>();
          Mvx.RegisterType<IAnalyticsService, AnalyticsService>();
-         Mvx.RegisterType<ISQLitePlatform, SQLitePlatformIOS>();
-         Mvx.RegisterType<ISQLite, SQLiteIOS>();
          Mvx.RegisterType<IDBService, DBService>();
          Mvx.RegisterType<IUserActionService, UserActionService>();
          Mvx.RegisterType<IMapSettingsService, MapSettingsService>();

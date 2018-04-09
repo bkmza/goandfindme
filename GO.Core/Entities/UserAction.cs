@@ -15,7 +15,7 @@ namespace GO.Core.Entities
          Date = item.Date;
       }
 
-      public int Id { get; set; }
+      public string Id { get; set; }
 
       public int Type { get; set; }
       public string Title { get; set; }

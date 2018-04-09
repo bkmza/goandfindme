@@ -1,10 +1,10 @@
-﻿using SQLite.Net.Attributes;
+﻿using Realms;
 
 namespace GO.Core.Entities
 {
    public class DBAppSettings : DBEntityBase
    {
-      [Column("app_id")]
+      [MapTo("app_id")]
       public string AppId { get; set; }
    }
 }

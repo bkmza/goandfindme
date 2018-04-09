@@ -1,24 +1,24 @@
-﻿using SQLite.Net.Attributes;
+﻿using Realms;
 
 namespace GO.Core.Entities
 {
    public class DBPoint : DBEntityBase
    {
-      [Column("point_id")]
+      [MapTo("point_id")]
       public string PointId { get; set; }
 
-      [Column("latitude")]
+      [MapTo("latitude")]
       public string latitude { get; set; }
-      [Column("longitude")]
+      [MapTo("longitude")]
       public string longitude { get; set; }
 
-      [Column("content")]
+      [MapTo("content")]
       public string content { get; set; }
-      [Column("color")]
+      [MapTo("color")]
       public string color { get; set; }
-      [Column("icon")]
+      [MapTo("icon")]
       public string icon { get; set; }
-      [Column("type")]
+      [MapTo("type")]
       public string type { get; set; }
    }
 }

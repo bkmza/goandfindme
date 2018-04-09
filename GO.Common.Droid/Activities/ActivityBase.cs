@@ -8,8 +8,6 @@ using GO.Core;
 using GO.Core.Services;
 using GO.Core.Utilities;
 using MvvmCross.Platform;
-using SQLite.Net.Interop;
-using SQLite.Net.Platform.XamarinAndroid;
 
 namespace GO.Common.Droid.Activities
 {
@@ -39,8 +37,6 @@ namespace GO.Common.Droid.Activities
       {
          Logger.Instance = new AndroidLogger();
          Mvx.RegisterType<IToastService, ToastService>();
-         Mvx.RegisterType<ISQLitePlatform, SQLitePlatformAndroid>();
-         Mvx.RegisterType<ISQLite, SQLiteAndroid>();
          Mvx.RegisterType<IDBService, DBService>();
 
          AppSettingsService = Mvx.Resolve<IAppSettingsService>();

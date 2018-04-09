@@ -1,9 +1,18 @@
-﻿using Realms;
+﻿using System;
+using Realms;
 
 namespace GO.Core.Entities
 {
-   public class DBPoint : DBEntityBase
+   public class DBPoint : RealmObject
    {
+      [PrimaryKey, MapTo("id")]
+      public string Id { get; private set; }
+
+      public DBPoint()
+      {
+         Id = Guid.NewGuid().ToString();
+      }
+
       [MapTo("point_id")]
       public string PointId { get; set; }
 

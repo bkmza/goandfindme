@@ -5,24 +5,29 @@ namespace GO.Core.Services
 {
    public class AppSettingsService : IAppSettingsService
    {
-      private readonly IDBService _dbService;
+      private readonly IDBService _dBService;
 
-      public AppSettingsService(IDBService dbService)
+      public AppSettingsService(IDBService dBService)
       {
-         _dbService = dbService;
+         _dBService = dBService;
       }
 
       public void SetAppId(string value)
       {
-         var dbAppSettings = _dbService.Get<DBAppSettings>().First();
-         dbAppSettings.AppId = value;
-         _dbService.Add(dbAppSettings);
+         _dBService.Act(action);
+
+         void action()
+         {
+            var item = _dBService.Get<DBAppSettings>().First();
+            item.AppId = value;
+            _dBService.Add(item);
+         }
       }
 
       public string GetAppId()
       {
-         var dbAppSettings = _dbService.Get<DBAppSettings>().First();
-         return dbAppSettings.AppId;
+         var item = _dBService.Get<DBAppSettings>().First();
+         return item.AppId;
       }
    }
 }

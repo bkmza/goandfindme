@@ -21,6 +21,6 @@ namespace GO.Core.Entities
       public string Title { get; set; }
       public string Number { get; set; }
       public string Description { get; set; }
-      public DateTime Date { get; set; }
+      public DateTimeOffset Date { get; set; }
    }
 }

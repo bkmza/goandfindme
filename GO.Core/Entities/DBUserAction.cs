@@ -3,8 +3,16 @@ using Realms;
 
 namespace GO.Core.Entities
 {
-   public class DBUserAction : DBEntityBase
+   public class DBUserAction : RealmObject
    {
+      [PrimaryKey, MapTo("id")]
+      public string Id { get; private set; }
+
+      public DBUserAction()
+      {
+         Id = Guid.NewGuid().ToString();
+      }
+
       [MapTo("type")]
       public int Type { get; set; }
 
@@ -15,7 +23,7 @@ namespace GO.Core.Entities
       public string Description { get; set; }
 
       [MapTo("date")]
-      public DateTime Date { get; set; }
+      public DateTimeOffset Date { get; set; }
 
       [MapTo("number")]
       public string Number { get; set; }

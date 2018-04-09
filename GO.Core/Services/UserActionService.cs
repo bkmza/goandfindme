@@ -43,21 +43,30 @@ namespace GO.Core.Services
 
       public void Add(UserAction userAction)
       {
-         var dbUserAction = new DBUserAction
-         {
-            Type = userAction.Type,
-            Title = userAction.Title,
-            Description = userAction.Description,
-            Date = userAction.Date,
-            Number = userAction.Number
-         };
+         _dbService.Act(action);
 
-         _dbService.Add(dbUserAction);
+         void action()
+         {
+            var dbUserAction = new DBUserAction
+            {
+               Type = userAction.Type,
+               Title = userAction.Title,
+               Description = userAction.Description,
+               Date = userAction.Date,
+               Number = userAction.Number
+            };
+            _dbService.Add(dbUserAction);
+         }
       }
 
       public void DeleteAll()
       {
-         _dbService.DeleteAll<DBUserAction>();
+         _dbService.Act(action);
+
+         void action()
+         {
+            _dbService.DeleteAll<DBUserAction>();
+         }
       }
    }
 }

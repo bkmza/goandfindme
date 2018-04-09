@@ -136,5 +136,43 @@ namespace GO.Core.Services
 
          return deserializedResult;
       }
+
+      // New staff
+
+      public async Task Trap(string deviceId, string lat, string lon)
+      {
+         StopWatch.Start(string.Format("ApiService.Trap for lat: {0} lon: {1}", lat, lon));
+         HttpClient client = await GetClient();
+         string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
+         string result = await client.GetStringAsync(string.Format("{0}gofind2/action_type3.php?{1}", AppSettings.BaseHost, parameters));
+         StopWatch.Stop(string.Format("ApiService.Trap for lat: {0} lon: {1}", lat, lon));
+      }
+
+      public async Task Place(string deviceId, string lat, string lon)
+      {
+         StopWatch.Start(string.Format("ApiService.Place for lat: {0} lon: {1}", lat, lon));
+         HttpClient client = await GetClient();
+         string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
+         string result = await client.GetStringAsync(string.Format("{0}gofind2/action_type4.php?{1}", AppSettings.BaseHost, parameters));
+         StopWatch.Stop(string.Format("ApiService.Place for lat: {0} lon: {1}", lat, lon));
+      }
+
+      public async Task Raze(string deviceId, string lat, string lon)
+      {
+         StopWatch.Start(string.Format("ApiService.Raze for lat: {0} lon: {1}", lat, lon));
+         HttpClient client = await GetClient();
+         string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
+         string result = await client.GetStringAsync(string.Format("{0}gofind2/action_type5.php?{1}", AppSettings.BaseHost, parameters));
+         StopWatch.Stop(string.Format("ApiService.Raze for lat: {0} lon: {1}", lat, lon));
+      }
+
+      public async Task Attack(string deviceId, string lat, string lon)
+      {
+         StopWatch.Start(string.Format("ApiService.Attack for lat: {0} lon: {1}", lat, lon));
+         HttpClient client = await GetClient();
+         string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
+         string result = await client.GetStringAsync(string.Format("{0}gofind2/action_type6.php?{1}", AppSettings.BaseHost, parameters));
+         StopWatch.Stop(string.Format("ApiService.Attack for lat: {0} lon: {1}", lat, lon));
+      }
    }
 }

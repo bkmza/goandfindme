@@ -20,9 +20,14 @@ namespace GO.Core.Services
 
       public void SetUpdateFrequency(int value)
       {
-         var dbMapSettings = _dbService.Get<DBMapSettings>().First();
-         dbMapSettings.UpdateFrequency = value;
-         _dbService.Add(dbMapSettings);
+         _dbService.Act(action);
+
+         void action()
+         {
+            var item = _dbService.Get<DBMapSettings>().First();
+            item.UpdateFrequency = value;
+            _dbService.Add(item);
+         }
       }
 
       public int GetMapType()
@@ -33,9 +38,14 @@ namespace GO.Core.Services
 
       public void SetMapType(int mapType)
       {
-         var dbMapSettings = _dbService.Get<DBMapSettings>().First();
-         dbMapSettings.MapType = mapType;
-         _dbService.Add(dbMapSettings);
+         _dbService.Act(action);
+
+         void action()
+         {
+            var item = _dbService.Get<DBMapSettings>().First();
+            item.MapType = mapType;
+            _dbService.Add(item);
+         }
       }
    }
 }

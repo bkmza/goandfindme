@@ -13,6 +13,10 @@
 	</string-array>
 	<string name="ConquerMenuTitle">Захват</string>
 	<string name="QuestMenuTitle">Квест</string>
+    <string name="TrapMenuTitle">Ловушка</string>
+    <string name="PlaceMenuTitle">Поставить</string>
+    <string name="RazeMenuTitle">Снести</string>
+    <string name="AttackMenuTitle">Атаковать</string>
 	<string name="RefreshMenuTitle">Обновить</string>
 	<string name="OnlyPointsMenuTitle">Только точки</string>
 	<string name="OnlyQuestsMenuTitle">Только квесты</string>

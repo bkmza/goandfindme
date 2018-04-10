@@ -25,7 +25,7 @@ namespace GO.Paranoia.Droid.Fragments
 
          _userActionService = Mvx.Resolve<IUserActionService>();
 
-         _userActions = _userActionService.GetQuests().OrderByDescending(x => x.Date).ToList();
+         _userActions = _userActionService.GetActions().OrderByDescending(x => x.Date.DateTime).ToList();
 
          var items = _userActions
             .Select(x => new Tuple<string, string>(string.Format("{0} - {1}", x.Number, x.Title), string.Format("{0}, {1}", x.Date.ToString(), x.Description)))

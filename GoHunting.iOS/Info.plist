@@ -7,7 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.go.paranoia</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.9</string>
+	<string>1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -37,6 +37,6 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>By allowing, you’ll be able to conquest the points or take a quests.</string>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>10</string>
 </dict>
 </plist>

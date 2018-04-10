@@ -14,10 +14,8 @@ using GO.Core.Data;
 using GO.Core.Entities;
 using GO.Core.Enums;
 using GO.Core.Helpers;
-using GO.Core.Services;
 using GO.Core.Utilities;
 using GO.Paranoia.Droid.Adapters;
-using MvvmCross.Platform;
 using Newtonsoft.Json;
 
 namespace GO.Paranoia.Droid.Fragments
@@ -26,41 +24,13 @@ namespace GO.Paranoia.Droid.Fragments
    {
       static readonly LatLng Location_Minsk = new LatLng(53.900819, 27.558823);
 
-      View _view;
-
-      IApiService _apiService;
-      IToastService _toastService;
-      IDBService _dbService;
-      IUserActionService _userActionService;
-      IMapSettingsService _mapSettingsService;
-      IAppSettingsService _appSettingsService;
-
-      Location _currentLocation;
       GoogleMap map;
       MapView mapFragment;
       List<MarkerOptions> _markers;
 
-      LayoutInflater _layoutInflater;
-
-      double _distanceToNearestPoint;
-      string _nameOfNearestPoint;
-
-      private double UpdateFrequency;
-      private MapType MapType;
-      private DateTime LastUpdated;
       private CancellationTokenSource _cancellationMapAutoUpdate;
 
-      MapItemType? _mapItemFilterType;
-
-      public CMapFragment()
-      {
-         _dbService = Mvx.Resolve<IDBService>();
-         _apiService = Mvx.Resolve<IApiService>();
-         _toastService = Mvx.Resolve<IToastService>();
-         _userActionService = Mvx.Resolve<IUserActionService>();
-         _mapSettingsService = Mvx.Resolve<IMapSettingsService>();
-         _appSettingsService = Mvx.Resolve<IAppSettingsService>();
-      }
+      public CMapFragment() { }
 
       public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
       {
@@ -69,14 +39,14 @@ namespace GO.Paranoia.Droid.Fragments
             return null;
          }
 
-         _layoutInflater = inflater;
+         MapLayoutInflater = inflater;
 
-         if (_view == null)
+         if (MapView == null)
          {
-            _view = inflater.Inflate(Resource.Layout.fragment_cmap, container, false);
+            MapView = inflater.Inflate(Resource.Layout.fragment_cmap, container, false);
          }
 
-         mapFragment = _view.FindViewById<MapView>(Resource.Id.map);
+         mapFragment = MapView.FindViewById<MapView>(Resource.Id.map);
          if (mapFragment != null)
          {
             mapFragment.OnCreate(savedInstanceState);
@@ -84,15 +54,15 @@ namespace GO.Paranoia.Droid.Fragments
             mapFragment.GetMapAsync(this);
          }
 
-         return _view;
+         return MapView;
       }
 
       public override void OnCreate(Bundle savedInstanceState)
       {
          base.OnCreate(savedInstanceState);
 
-         UpdateFrequency = _mapSettingsService.GetUpdateFrequency();
-         MapType = (MapType)_mapSettingsService.GetMapType();
+         UpdateFrequency = MapSettingsService.GetUpdateFrequency();
+         MapType = (MapType)MapSettingsService.GetMapType();
          _markers = new List<MarkerOptions>();
 
          SetHasOptionsMenu(true);
@@ -165,9 +135,9 @@ namespace GO.Paranoia.Droid.Fragments
       {
          Activity.RunOnUiThread(() =>
          {
-            _currentLocation = null;
+            MapCurrentLocation = null;
             AppLocation.Current.LocationService.LocationChanged += HandleLocationChanged;
-            _toastService.ShowMessageLongPeriod(string.Format("Started processing your location. Looks like you turned on GPS."));
+            ToastService.ShowMessageLongPeriod(string.Format("Started processing your location. Looks like you turned on GPS."));
          });
       }
 
@@ -175,20 +145,20 @@ namespace GO.Paranoia.Droid.Fragments
       {
          Activity.RunOnUiThread(() =>
          {
-            _currentLocation = null;
+            MapCurrentLocation = null;
             AppLocation.Current.LocationService.LocationChanged -= HandleLocationChanged;
-            _toastService.ShowMessageLongPeriod(string.Format("Stopped processing your location. Looks like you turned off GPS."));
+            ToastService.ShowMessageLongPeriod(string.Format("Stopped processing your location. Looks like you turned off GPS."));
             Activity.Title = FragmentTitle;
          });
       }
 
       public void HandleLocationChanged(object sender, LocationChangedEventArgs e)
       {
-         _currentLocation = e.Location;
-         if (_currentLocation != null)
+         MapCurrentLocation = e.Location;
+         if (MapCurrentLocation != null)
          {
             UpdateNearestPointInformation();
-            Activity.Title = string.Format("{0} м: {1}", _distanceToNearestPoint.ToString("0.00"), _nameOfNearestPoint);
+            Activity.Title = string.Format("{0} м: {1}", DistanceToNearestPoint.ToString("0.00"), NameOfNearestPoint);
          }
       }
 
@@ -213,7 +183,7 @@ namespace GO.Paranoia.Droid.Fragments
          map.MyLocationEnabled = true;
          map.UiSettings.MyLocationButtonEnabled = true;
          map.UiSettings.ZoomControlsEnabled = true;
-         map.SetInfoWindowAdapter(new CustomInfoWindowAdapter(_layoutInflater, _toastService, _appSettingsService));
+         map.SetInfoWindowAdapter(new CustomInfoWindowAdapter(MapLayoutInflater, ToastService, AppSettingsService));
 
          CameraUpdate update = CameraUpdateFactory.NewLatLngZoom(Location_Minsk, 11);
          map.MoveCamera(update);
@@ -251,14 +221,14 @@ namespace GO.Paranoia.Droid.Fragments
 
          ClearMap();
 
-         ErrorInfo errorInfo = await _apiService.CheckUserAccess(_appSettingsService.GetAppId());
+         ErrorInfo errorInfo = await ApiService.CheckUserAccess(AppSettingsService.GetAppId());
          if (errorInfo.status == "blocked")
          {
             ShowAlert(errorInfo.message);
          }
          else
          {
-            var points = await _apiService.GetAll(_appSettingsService.GetAppId());
+            var points = await ApiService.GetAll(AppSettingsService.GetAppId());
 
             if (points == null)
             {
@@ -266,9 +236,9 @@ namespace GO.Paranoia.Droid.Fragments
                return;
             }
 
-            if (_mapItemFilterType.HasValue)
+            if (MapItemFilterType.HasValue)
             {
-               points = points.Where(x => x.GetMapItemType == _mapItemFilterType);
+               points = points.Where(x => x.GetMapItemType == MapItemFilterType);
             }
 
             IsLoading = false;
@@ -309,26 +279,26 @@ namespace GO.Paranoia.Droid.Fragments
 
       void UpdateNearestPointInformation()
       {
-         _distanceToNearestPoint = float.MaxValue;
+         DistanceToNearestPoint = float.MaxValue;
          MarkerOptions nearestMarker = new MarkerOptions();
-         if (_currentLocation != null)
+         if (MapCurrentLocation != null)
          {
             lock (_lockObject)
             {
                foreach (var marker in _markers)
                {
                   float[] results = { 0 };
-                  Location.DistanceBetween(_currentLocation.Latitude, _currentLocation.Longitude, marker.Position.Latitude, marker.Position.Longitude, results);
-                  if (_distanceToNearestPoint > results[0])
+                  Location.DistanceBetween(MapCurrentLocation.Latitude, MapCurrentLocation.Longitude, marker.Position.Latitude, marker.Position.Longitude, results);
+                  if (DistanceToNearestPoint > results[0])
                   {
-                     _distanceToNearestPoint = results[0];
+                     DistanceToNearestPoint = results[0];
                      nearestMarker = marker;
                   }
                }
             }
          }
-         _distanceToNearestPoint = Math.Round(_distanceToNearestPoint, 2);
-         _nameOfNearestPoint = nearestMarker.Title;
+         DistanceToNearestPoint = Math.Round(DistanceToNearestPoint, 2);
+         NameOfNearestPoint = nearestMarker.Title;
       }
 
       public override bool OnOptionsItemSelected(IMenuItem item)
@@ -336,7 +306,7 @@ namespace GO.Paranoia.Droid.Fragments
          switch (item.ItemId)
          {
             case 0:
-               base.AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", _appSettingsService.GetAppId(), _nameOfNearestPoint));
+               base.AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", AppSettingsService.GetAppId(), NameOfNearestPoint));
                ActionHandler(ActionType.Point);
                return true;
             case 1:
@@ -355,29 +325,29 @@ namespace GO.Paranoia.Droid.Fragments
                ActionHandler(ActionType.Attack);
                return true;
             case 6:
-               _mapItemFilterType = null;
+               MapItemFilterType = null;
                UpdateMarkersAsync();
                return true;
             case 7:
-               _mapItemFilterType = MapItemType.Point;
+               MapItemFilterType = MapItemType.Point;
                MapMenu.Clear();
                Activity.InvalidateOptionsMenu();
                UpdateMarkersAsync();
                return true;
             case 8:
-               _mapItemFilterType = MapItemType.Quest;
+               MapItemFilterType = MapItemType.Quest;
                MapMenu.Clear();
                Activity.InvalidateOptionsMenu();
                UpdateMarkersAsync();
                return true;
             case 9:
-               _mapItemFilterType = null;
+               MapItemFilterType = null;
                MapMenu.Clear();
                Activity.InvalidateOptionsMenu();
                UpdateMarkersAsync();
                return true;
             case 10:
-               AnalyticsService.TrackState("Conquer", "Hit on Logout button", string.Format("User {0} is logout", _appSettingsService.GetAppId()));
+               AnalyticsService.TrackState("Conquer", "Hit on Logout button", string.Format("User {0} is logout", AppSettingsService.GetAppId()));
                Logout();
                return true;
             default:
@@ -400,21 +370,21 @@ namespace GO.Paranoia.Droid.Fragments
          }
 
          string description = this.Resources.GetString(Resource.String.GPSNotDefined);
-         if (_currentLocation != null)
+         if (MapCurrentLocation != null)
          {
-            if (_currentLocation.IsFromMockProvider)
+            if (MapCurrentLocation.IsFromMockProvider)
             {
                description = this.Resources.GetString(Resource.String.AllowMockLocationsShouldBeDisabled);
             }
             else
             {
-               ActionResponseBase result = await _userActionService.MakeAction(type, _appSettingsService.GetAppId(), _currentLocation.Latitude.ProcessCoordinate(), _currentLocation.Longitude.ProcessCoordinate());
+               ActionResponseBase result = await UserActionService.MakeAction(type, AppSettingsService.GetAppId(), MapCurrentLocation.Latitude.ProcessCoordinate(), MapCurrentLocation.Longitude.ProcessCoordinate());
                description = result.GetDescription;
                if (result.IsSuccess)
                {
                   await UpdateMarkersAsync();
 
-                  _userActionService.Add(new UserAction
+                  UserActionService.Add(new UserAction
                   {
                      Type = (int)MapItemType.Quest,
                      Title = result.title,

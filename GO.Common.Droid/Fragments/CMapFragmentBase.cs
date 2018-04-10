@@ -1,15 +1,45 @@
 ﻿using System;
+using Android.Locations;
 using Android.Views;
+using GO.Core.Enums;
+using GO.Core.Services;
+using MvvmCross.Platform;
 
 namespace GO.Common.Droid.Fragments
 {
    public class CMapFragmentBase : FragmentBase
    {
+      protected View MapView;
+
       protected IMenu MapMenu;
       protected MenuInflater MapMenuInflater;
 
+      protected LayoutInflater MapLayoutInflater;
+
+      protected IApiService ApiService;
+      protected IToastService ToastService;
+      protected IDBService DbService;
+      protected IUserActionService UserActionService;
+      protected IMapSettingsService MapSettingsService;
+      protected IAppSettingsService AppSettingsService;
+
+      protected Location MapCurrentLocation;
+
+      protected double DistanceToNearestPoint;
+      protected string NameOfNearestPoint;
+      protected double UpdateFrequency;
+      protected MapType MapType;
+      protected DateTime LastUpdated;
+      protected MapItemType? MapItemFilterType;
+
       public CMapFragmentBase()
       {
+         DbService = Mvx.Resolve<IDBService>();
+         ApiService = Mvx.Resolve<IApiService>();
+         ToastService = Mvx.Resolve<IToastService>();
+         UserActionService = Mvx.Resolve<IUserActionService>();
+         MapSettingsService = Mvx.Resolve<IMapSettingsService>();
+         AppSettingsService = Mvx.Resolve<IAppSettingsService>();
       }
 
       public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)

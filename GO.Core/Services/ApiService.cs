@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using GO.Core.Data;
+using GO.Core.Enums;
 using GO.Core.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -109,70 +110,80 @@ namespace GO.Core.Services
          return deserializedResult;
       }
 
-      public async Task<Conquer> Conquer(string deviceId, string lat, string lon)
+      public async Task<ActionResponseBase> Conquer(string deviceId, string lat, string lon)
       {
          StopWatch.Start(string.Format("ApiService.Conquer for lat: {0} lon: {1}", lat, lon));
 
          HttpClient client = await GetClient();
          string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
          string result = await client.GetStringAsync(string.Format("{0}gofind2/takepoint.php?{1}", AppSettings.BaseHost, parameters));
-         var deserializedResult = JsonConvert.DeserializeObject<Conquer>(result);
+         var deserializedResult = JsonConvert.DeserializeObject<ActionResponseBase>(result);
 
          StopWatch.Start(string.Format("ApiService.Conquer for lat: {0} lon: {1}", lat, lon));
 
          return deserializedResult;
       }
 
-      public async Task<Conquer> Quest(string deviceId, string lat, string lon)
+      public async Task<ActionResponseBase> Quest(string deviceId, string lat, string lon)
       {
          StopWatch.Start(string.Format("ApiService.Quest for lat: {0} lon: {1}", lat, lon));
 
          HttpClient client = await GetClient();
          string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
          string result = await client.GetStringAsync(string.Format("{0}gofind2/takequest.php?{1}", AppSettings.BaseHost, parameters));
-         var deserializedResult = JsonConvert.DeserializeObject<Conquer>(result);
+         var deserializedResult = JsonConvert.DeserializeObject<ActionResponseBase>(result);
 
          StopWatch.Stop(string.Format("ApiService.Quest for lat: {0} lon: {1}", lat, lon));
 
          return deserializedResult;
       }
 
-      // New staff
-
-      public async Task Trap(string deviceId, string lat, string lon)
+      public async Task<ActionResponseBase> Trap(string deviceId, string lat, string lon)
       {
          StopWatch.Start(string.Format("ApiService.Trap for lat: {0} lon: {1}", lat, lon));
          HttpClient client = await GetClient();
          string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
          string result = await client.GetStringAsync(string.Format("{0}gofind2/action_type3.php?{1}", AppSettings.BaseHost, parameters));
+         var deserializedResult = JsonConvert.DeserializeObject<ActionResponseBase>(result);
          StopWatch.Stop(string.Format("ApiService.Trap for lat: {0} lon: {1}", lat, lon));
+
+         return deserializedResult;
       }
 
-      public async Task Place(string deviceId, string lat, string lon)
+      public async Task<ActionResponseBase> Place(string deviceId, string lat, string lon)
       {
          StopWatch.Start(string.Format("ApiService.Place for lat: {0} lon: {1}", lat, lon));
          HttpClient client = await GetClient();
          string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
          string result = await client.GetStringAsync(string.Format("{0}gofind2/action_type4.php?{1}", AppSettings.BaseHost, parameters));
+         var deserializedResult = JsonConvert.DeserializeObject<ActionResponseBase>(result);
          StopWatch.Stop(string.Format("ApiService.Place for lat: {0} lon: {1}", lat, lon));
+
+         return deserializedResult;
       }
 
-      public async Task Raze(string deviceId, string lat, string lon)
+      public async Task<ActionResponseBase> Raze(string deviceId, string lat, string lon)
       {
          StopWatch.Start(string.Format("ApiService.Raze for lat: {0} lon: {1}", lat, lon));
          HttpClient client = await GetClient();
          string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
          string result = await client.GetStringAsync(string.Format("{0}gofind2/action_type5.php?{1}", AppSettings.BaseHost, parameters));
+         var deserializedResult = JsonConvert.DeserializeObject<ActionResponseBase>(result);
          StopWatch.Stop(string.Format("ApiService.Raze for lat: {0} lon: {1}", lat, lon));
+
+         return deserializedResult;
       }
 
-      public async Task Attack(string deviceId, string lat, string lon)
+      public async Task<ActionResponseBase> Attack(string deviceId, string lat, string lon)
       {
          StopWatch.Start(string.Format("ApiService.Attack for lat: {0} lon: {1}", lat, lon));
          HttpClient client = await GetClient();
          string parameters = string.Format("dev_id={0}&lat={1}&lon={2}", deviceId, lat, lon);
          string result = await client.GetStringAsync(string.Format("{0}gofind2/action_type6.php?{1}", AppSettings.BaseHost, parameters));
+         var deserializedResult = JsonConvert.DeserializeObject<ActionResponseBase>(result);
          StopWatch.Stop(string.Format("ApiService.Attack for lat: {0} lon: {1}", lat, lon));
+
+         return deserializedResult;
       }
    }
 }

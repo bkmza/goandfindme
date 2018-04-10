@@ -92,15 +92,19 @@ namespace GO.Common.iOS.ViewControllers
       {
          var tabBarViewController = new MainTabBarViewController();
          tabBarViewController.TabBar.TintColor = UIColor.Black;
+         tabBarViewController.TabBar.BarTintColor = UIColor.White;
 
          var mapController = new UINavigationController();
          mapController.PushViewController(new MapViewController(), false);
+         mapController.NavigationBar.BackgroundColor = UIColor.White;
 
          var historyController = new UINavigationController();
          historyController.PushViewController(new HistoryViewController(), false);
+         historyController.NavigationBar.BackgroundColor = UIColor.White;
 
          var settingsController = new UINavigationController();
          settingsController.PushViewController(new SettingsViewController(), false);
+         settingsController.NavigationBar.BackgroundColor = UIColor.White;
 
          tabBarViewController.SetViewControllers(new[] { mapController, historyController /*, settingsController*/ }, true);
 

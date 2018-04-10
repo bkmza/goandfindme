@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using CoreGraphics;
 using Foundation;
 using GO.Core.Entities;
+using GO.Core.Enums;
 using GO.Core.Services;
 using MvvmCross.Platform;
 using UIKit;
@@ -31,7 +32,7 @@ namespace GO.Common.iOS.ViewControllers
       {
          base.ViewDidLoad();
 
-         var userActions = _userActionService.GetAllTypes().OrderByDescending(x => x.Date);
+         var userActions = _userActionService.GetActions().OrderByDescending(x => x.Date);
          UserActionsItems = userActions.ToList();
       }
 
@@ -45,7 +46,7 @@ namespace GO.Common.iOS.ViewControllers
          };
          NavigationItem.SetRightBarButtonItems(new[] { _actionsButton }, true);
 
-         var userActions = _userActionService.GetAllTypes().OrderByDescending(x => x.Date);
+         var userActions = _userActionService.GetActions().OrderByDescending(x => x.Date.DateTime);
          UserActionsItems = userActions.ToList();
          TableView.ReloadData();
       }
@@ -53,20 +54,48 @@ namespace GO.Common.iOS.ViewControllers
       public void ShowMenu(object sender, EventArgs e)
       {
          var alert = UIAlertController.Create("Выберите действие", null, UIAlertControllerStyle.ActionSheet);
-         alert.AddAction(UIAlertAction.Create("Все", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         alert.AddAction(UIAlertAction.Create("Все действия", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
-            UserActionsItems = _userActionService.GetAllTypes();
+            UserActionsItems = _userActionService.GetActions();
+            TableView.ReloadData();
          }));
 
-         alert.AddAction(UIAlertAction.Create("Только точки", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         alert.AddAction(UIAlertAction.Create("Только действия \"Точка\"", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
-            UserActionsItems = _userActionService.GetConquers();
+            UserActionsItems = _userActionService.GetActions(ActionType.Point);
+            TableView.ReloadData();
          }));
 
-         alert.AddAction(UIAlertAction.Create("Только квесты", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         alert.AddAction(UIAlertAction.Create("Только действия \"Квест\"", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
-            UserActionsItems = _userActionService.GetQuests();
+            UserActionsItems = _userActionService.GetActions(ActionType.Quest);
+            TableView.ReloadData();
          }));
+
+         alert.AddAction(UIAlertAction.Create("Только действия \"Ловушка\"", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            UserActionsItems = _userActionService.GetActions(ActionType.Trap);
+            TableView.ReloadData();
+         }));
+
+         alert.AddAction(UIAlertAction.Create("Только действия \"Поставить\"", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            UserActionsItems = _userActionService.GetActions(ActionType.Place);
+            TableView.ReloadData();
+         }));
+
+         alert.AddAction(UIAlertAction.Create("Только действия \"Снести\"", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            UserActionsItems = _userActionService.GetActions(ActionType.Raze);
+            TableView.ReloadData();
+         }));
+
+         alert.AddAction(UIAlertAction.Create("Только действия \"Атаковать\"", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            UserActionsItems = _userActionService.GetActions(ActionType.Attack);
+            TableView.ReloadData();
+         }));
+
          alert.AddAction(UIAlertAction.Create("Закрыть", UIAlertActionStyle.Cancel, null));
          PresentViewController(alert, true, null);
       }

@@ -160,16 +160,40 @@ namespace GO.Common.iOS.ViewControllers
       public void ShowMenu(object sender, EventArgs e)
       {
          var alert = UIAlertController.Create("Выберите действие", null, UIAlertControllerStyle.ActionSheet);
-         alert.AddAction(UIAlertAction.Create("Захват", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         alert.AddAction(UIAlertAction.Create("Точка", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
             AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", DeviceUtility.DeviceId, _nameOfNearestPoint));
-            ConquerHandler();
+            ActionHandler(ActionType.Point);
          }));
 
          alert.AddAction(UIAlertAction.Create("Квест", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
             AnalyticsService.TrackState("Conquer", "Hit on Quest button", string.Format("User {0} is tryuing to conquer point {1}", DeviceUtility.DeviceId, _nameOfNearestPoint));
-            QuestHandler();
+            ActionHandler(ActionType.Quest);
+         }));
+
+         alert.AddAction(UIAlertAction.Create("Ловушка", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            AnalyticsService.TrackState("Trap", "Hit on Trap button", string.Format("User {0} is tryuing to Trap", DeviceUtility.DeviceId));
+            ActionHandler(ActionType.Trap);
+         }));
+
+         alert.AddAction(UIAlertAction.Create("Поставить", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            AnalyticsService.TrackState("Place", "Hit on Place button", string.Format("User {0} is tryuing to Place", DeviceUtility.DeviceId));
+            ActionHandler(ActionType.Place);
+         }));
+
+         alert.AddAction(UIAlertAction.Create("Снести", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            AnalyticsService.TrackState("Raze", "Hit on Raze button", string.Format("User {0} is tryuing to Raze", DeviceUtility.DeviceId));
+            ActionHandler(ActionType.Raze);
+         }));
+
+         alert.AddAction(UIAlertAction.Create("Атаковать", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            AnalyticsService.TrackState("Attack", "Hit on Attack button", string.Format("User {0} is tryuing to Attack", DeviceUtility.DeviceId));
+            ActionHandler(ActionType.Attack);
          }));
 
          alert.AddAction(UIAlertAction.Create("Обновить", UIAlertActionStyle.Default, (UIAlertAction obj) =>
@@ -213,7 +237,7 @@ namespace GO.Common.iOS.ViewControllers
          }
       }
 
-      private async void ConquerHandler()
+      private async void ActionHandler(ActionType type)
       {
          if (!CheckInternetConnection())
          {
@@ -229,7 +253,7 @@ namespace GO.Common.iOS.ViewControllers
          string description = "GPS-координаты не определены, повторите попытку позже";
          if (_currentLocation != null)
          {
-            Conquer result = await _apiService.Conquer(DeviceUtility.DeviceId, _currentLocation.Coordinate.Latitude.ProcessCoordinate(), _currentLocation.Coordinate.Longitude.ProcessCoordinate());
+            ActionResponseBase result = await _userActionService.MakeAction(type, DeviceUtility.DeviceId, _currentLocation.Coordinate.Latitude.ProcessCoordinate(), _currentLocation.Coordinate.Longitude.ProcessCoordinate());
             description = result.GetDescription;
             if (result.IsSuccess)
             {
@@ -237,44 +261,7 @@ namespace GO.Common.iOS.ViewControllers
 
                _userActionService.Add(new UserAction
                {
-                  Type = (int)MapItemType.Point,
-                  Title = result.title,
-                  Number = result.number,
-                  Description = result.GetDescription,
-                  Date = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc)
-               });
-            }
-         }
-
-         IsLoading = false;
-         ToastService.ShowMessage(description);
-      }
-
-      private async void QuestHandler()
-      {
-         if (!CheckInternetConnection())
-         {
-            IsLoading = false;
-            return;
-         }
-
-         if (await ValidateUserAccess() == false)
-         {
-            return;
-         }
-
-         string description = "GPS-координаты не определены, повторите попытку позже";
-         if (_currentLocation != null)
-         {
-            Conquer result = await _apiService.Quest(DeviceUtility.DeviceId, _currentLocation.Coordinate.Latitude.ProcessCoordinate(), _currentLocation.Coordinate.Longitude.ProcessCoordinate());
-            description = result.GetDescription;
-            if (result.IsSuccess)
-            {
-               await UpdateMapAsync();
-
-               _userActionService.Add(new UserAction
-               {
-                  Type = (int)MapItemType.Quest,
+                  Type = (int)type,
                   Title = result.title,
                   Number = result.number,
                   Description = result.GetDescription,

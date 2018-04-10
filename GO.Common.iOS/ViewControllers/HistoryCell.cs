@@ -61,7 +61,7 @@ namespace GO.Common.iOS.ViewControllers
       {
          _titleLabel.Text = userAction.Title;
          _descriptionLabel.Text = userAction.Description;
-         _dateLabel.Text = userAction.Date.ToString();
+         _dateLabel.Text = userAction.Date.DateTime.ToString();
       }
    }
 }

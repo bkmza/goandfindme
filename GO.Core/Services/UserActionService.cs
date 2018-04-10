@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using GO.Core.Data;
 using GO.Core.Entities;
 using GO.Core.Enums;
 
@@ -7,36 +10,25 @@ namespace GO.Core.Services
 {
    public class UserActionService : IUserActionService
    {
-      IDBService _dbService;
+      private readonly IDBService _dbService;
+      private readonly IApiService _apiService;
 
-      public UserActionService(IDBService dbService)
+      public UserActionService(IDBService dbService, IApiService apiService)
       {
          _dbService = dbService;
+         _apiService = apiService;
       }
 
-      public List<UserAction> GetConquers()
+      public List<UserAction> GetActions(ActionType? type = null)
       {
-         var dbItems = _dbService.Get<DBUserAction>().Where(x => x.Type == (int)MapItemType.Point).ToList();
+         var dbItems = _dbService.Get<DBUserAction>();
 
-         List<UserAction> items = dbItems.Select(item => new UserAction(item)).ToList();
+         if (type != null)
+         {
+            dbItems = dbItems.Where(x => x.Type == (int)type).ToList();
+         }
 
-         return items;
-      }
-
-      public List<UserAction> GetQuests()
-      {
-         var dbItems = _dbService.Get<DBUserAction>().Where(x => x.Type == (int)MapItemType.Quest).ToList();
-
-         List<UserAction> items = dbItems.Select(item => new UserAction(item)).ToList();
-
-         return items;
-      }
-
-      public List<UserAction> GetAllTypes()
-      {
-         var dbItems = _dbService.Get<DBUserAction>().ToList();
-
-         List<UserAction> items = dbItems.Select(item => new UserAction(item)).ToList();
+         var items = dbItems.Select(item => new UserAction(item)).ToList();
 
          return items;
       }
@@ -67,6 +59,35 @@ namespace GO.Core.Services
          {
             _dbService.DeleteAll<DBUserAction>();
          }
+      }
+
+      public async Task<ActionResponseBase> MakeAction(ActionType type, string deviceId, string lat, string lon)
+      {
+         ActionResponseBase result = null;
+         switch (type)
+         {
+            case ActionType.Point:
+               result = await _apiService.Conquer(deviceId, lat, lon);
+               break;
+            case ActionType.Quest:
+               result = await _apiService.Quest(deviceId, lat, lon);
+               break;
+            case ActionType.Trap:
+               result = await _apiService.Trap(deviceId, lat, lon);
+               break;
+            case ActionType.Place:
+               result = await _apiService.Place(deviceId, lat, lon);
+               break;
+            case ActionType.Raze:
+               result = await _apiService.Raze(deviceId, lat, lon);
+               break;
+            case ActionType.Attack:
+               result = await _apiService.Attack(deviceId, lat, lon);
+               break;
+            default:
+               throw new NotImplementedException($"MakeAction doesn't support such kind of actions.");
+         }
+         return result;
       }
    }
 }

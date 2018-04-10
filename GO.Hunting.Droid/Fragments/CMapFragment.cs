@@ -22,7 +22,7 @@ using Newtonsoft.Json;
 
 namespace GO.Hunting.Droid.Fragments
 {
-   public class CMapFragment : FragmentBase, IOnMapReadyCallback
+   public class CMapFragment : CMapFragmentBase, IOnMapReadyCallback
    {
       static readonly LatLng Location_Minsk = new LatLng(53.900819, 27.558823);
 
@@ -331,27 +331,6 @@ namespace GO.Hunting.Droid.Fragments
          _nameOfNearestPoint = nearestMarker.Title;
       }
 
-      private IMenu _menu;
-      private MenuInflater _menuInflater;
-
-      public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
-      {
-         _menu = menu;
-         _menuInflater = inflater;
-
-         _menu.Add(0, 0, 0, Resource.String.ConquerMenuTitle);
-         _menu.Add(0, 1, 1, Resource.String.QuestMenuTitle);
-         _menu.Add(0, 2, 2, Resource.String.TrapMenuTitle);
-         _menu.Add(0, 3, 3, Resource.String.PlaceMenuTitle);
-         _menu.Add(0, 4, 4, Resource.String.RazeMenuTitle);
-         _menu.Add(0, 5, 5, Resource.String.AttackMenuTitle);
-         _menu.Add(0, 6, 6, Resource.String.RefreshMenuTitle);
-         _menu.Add(0, 7, 7, Resource.String.OnlyPointsMenuTitle);
-         _menu.Add(0, 8, 8, Resource.String.OnlyQuestsMenuTitle);
-         _menu.Add(0, 9, 9, Resource.String.AllObjectsMenuTitle);
-         _menu.Add(0, 10, 10, Resource.String.LogoutMenuTitle);
-      }
-
       public override bool OnOptionsItemSelected(IMenuItem item)
       {
          switch (item.ItemId)
@@ -381,19 +360,19 @@ namespace GO.Hunting.Droid.Fragments
                return true;
             case 7:
                _mapItemFilterType = MapItemType.Point;
-               _menu.Clear();
+               MapMenu.Clear();
                Activity.InvalidateOptionsMenu();
                UpdateMarkersAsync();
                return true;
             case 8:
                _mapItemFilterType = MapItemType.Quest;
-               _menu.Clear();
+               MapMenu.Clear();
                Activity.InvalidateOptionsMenu();
                UpdateMarkersAsync();
                return true;
             case 9:
                _mapItemFilterType = null;
-               _menu.Clear();
+               MapMenu.Clear();
                Activity.InvalidateOptionsMenu();
                UpdateMarkersAsync();
                return true;

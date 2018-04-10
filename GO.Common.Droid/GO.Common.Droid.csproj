@@ -140,6 +140,7 @@
     <Compile Include="Services\LocationServiceBinder.cs" />
     <Compile Include="Services\LocationServiceConnection.cs" />
     <Compile Include="Services\ServiceConnectedEventArgs.cs" />
+    <Compile Include="Fragments\CMapFragmentBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

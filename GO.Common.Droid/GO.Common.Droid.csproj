@@ -163,6 +163,7 @@
     <Compile Include="Services\LocationServiceConnection.cs" />
     <Compile Include="Services\ServiceConnectedEventArgs.cs" />
     <Compile Include="Fragments\CMapFragmentBase.cs" />
+    <Compile Include="Adapters\CustomInfoWindowAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -172,6 +173,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\layout\CustomMarkerPopupPoint.axml" />
+    <AndroidResource Include="Resources\layout\CustomMarkerPopupQuest.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />
@@ -179,6 +182,7 @@
     <Folder Include="Activities\" />
     <Folder Include="Services\" />
     <Folder Include="Resources\layout\" />
+    <Folder Include="Adapters\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GO.Core\GO.Core.csproj">

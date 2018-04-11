@@ -162,7 +162,6 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Activities\DrawerActivityBase.cs" />
     <Compile Include="Activities\MainActivity.cs" />
-    <Compile Include="Adapters\CustomInfoWindowAdapter.cs" />
     <Compile Include="Adapters\DrawerAdapter.cs" />
     <Compile Include="Adapters\SimpleListItem2_Adapter.cs" />
     <Compile Include="Fragments\ActionConquerFragment.cs" />
@@ -181,8 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_navigation_drawer.axml" />
-    <AndroidResource Include="Resources\layout\CustomMarkerPopupPoint.axml" />
-    <AndroidResource Include="Resources\layout\CustomMarkerPopupQuest.axml" />
     <AndroidResource Include="Resources\layout\drawer_list_item.axml" />
     <AndroidResource Include="Resources\layout\fragment_actions_list.axml" />
     <AndroidResource Include="Resources\layout\fragment_cmap.axml" />

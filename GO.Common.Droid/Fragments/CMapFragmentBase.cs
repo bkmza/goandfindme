@@ -8,6 +8,7 @@ using Android.Gms.Maps.Model;
 using Android.Locations;
 using Android.OS;
 using Android.Views;
+using GO.Common.Droid.Adapters;
 using GO.Core.Data;
 using GO.Core.Entities;
 using GO.Core.Enums;
@@ -19,7 +20,7 @@ using Newtonsoft.Json;
 
 namespace GO.Common.Droid.Fragments
 {
-   public class CMapFragmentBase : FragmentBase
+   public class CMapFragmentBase : FragmentBase, IOnMapReadyCallback
    {
       public static readonly LatLng Location_Minsk = new LatLng(53.900819, 27.558823);
 
@@ -413,6 +414,38 @@ namespace GO.Common.Droid.Fragments
       {
          AppLocation.StopLocationService();
          Process.KillProcess(Process.MyPid());
+      }
+
+      public void OnMapReady(GoogleMap googleMap)
+      {
+         GMap = googleMap;
+         switch (MapType)
+         {
+            case MapType.Normal:
+               GMap.MapType = GoogleMap.MapTypeNormal;
+               break;
+            case MapType.Hybrid:
+               GMap.MapType = GoogleMap.MapTypeHybrid;
+               break;
+            case MapType.Terrain:
+               GMap.MapType = GoogleMap.MapTypeTerrain;
+               break;
+            default:
+               GMap.MapType = GoogleMap.MapTypeNormal;
+               break;
+         }
+         GMap.MyLocationEnabled = true;
+         GMap.UiSettings.MyLocationButtonEnabled = true;
+         GMap.UiSettings.ZoomControlsEnabled = true;
+         GMap.SetInfoWindowAdapter(new CustomInfoWindowAdapter(MapLayoutInflater, ToastService, AppSettingsService));
+
+         CameraUpdate update = CameraUpdateFactory.NewLatLngZoom(Location_Minsk, 11);
+         GMap.MoveCamera(update);
+
+         Task.Run(async () =>
+         {
+            await UpdateMarkersAsync();
+         });
       }
    }
 }

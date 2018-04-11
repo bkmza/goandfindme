@@ -1,14 +1,11 @@
-﻿using System.Threading.Tasks;
-using Android.Gms.Maps;
+﻿using Android.Gms.Maps;
 using Android.OS;
 using Android.Views;
 using GO.Common.Droid.Fragments;
-using GO.Core.Enums;
-using GO.Paranoia.Droid.Adapters;
 
 namespace GO.Paranoia.Droid.Fragments
 {
-   public class CMapFragment : CMapFragmentBase, IOnMapReadyCallback
+   public class CMapFragment : CMapFragmentBase
    {
       public CMapFragment() { }
 
@@ -35,38 +32,6 @@ namespace GO.Paranoia.Droid.Fragments
          }
 
          return MapView;
-      }
-
-      public void OnMapReady(GoogleMap googleMap)
-      {
-         GMap = googleMap;
-         switch (MapType)
-         {
-            case MapType.Normal:
-               GMap.MapType = GoogleMap.MapTypeNormal;
-               break;
-            case MapType.Hybrid:
-               GMap.MapType = GoogleMap.MapTypeHybrid;
-               break;
-            case MapType.Terrain:
-               GMap.MapType = GoogleMap.MapTypeTerrain;
-               break;
-            default:
-               GMap.MapType = GoogleMap.MapTypeNormal;
-               break;
-         }
-         GMap.MyLocationEnabled = true;
-         GMap.UiSettings.MyLocationButtonEnabled = true;
-         GMap.UiSettings.ZoomControlsEnabled = true;
-         GMap.SetInfoWindowAdapter(new CustomInfoWindowAdapter(MapLayoutInflater, ToastService, AppSettingsService));
-
-         CameraUpdate update = CameraUpdateFactory.NewLatLngZoom(Location_Minsk, 11);
-         GMap.MoveCamera(update);
-
-         Task.Run(async () =>
-         {
-            await UpdateMarkersAsync();
-         });
       }
 
       public override string FragmentTitle => Resources.GetString(Resource.String.DrawerMap);

@@ -24,9 +24,6 @@ namespace GO.Common.Droid.Activities
       {
          base.OnCreate(savedInstanceState);
 
-         AppSettings.RegisterTypes();
-         InitializeTypes();
-
          _toastService = Mvx.Resolve<IToastService>();
          AnalyticsService = Mvx.Resolve<IAnalyticsService>();
 
@@ -36,9 +33,9 @@ namespace GO.Common.Droid.Activities
       protected void InitializeTypes()
       {
          Logger.Instance = new AndroidLogger();
-         Mvx.RegisterType<IToastService, ToastService>();
-         Mvx.RegisterType<IDBService, DBService>();
+         Mvx.RegisterSingleton<IDBService>(new DBService());
 
+         Mvx.RegisterType<IToastService, ToastService>();
          AppSettingsService = Mvx.Resolve<IAppSettingsService>();
          Mvx.RegisterType<IAnalyticsService>(() => new AnalyticsService(AppSettingsService));
          Mvx.RegisterType<IUserActionService, UserActionService>();

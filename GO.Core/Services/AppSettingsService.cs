@@ -20,7 +20,6 @@ namespace GO.Core.Services
          {
             var item = _dBService.Get<DBAppSettings>().First();
             item.AppId = value;
-            _dBService.Add(item);
          }
       }
 

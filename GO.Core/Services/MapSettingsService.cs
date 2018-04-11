@@ -24,9 +24,9 @@ namespace GO.Core.Services
 
          void action()
          {
-            var item = _dbService.Get<DBMapSettings>().First();
+            var items = _dbService.Get<DBMapSettings>();
+            var item = items.First();
             item.UpdateFrequency = value;
-            _dbService.Add(item);
          }
       }
 
@@ -42,9 +42,9 @@ namespace GO.Core.Services
 
          void action()
          {
-            var item = _dbService.Get<DBMapSettings>().First();
+            var items = _dbService.Get<DBMapSettings>();
+            var item = items.First();
             item.MapType = mapType;
-            _dbService.Add(item);
          }
       }
    }

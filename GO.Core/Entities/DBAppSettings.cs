@@ -1,17 +1,13 @@
-﻿using System;
-using Realms;
+﻿using Realms;
 
 namespace GO.Core.Entities
 {
    public class DBAppSettings : RealmObject
    {
       [PrimaryKey, MapTo("id")]
-      public string Id { get; private set; }
+      public string Id { get; set; }
 
-      public DBAppSettings()
-      {
-         Id = Guid.NewGuid().ToString();
-      }
+      public DBAppSettings() { }
 
       [MapTo("app_id")]
       public string AppId { get; set; }

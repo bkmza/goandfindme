@@ -27,6 +27,9 @@ namespace GO.Common.Droid.Activities
 
       protected override void OnCreate(Bundle savedInstanceState)
       {
+         AppSettings.RegisterTypes();
+         InitializeTypes();
+
          base.OnCreate(savedInstanceState);
 
          CrossCurrentActivity.Current.Activity = this;
@@ -46,13 +49,6 @@ namespace GO.Common.Droid.Activities
 
          Button button = FindViewById<Button>(Resource.Id.button_register);
          button.Click += ClickHandler;
-
-         // TEST ONLY
-         //
-         //IsLoading = false;
-         //GoToHomeScreen ();
-         //
-         //
 
          IsLoading = true;
          CheckUserExists();

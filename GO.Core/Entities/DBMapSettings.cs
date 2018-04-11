@@ -1,17 +1,13 @@
-﻿using System;
-using Realms;
+﻿using Realms;
 
 namespace GO.Core.Entities
 {
    public class DBMapSettings : RealmObject
    {
       [PrimaryKey, MapTo("id")]
-      public string Id { get; private set; }
+      public string Id { get; set; }
 
-      public DBMapSettings()
-      {
-         Id = Guid.NewGuid().ToString();
-      }
+      public DBMapSettings() { }
 
       // Map update frequency in minutes
       [MapTo("update_frequency")]

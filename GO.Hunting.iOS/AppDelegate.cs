@@ -38,7 +38,7 @@ namespace GO.Hunting.iOS
 
          Mvx.RegisterType<IToastService, ToastService>();
          Mvx.RegisterType<IAnalyticsService, AnalyticsService>();
-         Mvx.RegisterType<IDBService, DBService>();
+         Mvx.RegisterSingleton<IDBService>(new DBService());
          Mvx.RegisterType<IUserActionService, UserActionService>();
          Mvx.RegisterType<IMapSettingsService, MapSettingsService>();
 

@@ -37,6 +37,6 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>By allowing, you’ll be able to conquest the points or take a quests.</string>
 	<key>CFBundleVersion</key>
-	<string>10</string>
+	<string>11</string>
 </dict>
 </plist>

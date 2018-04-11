@@ -19,18 +19,16 @@ namespace GO.Common.Droid.Fragments
    {
       public HistoryActionsFragment() { }
 
-      IUserActionService _userActionService;
       List<UserAction> _userActions;
 
       private IMenu _menu;
       private MenuInflater _menuInflater;
 
-      public override void OnActivityCreated(Bundle savedInstanceState)
+      public override void OnCreate(Bundle savedInstanceState)
       {
-         base.OnActivityCreated(savedInstanceState);
+         base.OnCreate(savedInstanceState);
 
-         _userActionService = Mvx.Resolve<IUserActionService>();
-
+         SetHasOptionsMenu(true);
          BuildFilteredList(null);
       }
 
@@ -53,12 +51,12 @@ namespace GO.Common.Droid.Fragments
 
       private void BuildFilteredList(ActionType? type)
       {
-         _userActions = _userActionService.GetActions(type).OrderByDescending(x => x.Date.DateTime).ToList();
+         _userActions = Mvx.Resolve<IUserActionService>().GetActions(type).OrderByDescending(x => x.Date.DateTime).ToList();
          var items = _userActions
-            .Select(x => new Tuple<string, string>(string.Format("{0} - {1}", x.Number, x.Title), string.Format("{0}, {1}", x.Date.ToString(), x.Description)))
+            .Select(x => new Tuple<string, string>(string.Format("{0} - {1}", x.Number, x.Title), string.Format("{0}, {1}", x.Date.DateTime.ToString(), x.Description)))
             .ToList();
 
-         ListAdapter = new SimpleListItem2_Adapter(this.Activity, items);
+         ListAdapter = new SimpleListItem2_Adapter(Activity, items);
       }
 
       public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
@@ -100,7 +98,6 @@ namespace GO.Common.Droid.Fragments
             case 6:
                BuildFilteredList(null);
                return true;
-               break;
             default:
                return base.OnOptionsItemSelected(item);
          }

@@ -179,7 +179,6 @@
     <Compile Include="Activities\DrawerActivityBase.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\DrawerAdapter.cs" />
-    <Compile Include="Adapters\SimpleListItem2_Adapter.cs" />
     <Compile Include="Fragments\ActionConquerFragment.cs" />
     <Compile Include="Fragments\ActionListFragment.cs" />
     <Compile Include="Fragments\ActionQuestFragment.cs" />

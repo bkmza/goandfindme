@@ -7,6 +7,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using GO.Common.Droid.Adapters;
 using GO.Core.Entities;
 using GO.Core.Services;
 using GO.Paranoia.Droid.Adapters;

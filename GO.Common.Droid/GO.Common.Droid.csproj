@@ -164,6 +164,8 @@
     <Compile Include="Services\ServiceConnectedEventArgs.cs" />
     <Compile Include="Fragments\CMapFragmentBase.cs" />
     <Compile Include="Adapters\CustomInfoWindowAdapter.cs" />
+    <Compile Include="Fragments\HistoryActionsFragment.cs" />
+    <Compile Include="Adapters\SimpleListItem2_Adapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

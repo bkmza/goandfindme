@@ -157,9 +157,39 @@ namespace GO.Common.iOS.ViewControllers
 
       private UIView MarkerInfoWindow(UIView view, Marker marker) => new MarkerInfoWindowView(marker);
 
+      private UITextField objectCodeTextField;
+
+      private UIAlertController CreateAlertControllerForEnterObjectCode()
+      {
+         var alertToEnterObjectCode = UIAlertController.Create("Введите код используемого предмета", null, UIAlertControllerStyle.Alert);
+         alertToEnterObjectCode.AddTextField((textField) =>
+         {
+            objectCodeTextField = textField;
+            textField.Placeholder = "6-ти значный код";
+         });
+         alertToEnterObjectCode.AddAction(UIAlertAction.Create("Закрыть", UIAlertActionStyle.Cancel, null));
+         alertToEnterObjectCode.AddAction(UIAlertAction.Create("Готово", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            AnalyticsService.TrackState("Set Point filter on map", "Hit on Point filter button", string.Format("User {0} updated filter to points only", DeviceUtility.DeviceId));
+            if (objectCodeTextField != null)
+            {
+               ActionHandler(ActionType.Use, objectCodeTextField.Text);
+               alertToEnterObjectCode.DismissViewController(true, null);
+            }
+         }));
+         return alertToEnterObjectCode;
+      }
+
       public void ShowMenu(object sender, EventArgs e)
       {
          var alert = UIAlertController.Create("Выберите действие", null, UIAlertControllerStyle.ActionSheet);
+
+         alert.AddAction(UIAlertAction.Create("Использовать", UIAlertActionStyle.Default, (UIAlertAction obj) =>
+         {
+            AnalyticsService.TrackState("Use item", "Hit on Use button", string.Format("User {0} is tryuing to use some item near point - {1}", DeviceUtility.DeviceId, _nameOfNearestPoint));
+            PresentViewController(CreateAlertControllerForEnterObjectCode(), true, null);
+         }));
+
          alert.AddAction(UIAlertAction.Create("Точка", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
             AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", DeviceUtility.DeviceId, _nameOfNearestPoint));
@@ -168,7 +198,7 @@ namespace GO.Common.iOS.ViewControllers
 
          alert.AddAction(UIAlertAction.Create("Квест", UIAlertActionStyle.Default, (UIAlertAction obj) =>
          {
-            AnalyticsService.TrackState("Conquer", "Hit on Quest button", string.Format("User {0} is tryuing to conquer point {1}", DeviceUtility.DeviceId, _nameOfNearestPoint));
+            AnalyticsService.TrackState("Quest", "Hit on Quest button", string.Format("User {0} is tryuing to conquer point {1}", DeviceUtility.DeviceId, _nameOfNearestPoint));
             ActionHandler(ActionType.Quest);
          }));
 
@@ -237,7 +267,7 @@ namespace GO.Common.iOS.ViewControllers
          }
       }
 
-      private async void ActionHandler(ActionType type)
+      private async void ActionHandler(ActionType type, string objectCode = null)
       {
          if (!CheckInternetConnection())
          {
@@ -253,7 +283,7 @@ namespace GO.Common.iOS.ViewControllers
          string description = "GPS-координаты не определены, повторите попытку позже";
          if (_currentLocation != null)
          {
-            ActionResponseBase result = await _userActionService.MakeAction(type, DeviceUtility.DeviceId, _currentLocation.Coordinate.Latitude.ProcessCoordinate(), _currentLocation.Coordinate.Longitude.ProcessCoordinate());
+            ActionResponseBase result = await _userActionService.MakeAction(type, DeviceUtility.DeviceId, _currentLocation.Coordinate.Latitude.ProcessCoordinate(), _currentLocation.Coordinate.Longitude.ProcessCoordinate(), objectCode);
             description = result.GetDescription;
             if (result.IsSuccess)
             {
@@ -298,5 +328,10 @@ namespace GO.Common.iOS.ViewControllers
       }
 
       protected override string LoadingMessage => "Please, wait...";
+
+      protected override void Dispose(bool disposing)
+      {
+         base.Dispose(disposing);
+      }
    }
 }

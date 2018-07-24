@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GO.Core.Enums
+﻿namespace GO.Core.Enums
 {
    public enum ActionType
    {
@@ -9,6 +7,7 @@ namespace GO.Core.Enums
       Trap,
       Place,
       Raze,
-      Attack
+      Attack,
+      Use
    }
 }

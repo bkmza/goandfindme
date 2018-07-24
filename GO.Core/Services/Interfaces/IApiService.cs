@@ -17,5 +17,6 @@ namespace GO.Core.Services
       Task<ActionResponseBase> Place(string deviceId, string lat, string lon);
       Task<ActionResponseBase> Raze(string deviceId, string lat, string lon);
       Task<ActionResponseBase> Attack(string deviceId, string lat, string lon);
+      Task<ActionResponseBase> Use(string deviceId, string lat, string lon, string objectCode);
    }
 }

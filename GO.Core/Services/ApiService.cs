@@ -185,5 +185,17 @@ namespace GO.Core.Services
 
          return deserializedResult;
       }
+
+      public async Task<ActionResponseBase> Use(string deviceId, string lat, string lon, string objectCode)
+      {
+         StopWatch.Start(string.Format("ApiService.Use for lat: {0} lon: {1} objectCode: {2}", lat, lon, objectCode));
+         HttpClient client = await GetClient();
+         string parameters = string.Format("dev_id={0}&lat={1}&lon={2}&object_code={3}", deviceId, lat, lon, objectCode);
+         string result = await client.GetStringAsync(string.Format("{0}gofind2/action_type7.php?{1}", AppSettings.BaseHost, parameters));
+         var deserializedResult = JsonConvert.DeserializeObject<ActionResponseBase>(result);
+         StopWatch.Stop(string.Format("ApiService.Use for lat: {0} lon: {1} objectCode: {2}", lat, lon, objectCode));
+
+         return deserializedResult;
+      }
    }
 }

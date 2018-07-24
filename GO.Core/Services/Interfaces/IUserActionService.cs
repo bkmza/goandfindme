@@ -14,6 +14,6 @@ namespace GO.Core.Services
 
       void DeleteAll();
 
-      Task<ActionResponseBase> MakeAction(ActionType type, string deviceId, string lat, string lon);
+      Task<ActionResponseBase> MakeAction(ActionType type, string deviceId, string lat, string lon, string objectCode = null);
    }
 }

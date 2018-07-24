@@ -61,7 +61,7 @@ namespace GO.Core.Services
          }
       }
 
-      public async Task<ActionResponseBase> MakeAction(ActionType type, string deviceId, string lat, string lon)
+      public async Task<ActionResponseBase> MakeAction(ActionType type, string deviceId, string lat, string lon, string objectCode = null)
       {
          ActionResponseBase result = null;
          switch (type)
@@ -83,6 +83,9 @@ namespace GO.Core.Services
                break;
             case ActionType.Attack:
                result = await _apiService.Attack(deviceId, lat, lon);
+               break;
+            case ActionType.Use:
+               result = await _apiService.Use(deviceId, lat, lon, objectCode);
                break;
             default:
                throw new NotImplementedException($"MakeAction doesn't support such kind of actions.");

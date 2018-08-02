@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Android.App;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Locations;
 using Android.OS;
 using Android.Views;
+using Android.Widget;
 using GO.Common.Droid.Adapters;
 using GO.Core.Data;
 using GO.Core.Entities;
@@ -75,17 +77,18 @@ namespace GO.Common.Droid.Fragments
          MapMenu = menu;
          MapMenuInflater = inflater;
 
-         MapMenu.Add(0, 0, 0, Resource.String.ConquerMenuTitle);
-         MapMenu.Add(0, 1, 1, Resource.String.QuestMenuTitle);
-         MapMenu.Add(0, 2, 2, Resource.String.TrapMenuTitle);
-         MapMenu.Add(0, 3, 3, Resource.String.PlaceMenuTitle);
-         MapMenu.Add(0, 4, 4, Resource.String.RazeMenuTitle);
-         MapMenu.Add(0, 5, 5, Resource.String.AttackMenuTitle);
-         MapMenu.Add(0, 6, 6, Resource.String.RefreshMenuTitle);
-         MapMenu.Add(0, 7, 7, Resource.String.OnlyPointsMenuTitle);
-         MapMenu.Add(0, 8, 8, Resource.String.OnlyQuestsMenuTitle);
-         MapMenu.Add(0, 9, 9, Resource.String.AllObjectsMenuTitle);
-         MapMenu.Add(0, 10, 10, Resource.String.LogoutMenuTitle);
+         MapMenu.Add(0, 0, 0, Resource.String.UseMenuTitle);
+         MapMenu.Add(0, 1, 1, Resource.String.ConquerMenuTitle);
+         MapMenu.Add(0, 2, 2, Resource.String.QuestMenuTitle);
+         MapMenu.Add(0, 3, 3, Resource.String.TrapMenuTitle);
+         MapMenu.Add(0, 4, 4, Resource.String.PlaceMenuTitle);
+         MapMenu.Add(0, 5, 5, Resource.String.RazeMenuTitle);
+         MapMenu.Add(0, 6, 6, Resource.String.AttackMenuTitle);
+         MapMenu.Add(0, 7, 7, Resource.String.RefreshMenuTitle);
+         MapMenu.Add(0, 8, 8, Resource.String.OnlyPointsMenuTitle);
+         MapMenu.Add(0, 9, 9, Resource.String.OnlyQuestsMenuTitle);
+         MapMenu.Add(0, 10, 10, Resource.String.AllObjectsMenuTitle);
+         MapMenu.Add(0, 11, 11, Resource.String.LogoutMenuTitle);
       }
 
       public override void OnStart()
@@ -322,47 +325,62 @@ namespace GO.Common.Droid.Fragments
          switch (item.ItemId)
          {
             case 0:
+               var et = new EditText(Context);
+               var alertBuilder = new AlertDialog.Builder(Context);
+               alertBuilder.SetTitle(Resource.String.EnterItemCode);
+               alertBuilder.SetView(et);
+               alertBuilder.SetPositiveButton("", (object sender, Android.Content.DialogClickEventArgs e) =>
+               {
+                  ActionHandler(ActionType.Use, et.Text);
+               });
+               alertBuilder.SetNegativeButton("", (object sender, Android.Content.DialogClickEventArgs e) =>
+               {
+
+               });
+               alertBuilder.Show();
+               return true;
+            case 1:
                base.AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", AppSettingsService.GetAppId(), NameOfNearestPoint));
                ActionHandler(ActionType.Point);
                return true;
-            case 1:
+            case 2:
                ActionHandler(ActionType.Quest);
                return true;
-            case 2:
+            case 3:
                ActionHandler(ActionType.Trap);
                return true;
-            case 3:
+            case 4:
                ActionHandler(ActionType.Place);
                return true;
-            case 4:
+            case 5:
                ActionHandler(ActionType.Raze);
                return true;
-            case 5:
+            case 6:
                ActionHandler(ActionType.Attack);
                return true;
-            case 6:
+            case 7:
                MapItemFilterType = null;
                UpdateMarkersAsync();
                return true;
-            case 7:
+            case 8:
                MapItemFilterType = MapItemType.Point;
                MapMenu.Clear();
                Activity.InvalidateOptionsMenu();
                UpdateMarkersAsync();
                return true;
-            case 8:
+            case 9:
                MapItemFilterType = MapItemType.Quest;
                MapMenu.Clear();
                Activity.InvalidateOptionsMenu();
                UpdateMarkersAsync();
                return true;
-            case 9:
+            case 10:
                MapItemFilterType = null;
                MapMenu.Clear();
                Activity.InvalidateOptionsMenu();
                UpdateMarkersAsync();
                return true;
-            case 10:
+            case 11:
                AnalyticsService.TrackState("Conquer", "Hit on Logout button", string.Format("User {0} is logout", AppSettingsService.GetAppId()));
                Logout();
                return true;
@@ -371,7 +389,7 @@ namespace GO.Common.Droid.Fragments
          }
       }
 
-      private async void ActionHandler(ActionType type)
+      private async void ActionHandler(ActionType type, string objectCode = null)
       {
          if (!CheckInternetConnection())
          {
@@ -388,7 +406,7 @@ namespace GO.Common.Droid.Fragments
             }
             else
             {
-               ActionResponseBase result = await UserActionService.MakeAction(type, AppSettingsService.GetAppId(), MapCurrentLocation.Latitude.ProcessCoordinate(), MapCurrentLocation.Longitude.ProcessCoordinate());
+               ActionResponseBase result = await UserActionService.MakeAction(type, AppSettingsService.GetAppId(), MapCurrentLocation.Latitude.ProcessCoordinate(), MapCurrentLocation.Longitude.ProcessCoordinate(), objectCode);
                description = result.GetDescription;
                if (result.IsSuccess)
                {

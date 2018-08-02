@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Android.App;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Locations;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
 using GO.Common.Droid.Adapters;
 using GO.Core.Data;
 using GO.Core.Entities;
@@ -325,8 +323,8 @@ namespace GO.Common.Droid.Fragments
          switch (item.ItemId)
          {
             case 0:
-               var et = new EditText(Context);
-               var alertBuilder = new AlertDialog.Builder(Context);
+               var et = new Android.Widget.EditText(Context);
+               var alertBuilder = new Android.Support.V7.App.AlertDialog.Builder(Context);
                alertBuilder.SetTitle(Resource.String.EnterItemCode);
                alertBuilder.SetView(et);
                alertBuilder.SetPositiveButton("", (object sender, Android.Content.DialogClickEventArgs e) =>

@@ -19,7 +19,7 @@ using static GO.Paranoia.Droid.Adapters.DrawerAdapter;
 
 namespace GO.Paranoia.Droid
 {
-   [Activity]
+   [Activity(Theme = "@android:style/Theme.Holo.Light.DarkActionBar")]
    public class DrawerActivityBase : ActivityBase, OnItemClickListener, IOnMapReadyCallback
    {
       DrawerLayout mDrawerLayout;
@@ -39,6 +39,8 @@ namespace GO.Paranoia.Droid
 
          // Preventing screen capturing
          //this.Window.SetFlags (WindowManagerFlags.Secure, WindowManagerFlags.Secure);
+
+         //RequestWindowFeature(WindowFeatures.ActionBar);
 
          SetContentView(Resource.Layout.activity_navigation_drawer);
 

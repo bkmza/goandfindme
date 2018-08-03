@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Android.App;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Locations;
@@ -323,19 +324,23 @@ namespace GO.Common.Droid.Fragments
          switch (item.ItemId)
          {
             case 0:
-               var et = new Android.Widget.EditText(Context);
-               var alertBuilder = new Android.Support.V7.App.AlertDialog.Builder(Context);
-               alertBuilder.SetTitle(Resource.String.EnterItemCode);
-               alertBuilder.SetView(et);
-               alertBuilder.SetPositiveButton("", (object sender, Android.Content.DialogClickEventArgs e) =>
+               this.Activity.RunOnUiThread(() =>
                {
-                  ActionHandler(ActionType.Use, et.Text);
-               });
-               alertBuilder.SetNegativeButton("", (object sender, Android.Content.DialogClickEventArgs e) =>
-               {
+                  var context = Application.Context;
+                  var et = new Android.Widget.EditText(context);
+                  var alertBuilder = new Android.Support.V7.App.AlertDialog.Builder(context);
+                  alertBuilder.SetTitle(Resource.String.EnterItemCode);
+                  alertBuilder.SetView(et);
+                  alertBuilder.SetPositiveButton("", (object sender, Android.Content.DialogClickEventArgs e) =>
+                  {
+                     ActionHandler(ActionType.Use, et.Text);
+                  });
+                  alertBuilder.SetNegativeButton("", (object sender, Android.Content.DialogClickEventArgs e) =>
+                  {
 
+                  });
+                  alertBuilder.Show();
                });
-               alertBuilder.Show();
                return true;
             case 1:
                base.AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", AppSettingsService.GetAppId(), NameOfNearestPoint));

@@ -324,20 +324,19 @@ namespace GO.Common.Droid.Fragments
          switch (item.ItemId)
          {
             case 0:
-               this.Activity.RunOnUiThread(() =>
+               Activity.RunOnUiThread(() =>
                {
-                  var context = Application.Context;
-                  var et = new Android.Widget.EditText(context);
-                  var alertBuilder = new Android.Support.V7.App.AlertDialog.Builder(context);
+                  var et = new Android.Widget.EditText(Activity);
+                  var alertBuilder = new AlertDialog.Builder(Activity);
                   alertBuilder.SetTitle(Resource.String.EnterItemCode);
                   alertBuilder.SetView(et);
-                  alertBuilder.SetPositiveButton("", (object sender, Android.Content.DialogClickEventArgs e) =>
+                  alertBuilder.SetPositiveButton(Resource.String.AlertOk, (object sender, Android.Content.DialogClickEventArgs e) =>
                   {
                      ActionHandler(ActionType.Use, et.Text);
                   });
-                  alertBuilder.SetNegativeButton("", (object sender, Android.Content.DialogClickEventArgs e) =>
+                  alertBuilder.SetNegativeButton(Resource.String.AlertCancel, (object sender, Android.Content.DialogClickEventArgs e) =>
                   {
-
+                     alertBuilder.Dispose();
                   });
                   alertBuilder.Show();
                });

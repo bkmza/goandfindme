@@ -19,7 +19,7 @@ using static GO.Paranoia.Droid.Adapters.DrawerAdapter;
 
 namespace GO.Paranoia.Droid
 {
-   [Activity(Theme = "@android:style/Theme.Holo.Light.DarkActionBar")]
+   [Activity]
    public class DrawerActivityBase : ActivityBase, OnItemClickListener, IOnMapReadyCallback
    {
       DrawerLayout mDrawerLayout;

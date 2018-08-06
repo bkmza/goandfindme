@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Android;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Widget;
@@ -133,7 +135,7 @@ namespace GO.Common.Droid.Activities
          Manifest.Permission.AccessFineLocation
       };
 
-      public void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+      public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
       {
          if (!PermissionUtility.VerifyPermissions(grantResults))
          {

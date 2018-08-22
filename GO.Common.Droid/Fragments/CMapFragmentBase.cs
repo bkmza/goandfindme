@@ -76,9 +76,9 @@ namespace GO.Common.Droid.Fragments
          MapMenu = menu;
          MapMenuInflater = inflater;
 
-         MapMenu.Add(0, 0, 0, Resource.String.UseMenuTitle);
-         MapMenu.Add(0, 1, 1, Resource.String.ConquerMenuTitle);
-         MapMenu.Add(0, 2, 2, Resource.String.QuestMenuTitle);
+         MapMenu.Add(0, 0, 0, Resource.String.ConquerMenuTitle);
+         MapMenu.Add(0, 1, 1, Resource.String.QuestMenuTitle);
+         MapMenu.Add(0, 2, 2, Resource.String.UseMenuTitle);
          MapMenu.Add(0, 3, 3, Resource.String.TrapMenuTitle);
          MapMenu.Add(0, 4, 4, Resource.String.PlaceMenuTitle);
          MapMenu.Add(0, 5, 5, Resource.String.RazeMenuTitle);
@@ -324,6 +324,13 @@ namespace GO.Common.Droid.Fragments
          switch (item.ItemId)
          {
             case 0:
+               base.AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", AppSettingsService.GetAppId(), NameOfNearestPoint));
+               ActionHandler(ActionType.Point);
+               return true;
+            case 1:
+               ActionHandler(ActionType.Quest);
+               return true;
+            case 2:
                Activity.RunOnUiThread(() =>
                {
                   var et = new Android.Widget.EditText(Activity);
@@ -340,13 +347,6 @@ namespace GO.Common.Droid.Fragments
                   });
                   alertBuilder.Show();
                });
-               return true;
-            case 1:
-               base.AnalyticsService.TrackState("Conquer", "Hit on Conquer button", string.Format("User {0} is tryuing to conquer point {1}", AppSettingsService.GetAppId(), NameOfNearestPoint));
-               ActionHandler(ActionType.Point);
-               return true;
-            case 2:
-               ActionHandler(ActionType.Quest);
                return true;
             case 3:
                ActionHandler(ActionType.Trap);

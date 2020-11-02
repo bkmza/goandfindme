@@ -145,6 +145,7 @@
     <Compile Include="Views\Common\BaseTableView.cs" />
     <Compile Include="ViewControllers\HistoryCell.cs" />
     <Compile Include="ViewControllers\HistoryDetailsViewController.cs" />
+    <Compile Include="Services\NotificationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,9 +1,12 @@
+using System;
+using System.Runtime.InteropServices;
 using Foundation;
 using GO.Common.iOS.Services;
 using GO.Common.iOS.Utilities;
 using GO.Common.iOS.ViewControllers;
 using GO.Core;
 using GO.Core.Services;
+using GO.Core.Services.Interfaces;
 using GO.Core.Utilities;
 using Google.Maps;
 using MvvmCross.Platform;
@@ -11,12 +14,14 @@ using UIKit;
 
 namespace GO.Paranoia.iOS
 {
-   [Register("AppDelegate")]
+    [Register("AppDelegate")]
    public class AppDelegate : UIApplicationDelegate
    {
       public static AppDelegate Shared;
 
       private UIWindow _window;
+
+      private INotificationService _notificationService;
 
       private const string MapsApiKey = "AIzaSyA30bwNoT0erSJKRZCvHexg0TO0K9acfcw";
 
@@ -41,12 +46,16 @@ namespace GO.Paranoia.iOS
          Mvx.RegisterSingleton<IDBService>(new DBService());
          Mvx.RegisterType<IUserActionService, UserActionService>();
          Mvx.RegisterType<IMapSettingsService, MapSettingsService>();
+         _notificationService = new NotificationService();
+         Mvx.RegisterSingleton(_notificationService);
 
          _window = new UIWindow(UIScreen.MainScreen.Bounds)
          {
             RootViewController = new StartViewController()
          };
          _window.MakeKeyAndVisible();
+
+         RegisterForPushNotifications();
 
          return true;
       }
@@ -74,9 +83,23 @@ namespace GO.Paranoia.iOS
       {
       }
 
-      public void SetRootViewController(UIViewController controller)
+      public void SetRootViewController(UIViewController controller) => _window.RootViewController = controller;
+
+      private void RegisterForPushNotifications() => _notificationService.RegisterForPushNotifications();
+
+      public override void RegisteredForRemoteNotifications(UIApplication _, NSData deviceToken)
       {
-         _window.RootViewController = controller;
+         var currentDeviceToken = deviceToken.Description;
+
+         byte[] result = new byte[deviceToken.Length];
+         Marshal.Copy(deviceToken.Bytes, result, 0, (int)deviceToken.Length);
+         var tokenValue = BitConverter.ToString(result).Replace("-", "");
+         Console.WriteLine(tokenValue);
+
+         _notificationService.RegisteredForRemoteNotificationsHandler(currentDeviceToken);
       }
+
+      public override void FailedToRegisterForRemoteNotifications(UIApplication _, NSError error)
+         => _notificationService.FailedToRegisterForRemoteNotifications(error.LocalizedDescription);
    }
 }
